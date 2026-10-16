@@ -1,0 +1,19 @@
+{
+  "title": "Agentic Large Language Models",
+  "title_zh": "智能体大语言模型",
+  "description": "An unofficial bilingual reading edition of Agentic Large Language Models.",
+  "description_zh": "《Agentic Large Language Models》非官方中英文阅读整理。",
+  "authors": [
+    "Max van Duijn",
+    "Michiel van der Meer",
+    "Aske Plaat",
+    "Niki van Stein"
+  ],
+  "sourceUrl": "https://arxiv.org/abs/2610.13455",
+  "sourceVersion": "arXiv:2610.13455v1",
+  "sourceLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "base": "/AgenticLargeLanguageModels/",
+  "githubUrl": "",
+  "chineseTranslationStatus": "待人工复核",
+  "chineseTranslationStatusEn": "Pending human review"
+}

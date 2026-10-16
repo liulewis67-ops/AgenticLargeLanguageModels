@@ -1,0 +1,9 @@
+{
+  "source_pdf": "AgenticLargeLanguageModels.pdf",
+  "source_pages": 472,
+  "method": "Map Marker page divider/anchor to physical PDF page; attach pypdf text for visual/manual comparison.",
+  "warning": "Page text is contextual evidence, not a character-level alignment. Verify formulas against the rendered source page before editing.",
+  "chapters_with_issues": 0,
+  "replacement_characters": 0,
+  "chapters": []
+}

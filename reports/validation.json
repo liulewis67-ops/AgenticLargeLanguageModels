@@ -1,0 +1,405 @@
+{
+  "status": "passed",
+  "source_pdf": "AgenticLargeLanguageModels.pdf",
+  "source_pages": 472,
+  "chapter_count": 32,
+  "english_chapter_files": 32,
+  "chinese_chapter_files": 32,
+  "english_bytes": 1165332,
+  "chinese_bytes": 1072125,
+  "missing_english": [],
+  "missing_chinese": [],
+  "uncovered_pages": [],
+  "overlapping_pages": [],
+  "broken_english_links": [],
+  "broken_chinese_links": [],
+  "broken_anchors": {
+    "en": [],
+    "zh": [],
+    "index_en": [],
+    "index_zh": []
+  },
+  "index_link_errors": {
+    "en": [],
+    "zh": []
+  },
+  "index_mapping_errors": {
+    "en": [],
+    "zh": []
+  },
+  "page_marker_mismatches": [],
+  "navigation_checks": {
+    "fragment_links_checked": 6169,
+    "english_index_chapter_targets": 32,
+    "chinese_index_chapter_targets": 32
+  },
+  "translation_fallback_count": 0,
+  "source_garbled_fallback_count": 0,
+  "untranslated_fallback_count": 0,
+  "source_replacement_characters": {
+    "english": 0,
+    "chinese": 0
+  },
+  "content_review_required": true,
+  "extraction_corruption_review_required": false,
+  "human_translation_review_pending": true,
+  "translation_coverage_audit": {
+    "status": "passed",
+    "candidate_count": 0,
+    "report": "reports/translation-coverage-review.json"
+  },
+  "chapters": [
+    {
+      "id": "00-front-matter",
+      "page_start": 1,
+      "page_end": 14,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 66671,
+      "zh_bytes": 62890,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "01-introduction",
+      "page_start": 15,
+      "page_end": 24,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 28281,
+      "zh_bytes": 24134,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "part-i-language-modeling",
+      "page_start": 25,
+      "page_end": 28,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 1329,
+      "zh_bytes": 1177,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "02-foundations-of-language-modeling",
+      "page_start": 29,
+      "page_end": 62,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 86098,
+      "zh_bytes": 75997,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "03-llm-training-pipeline",
+      "page_start": 63,
+      "page_end": 82,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 48831,
+      "zh_bytes": 45668,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "04-scaling-laws-and-efficiency",
+      "page_start": 83,
+      "page_end": 110,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 75557,
+      "zh_bytes": 69992,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "05-case-study-1-building-llms-from-scratch",
+      "page_start": 111,
+      "page_end": 120,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 22555,
+      "zh_bytes": 21168,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "part-ii-reasoning",
+      "page_start": 121,
+      "page_end": 124,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 1553,
+      "zh_bytes": 1532,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "06-multi-step-reasoning-in-llms",
+      "page_start": 125,
+      "page_end": 150,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 56976,
+      "zh_bytes": 53442,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "07-vision-action-and-world-models",
+      "page_start": 151,
+      "page_end": 180,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 55847,
+      "zh_bytes": 52126,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "08-metalearning",
+      "page_start": 181,
+      "page_end": 188,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 18577,
+      "zh_bytes": 16609,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "part-iii-agents",
+      "page_start": 189,
+      "page_end": 192,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 1121,
+      "zh_bytes": 1080,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "09-interaction-styles-for-agentic-llms",
+      "page_start": 193,
+      "page_end": 210,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 35959,
+      "zh_bytes": 33423,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "10-case-study-2-reasoning-and-reflection",
+      "page_start": 211,
+      "page_end": 222,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 22232,
+      "zh_bytes": 18875,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "part-iv-tools-and-assistants",
+      "page_start": 223,
+      "page_end": 226,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 1188,
+      "zh_bytes": 1091,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "11-how-agents-use-tools-to-act-in-the-world",
+      "page_start": 227,
+      "page_end": 240,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 31033,
+      "zh_bytes": 29143,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "12-search-and-retrieval-in-agentic-llms",
+      "page_start": 241,
+      "page_end": 262,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 55009,
+      "zh_bytes": 50504,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "13-from-tools-to-assistants",
+      "page_start": 263,
+      "page_end": 276,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 39910,
+      "zh_bytes": 36558,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "14-case-study-3-multi-agent-diagnosis",
+      "page_start": 277,
+      "page_end": 282,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 13294,
+      "zh_bytes": 12310,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "part-v-behavior-and-cognition",
+      "page_start": 283,
+      "page_end": 286,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 1488,
+      "zh_bytes": 1406,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "15-studying-behavior-of-agentic-llms",
+      "page_start": 287,
+      "page_end": 316,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 91167,
+      "zh_bytes": 84093,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "16-role-based-interaction-in-multi-llm-systems",
+      "page_start": 317,
+      "page_end": 334,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 41280,
+      "zh_bytes": 37804,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "17-emergent-behavior-in-multi-llm-systems",
+      "page_start": 335,
+      "page_end": 352,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 39981,
+      "zh_bytes": 36676,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "18-case-study-4-simulating-societies",
+      "page_start": 353,
+      "page_end": 358,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 13642,
+      "zh_bytes": 12307,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "part-vi-advanced-topics",
+      "page_start": 359,
+      "page_end": 362,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 1231,
+      "zh_bytes": 1164,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "19-synthetic-data-generation",
+      "page_start": 363,
+      "page_end": 390,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 85765,
+      "zh_bytes": 79550,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "20-advanced-agentic-architectures",
+      "page_start": 391,
+      "page_end": 402,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 30397,
+      "zh_bytes": 28553,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "21-mechanistic-interpretability-for-llm-agents",
+      "page_start": 403,
+      "page_end": 422,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 47438,
+      "zh_bytes": 41352,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "22-cognitive-perspectives-on-agentic-llms",
+      "page_start": 423,
+      "page_end": 456,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 114051,
+      "zh_bytes": 107215,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "part-vii-conclusion",
+      "page_start": 457,
+      "page_end": 460,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 628,
+      "zh_bytes": 656,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "23-future-directions-for-agentic-llms",
+      "page_start": 461,
+      "page_end": 468,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 22428,
+      "zh_bytes": 19815,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    },
+    {
+      "id": "90-references",
+      "page_start": 469,
+      "page_end": 472,
+      "en_exists": true,
+      "zh_exists": true,
+      "en_bytes": 13815,
+      "zh_bytes": 13815,
+      "en_replacement_characters": 0,
+      "zh_replacement_characters": 0
+    }
+  ]
+}

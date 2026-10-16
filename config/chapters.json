@@ -1,0 +1,295 @@
+{
+  "source": "AgenticLargeLanguageModels.pdf",
+  "page_numbering": "1-based physical PDF pages; Marker page_range uses zero-based pages",
+  "page_count": 472,
+  "entries": [
+    {
+      "id": "00-front-matter",
+      "title": "Front Matter",
+      "type": "front_matter",
+      "page_start": 1,
+      "page_end": 14,
+      "parent": null,
+      "title_zh": "前言"
+    },
+    {
+      "id": "01-introduction",
+      "title": "Introduction",
+      "type": "chapter",
+      "page_start": 15,
+      "page_end": 24,
+      "parent": "00-front-matter",
+      "title_zh": "引言"
+    },
+    {
+      "id": "part-i-language-modeling",
+      "title": "I Language Modeling",
+      "type": "part",
+      "page_start": 25,
+      "page_end": 28,
+      "parent": null,
+      "title_zh": "I 语言建模"
+    },
+    {
+      "id": "02-foundations-of-language-modeling",
+      "title": "Foundations of Language Modeling",
+      "type": "chapter",
+      "page_start": 29,
+      "page_end": 62,
+      "parent": "part-i-language-modeling",
+      "title_zh": "语言建模基础"
+    },
+    {
+      "id": "03-llm-training-pipeline",
+      "title": "LLM Training Pipeline",
+      "type": "chapter",
+      "page_start": 63,
+      "page_end": 82,
+      "parent": "part-i-language-modeling",
+      "title_zh": "LLM 训练流程"
+    },
+    {
+      "id": "04-scaling-laws-and-efficiency",
+      "title": "Scaling Laws and Efficiency",
+      "type": "chapter",
+      "page_start": 83,
+      "page_end": 110,
+      "parent": "part-i-language-modeling",
+      "title_zh": "规模定律与效率"
+    },
+    {
+      "id": "05-case-study-1-building-llms-from-scratch",
+      "title": "Case Study 1: Building LLMs from Scratch",
+      "type": "chapter",
+      "page_start": 111,
+      "page_end": 120,
+      "parent": "part-i-language-modeling",
+      "title_zh": "案例研究 1：从零开始构建 LLM"
+    },
+    {
+      "id": "part-ii-reasoning",
+      "title": "II Reasoning",
+      "type": "part",
+      "page_start": 121,
+      "page_end": 124,
+      "parent": null,
+      "title_zh": "II 推理"
+    },
+    {
+      "id": "06-multi-step-reasoning-in-llms",
+      "title": "Multi-step Reasoning in LLMs",
+      "type": "chapter",
+      "page_start": 125,
+      "page_end": 150,
+      "parent": "part-ii-reasoning",
+      "title_zh": "LLM 中的多步推理"
+    },
+    {
+      "id": "07-vision-action-and-world-models",
+      "title": "Vision, Action and World Models",
+      "type": "chapter",
+      "page_start": 151,
+      "page_end": 180,
+      "parent": "part-ii-reasoning",
+      "title_zh": "视觉、行动与世界模型"
+    },
+    {
+      "id": "08-metalearning",
+      "title": "Metalearning",
+      "type": "chapter",
+      "page_start": 181,
+      "page_end": 188,
+      "parent": "part-ii-reasoning",
+      "title_zh": "元学习"
+    },
+    {
+      "id": "part-iii-agents",
+      "title": "III Agents",
+      "type": "part",
+      "page_start": 189,
+      "page_end": 192,
+      "parent": null,
+      "title_zh": "III 智能体"
+    },
+    {
+      "id": "09-interaction-styles-for-agentic-llms",
+      "title": "Interaction Styles for Agentic LLMs",
+      "type": "chapter",
+      "page_start": 193,
+      "page_end": 210,
+      "parent": "part-iii-agents",
+      "title_zh": "智能体 LLM 的交互方式"
+    },
+    {
+      "id": "10-case-study-2-reasoning-and-reflection",
+      "title": "Case Study 2: Reasoning and Reflection",
+      "type": "chapter",
+      "page_start": 211,
+      "page_end": 222,
+      "parent": "part-iii-agents",
+      "title_zh": "案例研究 2：推理与反思"
+    },
+    {
+      "id": "part-iv-tools-and-assistants",
+      "title": "IV Tools and Assistants",
+      "type": "part",
+      "page_start": 223,
+      "page_end": 226,
+      "parent": null,
+      "title_zh": "IV 工具与助手"
+    },
+    {
+      "id": "11-how-agents-use-tools-to-act-in-the-world",
+      "title": "How Agents Use Tools to Act in the World",
+      "type": "chapter",
+      "page_start": 227,
+      "page_end": 240,
+      "parent": "part-iv-tools-and-assistants",
+      "title_zh": "智能体如何使用工具在现实世界中行动"
+    },
+    {
+      "id": "12-search-and-retrieval-in-agentic-llms",
+      "title": "Search and Retrieval in Agentic LLMs",
+      "type": "chapter",
+      "page_start": 241,
+      "page_end": 262,
+      "parent": "part-iv-tools-and-assistants",
+      "title_zh": "智能体 LLM 中的搜索与检索"
+    },
+    {
+      "id": "13-from-tools-to-assistants",
+      "title": "From Tools to Assistants",
+      "type": "chapter",
+      "page_start": 263,
+      "page_end": 276,
+      "parent": "part-iv-tools-and-assistants",
+      "title_zh": "从工具到助手"
+    },
+    {
+      "id": "14-case-study-3-multi-agent-diagnosis",
+      "title": "Case Study 3: Multi-Agent Diagnosis",
+      "type": "chapter",
+      "page_start": 277,
+      "page_end": 282,
+      "parent": "part-iv-tools-and-assistants",
+      "title_zh": "案例研究 3：多智能体诊断"
+    },
+    {
+      "id": "part-v-behavior-and-cognition",
+      "title": "V Behavior and Cognition",
+      "type": "part",
+      "page_start": 283,
+      "page_end": 286,
+      "parent": null,
+      "title_zh": "V 行为与认知"
+    },
+    {
+      "id": "15-studying-behavior-of-agentic-llms",
+      "title": "Studying Behavior of Agentic LLMs",
+      "type": "chapter",
+      "page_start": 287,
+      "page_end": 316,
+      "parent": "part-v-behavior-and-cognition",
+      "title_zh": "智能体 LLM 行为研究"
+    },
+    {
+      "id": "16-role-based-interaction-in-multi-llm-systems",
+      "title": "Role-Based Interaction in Multi-LLM Systems",
+      "type": "chapter",
+      "page_start": 317,
+      "page_end": 334,
+      "parent": "part-v-behavior-and-cognition",
+      "title_zh": "多 LLM 系统中的角色交互"
+    },
+    {
+      "id": "17-emergent-behavior-in-multi-llm-systems",
+      "title": "Emergent Behavior in Multi-LLM Systems",
+      "type": "chapter",
+      "page_start": 335,
+      "page_end": 352,
+      "parent": "part-v-behavior-and-cognition",
+      "title_zh": "多 LLM 系统中的涌现行为"
+    },
+    {
+      "id": "18-case-study-4-simulating-societies",
+      "title": "Case Study 4: Simulating Societies",
+      "type": "chapter",
+      "page_start": 353,
+      "page_end": 358,
+      "parent": "part-v-behavior-and-cognition",
+      "title_zh": "案例研究 4：模拟社会"
+    },
+    {
+      "id": "part-vi-advanced-topics",
+      "title": "VI Advanced Topics",
+      "type": "part",
+      "page_start": 359,
+      "page_end": 362,
+      "parent": null,
+      "title_zh": "VI 高级主题"
+    },
+    {
+      "id": "19-synthetic-data-generation",
+      "title": "*Synthetic Data Generation",
+      "type": "chapter",
+      "page_start": 363,
+      "page_end": 390,
+      "parent": "part-vi-advanced-topics",
+      "title_zh": "合成数据生成"
+    },
+    {
+      "id": "20-advanced-agentic-architectures",
+      "title": "*Advanced Agentic Architectures",
+      "type": "chapter",
+      "page_start": 391,
+      "page_end": 402,
+      "parent": "part-vi-advanced-topics",
+      "title_zh": "高级智能体架构"
+    },
+    {
+      "id": "21-mechanistic-interpretability-for-llm-agents",
+      "title": "*Mechanistic Interpretability for LLM Agents",
+      "type": "chapter",
+      "page_start": 403,
+      "page_end": 422,
+      "parent": "part-vi-advanced-topics",
+      "title_zh": "LLM 智能体的机制可解释性"
+    },
+    {
+      "id": "22-cognitive-perspectives-on-agentic-llms",
+      "title": "*Cognitive Perspectives on Agentic LLMs",
+      "type": "chapter",
+      "page_start": 423,
+      "page_end": 456,
+      "parent": "part-vi-advanced-topics",
+      "title_zh": "智能体 LLM 的认知视角"
+    },
+    {
+      "id": "part-vii-conclusion",
+      "title": "VII Conclusion",
+      "type": "part",
+      "page_start": 457,
+      "page_end": 460,
+      "parent": null,
+      "title_zh": "VII 结论"
+    },
+    {
+      "id": "23-future-directions-for-agentic-llms",
+      "title": "Future Directions for Agentic LLMs",
+      "type": "chapter",
+      "page_start": 461,
+      "page_end": 468,
+      "parent": "part-vii-conclusion",
+      "title_zh": "智能体 LLM 的未来方向"
+    },
+    {
+      "id": "90-references",
+      "title": "Bibliography",
+      "type": "references",
+      "page_start": 469,
+      "page_end": 472,
+      "parent": null,
+      "title_zh": "参考文献"
+    }
+  ]
+}

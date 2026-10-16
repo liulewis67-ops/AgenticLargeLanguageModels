@@ -1,0 +1,24 @@
+# JavaScript tooling
+node_modules/
+.pnpm-store/
+*.tsbuildinfo
+
+# Generated VitePress sources and output
+site/content/
+site/.vitepress/generated/
+site/.vitepress/cache/
+site/.vitepress/dist/
+
+# Existing Python and source-processing artifacts
+.venv/
+__pycache__/
+*.py[cod]
+work/
+tmp/
+
+# Local-only files and large source PDF
+.env
+.env.*
+!.env.example
+AgenticLargeLanguageModels.pdf
+
