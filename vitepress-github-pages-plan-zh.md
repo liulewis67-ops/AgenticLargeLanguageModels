@@ -25,7 +25,7 @@
 | 当前体积 | `docs/` 约 7.03 MiB，其中图片约 4.87 MiB | 原始文档较小；最终构建体积仍需实测 |
 | 现有校验 | `reports/validation.json` 记录结构校验通过 | 这是已有报告，不代表已通过 VitePress 构建及浏览器验收 |
 | 翻译状态 | 报告中 `human_translation_review_pending: true` | 中文页面应注明译文待人工复核，不宣称人工审校完毕 |
-| 工程状态 | pnpm/VitePress 工程及锁文件已建立；尚未初始化 Git | 本地文件清单核对后初始化 Git，再配置真实远程 |
+| 工程状态 | pnpm/VitePress 工程及锁文件已建立；Git `main` 分支已初始化并提交首版 | 等待确认 GitHub owner/repo 后配置远程 |
 
 抽查正文还发现 PDF 转换留下的 `{0}-----` 分页分隔行、显式 `page-*` 锚点、相对图片路径及指向 `.md#标题锚点` 的目录链接。网站转换必须分别处理这些元素，不能简单改名后直接上线。
 
