@@ -30,6 +30,9 @@ export default defineConfig({
     math: true,
     image: { lazyLoading: true }
   },
+  themeConfig: {
+    search: { provider: 'local' }
+  },
   locales: {
     root: {
       label: '简体中文',

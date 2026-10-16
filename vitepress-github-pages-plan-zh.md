@@ -1,7 +1,7 @@
 # Agentic Large Language Models 双语文档网站发布方案
 
 编写日期：2026-10-16  
-状态：源码已推送至公开 GitHub 仓库；Pages 已配置为 GitHub Actions，正在验证首次线上部署  
+状态：双语网站已部署至公开 GitHub Pages；最终搜索入口修正正在发布  
 项目目录：`E:\AgenticLargeLanguageModels`
 
 ## 1. 目标与本轮边界
@@ -25,7 +25,7 @@
 | 当前体积 | `docs/` 约 7.03 MiB，其中图片约 4.87 MiB | 原始文档较小；最终构建体积仍需实测 |
 | 现有校验 | `reports/validation.json` 记录结构校验通过 | 这是已有报告，不代表已通过 VitePress 构建及浏览器验收 |
 | 翻译状态 | 报告中 `human_translation_review_pending: true` | 中文页面应注明译文待人工复核，不宣称人工审校完毕 |
-| 工程状态 | Git `main` 已推送至公开仓库 `liulewis67-ops/AgenticLargeLanguageModels`；Pages 来源已设为 GitHub Actions；CI 通过 | 检查后续部署工作流与线上 URL |
+| 工程状态 | Git `main` 已推送至公开仓库 `liulewis67-ops/AgenticLargeLanguageModels`；Pages 来源为 GitHub Actions；CI 和首次部署通过 | 发布搜索入口修正并复验线上搜索 |
 
 抽查正文还发现 PDF 转换留下的 `{0}-----` 分页分隔行、显式 `page-*` 锚点、相对图片路径及指向 `.md#标题锚点` 的目录链接。网站转换必须分别处理这些元素，不能简单改名后直接上线。
 
@@ -394,7 +394,7 @@ Pages 使用仓库 Settings → Pages → Build and deployment → Source → **
 | 可复现性 | 全新检出可通过冻结安装完成构建；生成结果不依赖本机绝对路径 |
 | 在线发布 | 主分支工作流成功，Pages HTTPS URL 可打开，部署记录可追溯到提交 |
 
-自动检查负责所有页面链接和资源；人工检查负责排版、公式、翻译说明及搜索质量。源码和构建产物检查已通过，部分桌面浏览器交互也已抽查；在线发布及线上验收尚未执行。
+自动检查负责所有页面链接和资源；人工检查负责排版、公式、翻译说明及搜索质量。源码和构建产物检查已通过，网站已公开发布并抽查首页、双语切换、图片、公式和来源标注；最终发现搜索入口需顶层 provider 配置，修正已通过本地构建和中文搜索验证，线上复验待本次发布完成。
 
 ## 13. 实施阶段与交付物
 
@@ -403,10 +403,10 @@ Pages 使用仓库 Settings → Pages → Build and deployment → Source → **
 | 1. 基础核对 | 固定版本、记录来源、编写忽略规则 | 已完成 |
 | 2. 网站工程 | 建立 pnpm/VitePress 工程并生成双语页面 | 已完成 |
 | 3. 全量生成 | 图片复制、链接改写和菜单生成 | 已完成，32 组内容全部出现 |
-| 4. 双语体验 | 同章切换、搜索、来源组件和样式 | 已完成；已抽查页面切换、公式与图片 |
+| 4. 双语体验 | 同章切换、搜索、来源组件和样式 | 已完成；页面切换、公式、图片已抽查；中文本地搜索已验证 |
 | 5. 产物校验 | 链接、锚点、子路径及资源验证 | 已完成，构建与产物校验通过 |
-| 6. GitHub 发布 | 源码提交、远程仓库、Actions 和 Pages | 源码已推送，CI 通过；首次部署曾因 Pages 未启用失败，现已配置并等待重跑验证 |
-| 7. 交付维护 | 双语 README、发布记录、更新指南 | README 和来源说明已完成；线上记录待发布后补充 |
+| 6. GitHub 发布 | 源码提交、远程仓库、Actions 和 Pages | 首次 CI 与部署已通过，网站已可访问；当前搜索配置修正正在发布 |
+| 7. 交付维护 | 双语 README、发布记录、更新指南 | README 和来源说明已完成；待本次部署结束后补录最终验证 |
 
 最终交付：GitHub 源码仓库、GitHub Pages 网站、固定版本的 pnpm 工程、自动生成与校验脚本、自动部署工作流、双语使用说明，以及全部页面的来源标注。
 
@@ -429,7 +429,7 @@ Pages 使用仓库 Settings → Pages → Build and deployment → Source → **
 
 ## 15. 发布参数与待处理事项
 
-已确认 GitHub 账号/组织为 `liulewis67-ops`，公开仓库为 `AgenticLargeLanguageModels`，网站地址为 `https://liulewis67-ops.github.io/AgenticLargeLanguageModels/`。源码已推送，Pages API 已返回 `build_type: workflow`。首个部署运行在 Pages 尚未启用时失败；现已启用 Pages，后续运行需确认部署成功并验证线上页面。
+已确认 GitHub 账号/组织为 `liulewis67-ops`，公开仓库为 `AgenticLargeLanguageModels`，网站地址为 `https://liulewis67-ops.github.io/AgenticLargeLanguageModels/`。源码已推送，Pages 使用 GitHub Actions。首次部署曾因 Pages 尚未启用而失败，启用后 CI 和部署工作流均通过，网站首页、英文首页、来源页及章节页均已返回 HTTP 200。最后一次人工检查发现搜索按钮缺失；顶层本地搜索 provider 配置已修复，本地中文查询“规模定律”可返回对应章节。本次修正发布后还需在线复验中英文搜索，并更新此处状态。
 
 站名使用中文“智能体大语言模型”和英文“Agentic Large Language Models”；中文位于根路径，英文位于 `/en/`。自定义域名可后续配置。原文版本仍需核对本地 PDF 与 arXiv 页面，并记录文件摘要。
 
