@@ -13,7 +13,7 @@
   "sourceVersion": "arXiv:2610.13455v1",
   "sourceLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
   "base": "/AgenticLargeLanguageModels/",
-  "githubUrl": "",
+  "githubUrl": "https://github.com/liulewis67-ops/AgenticLargeLanguageModels",
   "chineseTranslationStatus": "待人工复核",
   "chineseTranslationStatusEn": "Pending human review"
 }

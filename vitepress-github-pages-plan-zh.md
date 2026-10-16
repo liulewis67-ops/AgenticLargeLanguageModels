@@ -25,7 +25,7 @@
 | 当前体积 | `docs/` 约 7.03 MiB，其中图片约 4.87 MiB | 原始文档较小；最终构建体积仍需实测 |
 | 现有校验 | `reports/validation.json` 记录结构校验通过 | 这是已有报告，不代表已通过 VitePress 构建及浏览器验收 |
 | 翻译状态 | 报告中 `human_translation_review_pending: true` | 中文页面应注明译文待人工复核，不宣称人工审校完毕 |
-| 工程状态 | pnpm/VitePress 工程及锁文件已建立；Git `main` 分支已初始化并提交首版 | 等待确认 GitHub owner/repo 后配置远程 |
+| 工程状态 | pnpm/VitePress 工程及锁文件已建立；Git `main` 分支已初始化并提交首版；公开仓库 `liulewis67-ops/AgenticLargeLanguageModels` 已确认 | 推送源码并通过 Pages 工作流首次部署 |
 
 抽查正文还发现 PDF 转换留下的 `{0}-----` 分页分隔行、显式 `page-*` 锚点、相对图片路径及指向 `.md#标题锚点` 的目录链接。网站转换必须分别处理这些元素，不能简单改名后直接上线。
 
@@ -405,7 +405,7 @@ Pages 使用仓库 Settings → Pages → Build and deployment → Source → **
 | 3. 全量生成 | 图片复制、链接改写和菜单生成 | 已完成，32 组内容全部出现 |
 | 4. 双语体验 | 同章切换、搜索、来源组件和样式 | 已完成；已抽查页面切换、公式与图片 |
 | 5. 产物校验 | 链接、锚点、子路径及资源验证 | 已完成，构建与产物校验通过 |
-| 6. GitHub 发布 | 源码提交、远程仓库、Actions 和 Pages | 待确定 GitHub owner/repo 并发布 |
+| 6. GitHub 发布 | 源码提交、远程仓库、Actions 和 Pages | 仓库已确认；推送源码并验证工作流部署 |
 | 7. 交付维护 | 双语 README、发布记录、更新指南 | README 和来源说明已完成；线上记录待发布后补充 |
 
 最终交付：GitHub 源码仓库、GitHub Pages 网站、固定版本的 pnpm 工程、自动生成与校验脚本、自动部署工作流、双语使用说明，以及全部页面的来源标注。
@@ -429,11 +429,11 @@ Pages 使用仓库 Settings → Pages → Build and deployment → Source → **
 
 ## 15. 后续需要确定的参数
 
-本地实施已完成；连接 GitHub 远程前仍需落实：
+本地实施已完成；首次发布前仍需落实：
 
-- GitHub 账号或组织：`<OWNER>`。
-- 仓库名：建议 `AgenticLargeLanguageModels`，以实际创建结果为准。
-- 可见性：建议公开；如选择私有，核验账号计划下的 Pages 可用性及网站公开范围。
+- GitHub 账号或组织：`liulewis67-ops`。
+- 仓库名：`AgenticLargeLanguageModels`（公开仓库）。
+- 可见性：公开；Pages 网站公开可访问。
 - 站名：建议中文“智能体大语言模型”，英文“Agentic Large Language Models”。
 - 语言策略：本方案默认中文在根路径、英文在 `/en/`。
 - 域名：首版使用 GitHub Pages 默认域名；自定义域名可后续配置并重建 URL 元数据。

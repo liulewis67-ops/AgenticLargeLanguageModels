@@ -4,7 +4,8 @@
 
 **中文译文待人工复核。** 英文页面从原文 PDF 提取并重新排版。内容请以[原始论文](https://arxiv.org/abs/2610.13455)为准。arXiv 页面目前链接到 [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)；其他署名及说明见[第三方材料声明](THIRD_PARTY_NOTICES.md)。
 
-GitHub 账号、仓库和 Pages 地址确认后，将在此加入网站链接。
+网站：<https://liulewis67-ops.github.io/AgenticLargeLanguageModels/>  
+源码仓库：<https://github.com/liulewis67-ops/AgenticLargeLanguageModels>
 
 ## 本地运行
 

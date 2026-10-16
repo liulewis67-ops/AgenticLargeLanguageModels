@@ -4,7 +4,8 @@ An unofficial bilingual reading edition of [Agentic Large Language Models (arXiv
 
 **中文译文尚待人工复核。** The English pages are extracted and formatted from the source PDF. Please use the [original paper](https://arxiv.org/abs/2610.13455) as the authority. The arXiv page currently links to [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/); see [third-party notices](THIRD_PARTY_NOTICES.md).
 
-The bilingual GitHub Pages site will be linked here after the repository owner and Pages URL are configured.
+Site: <https://liulewis67-ops.github.io/AgenticLargeLanguageModels/>  
+Source repository: <https://github.com/liulewis67-ops/AgenticLargeLanguageModels>
 
 ## Run locally
 
