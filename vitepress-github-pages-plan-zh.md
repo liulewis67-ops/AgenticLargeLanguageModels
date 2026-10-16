@@ -1,7 +1,7 @@
 # Agentic Large Language Models 双语文档网站发布方案
 
 编写日期：2026-10-16  
-状态：双语网站已部署至公开 GitHub Pages；最终搜索入口修正正在发布  
+状态：已完成；源码、双语网站和 GitHub Actions 均已公开发布并验证
 项目目录：`E:\AgenticLargeLanguageModels`
 
 ## 1. 目标与本轮边界
@@ -10,7 +10,7 @@
 
 网站必须明确标注原文来源：[Agentic Large Language Models — arXiv:2610.13455](https://arxiv.org/abs/2610.13455)。支持在同一章节的中文与英文之间切换，保留图片、数学公式、参考文献与章节导航。
 
-本文原为实施方案；现已按用户后续指示开始实施。本文的技术与发布约定继续作为实现依据，文末记录实际完成状态及尚待落实的 GitHub 仓库信息。
+本文原为实施方案；现已按用户后续指示开始实施并完成发布。本文的技术与发布约定作为实现依据，文末记录最终交付状态及已确认的 GitHub 仓库信息。
 
 ## 2. 已核查的项目现状
 
@@ -394,7 +394,7 @@ Pages 使用仓库 Settings → Pages → Build and deployment → Source → **
 | 可复现性 | 全新检出可通过冻结安装完成构建；生成结果不依赖本机绝对路径 |
 | 在线发布 | 主分支工作流成功，Pages HTTPS URL 可打开，部署记录可追溯到提交 |
 
-自动检查负责所有页面链接和资源；人工检查负责排版、公式、翻译说明及搜索质量。源码和构建产物检查已通过，网站已公开发布并抽查首页、双语切换、图片、公式和来源标注；最终发现搜索入口需顶层 provider 配置，修正已通过本地构建和中文搜索验证，线上复验待本次发布完成。
+自动检查负责所有页面链接和资源；人工检查负责排版、公式、翻译说明及搜索质量。源码和构建产物检查已通过，网站已公开发布。线上抽查确认首页、双语切换、图片、公式和来源标注正常；中文“规模定律”和英文 “scaling laws” 搜索均返回预期章节。
 
 ## 13. 实施阶段与交付物
 
@@ -405,8 +405,8 @@ Pages 使用仓库 Settings → Pages → Build and deployment → Source → **
 | 3. 全量生成 | 图片复制、链接改写和菜单生成 | 已完成，32 组内容全部出现 |
 | 4. 双语体验 | 同章切换、搜索、来源组件和样式 | 已完成；页面切换、公式、图片已抽查；中文本地搜索已验证 |
 | 5. 产物校验 | 链接、锚点、子路径及资源验证 | 已完成，构建与产物校验通过 |
-| 6. GitHub 发布 | 源码提交、远程仓库、Actions 和 Pages | 首次 CI 与部署已通过，网站已可访问；当前搜索配置修正正在发布 |
-| 7. 交付维护 | 双语 README、发布记录、更新指南 | README 和来源说明已完成；待本次部署结束后补录最终验证 |
+| 6. GitHub 发布 | 源码提交、远程仓库、Actions 和 Pages | 已完成；CI 与最新部署通过，线上中英文搜索及主要页面已验证 |
+| 7. 交付维护 | 双语 README、发布记录、更新指南 | 已完成；双语 README 和来源说明已更新，方案文档记录最终交付 |
 
 最终交付：GitHub 源码仓库、GitHub Pages 网站、固定版本的 pnpm 工程、自动生成与校验脚本、自动部署工作流、双语使用说明，以及全部页面的来源标注。
 
@@ -429,7 +429,7 @@ Pages 使用仓库 Settings → Pages → Build and deployment → Source → **
 
 ## 15. 发布参数与待处理事项
 
-已确认 GitHub 账号/组织为 `liulewis67-ops`，公开仓库为 `AgenticLargeLanguageModels`，网站地址为 `https://liulewis67-ops.github.io/AgenticLargeLanguageModels/`。源码已推送，Pages 使用 GitHub Actions。首次部署曾因 Pages 尚未启用而失败，启用后 CI 和部署工作流均通过，网站首页、英文首页、来源页及章节页均已返回 HTTP 200。最后一次人工检查发现搜索按钮缺失；顶层本地搜索 provider 配置已修复，本地中文查询“规模定律”可返回对应章节。本次修正发布后还需在线复验中英文搜索，并更新此处状态。
+已确认 GitHub 账号/组织为 `liulewis67-ops`，公开仓库为 `AgenticLargeLanguageModels`，网站地址为 `https://liulewis67-ops.github.io/AgenticLargeLanguageModels/`。源码已推送，Pages 使用 GitHub Actions。首次部署曾因 Pages 尚未启用而失败；启用后首次重跑及最终修正的 CI 与部署工作流均通过。首页、英文首页、来源页及章节页均返回 HTTP 200。最终部署包含顶层本地搜索 provider 配置，线上搜索“规模定律”和 “scaling laws” 均能返回正确章节。最新部署记录：[GitHub Actions](https://github.com/liulewis67-ops/AgenticLargeLanguageModels/actions/runs/38920779712)。
 
 站名使用中文“智能体大语言模型”和英文“Agentic Large Language Models”；中文位于根路径，英文位于 `/en/`。自定义域名可后续配置。原文版本仍需核对本地 PDF 与 arXiv 页面，并记录文件摘要。
 
