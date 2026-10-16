@@ -1,7 +1,7 @@
 # Agentic Large Language Models 双语文档网站发布方案
 
 编写日期：2026-10-16  
-状态：本地实现与验收已完成；GitHub 远程发布待仓库所有者确认  
+状态：本地实现与验收已完成；公开 GitHub 仓库已确定，推送与 Pages 上线待认证及启用配置  
 项目目录：`E:\AgenticLargeLanguageModels`
 
 ## 1. 目标与本轮边界
@@ -25,7 +25,7 @@
 | 当前体积 | `docs/` 约 7.03 MiB，其中图片约 4.87 MiB | 原始文档较小；最终构建体积仍需实测 |
 | 现有校验 | `reports/validation.json` 记录结构校验通过 | 这是已有报告，不代表已通过 VitePress 构建及浏览器验收 |
 | 翻译状态 | 报告中 `human_translation_review_pending: true` | 中文页面应注明译文待人工复核，不宣称人工审校完毕 |
-| 工程状态 | pnpm/VitePress 工程及锁文件已建立；Git `main` 分支已初始化并提交首版；公开仓库 `liulewis67-ops/AgenticLargeLanguageModels` 已确认 | 推送源码并通过 Pages 工作流首次部署 |
+| 工程状态 | pnpm/VitePress 工程及锁文件已建立；Git `main` 分支已提交首版；`origin` 指向公开仓库 `liulewis67-ops/AgenticLargeLanguageModels` | Git 推送需要可用 GitHub 认证；仓库需启用 Pages 并选择 GitHub Actions 来源 |
 
 抽查正文还发现 PDF 转换留下的 `{0}-----` 分页分隔行、显式 `page-*` 锚点、相对图片路径及指向 `.md#标题锚点` 的目录链接。网站转换必须分别处理这些元素，不能简单改名后直接上线。
 
@@ -405,7 +405,7 @@ Pages 使用仓库 Settings → Pages → Build and deployment → Source → **
 | 3. 全量生成 | 图片复制、链接改写和菜单生成 | 已完成，32 组内容全部出现 |
 | 4. 双语体验 | 同章切换、搜索、来源组件和样式 | 已完成；已抽查页面切换、公式与图片 |
 | 5. 产物校验 | 链接、锚点、子路径及资源验证 | 已完成，构建与产物校验通过 |
-| 6. GitHub 发布 | 源码提交、远程仓库、Actions 和 Pages | 仓库已确认；推送源码并验证工作流部署 |
+| 6. GitHub 发布 | 源码提交、远程仓库、Actions 和 Pages | 仓库已确认；推送受认证/网络阻断，Pages 尚未启用 |
 | 7. 交付维护 | 双语 README、发布记录、更新指南 | README 和来源说明已完成；线上记录待发布后补充 |
 
 最终交付：GitHub 源码仓库、GitHub Pages 网站、固定版本的 pnpm 工程、自动生成与校验脚本、自动部署工作流、双语使用说明，以及全部页面的来源标注。
@@ -427,17 +427,11 @@ Pages 使用仓库 Settings → Pages → Build and deployment → Source → **
 | 生成目录成为第二份内容源 | 忽略生成目录，编辑入口指向原始 Markdown |
 | GitHub Pages 体积或构建时间超限 | 构建时记录产物体积和耗时，对照[官方限制](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits)检查 |
 
-## 15. 后续需要确定的参数
+## 15. 发布参数与待处理事项
 
-本地实施已完成；首次发布前仍需落实：
+已确认 GitHub 账号/组织为 `liulewis67-ops`，公开仓库为 `AgenticLargeLanguageModels`，网站使用默认地址 `https://liulewis67-ops.github.io/AgenticLargeLanguageModels/`。当前环境没有可用 GitHub 凭据，HTTPS 推送遇到代理超时，SSH 连接也被代理关闭。公开仓库已创建，但 Pages API 返回 404，说明 Pages 尚未启用。
 
-- GitHub 账号或组织：`liulewis67-ops`。
-- 仓库名：`AgenticLargeLanguageModels`（公开仓库）。
-- 可见性：公开；Pages 网站公开可访问。
-- 站名：建议中文“智能体大语言模型”，英文“Agentic Large Language Models”。
-- 语言策略：本方案默认中文在根路径、英文在 `/en/`。
-- 域名：首版使用 GitHub Pages 默认域名；自定义域名可后续配置并重建 URL 元数据。
-- 原文版本：核对本地 PDF 与 arXiv 版本，记录文件摘要和来源版本。
+要完成首次发布，需要连接 GitHub 或在当前环境建立 Git 凭据、将仓库 Pages 来源设为 GitHub Actions，再推送 `main` 并检查 Actions 与线上页面。站名使用中文“智能体大语言模型”和英文“Agentic Large Language Models”；中文位于根路径，英文位于 `/en/`。自定义域名可后续配置。原文版本仍需核对本地 PDF 与 arXiv 页面，并记录文件摘要。
 
 ## 16. 参考资料
 
