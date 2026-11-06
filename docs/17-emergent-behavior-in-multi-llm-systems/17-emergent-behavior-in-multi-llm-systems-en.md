@@ -15,7 +15,7 @@ In this chapter, you will learn how multiple LLM agents behave when they are *no
 - Understand the importance of *open-world* benchmark environments for data generation.
 - Critically assess claims about concepts carried over from human contexts, such as emergence, self-organization, and collective intelligence, and evaluate the *safety risks* of open-ended multi-agent systems.
 
-#### 17.1 What Is Emergent Multi-Agent Behavior?
+## 17.1 What Is Emergent Multi-Agent Behavior?
 
 The previous chapter studied multi-LLM systems in which every agent had an assigned role and protocols guided their interactions. The research questions concerned behavior within a designed structure: how well could a team of agents solve a task under controlled conditions? Here, agents are placed in an open-ended environment, and the questions shift from *How do agents behave and perform within a given global structure?* to *What global structures emerge from local agent interactions?*
 
@@ -33,7 +33,7 @@ As discussed throughout this book, agentic LLMs have enhanced abilities in perce
 
 {2}------------------------------------------------
 
-#### <span id="page-2-0"></span>17.1.1 From Agent-Based Modeling to Generative Agent Societies
+### <span id="page-2-0"></span>17.1.1 From Agent-Based Modeling to Generative Agent Societies
 
 The study of populations of interacting artificial agents has a decades-long history. In agent-based modeling, macro-level patterns and regularities arise bottom-up out of local interactions of simple agents [\[Epstein and Axtell,](#page-13-0) [1996,](#page-13-0) [Macal and North,](#page-14-0) [2010\]](#page-14-0). One of the most influential results in agent-based modeling was that cooperation and norms can emerge in populations of self-interested agents [\[Axelrod,](#page-12-0) [1986\]](#page-12-0). Cultural evolution theory formalized how behavior can spread through a population by means of imitation, communication, and education [\[Boyd and Richerson,](#page-12-0) [1988\]](#page-12-0). [Steels](#page-15-0) [\[1995\]](#page-15-0)'s *naming game* demonstrated that even shared vocabularies (which are also in essence conventions) can emerge from pairwise interactions without central coordination.
 
@@ -41,7 +41,7 @@ In classic agent-based simulations, agents followed hand-coded rules and exchang
 
 Section 16.1.3 introduced five dimensions for describing the degree of researcher control over multi-LLM systems [\[Tran et al.,](#page-15-0) [2025\]](#page-15-0). The difference between role-based and open-ended simulations is a matter of degree rather than kind. Open-ended simulations sit at one end of the spectrum, opposite interactions with predefined roles and protocols. Open-ended simulations still involve design choices that seed the outcomes, but they do so in a less deterministic way, purposefully leaving space for new patterns to emerge. This shifts the focus of the research: instead of evaluating performance on a task or clearly defined goal, studies have an open lens—the interaction pattern is the research goal. Open-ended simulations observe and explore in a more ethnographic way how agents behave and interact, which requires different methodologies, as we will now discuss.
 
-#### 17.1.2 A Methodological Note
+### 17.1.2 A Methodological Note
 
 The methodological issues discussed in Chapters 15 and 16 all carry over to the open-ended setting: prompt sensitivity, run-to-run variability, cascading hallucinations, mutual reinforcement of weaknesses, and validity of terminology from the human context, all pose challenges for open-ended simulations. We will see that this setting amplifies some problems, while mitigating others. For example, in the absence of protocols that apply every time agents interact, small variations at the level of a single agent may put the entire simulation on a different track. This is what makes open-ended simulations both interesting and brittle. An example of a new issue that the open-ended setting introduces is that there can be a fine line between emergence and retrieval: when LLM 
 
@@ -51,11 +51,11 @@ The methodological issues discussed in Chapters 15 and 16 all carry over to the 
 
 Overviews of this emerging field are provided by [Mou et al.](#page-14-0) [\[2024\]](#page-14-0), [Savarimuthu et al.](#page-15-0) [\[2024\]](#page-15-0), and [Xi et al.](#page-15-0) [\[2023\]](#page-15-0). Section 17.2 reviews simulation infrastructure and platforms; Section [17.3](#page-7-0) covers conventions and norms; and Section [17.4](#page-10-0) discusses open-world environments. Section [17.5](#page-11-0) considers their risks. Chapter 18 provides a hands-on case study of an open-ended simulation.
 
-#### 17.2 Simulation Infrastructure
+## 17.2 Simulation Infrastructure
 
 Open-ended simulations require infrastructure that records research data while agents interact over extended periods. It must also leave enough room for bottom-up phenomena and unknown structures to emerge. In this section we focus on scale, going from a single simulated community inhabiting a virtual town to societies of a million agents.
 
-#### 17.2.1 Small Worlds
+### 17.2.1 Small Worlds
 
 A system called Generative Agents was introduced by [Park et al.](#page-14-0) [\[2023\]](#page-14-0). Generative Agents is an environment where users can interact with a simulated town populated by 25 LLM agents. Based on social simulacra techniques proposed earlier [\[Park](#page-14-0) [et al.,](#page-14-0) [2022\]](#page-14-0), each agent was initiated with a unique persona and memory. For each agent, a record is kept of all the experiences and conversations in the simulation. This record is used to synthesize higher-level reflections, and plan further behavior (see Figure [17.3\)](#page-4-0).
 
@@ -77,7 +77,7 @@ Figure 17.4: Illustration of the Generative Agents simulation featuring 25 agent
 
 Figure 17.5: Components of OASIS [\[Yang et al.,](#page-15-0) [2024\]](#page-15-0)
 
-#### 17.2.2 Societies of Thousands to a Million Agents
+### 17.2.2 Societies of Thousands to a Million Agents
 
 Scaling the Generative Agents architecture beyond 25 agents raises questions about inference cost and environments that are rich enough to occupy thousands of agents.<sup>1</sup> Large-scale social simulations require trade-offs among available computing power, total runtime, the number of agents, and the accuracy of individual agent behavior. Several platforms address these questions.
 
@@ -93,7 +93,7 @@ Project Sid [\[Ahn et al.,](#page-12-0) [2024\]](#page-12-0) places up to 1000 a
 
 <span id="page-6-0"></span>and transmit cultural and even religious memes across settlements. However, even though the interactions were not scripted, the emergence–retrieval caveat discussed above applies here: the observed roles and behaviors may already be richly represented in the training data of the LLMs powering the individual agents.
 
-#### 17.2.3 Simulation as a Scientific Instrument
+### 17.2.3 Simulation as a Scientific Instrument
 
 Beyond showcasing scalable LLM technology, these platforms can support carefully designed computational social experiments. Generative-agent societies have been used to study long-standing social-science questions (Section [17.1](#page-0-0)). For example, AgentSociety has been used to examine the spread of inflammatory messages, polarization, the effects of universal basic income policies, and the impact of external shocks such as hurricanes [\[Piao et al.,](#page-14-0) [2025b,a\]](#page-14-0). Such experiments may be unethical, impractical, or impossible to run with human populations. The authors argue that simulations allow researchers to repeat experiments and modify them at every step.
 
@@ -109,7 +109,7 @@ AgentVerse [\[Chen et al.,](#page-13-0) [2023\]](#page-13-0) is a borderline cas
 
 Figure 17.6: Four Stages for Decision Making in AgentVerse [\[Chen et al.,](#page-13-0) [2023\]](#page-13-0)
 
-#### 17.3 Emergent Conventions and Norms
+## 17.3 Emergent Conventions and Norms
 
 Several open-ended multi-agent simulations have exhibited emergent patterns. This section shifts the focus from infrastructure and interaction to conventions and norms.
 
@@ -143,7 +143,9 @@ Multi-agent discussions can support collective AI decisions that reflect diverse
 
 {10}------------------------------------------------
 
-<span id="page-10-0"></span>#### 17.4 Evaluating Agents in Open-World Environments
+<span id="page-10-0"></span>
+
+## 17.4 Evaluating Agents in Open-World Environments
 
 One motivation for agentic LLM research is that performance may plateau when training data is limited. Open-world multi-agent interaction aims to address this problem by generating data through multi-agent simulations. Machine-learning systems cannot acquire more complexity than their datasets or environments contain. An open-world model aims to create effectively unlimited datasets or environments in which agents can continue learning and improving. How can such ongoing challenges be created? LLMs have renewed interest in this question. One example is the multi-agent fine-tuning approach [\[Subramaniam et al.,](#page-15-0) [2025\]](#page-15-0).
 
@@ -161,7 +163,7 @@ AgentBoard provides an evaluation of the breadth of existing benchmarks [\[Ma](#
 
 Research on open-world environments is related to curriculum learning. Pre-LLMs work already shows that agent societies may create an automated curriculum of ever increasing difficulty [\[Elman,](#page-13-0) [1991,](#page-13-0) [Bengio et al.,](#page-12-0) [2009,](#page-12-0) [Silver et al.,](#page-15-0) [2017,](#page-15-0) [Soviany et al.,](#page-15-0) [2022\]](#page-15-0), requiring increasing levels of intelligent behavior from the agents [\[Racaniere](#page-15-0) [et al.,](#page-15-0) [2019\]](#page-15-0). Similar results have been observed for LLMs [\[Feng et al.,](#page-13-0) [2023\]](#page-13-0). For example, WebArena is used to study self-evolving curricula [\[Qi et al.,](#page-14-0) [2024\]](#page-14-0), which can also help robot training [\[Ryu et al.,](#page-15-0) [2024\]](#page-15-0) or to mitigate hallucination [\[Zhao et al.,](#page-15-0) [2024\]](#page-15-0).
 
-#### 17.5 Risks of Emergent Behavior
+## 17.5 Risks of Emergent Behavior
 
 Chapter 16 closed by noting that role assignment introduces risk, since agents may display unintended, even anti-social, behavior simply by playing a part too well. The open-ended setting arguably raises the stakes, since fewer safeguards are built in, and undesirable behavior can arise bottom-up from interaction dynamics. In a sense, this anti-social behavior should not be too surprising, when we remember that the goal of the earliest multi-agent simulations was to find out if cooperative behavior could ever emerge out of the interaction between self-interested agents—which, to the surprise of the researchers, happened, but only under the right circumstances [\[Axelrod,](#page-12-0) [1981\]](#page-12-0). The boundary between cooperative and competitive behavior is thin.
 
@@ -169,9 +171,11 @@ AgentVerse observed destructive behaviors emerging alongside cooperative ones, o
 
 One constructive response is to use these risks to guide safety research. EvolutionaryAgent frames its virtual society explicitly as a sandbox for investigating AI safety before such systems affect the real world [\[Li et al.,](#page-13-0) [2024a\]](#page-13-0). If norms among agents can be steered toward a desired direction in simulation, then the same machinery can be used to stress-test alignment approaches under population dynamics rather than in isolation. Open-ended simulation can be used to understand the circumstances when risks first emerge, and to study defenses against these risks at low cost.
 
-#### 17.6 Concluding Remarks
+## 17.6 Concluding Remarks
 
-We have covered open-ended multi-LLM simulations without prior role assignment. These simulations renew longstanding social-science efforts to model self-organizing behavior and collective intelligence, and to understand how social conventions and norms develop. {12}------------------------------------------------
+We have covered open-ended multi-LLM simulations without prior role assignment. These simulations renew longstanding social-science efforts to model self-organizing behavior and collective intelligence, and to understand how social conventions and norms develop.
+
+{12}------------------------------------------------
 
 <span id="page-12-0"></span> The scale of such simulations varies from a few interacting agents up to a million.
 
