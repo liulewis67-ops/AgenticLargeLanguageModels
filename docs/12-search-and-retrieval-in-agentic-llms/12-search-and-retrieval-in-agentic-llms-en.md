@@ -18,7 +18,7 @@ In this chapter you will learn why retrieval is a fundamental capability for age
 - Distinguish agentic RAG from simple one-shot retrieval, including real-time and streaming variants.
 - Evaluate retrieval systems using standard metrics such as *Recall@K*, *Mean Reciprocal Rank*, and *faithfulness* scores.
 
-# 12.1 Retrieval in General
+## 12.1 Retrieval in General
 
 Before examining how agentic LLMs consult external knowledge, it is worth situating retrieval within its own, much older, disciplinary history. Information retrieval (IR) is a mature field of computer and information science that predates neural networks by decades. Many of the ideas that power modern retrieval augmented generation (RAG) pipelines are direct descendants of classical information retrieval research. The standard reference works of the field, [Salton and McGill](#page-19-0) [\[1983\]](#page-19-0) and later [Manning](#page-18-0) [et al.](#page-18-0) [\[2008\]](#page-18-0), still provide the conceptual vocabulary such as: indexing, term weighting, ranking and relevance, that this chapter builds on.
 
@@ -27,7 +27,7 @@ Before examining how agentic LLMs consult external knowledge, it is worth situat
 <span id="page-1-0"></span>
 
 
-#### 12.1.1 Bag of Words
+### 12.1.1 Bag of Words
 
 Early information-retrieval systems represented documents and queries as *bags of words* and asked a simple question: which terms make a document a good match for a query? Spärck Jones [1972](#page-19-0) gave this question a statistical answer through inverse document frequency (IDF), observing that rare terms distinguish documents better than terms found almost everywhere. Weighting terms by how often they occur in a document (term frequency, TF) and how rare they are across the collection (IDF) yields the TF-IDF family of weighting schemes, still widely used in sparse retrieval.
 
@@ -43,7 +43,7 @@ where \(D\) is the document collection. Combining the two gives the classic TF-I
 
 \[\operatorname{TF-IDF}(t,d,D)=\operatorname{TF}(t,d)\times\operatorname{IDF}(t,D)\tag{12.3}\]
 
-#### 12.1.2 Vector Space Models
+### 12.1.2 Vector Space Models
 
 Salton et al. [1975](#page-19-0) formalized this idea in the *vector space model*, representing every document and query as a vector in a high-dimensional term space and ranking documents by their cosine similarity to the query. This model established a pattern that persists in modern dense retrieval: represent documents and queries as points in a shared geometric space, then use distance or similarity as a measure of relevance.
 
@@ -54,7 +54,7 @@ More formally, a document \(d\) and query \(q\) are each represented as a vector
 Documents are ranked by decreasing cosine similarity. The operation is the same in sparse and dense retrieval; only the vectors differ. Sparse retrieval uses raw term co-occurrence, while dense retrieval uses learned embeddings, but the geometric principle remains unchanged.
 {2}------------------------------------------------
 
-#### <span id="page-2-0"></span>12.1.3 Latent and Sparse Representations
+### <span id="page-2-0"></span>12.1.3 Latent and Sparse Representations
 
 Two further developments bridge classical and modern retrieval. First, [Robertson and](#page-19-0) [Zaragoza](#page-19-0) [\[2009\]](#page-19-0) developed the *probabilistic relevance framework*, which treats retrieval as a problem of estimating the probability that a document is relevant to a query given its term statistics. This framework produced BM25 [Robertson et al.](#page-19-0) [\[1994\]](#page-19-0), a term-weighting and ranking function which ranks document $d$ for query $q$ as:
 
@@ -76,7 +76,7 @@ Retrieval, in other words, is a decades-old discipline concerned with a single e
 
 {3}------------------------------------------------
 
-# <span id="page-3-0"></span>12.2 Why Retrieval Matters for Agentic LLMs
+## <span id="page-3-0"></span>12.2 Why Retrieval Matters for Agentic LLMs
 
 Large language models are snapshots of knowledge available at training time. Their parameters cannot contain information created after the training corpus was assembled, and they may lack timely, proprietary, or long-tail information. Retrieval augmentation addresses these limits by consulting external sources at inference time and conditioning generation on the retrieved evidence.
 
@@ -85,7 +85,7 @@ Retrieval-augmented generation (RAG) combines external knowledge sources with th
 Early systems such as REALM [Guu et al., 2020](#page-18-0), DPR [Karpukhin et al., 2020](#page-18-0), and RAG [Lewis et al., 2020](#page-18-0) helped establish this design space. Modern systems also address indexing, query planning, re-ranking, citation and attribution, and continuous data refresh. Recent surveys cover the field and its evaluation practices [Gao et al., 2023b](#page-18-0); [Huang et al., 2024](#page-18-0); [Yu et al., 2024](#page-20-0); [Sharma et al., 2025](#page-19-0); [Peng et al., 2024](#page-19-0).
 
 **When to retrieve.** Retrieval is especially useful when a task is knowledge-intensive (for example, it asks for definitions, entities, numbers, or references); when information changes quickly (such as news, prices, or documentation); when answers need citations; or when a system must follow a designated source of truth, such as a compliance portal or internal wiki. In agentic systems, retrieval can be interleaved with planning and other tool use (see Chapter 11).
-# 12.3 Retrieval-Augmented Generation Pipeline
+## 12.3 Retrieval-Augmented Generation Pipeline
 
 A practical RAG system typically implements the following seven stages:
 
@@ -123,7 +123,7 @@ def rag_answer(q, index, k=8):
 ```
 
 *Listing 12.1: High-level flow of a basic RAG setup.*
-# 12.4 Adaptive Retrieval Methods
+## 12.4 Adaptive Retrieval Methods
 
 Traditional RAG systems retrieve a fixed number of passages regardless of whether any retrieval is actually needed. This *always–on* strategy simplifies engineering but can hurt both efficiency and accuracy. Recent research explores *adaptive* or *gated* retrieval strategies that teach the model to decide when to search and how much evidence to consult. These methods align with the self-reflection ideas introduced in Section 6.2.4: rather than blindly ingest retrieved text, the language model introspects about its own confidence and triggers retrieval only when it recognizes a knowledge gap.
 
@@ -145,7 +145,7 @@ Beyond these specific examples, adaptive retrieval can be implemented in several
 
 Adaptive retrieval reduces latency and cost by avoiding unnecessary searches, and it often improves answer quality by focusing attention on missing knowledge. Designing effective gating policies, however, requires careful evaluation (see Section [12.7\)](#page-14-0) and may demand additional supervision during training.
 
-#### 12.4.1 Adaptive Retrieval via Self-RAG and Self-Ask
+### 12.4.1 Adaptive Retrieval via Self-RAG and Self-Ask
 
 The Self-RAG framework of [Asai et al.](#page-17-0) [\[2023\]](#page-17-0) teaches the model to request retrieval on demand by emitting a special <RETRIEVE> token during generation. The pseudocode in Listing 12.2 sketches how such a loop operates. The model maintains a growing context and alternates between generating output tokens and pulling in new evidence when needed.
 
@@ -188,7 +188,7 @@ def self_ask(q, index):
 
 *Listing 12.3: High-level pseudocode demonstrating Self-Ask.*
 
-#### 12.4.2 A Simple Dense Retrieval Example in Python
+### 12.4.2 A Simple Dense Retrieval Example in Python
 
 Dense retrieval libraries such as the sentence transformers toolkit make it easy to index a small corpus and perform semantic search. Listing 12.4 illustrates how to embed a corpus of sentences, compute similarities to a query and display the top results.
 
@@ -218,7 +218,7 @@ semantic_search("What is the capital of France?")
 
 *Listing 12.4: A simple dense retrieval example in Python.*
 
-#### 12.4.3 Query Rewriting and Expansion
+### 12.4.3 Query Rewriting and Expansion
 
 Effective retrieval begins by transforming a question into a form the index can match. An LLM can paraphrase it, expand acronyms, add synonyms, or generate a hypothetical document to use as a search target. 
 
@@ -251,7 +251,7 @@ def rewrite_question(q, n_variants=3):
 
 In practice, the rewrite question function might call an API such as OpenAI's gpt-5 to generate paraphrases and hypothetical answers, then use a thesaurus or entity-linking tool to add aliases. Query expansion improves recall but can also introduce noise.
 
-# 12.5 Beyond Text: Graphs, Code, Tabular Data, and Multimodal Retrieval
+## 12.5 Beyond Text: Graphs, Code, Tabular Data, and Multimodal Retrieval
 
 While most RAG systems operate over unstructured text, many agentic applications require reasoning over structured data, source code, or images. Extending retrieval beyond plain text opens up new opportunities but also introduces modeling challenges.
 
@@ -263,7 +263,7 @@ While most RAG systems operate over unstructured text, many agentic applications
 
 <span id="page-9-0"></span>The graph supports global reasoning and disambiguation. The generation model can use its structure to organize facts into a coherent narrative and avoid contradictions.
 
-#### 12.5.1 Graph-based retrieval example
+### 12.5.1 Graph-based retrieval example
 
 GraphRAG systems represent knowledge as a graph of entities and relations and use graph traversals to retrieve relevant nodes [\[Peng et al.,](#page-19-0) [2024\]](#page-19-0). A lightweight implementation can be built with the networkx library. In the example in Listing 12.6 we construct a small knowledge graph and implement two simple retrieval primitives: (1) get the immediate neighborhood of an entity, and (2) find the shortest path between two entities. These operations can support multi-hop reasoning.
 
@@ -381,7 +381,7 @@ retrieve relevant figures or equations that accompany the text. For example, a r
 
 Multi-modal RAG remains an active research area. Challenges include cross-modal alignment and efficient indexing of high-dimensional embeddings. Furthermore, non-textual evidence should be properly grounded in the generated answer.
 
-#### 12.5.4 Multi-modal retrieval example
+### 12.5.4 Multi-modal retrieval example
 
 Agentic systems sometimes need to retrieve images, diagrams or audio clips in addition to text. Multi-modal models such as CLIP or Contrastive Language-Audio Pretraining (CLAP) embed both natural language and other modalities into a shared space. The high-level pseudo-code in Listing 12.8 outlines how to use CLIP to find images relevant to a textual query:
 
@@ -425,13 +425,13 @@ The multimodal retrieval returns the filenames of the most similar images. In a 
 
 {13}------------------------------------------------
 
-# <span id="page-13-0"></span>12.6 Agentic RAG: Beyond Simple Retrieval
+## <span id="page-13-0"></span>12.6 Agentic RAG: Beyond Simple Retrieval
 
 While traditional RAG systems augment LLMs with external knowledge, they are often passive, relying on a static, pre-defined pipeline. A significant and recent advancement is the concept of *Agentic RAG*, which integrates autonomous AI agents directly into the retrieval-augmented generation pipeline [\[Singh et al.,](#page-19-0) [2025\]](#page-19-0). This paradigm shift moves RAG from a mere tool to an active, intelligent, and agent-driven process. Agentic RAG systems are characterized by their ability to dynamically manage retrieval strategies, iteratively refine contextual understanding, and adapt workflows to meet complex task requirements.
 
 Agentic RAG represents a more sophisticated form of a retrieval loop, where the LLM agent itself is responsible for orchestrating the retrieval process. This differs from simpler RAG methods by embracing a continuous feedback loop that is fundamental to advanced agentic systems. Rather than a single-shot query transformation, the agent can actively refine its queries based on intermediate results and ongoing interaction. This approach addresses the limitations of conventional RAG systems, which are often constrained by static workflows and lack the adaptability required for multistep reasoning and complex task management [\[Singh et al.,](#page-19-0) [2025\]](#page-19-0).
 
-#### 12.6.1 Key Components of Agentic RAG
+### 12.6.1 Key Components of Agentic RAG
 
 Agentic RAG frameworks typically incorporate several key components that enable their dynamic behavior:
 
@@ -444,7 +444,7 @@ The rise of Agentic RAG indicates a shift in the role of RAG in LLM systems. Ret
 
 {14}------------------------------------------------
 
-#### <span id="page-14-0"></span>12.6.2 Real-Time and Streaming RAG
+### <span id="page-14-0"></span>12.6.2 Real-Time and Streaming RAG
 
 While traditional RAG systems are effective for static data, they are often not designed for applications that require continuous, real-time information. This section looks into the architectural considerations and challenges of RAG systems that operate on continuously updating, high-throughput data streams. Examples of such streams are found in news feeds, social media, or financial markets. For streaming data, simply querying an updated static index no longer suffices. Retrieval now involves dynamic index management and continuous knowledge assimilation.
 
@@ -452,7 +452,7 @@ In traditional RAG systems, designed for static data, preprocessing is slow, and
 
 LLM agents for dynamic domains such as medicine, logistics and finance, must have access to real-time, continuously updated information. Static RAG would yield obsolete or inaccurate information in such fast-changing environments. In many agentic applications real-time RAG is necessary for advanced, timely, and reliable information.
 
-# 12.7 Evaluation
+## 12.7 Evaluation
 
 Evaluating a retrieval-augmented system is harder than evaluating a standalone language model because both the retriever and the generator affect the final answer. A sound evaluation should assess each component separately and examine their combined behavior.
 
@@ -503,7 +503,7 @@ pipelines that use small models to estimate context recall, answer correctness, 
 **Attribution and freshness.** In many applications, models must cite sources and avoid outdated information. Attribution tests align claims with evidence using natural-language inference and check consistency between URLs and answers. Freshness metrics measure whether answers reflect the latest valid sources and can also quantify version drift. Attribution and freshness are especially important in time-sensitive domains such as finance and medicine.
 
 Careful evaluation guides system design. High retrieval recall with low faithfulness may indicate a need for better re-ranking. High faithfulness with low helpfulness may point to insufficient context coverage. For error analysis and auditing, log queries, retrieved passages, and model outputs transparently.
-# 12.8 Concluding Remarks
+## 12.8 Concluding Remarks
 
 Retrieval is essential for agentic LLM systems that need current information. Language models are static snapshots of knowledge; RAG helps keep their answers current, transparent, and grounded. Effective RAG requires careful work across indexing, query planning, retrieval, re-ranking, context assembly, and grounded generation, as well as adaptive methods that let the model decide when and how to search. Retrieval can also extend beyond text to graphs, code, and multimodal data. Rigorous evaluation is necessary for building trustworthy systems.
 

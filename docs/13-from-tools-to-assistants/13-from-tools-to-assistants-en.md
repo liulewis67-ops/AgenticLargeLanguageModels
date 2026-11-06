@@ -17,7 +17,7 @@ In this chapter you will learn how agentic language models are deployed as pract
 - Explain why high-risk domains impose stricter requirements around *safety, transparency, and regulatory compliance* and how agentic designs respond to these demands.
 - Critically evaluate assistant behavior and reflect on the *ethical* implications of deploying agentic systems in socially consequential settings.
 
-#### 13.1 Agentic LLMs as Assistants
+## 13.1 Agentic LLMs as Assistants
 
 LLMs have moved from text generators to active assistants. They combine reasoning, retrieval, and tool use to perform actions in the real world. Assistants are the practical (software) form of agentic LLMs: systems that interact, plan, and learn from feedback. Assistants are where reasoning meets reality: they turn language models into collaborative actors in the world.
 
@@ -33,7 +33,7 @@ Figure 13.1: AssistGPT system architecture [Neszlényi et al., 2024](#page-11-0)
 
 
 
-#### 13.2 Conversational Assistants
+## 13.2 Conversational Assistants
 
 The first application domain is in general conversational situations, such as helping with meetings by taking meeting minutes, acting as meeting chair or general administrative assistant.
 
@@ -51,7 +51,7 @@ A slightly different type of assistant is the thinking assistant. This assistant
 
 Conversational assistants have mostly evolved from regular pretrained LLMs, sometimes fine-tuned for a particular domain. Some approaches use a specialized multi-LLM approach, specializing LLMs for different sub-tasks, or orchestrating a single LLM with different prompt sequences focusing on different sub-tasks.
 
-#### 13.3 Shopping Assistant
+## 13.3 Shopping Assistant
 
 In this section we examine how language-based assistants can be applied in the e-commerce domain. Our goal is to highlight the principal components, architectural choices and domain-specific challenges in this domain.
 
@@ -80,7 +80,7 @@ In this section we examine how language-based assistants can be applied in the e
 
 **Challenges and open questions.** Even with recent progress, shopping assistants face several non-trivial challenges. First, handling long interaction trajectories (browsing, refining queries, switching intents) is still difficult for LLM agents. Second, updating product knowledge in real-time (new models, price changes, availability) remains a major engineering pain-point. Third, explaining and justifying recommendations to users (why this product vs another) is under-explored in LLM-based assistants. Finally, cross-lingual behavior and multilingual product queries increase complexity (shopping contexts span languages and regions).
 
-#### 13.4 Flight Operations Assistant
+## 13.4 Flight Operations Assistant
 
 Language-based assistants are also applied in aviation operations, a domain that extends beyond consumer booking and moves into planning and decision support.
 
@@ -109,7 +109,7 @@ Another operational problem is planning under environmental hazards. [Tabrizian]
 
 - **Evaluation in real contexts:** the evaluation of operational systems often involves more than *does the assistant answer the user?*, but also measure aspects such as conflict rate, delay time, and sequence efficiency. For example, the arrival-slot LLM study measured total delay and conflict rate.
 
-#### 13.5 Medical Assistant
+## 13.5 Medical Assistant
 
 Medicine is one of the most active application domains for LLM-based assistants [\[Thirunavukarasu et al.,](#page-12-0) [2023,](#page-12-0) [Clusmann et al.,](#page-10-0) [2023,](#page-10-0) [Mehandru et al.,](#page-11-0) [2024\]](#page-11-0). Recent studies report that LLMs can outperform trained physicians on diagnostic tasks [Goh et al., 2024](#page-11-0) and exceed human medical scribes in clinical note generation [Yuan et al., 2024](#page-13-0). Other evaluations confirm these strengths, while also identifying systematic weaknesses in specific clinical scenarios [\[Panagoulias et al.,](#page-12-0) [2024\]](#page-12-0).
 
@@ -131,7 +131,7 @@ Figure 13.2: Medical Education Copilot [Wei et al., 2024a](#page-13-0)
 
 For systematic evaluation of medical retrieval-augmented generation, a dedicated benchmark is provided by [Qiao et al.](#page-12-0) [\[2024\]](#page-12-0).
 
-#### 13.6 Trading Assistant
+## 13.6 Trading Assistant
 
 Financial trading is another specialized domain. Financial organizations already use many non-LLM algorithms to support trading decisions, and interest in agentic LLMs is growing [\[Ding et al.,](#page-10-0) [2024\]](#page-10-0).
 
@@ -149,7 +149,7 @@ So far, most financial market machine learning has focused on single agent syste
 
 Furthermore, despite the abundance of available numerical data in the field, there are relatively few benchmarking studies that compare different agentic LLM approaches on the same data. A recent benchmarking study found methodological flaws in some financial LLM studies, such as selecting short evaluation periods with positive market trends or leakage of test data into training data [\[Li et al.,](#page-11-0) [2026\]](#page-11-0).
 
-#### 13.7 Automated Scientific Discovery
+## 13.7 Automated Scientific Discovery
 
 The workflow of scientific experimentation is relatively standardized in certain fields of science. For example, in machine learning, (1) ideas are generated, (2) a hypothesis is formulated, (3) an experiment is designed, (4) datasets are acquired, (5) experiments are performed, (6) results are interpreted and (7) a report is produced. This standard workflow has attracted researchers to experiment with agentic LLMs for performing scientific research, see [Eger et al.](#page-11-0) [\[2025\]](#page-11-0) for a survey.
 
@@ -169,7 +169,7 @@ Together, the two solvers produce a complete research report in LaTeX format bas
 
 Evaluation results demonstrate that Agent Laboratory can autonomously generate complete research projects, including executable code and publication-ready reports, at a fraction of the computational cost of comparable systems (approximately \$2.33 per paper using the gpt-4o backend). Human-in-the-loop or co-pilot mode further improves research quality and usability, with participants reporting high satisfaction and continued use intentions. Nonetheless, human oversight remains essential, as automated self-evaluations tend to overestimate research quality compared to human reviewers.
 
-#### 13.8 Coding Assistants and General Advances
+## 13.8 Coding Assistants and General Advances
 
 SWE-Agent (short for *software engineering agent*) [\[Yang et al.,](#page-13-0) [2024b\]](#page-13-0) aims to automate the process of software discovery, to help agents to autonomously use computers to solve software engineering tasks. SWE-agent introduces tools to create and edit code files, navigate through software repositories, and execute computer programs. Experiments on coding benchmarks such as HumanEvalFix achieve high success rates of over 80%. This success is attributed to the interactive design of the agent (see Figure 13.3).
 
@@ -187,7 +187,7 @@ The benchmark includes 175 tasks designed to test multi-step reasoning, tool use
 
 By introducing a reproducible, self-hosted environment that mirrors a modern workplace, The Agent Company offers a critical stress test for evaluating the maturity of agentic LLMs. It highlights both the rapid progress and the persistent limitations of current systems, underscoring that while digital work automation is within reach, truly autonomous collaboration remains a major research frontier.
 
-#### 13.9 Concluding Remarks
+## 13.9 Concluding Remarks
 
 This chapter has shown how agentic LLMs have been used as assistants, interacting with the real world. Assistants move beyond passive question answering toward active collaboration in domains such as dialogue, flight operations, medicine, education and scientific research. They plan, retrieve information, invoke tools, reflect on outcomes and adapt their behavior over time. Agentic LLMs therefore shift the role of language models from isolated reasoning engines to participants in broader socio-technical systems.
 
@@ -199,7 +199,7 @@ This chapter has shown how agentic LLMs have been used as assistants, interactin
 
 **Outlook.** The future of agentic assistants lies in tighter integration between reasoning, learning and control. Progress will require richer cognitive structure, continual adaptation from interaction and stronger guarantees around safety and ethics. These goals connect directly to advances in interpretability and transparency. In later chapters, particularly in mechanistic interpretability (Chapter 21), we return to techniques that aim to open the black box and better understand how agentic LLMs represent goals, plans and decisions internally.
 
-#### Bibliography
+## Bibliography
 
 Ashish Bastola, Hao Wang, Judsen Hembree, Pooja Yadav, Nathan McNeese, and Abolfazl Razi. LLM-based smart reply (lsr): Enhancing collaborative performance with chatgpt-mediated smart reply system (acm)(draft) LLM-based smart reply (lsr): Enhancing collaborative performance with chatgpt-mediated smart reply system. *arXiv preprint arXiv:2306.11980*, 2023. [264](#page-1-0)
 
