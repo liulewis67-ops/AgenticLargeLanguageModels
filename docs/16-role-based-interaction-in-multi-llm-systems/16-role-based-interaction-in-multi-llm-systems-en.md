@@ -16,25 +16,25 @@
 - Explain *role-based collaboration patterns* and identify the frameworks that implement them.
 - Critically assess when multi-agent collaboration improves performance, when it does not, and what new failure modes and *safety risks* are introduced by multiagent interaction.
 
-#### 16.1 From Single-agent to Multi-agent
+## 16.1 From Single-agent to Multi-agent
 
 The previous chapter studied individual LLMs and LLM-powered agents through a behavioral lens: how a single model reads a communicative, social, or moral situation, and acts in it. In this chapter we move from single- to multi-agent settings and examine what happens when several LLM-based agents are made to interact, for example as opponents in game-theoretic contests and as collaborators in teams. The unit of analysis shifts from the behavioral profile of single models to interaction patterns and collective outcomes that arise between models.
 
 {1}------------------------------------------------
 
-#### <span id="page-1-0"></span>16.1.1 Multi-Agent Simulations: History and Present
+### <span id="page-1-0"></span>16.1.1 Multi-Agent Simulations: History and Present
 
 The use of artificial agents to study interaction has a long history in the computational social sciences [\[Epstein and Axtell,](#page-14-0) [1996,](#page-14-0) [Macal and North,](#page-15-0) [2010\]](#page-15-0). Traditionally, populations of agents with basic perception, reasoning, and decision-making capacities interacted in a virtual or, in case of robot-based simulations, real, experimental environment [\[Steels,](#page-15-0) [1995,](#page-15-0) [Shoham and Leyton-Brown,](#page-15-0) [2008\]](#page-15-0). The purpose of such simulations is usually to bridge theoretical and experimental work, using artificial behavior as a test ground for hypotheses about human behavior in domains where real-world experiments are difficult or costly.
 
 Two obstacles have historically limited this line of investigation: difficulty in verifying if behavior is realistic, and the high computational cost of simulating agent societies. Advances in agentic LLMs and simulation infrastructure [\[Rutherford et al.,](#page-15-0) [2024\]](#page-15-0) are changing this situation. LLM-based agents communicate in natural language, can process rich background knowledge, and can be given differentiated personas, making simulated interactions more expressive and more directly comparable to human interaction.
 
-#### 16.1.2 Role-Based versus Emergent Interaction
+### 16.1.2 Role-Based versus Emergent Interaction
 
 Multi-LLM studies can be categorized based on the amount of control the researchers take over the simulation. At one end, every agent is assigned a *role* in the form of a persona, objective, and interaction protocol. The research question is usually how the agents behave within the assigned structure and how well the resulting system performs as a whole, compared to other assigned structures and roles. At the other end, agents are placed in an open-ended environment without prior role assignment, and the research question is what social structure *emerges*: group dynamics, conventions, and norms. This chapter is concerned with the role-based end of the spectrum, Chapter 17 discusses the emergent side.
 
 This distinction matters for methodological choices as well as for the interpretation of results. In role-based systems, roles and interaction protocols are design decisions or experimental variables. Behavior is evaluated and interpreted against the goals that a system was designed for. In emergent settings, the goals or tasks play a role at the background (or are entirely absent). The analysis is more open-ended and exploratory, closer to ethnography than to benchmarking. However, as will become clear, the distinction is not absolute: role-based systems regularly display behavior that was they were not designed for.
 
-#### 16.1.3 Five Dimensions of Multi-Agent Collaboration
+### 16.1.3 Five Dimensions of Multi-Agent Collaboration
 
 As a structuring principle for this chapter, we adopt the categorization by [Tran et al.](#page-15-0) [\[2025\]](#page-15-0) along five dimensions of LLM collaboration:
 
@@ -49,7 +49,7 @@ As a structuring principle for this chapter, we adopt the categorization by [Tra
 
 The systems discussed in this chapter make different choices along these five axes, and keeping these dimensions in mind makes it easier to see what is new about each framework.
 
-#### 16.1.4 A Methodological Note
+### 16.1.4 A Methodological Note
 
 Evaluating multi-agent systems inherits every methodological difficulty of evaluating single models: prompt sensitivity, possible leakage of test materials into training data, and sampling variability. Plus, it adds new difficulties of its own:
 
@@ -59,7 +59,7 @@ Evaluating multi-agent systems inherits every methodological difficulty of evalu
 
 With these caveats in mind, the chapter proceeds to the simplest multi-agent setting: LLM agents facing each other in strategic settings, with no roles assigned beyond the game itself (Section 16.2). Next, we examine what changes when interaction is streamlined by defining coordination protocols and explicit roles (Section [16.3\)](#page-6-0).
 
-#### 16.2 Strategic Interaction Among LLM Agents
+## 16.2 Strategic Interaction Among LLM Agents
 
 In Chapter 15 we examined how LLMs behave when prompted to play economic games against a scripted opponent. Here we consider studies in which *LLM agents interact with one another* in game-theoretical scenarios. The agents in this section are symmetric peers: each pursues its own interests and none is assigned a coordinating or supervisory role. We look first at benchmarks that score LLM agents across many games at once, and then at behavior in single, richer simulation platforms built around one scenario.
 
@@ -69,7 +69,7 @@ In Chapter 15 we examined how LLMs behave when prompted to play economic games a
 
 Figure 16.1: LLM's Performance on various Metrics [\[Xu et al.,](#page-16-0) [2024\]](#page-16-0)
 
-#### 16.2.1 Benchmarking Strategic Ability Across Games
+### 16.2.1 Benchmarking Strategic Ability Across Games
 
 The MAgIC study [\[Xu et al.,](#page-16-0) [2024\]](#page-16-0) uses social deduction games (Undercover and Chameleon) and game theoretic scenarios such as cost sharing, the multi-player Prisoner's dilemma, and public goods games. The goal is to extract seven capabilities: rationality, judgment, reasoning, deception, self-awareness, cooperation, and coordination, as shown in Figure 16.1. LLMs in off-the-shelf and enhanced forms are evaluated on these capabilities in multi-agent settings.
 
@@ -99,7 +99,7 @@ Figure 16.3: Alympics Water Allocation Challenge Game [\[Mao et al.,](#page-15-0
 
 as the Prisoner's Dilemma (or the mixed-motive games in benchmarks like MAgIC), an agent faces a genuine tension between individual and collective payoff. In such games, when an LLM fails to cooperate, the reason is unclear. The agent may be bad at coordination *or* it might reason strategically about individual gains. In pure cooperation games, there is never any reason to defect, so any failure to cooperate is a genuine lack of coordination ability.
 
-#### 16.2.2 Strategic Interaction in Single-Scenario Platforms
+### 16.2.2 Strategic Interaction in Single-Scenario Platforms
 
 Benchmarks aggregate over many small games. A complementary line of research builds single scenarios and studies agent behavior in-depth.
 
@@ -107,7 +107,7 @@ Alympics [\[Mao et al.,](#page-15-0) [2023\]](#page-15-0) provides a controlled 
 
 AucArena [\[Chen et al.,](#page-14-0) [2023a\]](#page-14-0) simulates auctions, across LLaMa 2.13b, Mistral 7b, Mixtral 8x7b, Gemini 1.0, and GPT 3.5/4.0, finding that the most capable LLMs such as GPT-4 possess skills for auction participation such as budget management and goal-focus, though performance varies even for that model, and the authors point to considerable room for improvement.
 
-#### 16.2.3 Conclusion
+### 16.2.3 Conclusion
 
 Across benchmarks and single-scenario platforms alike, coordination emerges as the consistent weak spot of LLM agents. Stronger LLMs score well on rationality and 
 
@@ -121,7 +121,7 @@ On a different level, the knowing-doing gap reappears. In Hanabi, GPT-4-turbo re
 
 The next section examines a different, complementary response to the same problem: instead of upgrading the agents' reasoning, one can structure the interaction itself, by assigning roles.
 
-#### 16.3 Role-Based Task Solving and Teamwork
+## 16.3 Role-Based Task Solving and Teamwork
 
 In the previous section, agents were symmetric peers and coordination had to emerge from their own strategic reasoning (with limited success). In the studies discussed in this section, coordination is designed-in using interaction protocols and assigning roles with distinct objectives.
 
@@ -133,7 +133,7 @@ In terms of the five dimensions defined in Section [16.1.3,](#page-1-0) the stud
 
 Figure 16.4: Role-playing in CAMEL [\[Li et al.,](#page-14-0) [2023\]](#page-14-0)
 
-#### 16.3.1 Complementary Pairs
+### 16.3.1 Complementary Pairs
 
 LLMs can perform tasks in pairs where they are assigned complementary roles, such as creator-critic or manager-worker. In these pair-wise setups, each LLM agent is given a distinct role and objective, and they communicate to jointly solve tasks.
 
@@ -151,7 +151,7 @@ All three pairings exploit the same idea: one agent's oversight can correct the
 
 other's mistakes, leading to more robust joint performance than either agent achieves alone.
 
-#### 16.3.2 Debate and Discussion
+### 16.3.2 Debate and Discussion
 
 Beyond pairs, a prominent example of role-based interaction is the use of debate and discussion between LLMs to improve reasoning and task performance.
 
@@ -169,7 +169,7 @@ Another approach, also motivated by Minsky's society of minds, is ReConcile, a m
 
 MindStorms introduces an LLM-based implementation [\[Zhuge et al.,](#page-16-0) [2023\]](#page-16-0) on the CAMEL framework [\[Li et al.,](#page-14-0) [2023\]](#page-14-0). Extensive experiments are reported with up to 129 agents solving common AI problems: visual question answering, image captioning, text-to-image synthesis, 3D generation, egocentric retrieval, embodied AI, and general language-based task solving. The authors find that, in specific applications, mindstorms among many members outperform those among fewer members, and longer mindstorms outperform shorter ones.
 
-#### 16.3.3 Role-Based Software Teams
+### 16.3.3 Role-Based Software Teams
 
 An interesting application of role-based collaboration is software development, where simulated teams that are entirely staffed with LLM agents develop software.
 
@@ -179,7 +179,7 @@ Similarly, [Qian et al.](#page-15-0) [\[2024\]](#page-15-0) have introduced Chat
 
 Where MetaGPT and ChatDev hard-wire a particular organization structure, Auto-Gen [\[Wu et al.,](#page-15-0) [2024\]](#page-15-0) provides a flexible programming framework based on conversations between customizable agents that can combine LLMs, tools, and human input. It was designed as an open-source platform that enables developers to define agents and interaction structures depending on the application. Experiments demonstrate effectiveness in tasks across mathematics, coding, question-answering, entertainment, and other domains.
 
-#### 16.3.4 Social Role-Play
+### 16.3.4 Social Role-Play
 
 The systems discussed above assign roles to solve tasks. A final line of work assigns roles in order to study social behavior itself: what do LLM agents do when placed in
 
@@ -214,13 +214,13 @@ Figure 16.7: Illustration of a Scenario with a Conflicting Social Goal from SOTO
 
 To simulate strategic decision-making in cooperative settings, researchers have introduced GovSim [\[Piatti et al.,](#page-15-0) [2024\]](#page-15-0). They study how ethical considerations, strategic planning, and negotiation skills impact cooperative outcomes. Most LLMs fail to achieve an equilibrium since they fail to understand the long-term effects of their actions on the group. Interestingly, the introduction of a special *universalization* reasoning language [\[Levine et al.,](#page-14-0) [2020\]](#page-14-0) (prompting models to ask the Kantian question: *What if everybody does that?*) allowed more models to achieve a sustainable outcome. Related results were demonstrated in NegotiationArena, introduced by [Bianchi et al.](#page-13-0) [\[2024\]](#page-13-0). They showed how LLM agents can conduct complex negotiations through flexible dialogue in negotiation settings. The flexible dialogues significantly improved negotiation outcomes by employing different behavioral strategies.
 
-#### 16.3.5 Conclusion
+### 16.3.5 Conclusion
 
 The studies in this section respond to the coordination weaknesses identified in Section 15.4 not by making individual agents better reasoners (as in 15.5.2), but by structuring the interaction around them. Complementary roles tell each agent what its contribution should be, while interaction protocols and SOPs regulate when and in what form agents communicate. In some setups, a judge or voting mechanism can help to channel disagreement to a productive resolution.
 
 Roles and interaction protocols provide crucial scaffolding where internal coordination would otherwise fall short. This can be seen as a multi-agent analogue of the structured reasoning schemes discussed in Chapter 15, such as Social Chain-of-Thought, probabilistic graphs, or deliberation around moral rules. Such schemes boosted performance in cases where unconstrained reasoning did not. In both the single- and multi-agent cases, the model's latent (social, moral, etc.) knowledge and behavior are real, but need to be activated through an explicit structure.
 
-#### 16.4 Concluding Remarks
+## 16.4 Concluding Remarks
 
 This chapter moved from LLM agents facing one another in strategic games, through role-based collaboration patterns and the multiple setups that coordinate them in practice, to a critical assessment of when multi-agent systems work or fail.
 
