@@ -30,5 +30,17 @@
   "transformer": "Transformer 模型",
   "transformers": "Transformer 模型",
   "scaling laws": "规模定律",
-  "multi-modal models": "多模态模型"
+  "multi-modal models": "多模态模型",
+  "meta-learning": "元学习",
+  "metalearning": "元学习",
+  "few-shot learning": "少样本学习",
+  "zero-shot learning": "零样本学习",
+  "in-context reinforcement learning": "上下文内强化学习",
+  "reinforcement learning with verifiable rewards": "可验证奖励强化学习",
+  "state-action-reward": "状态—动作—奖励",
+  "self-reflection": "自我反思",
+  "self-modifying agents": "自我修改型智能体",
+  "meta-agent": "元智能体",
+  "meta-harness": "元执行框架",
+  "decision traces": "决策轨迹"
 }

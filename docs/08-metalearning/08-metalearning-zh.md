@@ -13,9 +13,9 @@
 - 描述由内层学习循环和外层学习循环构成的元学习系统。
 - 解释移动目标问题，以及动态元学习为何难以稳定。
 
-# 8.1 为什么要研究元学习？
+## 8.1 为什么要研究元学习？
 
-正如前文所述，自我反思式 LLM 方法很有潜力，但要让训练过程收敛并不容易。在智能体 LLM 系统中，学习可能发生在多个层级，有时还会同时进行。在机器学习中，能够跨多个层级进行学习的算法称为元学习。元学习常被概括为“学会如何学习”，例如，学会为某项任务选择更有效的提示。不同层级的学习也可能彼此干扰，导致学习无法收敛。
+正如前文所述，自我反思式 LLM 方法很有潜力，但要让训练过程收敛并不容易。在智能体大语言模型 系统中，学习可能发生在多个层级，有时还会同时进行。在机器学习中，能够跨多个层级进行学习的算法称为元学习。元学习常被概括为“学会如何学习”，例如，学会为某项任务选择更有效的提示。不同层级的学习也可能彼此干扰，导致学习无法收敛。
 
 为了理解 LLM 多层级学习算法为何有时会失效，本章将进一步介绍元学习，并讨论如何提高动态、富含反馈的元学习方法的稳定性。
 
@@ -31,7 +31,7 @@
 
 因此，研究者开始探索少样本学习：只用少量示例训练，就能达到较高准确率的方法。
 
-#### 8.1.2 实现少样本学习
+### 8.1.2 实现少样本学习
 
 不同的机器学习算法各有适用的问题类型。多数训练算法也包含可调设置，以改善性能，例如学习率、动量、参数初始化方式；对于多层算法，还可以选择底层训练算法。这些设置称为*超参数*，它们决定算法如何学习。我们能否从数据中学到合适的超参数？
 
@@ -41,7 +41,7 @@
 
 学到合适的配置后，模型或许只需少量示例就能完成训练，并在新任务的未见样本上取得较高准确率。元学习通过利用相关知识而非从零开始，来支持少样本学习。
 
-元学习由一个外层（元训练）循环和一个内层（基础训练）循环组成。在经典机器学习中，外层可能选择学习率或学习算法本身，并在多个训练任务上评估不同算法 [Brazdil 等，2022](#page-6-0)。在深度学习中，神经网络权重的初始化常被用作元学习方式之一 [Finn 等，2017](#page-6-0)。智能体 LLM 中也存在不同层级的学习，我们将在下一章继续讨论。元学习领域的理论与研究成果有助于分析这些系统。
+元学习由一个外层（元训练）循环和一个内层（基础训练）循环组成。在经典机器学习中，外层可能选择学习率或学习算法本身，并在多个训练任务上评估不同算法 [Brazdil 等，2022](#page-6-0)。在深度学习中，神经网络权重的初始化常被用作元学习方式之一 [Finn 等，2017](#page-6-0)。智能体大语言模型 中也存在不同层级的学习，我们将在下一章继续讨论。元学习领域的理论与研究成果有助于分析这些系统。
 
 {2}------------------------------------------------
 
@@ -74,13 +74,13 @@
 
 元学习与迁移学习密切相关。迁移学习先在一个任务上预训练神经网络，再将其权重迁移到后续的微调阶段。因此，迁移学习可以看作基于网络初始化的元学习方法的一次迭代，也就是只有一项基础学习任务的元学习。
 
-# 8.3 大语言模型与元学习
+## 8.3 大语言模型与元学习
 
 元学习出现在 LLM 开发的多个环节。一种常见方法是用先前学到的知识初始化模型，使它能更快地学习相关任务。这就是迁移学习，标准 LLM 流程中的预训练和微调阶段都会用到它。反复微调可以看作一种元学习过程；LLM 是通过训练流程支持少样本学习的典型例子。上下文学习也是机器学习领域的一项重要突破 [Brown 等，2020](#page-6-0)。
 
-在智能体 LLM 系统中，少样本适应还有其他形式。本节将介绍静态和动态元学习。在静态元学习中，一个循环的权重不会因其他循环的结果而改变；在动态元学习中，不同循环会相互影响。
+在智能体大语言模型 系统中，少样本适应还有其他形式。本节将介绍静态和动态元学习。在静态元学习中，一个循环的权重不会因其他循环的结果而改变；在动态元学习中，不同循环会相互影响。
 
-#### 8.3.1 静态 LLM 元学习
+### 8.3.1 静态 LLM 元学习
 
 先来看几个 LLM 静态元学习的例子。
 
@@ -114,11 +114,11 @@
 
 ### 8.3.2 动态 LLM 元学习
 
-智能体 LLM 系统中存在多种动态元学习形式。不同迭代可能并行运行，并对彼此的收敛过程产生不稳定影响。
+智能体大语言模型 系统中存在多种动态元学习形式。不同迭代可能并行运行，并对彼此的收敛过程产生不稳定影响。
 
 前文介绍过自我反思和 RLVR。在这些方法中，外循环可以改变内循环，一个内循环的结果也可能影响另一个内循环。这会形成不断变化的训练目标，进而导致训练发散。结果还可能很脆弱：随机种子、提示措辞或元学习过程持续时间等输入或超参数的微小变化，都可能引起显著差异。此外，同一模型若承担生成、评估等不同角色，其偏差和幻觉倾向也可能被放大。
 
-下面来看智能体 LLM 中的动态元学习示例。
+下面来看智能体大语言模型 中的动态元学习示例。
 
 #### 8.3.2.1 自我反思
 
@@ -136,27 +136,47 @@
 
 从元学习角度看，微调是内循环，推理阶段的推理过程是外循环。RLVR 将外循环的结果反馈给内循环的训练阶段，使两个学习过程相互耦合。需要谨慎处理被当作真实答案的推理结果，以免推理阶段的错误在反复微调与推理中被放大。
 
-# 8.4 稳定动态元学习
+## 8.4 稳定动态元学习
 
 当内外循环之间的相互影响缺乏足够阻尼时，训练可能变得不稳定。循环之间的振荡可能不断增大，而不是逐渐消退。
 
 缓解方法之一是增加阻尼，或让不同循环以不同速度变化。例如，可以降低其中一个循环的学习率，或让某些内循环参数比其他参数更长时间保持固定。另一个办法是使用类型或规模不同的模型，例如混合专家模型 [Jiang 等，2024](#page-6-0)。学生—教师架构则有意安排能力较强和较弱的模型承担不同角色。使用不同模型或许能够减轻幻觉放大和循环间干扰。
 
-更一般地说，当元学习表现不佳时，可以引入更多多样性以促进探索，减少导致局部最优或训练发散的贪心行为。找到有效的解决办法通常需要通过实验积累经验。调试智能体 LLM 系统可能颇具挑战。
+更一般地说，当元学习表现不佳时，可以引入更多多样性以促进探索，减少导致局部最优或训练发散的贪心行为。找到有效的解决办法通常需要通过实验积累经验。调试智能体大语言模型 系统可能颇具挑战。
 
-# 8.5 结语
+## 8.5 结语
 
-LLM 训练可以理解为一种元学习。标准 LLM 训练使用迁移学习，而智能体 LLM 系统中的推理时推理与训练则进一步运用了元学习思想。自我反思等动态方法很有潜力，但内循环与外循环之间的反馈可能使训练过程不稳定。即使是此前表现可靠的智能体，也可能意外出现这种问题。
+LLM 训练可以理解为一种元学习。标准 LLM 训练使用迁移学习，而智能体大语言模型 系统中的推理时推理与训练则进一步运用了元学习思想。自我反思等动态方法很有潜力，但内循环与外循环之间的反馈可能使训练过程不稳定。即使是此前表现可靠的智能体，也可能意外出现这种问题。
 
 如果智能体使用已训练好的模型与世界交互，并且还根据交互反馈继续训练，那么可以把模型视为基础学习器（内循环），把与世界交互的过程视为元学习器（外循环）。前文关于训练流程内部元学习的注意事项，也适用于训练流程之外的元学习。不过，在真实世界中交互时，错误可能造成更严重的后果。
 
 在线机器学习（包括深度强化学习）同样面临训练不稳定和目标不断变化的问题。<span id="page-6-0"></span>深度强化学习提出了多种稳定化技术，例如重放缓冲区和目标网络 [Mnih 等，2015](#page-7-0)；Rainbow 也是一例 [Hessel 等，2018]。这些方法通常通过错开两个学习过程的时间节奏来减少耦合，例如放慢其中一个过程。分层推理模型（HRM）也采用了类似思路 [Wang 等，2025](#page-7-0)：它使用两层元学习，并通过让两个层级以不同速度运行来稳定学习。
 
-设计智能体 LLM 系统时，了解这些稳定化方法很有帮助。下一部分将概述智能体 LLM 与世界交互的不同方式，从静态方式逐步过渡到动态方式。
-# 参考文献
+设计智能体大语言模型 系统时，了解这些稳定化方法很有帮助。下一部分将概述智能体大语言模型 与世界交互的不同方式，从静态方式逐步过渡到动态方式。
+## 参考文献
 
-Pavel Brazdil, Jan N Van Rijn, Carlos Soares, and Joaquin Vanschoren. *Metalearning: Applications to automated machine learning and data mining*. Springer Nature, 2022. [182](#page-1-0) Tom Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared D Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, et al. Language models are few-shot learners. *Advances in neural information processing systems*, 33:1877–1901, 2020. [184](#page-3-0) Chelsea Finn, Pieter Abbeel, and Sergey Levine. Model-agnostic meta-learning for fast adaptation of deep networks. In *International conference on machine learning*, pages 1126–1135. PMLR, 2017. [183](#page-2-0) Matteo Hessel, Joseph Modayil, Hado Van Hasselt, Tom Schaul, Georg Ostrovski, Will Dabney, Dan Horgan, Bilal Piot, Mohammad Azar, and David Silver. Rainbow: Combining improvements in deep reinforcement learning. In *Proceedings of the AAAI conference on artificial intelligence*, volume 32, 2018. 187 Timothy Hospedales, Antreas Antoniou, Paul Micaelli, and Amos Storkey. Metalearning in neural networks: A survey. *IEEE transactions on pattern analysis and machine intelligence*, 44(9):5149–5169, 2021. [182](#page-1-0) Mike Huisman, Jan N Van Rijn, and Aske Plaat. A survey of deep meta-learning. *Artificial Intelligence Review*, 54(6):4483–4541, 2021. [182](#page-1-0) Albert Q. Jiang, Alexandre Sablayrolles, Antoine Roux, Arthur Mensch, Blanche Savary, Chris Bamford, Devendra Singh Chaplot, Diego de las Casas, Emma Bou Hanna, Florian Bressand, Gianna Lengyel, Guillaume Bour, Guillaume Lample, Lelio Renard Lavaud, Lucile Saulnier, Marie-Anne Lachaux, Pierre Stock, Sandeep ´ Subramanian, Sophia Yang, Szymon Antoniak, Teven Le Scao, Theophile Gervet, ´ Thibaut Lavril, Thomas Wang, Timothee Lacroix, and William El Sayed. Mixtral of ´ experts, 2024. URL <https://arxiv.org/abs/2401.04088>. [186](#page-5-0)
+- Pavel Brazdil, Jan N Van Rijn, Carlos Soares, and Joaquin Vanschoren. *Metalearning: Applications to automated machine learning and data mining*. Springer Nature, 2022. [182](#page-1-0) 
+
+- Tom Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared D Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, et al. Language models are few-shot learners. *Advances in neural information processing systems*, 33:1877–1901, 2020. [184](#page-3-0) 
+
+- Chelsea Finn, Pieter Abbeel, and Sergey Levine. Model-agnostic meta-learning for fast adaptation of deep networks. In *International conference on machine learning*, pages 1126–1135. PMLR, 2017. [183](#page-2-0) 
+
+- Matteo Hessel, Joseph Modayil, Hado Van Hasselt, Tom Schaul, Georg Ostrovski, Will Dabney, Dan Horgan, Bilal Piot, Mohammad Azar, and David Silver. Rainbow: Combining improvements in deep reinforcement learning. In *Proceedings of the AAAI conference on artificial intelligence*, volume 32, 2018. 187 
+
+- Timothy Hospedales, Antreas Antoniou, Paul Micaelli, and Amos Storkey. Metalearning in neural networks: A survey. *IEEE transactions on pattern analysis and machine intelligence*, 44(9):5149–5169, 2021. [182](#page-1-0) 
+
+- Mike Huisman, Jan N Van Rijn, and Aske Plaat. A survey of deep meta-learning. *Artificial Intelligence Review*, 54(6):4483–4541, 2021. [182](#page-1-0) 
+
+- Albert Q. Jiang, Alexandre Sablayrolles, Antoine Roux, Arthur Mensch, Blanche Savary, Chris Bamford, Devendra Singh Chaplot, Diego de las Casas, Emma Bou Hanna, Florian Bressand, Gianna Lengyel, Guillaume Bour, Guillaume Lample, Lelio Renard Lavaud, Lucile Saulnier, Marie-Anne Lachaux, Pierre Stock, Sandeep ´ Subramanian, Sophia Yang, Szymon Antoniak, Teven Le Scao, Theophile Gervet, ´ Thibaut Lavril, Thomas Wang, Timothee Lacroix, and William El Sayed. Mixtral of ´ experts, 2024. URL <https://arxiv.org/abs/2401.04088>. [186](#page-5-0)
 
 {7}------------------------------------------------
 
-<span id="page-7-0"></span>Alex Krizhevsky, Ilya Sutskever, and Geoffrey E Hinton. Imagenet classification with deep convolutional neural networks. *Advances in neural information processing systems*, 25, 2012. [182](#page-1-0) Volodymyr Mnih, Koray Kavukcuoglu, David Silver, Andrei A Rusu, Joel Veness, Marc G Bellemare, Alex Graves, Martin Riedmiller, Andreas K Fidjeland, Georg Ostrovski, et al. Human-level control through deep reinforcement learning. *nature*, 518(7540):529–533, 2015. [187](#page-6-0) Jurgen Schmidhuber. ¨ *Evolutionary principles in self-referential learning, or on learning how to learn: the meta-meta-... hook*. PhD thesis, Technische Universitat¨ Munchen, 1987. ¨ [182](#page-1-0) Guan Wang, Jin Li, Yuhao Sun, Xing Chen, Changling Liu, Yue Wu, Meng Lu, Sen Song, and Yasin Abbasi Yadkori. Hierarchical reasoning model. *arXiv preprint arXiv:2506.21734*, 2025. [187](#page-6-0)
+<span id="page-7-0"></span>
+
+- Alex Krizhevsky, Ilya Sutskever, and Geoffrey E Hinton. Imagenet classification with deep convolutional neural networks. *Advances in neural information processing systems*, 25, 2012. [182](#page-1-0) 
+
+- Volodymyr Mnih, Koray Kavukcuoglu, David Silver, Andrei A Rusu, Joel Veness, Marc G Bellemare, Alex Graves, Martin Riedmiller, Andreas K Fidjeland, Georg Ostrovski, et al. Human-level control through deep reinforcement learning. *nature*, 518(7540):529–533, 2015. [187](#page-6-0) 
+
+- Jurgen Schmidhuber. ¨ *Evolutionary principles in self-referential learning, or on learning how to learn: the meta-meta-... hook*. PhD thesis, Technische Universitat¨ Munchen, 1987. ¨ [182](#page-1-0) 
+
+- Guan Wang, Jin Li, Yuhao Sun, Xing Chen, Changling Liu, Yue Wu, Meng Lu, Sen Song, and Yasin Abbasi Yadkori. Hierarchical reasoning model. *arXiv preprint arXiv:2506.21734*, 2025. [187](#page-6-0)

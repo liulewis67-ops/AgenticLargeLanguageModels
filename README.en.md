@@ -1,22 +1,27 @@
-# Agentic Large Language Models 双语阅读版
+# Agentic Large Language Models — Bilingual Reading Edition
 
-这是 [Agentic Large Language Models（arXiv:2610.13455）](https://arxiv.org/abs/2610.13455) 的非官方双语阅读整理。作者为 Max van Duijn、Michiel van der Meer、Aske Plaat 和 Niki van Stein。
+[简体中文](README.md) · [English](README.en.md)
 
-**中文译文待人工复核。** 英文页面从原文 PDF 提取并重新排版。内容请以[原始论文](https://arxiv.org/abs/2610.13455)为准。arXiv 页面目前链接到 [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)；其他署名及说明见[第三方材料声明](THIRD_PARTY_NOTICES.md)。
+An **unofficial bilingual reading edition** of [*Agentic Large Language Models* (arXiv:2610.13455)](https://arxiv.org/abs/2610.13455) by Max van Duijn, Michiel van der Meer, Aske Plaat, and Niki van Stein.
 
-网站：<https://liulewis67-ops.github.io/AgenticLargeLanguageModels/>  
-源码仓库：<https://github.com/liulewis67-ops/AgenticLargeLanguageModels>
+This project organizes the original paper into navigable Markdown chapters and provides a Simplified Chinese translation for side-by-side reading. **The Chinese translation is still undergoing human review and is not a substitute for the original paper.** For equations, figures, terminology, and citations, consult the [original paper](https://arxiv.org/abs/2610.13455).
 
-## 本地运行
+- **Reading site:** <https://liulewis67-ops.github.io/AgenticLargeLanguageModels/>
+- **Original paper:** <https://arxiv.org/abs/2610.13455>
+- **English chapter index:** [docs/index-en.md](docs/index-en.md)
+- **Chinese chapter index:** [docs/index-zh.md](docs/index-zh.md)
+- **Editorial and translation guidelines:** [TRANSLATION_GUIDE.md](TRANSLATION_GUIDE.md)
 
-需要 Node.js 22.19 或更高版本及 pnpm 11.1.3。pnpm 版本固定在 `package.json` 中。
+## Run locally
+
+Requires **Node.js 22.19 or newer** and **pnpm 11.1.3** (see `package.json`).
 
 ```sh
 pnpm install --frozen-lockfile
 pnpm docs:dev
 ```
 
-构建并检查静态网站：
+Build and validate the static site:
 
 ```sh
 pnpm docs:build
@@ -24,8 +29,12 @@ pnpm docs:check-dist
 pnpm docs:preview
 ```
 
-正文请编辑 `docs/` 下的中英文 Markdown。`site/content/` 是自动生成目录，已加入 Git 忽略规则。章节顺序和页码来自 `config/chapters.json`。
+Edit the bilingual source Markdown under `docs/`. The `site/content/` directory is generated and ignored by Git. Chapter ordering and original PDF page ranges are defined in `config/chapters.json`.
 
-## 来源和翻译状态
+## Translation status, attribution, and corrections
 
-英文版是原文的非官方提取与网页排版。中文页面为项目翻译，**待人工复核**。内容提取、翻译、排版及双语锚点对应可能存在误差。
+The English text is extracted and formatted from the source PDF; the Chinese text is translated by this project. **Both editions may contain extraction, page-break, equation, citation, or formatting errors**, especially where passages have not yet been compared with the original by a human reviewer.
+
+Please report issues through [GitHub Issues](https://github.com/liulewis67-ops/AgenticLargeLanguageModels/issues). Include the **chapter, language, original PDF page, source passage, and suggested correction**.
+
+The arXiv page currently links to [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for attribution and third-party notices.
