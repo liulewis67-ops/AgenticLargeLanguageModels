@@ -13,7 +13,7 @@ By the end of this chapter, you will be able to:
 - Describe a metalearning system with an inner learning loop and an outer learning loop.
 - Explain the moving-target problem and why dynamic metalearning can be difficult to stabilize.
 
-# 8.1 Why Metalearning?
+## 8.1 Why Metalearning?
 
 As we have seen, self-reflective LLM approaches can be powerful, but getting their training processes to converge can be challenging. In agentic LLM systems, learning can occur at multiple levels, sometimes concurrently. In machine learning, algorithms that learn at multiple levels are said to perform metalearning. Metalearning is often described as *learning to learn*—for example, learning which prompt works best for a particular task. The different learning levels can also interfere with one another and prevent learning from converging.
 
@@ -31,7 +31,7 @@ Conventional deep learning is slow. Neural networks for typical tasks can have m
 
 Researchers therefore began exploring few-shot learning: methods that achieve high accuracy after training on only a small number of examples.
 
-#### 8.1.2 Achieving Few-Shot Learning
+### 8.1.2 Achieving Few-Shot Learning
 
 Some machine-learning algorithms are better suited to particular problems than others. Most training algorithms also have settings that can be tuned to improve performance, such as the learning rate, momentum, parameter initialization, or—when an algorithm has multiple levels—the choice of the underlying training algorithm. These settings are called *hyperparameters*; they govern how an algorithm learns. Can we learn good hyperparameters from data?
 
@@ -74,13 +74,13 @@ After metalearning, the tuned algorithm is expected to work well across a set of
 
 Metalearning is closely related to transfer learning. Transfer learning pretrains a neural network on one task and transfers its weights to a subsequent fine-tuning phase. It can therefore be viewed as one iteration of a network-initialization-based metalearning approach: metalearning with a single base-learning task.
 
-# 8.3 LLMs and Metalearning
+## 8.3 LLMs and Metalearning
 
 Metalearning appears in many parts of LLM development. One common approach initializes a model with previously learned knowledge so that it can learn a related task more quickly. This is transfer learning, used in the pretraining and fine-tuning phases of a standard LLM pipeline. Repeated fine-tuning can be viewed as a metalearning process, and LLMs provide a prominent example of a pipeline designed to support few-shot learning. In-context learning was another major breakthrough [Brown et al., 2020](#page-6-0).
 
 In agentic LLM systems, few-shot adaptation appears in other forms as well. We will consider both static and dynamic metalearning. In static metalearning, the weights in one loop are not changed by the results of another loop. In dynamic metalearning, the loops can influence one another.
 
-#### 8.3.1 Static LLM Metalearning
+### 8.3.1 Static LLM Metalearning
 
 We begin with several examples of static metalearning in LLMs.
 
@@ -136,7 +136,7 @@ Reinforcement learning with verifiable rewards (RLVR; see Section 6.2.4.3) is a 
 
 In metalearning terms, fine-tuning is the inner loop and inference-time reasoning is the outer loop. RLVR feeds outer-loop results into the inner-loop training phase, coupling the two learning processes. Care is needed to avoid amplifying inference-time errors by treating them as ground truth in a repeated fine-tuning and inference cycle.
 
-# 8.4 Stabilizing Dynamic Metalearning
+## 8.4 Stabilizing Dynamic Metalearning
 
 Training can become unstable when interference between inner and outer loops is under-damped. Oscillations between the loops may grow instead of fading away.
 
@@ -144,7 +144,7 @@ One way to mitigate this problem is to add damping or let the loops change at di
 
 More generally, when metalearning behaves poorly, we can introduce diversity to encourage exploration and reduce greedy behavior that leads to local optima or divergent training. Developing useful remedies often takes experimentation and practice. Debugging agentic LLM systems can be challenging.
 
-# 8.5 Concluding Remarks
+## 8.5 Concluding Remarks
 
 LLM training can be understood as a form of metalearning. Standard LLM training uses transfer learning, while inference-time reasoning and training in agentic LLM systems draw on further metalearning ideas. Dynamic methods such as self-reflection are powerful, but feedback between inner and outer loops can destabilize training. This can happen even in agents that previously behaved reliably.
 
@@ -153,10 +153,30 @@ When a trained model is placed in an agent that interacts with the world, and th
 Online machine learning, including deep reinforcement learning, also faces unstable training and moving targets. <span id="page-6-0"></span>Deep reinforcement learning has introduced stabilization techniques such as replay buffers and target networks [Mnih et al., 2015](#page-7-0); Rainbow is another example [Hessel et al., 2018]. These methods often decouple the timing of two learning processes, for example by slowing one of them. A similar idea appears in Hierarchical Reasoning Models (HRM) [Wang et al., 2025](#page-7-0), which use a two-level metalearning approach and stabilize learning by operating at two different speeds.
 
 Understanding such stabilization methods is useful when designing agentic LLM systems. The next part surveys the different ways agentic LLMs interact with the world, from static to dynamic.
-# Bibliography
+## Bibliography
 
-Pavel Brazdil, Jan N Van Rijn, Carlos Soares, and Joaquin Vanschoren. *Metalearning: Applications to automated machine learning and data mining*. Springer Nature, 2022. [182](#page-1-0) Tom Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared D Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, et al. Language models are few-shot learners. *Advances in neural information processing systems*, 33:1877–1901, 2020. [184](#page-3-0) Chelsea Finn, Pieter Abbeel, and Sergey Levine. Model-agnostic meta-learning for fast adaptation of deep networks. In *International conference on machine learning*, pages 1126–1135. PMLR, 2017. [183](#page-2-0) Matteo Hessel, Joseph Modayil, Hado Van Hasselt, Tom Schaul, Georg Ostrovski, Will Dabney, Dan Horgan, Bilal Piot, Mohammad Azar, and David Silver. Rainbow: Combining improvements in deep reinforcement learning. In *Proceedings of the AAAI conference on artificial intelligence*, volume 32, 2018. 187 Timothy Hospedales, Antreas Antoniou, Paul Micaelli, and Amos Storkey. Metalearning in neural networks: A survey. *IEEE transactions on pattern analysis and machine intelligence*, 44(9):5149–5169, 2021. [182](#page-1-0) Mike Huisman, Jan N Van Rijn, and Aske Plaat. A survey of deep meta-learning. *Artificial Intelligence Review*, 54(6):4483–4541, 2021. [182](#page-1-0) Albert Q. Jiang, Alexandre Sablayrolles, Antoine Roux, Arthur Mensch, Blanche Savary, Chris Bamford, Devendra Singh Chaplot, Diego de las Casas, Emma Bou Hanna, Florian Bressand, Gianna Lengyel, Guillaume Bour, Guillaume Lample, Lelio Renard Lavaud, Lucile Saulnier, Marie-Anne Lachaux, Pierre Stock, Sandeep ´ Subramanian, Sophia Yang, Szymon Antoniak, Teven Le Scao, Theophile Gervet, ´ Thibaut Lavril, Thomas Wang, Timothee Lacroix, and William El Sayed. Mixtral of ´ experts, 2024. URL <https://arxiv.org/abs/2401.04088>. [186](#page-5-0)
+- Pavel Brazdil, Jan N Van Rijn, Carlos Soares, and Joaquin Vanschoren. *Metalearning: Applications to automated machine learning and data mining*. Springer Nature, 2022. [182](#page-1-0) 
+
+- Tom Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared D Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, et al. Language models are few-shot learners. *Advances in neural information processing systems*, 33:1877–1901, 2020. [184](#page-3-0) 
+
+- Chelsea Finn, Pieter Abbeel, and Sergey Levine. Model-agnostic meta-learning for fast adaptation of deep networks. In *International conference on machine learning*, pages 1126–1135. PMLR, 2017. [183](#page-2-0) 
+
+- Matteo Hessel, Joseph Modayil, Hado Van Hasselt, Tom Schaul, Georg Ostrovski, Will Dabney, Dan Horgan, Bilal Piot, Mohammad Azar, and David Silver. Rainbow: Combining improvements in deep reinforcement learning. In *Proceedings of the AAAI conference on artificial intelligence*, volume 32, 2018. 187 
+
+- Timothy Hospedales, Antreas Antoniou, Paul Micaelli, and Amos Storkey. Metalearning in neural networks: A survey. *IEEE transactions on pattern analysis and machine intelligence*, 44(9):5149–5169, 2021. [182](#page-1-0) 
+
+- Mike Huisman, Jan N Van Rijn, and Aske Plaat. A survey of deep meta-learning. *Artificial Intelligence Review*, 54(6):4483–4541, 2021. [182](#page-1-0) 
+
+- Albert Q. Jiang, Alexandre Sablayrolles, Antoine Roux, Arthur Mensch, Blanche Savary, Chris Bamford, Devendra Singh Chaplot, Diego de las Casas, Emma Bou Hanna, Florian Bressand, Gianna Lengyel, Guillaume Bour, Guillaume Lample, Lelio Renard Lavaud, Lucile Saulnier, Marie-Anne Lachaux, Pierre Stock, Sandeep ´ Subramanian, Sophia Yang, Szymon Antoniak, Teven Le Scao, Theophile Gervet, ´ Thibaut Lavril, Thomas Wang, Timothee Lacroix, and William El Sayed. Mixtral of ´ experts, 2024. URL <https://arxiv.org/abs/2401.04088>. [186](#page-5-0)
 
 {7}------------------------------------------------
 
-<span id="page-7-0"></span>Alex Krizhevsky, Ilya Sutskever, and Geoffrey E Hinton. Imagenet classification with deep convolutional neural networks. *Advances in neural information processing systems*, 25, 2012. [182](#page-1-0) Volodymyr Mnih, Koray Kavukcuoglu, David Silver, Andrei A Rusu, Joel Veness, Marc G Bellemare, Alex Graves, Martin Riedmiller, Andreas K Fidjeland, Georg Ostrovski, et al. Human-level control through deep reinforcement learning. *nature*, 518(7540):529–533, 2015. [187](#page-6-0) Jurgen Schmidhuber. ¨ *Evolutionary principles in self-referential learning, or on learning how to learn: the meta-meta-... hook*. PhD thesis, Technische Universitat¨ Munchen, 1987. ¨ [182](#page-1-0) Guan Wang, Jin Li, Yuhao Sun, Xing Chen, Changling Liu, Yue Wu, Meng Lu, Sen Song, and Yasin Abbasi Yadkori. Hierarchical reasoning model. *arXiv preprint arXiv:2506.21734*, 2025. [187](#page-6-0)
+<span id="page-7-0"></span>
+
+- Alex Krizhevsky, Ilya Sutskever, and Geoffrey E Hinton. Imagenet classification with deep convolutional neural networks. *Advances in neural information processing systems*, 25, 2012. [182](#page-1-0) 
+
+- Volodymyr Mnih, Koray Kavukcuoglu, David Silver, Andrei A Rusu, Joel Veness, Marc G Bellemare, Alex Graves, Martin Riedmiller, Andreas K Fidjeland, Georg Ostrovski, et al. Human-level control through deep reinforcement learning. *nature*, 518(7540):529–533, 2015. [187](#page-6-0) 
+
+- Jurgen Schmidhuber. ¨ *Evolutionary principles in self-referential learning, or on learning how to learn: the meta-meta-... hook*. PhD thesis, Technische Universitat¨ Munchen, 1987. ¨ [182](#page-1-0) 
+
+- Guan Wang, Jin Li, Yuhao Sun, Xing Chen, Changling Liu, Yue Wu, Meng Lu, Sen Song, and Yasin Abbasi Yadkori. Hierarchical reasoning model. *arXiv preprint arXiv:2506.21734*, 2025. [187](#page-6-0)
