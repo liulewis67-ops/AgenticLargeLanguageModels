@@ -14,7 +14,7 @@ In this case study, you will become familiar with agent-based social simulations
 - Investigate how *personality descriptions* and architectural choices shape emergent agent behavior.
 - Critically assess *prompt fragility*, model dependence, and the limitations of LLM-driven simulations.
 
-#### 18.1 Social Simulation
+## 18.1 Social Simulation
 
 In social simulations, generative agents are LLM-driven characters that interact with an environment and with one another. They may plan activities, maintain memories, and reflect on their experiences. The Generative Agents framework, introduced by [Park et al.](#page-5-0) [\[2023\]](#page-5-0), showed that LLM-powered characters can collectively produce believable daily routines, social interactions, and even coordinated group activities, all emerging from a relatively simple and elegant cognitive architecture.
 
@@ -32,9 +32,9 @@ The course exercise materials are available at:
 
 <https://github.com/DorotaMoravcikova/agentic-llm-course-excercises>
 
-#### 18.2 Background
+## 18.2 Background
 
-#### 18.2.1 Generative Agents
+### 18.2.1 Generative Agents
 
 The Generative Agents framework, introduced by [Park et al.](#page-5-0) [\[2023\]](#page-5-0), showed that LLM-powered characters can produce believable daily routines and social interactions, and can even coordinate group activities.
 
@@ -46,7 +46,7 @@ Each agent has three core components:
 
 An agent's *personality* is defined by a short natural-language description stored in a *scratch* file. It specifies the character's name, age, learned and innate traits, and lifestyle. This description is included in every LLM prompt to anchor the agent's behavior.
 
-#### 18.2.2 Bad Is Stronger Than Good
+### 18.2.2 Bad Is Stronger Than Good
 
 When an LLM-powered agent in the original Generative Agents simulation receives criticism, it forms a memory. If it is praised an hour later, it forms another. The agent retrieves these two memories—one negative and one positive—with equal priority, provided they are equally recent, relevant, and important.
 
@@ -60,16 +60,16 @@ In this case study, we test the NEVER (*Negative Emotional Valence Enhances Reca
 
 The architecture is otherwise unchanged. This makes it possible to conduct a controlled *machine-psychological* experiment comparing two architectural choices: valence-blind versus valence-sensitive memory. You will also use the structured setup to test how changes to agent initialization—particularly personality descriptions and system prompts—affect behavior.
 
-#### 18.2.3 Why This Matters for Agent Design
+### 18.2.3 Why This Matters for Agent Design
 
 This case study illustrates two important lessons:
 
 1. **Architectural choices have emergent consequences.** A memory-weighting parameter that seems innocuous at the component level can produce dramatic changes in an agent's social behavior, emotional tone, and decision-making over time. These effects are difficult to predict from the architecture alone.
 2. **Prompts are fragile.** Agent behavior is highly sensitive to personality descriptions and system prompts. Small changes can produce large behavioral shifts, a phenomenon sometimes called *prompt sensitivity* in the LLM literature.
 
-#### 18.3 Implementation
+## 18.3 Implementation
 
-##### 18.3.1 The Simulation Environment
+### 18.3.1 The Simulation Environment
 
 The simulation uses the Smallville environment from [Park et al.](#page-5-0) [\[2023\]](#page-5-0): a small town rendered as a 2D tile map, where agents move between locations, interact with objects, and converse.
 
@@ -83,7 +83,7 @@ Our simulation uses a simplified scenario: a cafe with three agents:
 
 This three-agent setup, in which two agents have similar roles and positions (baristas working under Bernard's supervision), allows us to control for agent architecture and initialization. In the first experiment, Dolores and Maeve receive the same personality traits and encounter the same environment. The only difference is how Dolores processes memories: she uses the NEVER implementation, which assigns greater importance to negative memories.
 
-##### 18.3.2 Agent Architecture
+### 18.3.2 Agent Architecture
 
 Each agent maintains:
 
@@ -91,7 +91,7 @@ Each agent maintains:
 - A *memory stream*: a list of timestamped observations, actions, and reflections.
 - A *current plan*: a short description of what the agent intends to do.
 
-##### 18.3.3 The Cognitive Loop
+### 18.3.3 The Cognitive Loop
 
 At each simulation step, representing 10 seconds of in-game time, each agent executes the following cycle:
 
@@ -103,7 +103,7 @@ At each simulation step, representing 10 seconds of in-game time, each agent exe
 
 Each step involves an LLM call. The prompt combines the agent's personality description, which remains constant, with the relevant retrieved memories and current observations, which change over time.
 
-##### 18.3.4 Two Architecture Variants
+### 18.3.4 Two Architecture Variants
 
 You will use two variants of the retrieval function:
 
@@ -120,13 +120,13 @@ $$
 
 All weights are set to $\alpha_i=1$. Thus, the only difference between the two variants is the addition of the valence term; everything else is identical.
 
-##### 18.3.5 Setup and Installation
+### 18.3.5 Setup and Installation
 
 Clone the repository and follow the instructions in its README:
 
 <https://github.com/DorotaMoravcikova/generative_agents/tree/course-exercises>
 
-#### 18.4 Discussion
+## 18.4 Discussion
 
 After running the experiments, reflect on the following questions:
 
@@ -147,7 +147,7 @@ These findings have practical implications for anyone building LLM-driven agent 
 
 Generative-agent simulation is a young and evolving field. The exercises in this chapter provided hands-on experience with its core mechanisms and challenges. As the field matures, prompt robustness, cognitive-architecture design, and the evaluation of emergent behavior will remain central concerns.
 
-#### Bibliography
+## Bibliography
 
 Roy F. Baumeister, Ellen Bratslavsky, Catrin Finkenauer, and Kathleen D. Vohs. Bad is stronger than good. *Review of General Psychology*, 5(4):323–370, 2001. [354](#page-1-0), [355](#page-2-0).
 
