@@ -17,7 +17,7 @@ In this chapter you will learn how agentic LLM behavior compares to human behavi
 - Describe ways of studying advanced social and interactive competencies in LLMs, in particular *strategic thinking*, *Theory of Mind*, and *moral reasoning*.
 - Reflect on what behavioral approaches to LLMs can and cannot tell us, given various issues regarding *testing and interpretation*.
 
-#### 15.1 What is LLM Behavior?
+## 15.1 What is LLM Behavior?
 
 In 2019 a team of authors from across the computational, behavioral, and cognitive sciences described the emergence of a new field of study: *machine behavior*. This field is to be *concerned with the scientific study of intelligent machines, not as engineering artifacts, but as a class of actors with particular behavioral patterns and ecology* [\[Rahwan et al.,](#page-24-0) [2019\]](#page-24-0). Machine behavior is inherently interdisciplinary, as it integrates knowledge at the intrinsic level of *technology* (algorithms, data structures, training procedures) with knowledge of the *environment and context* of its actual usage.
 
@@ -33,7 +33,7 @@ There is also a scientific motivation: due to the complexity of large-scale neur
 
 What counts as *behavior* depends on the affordances<sup>1</sup> of the system under investigation and the scope of the research. For example, for a basic LLM, behavior equals the *output* as produced by the token-based inference of the model. On the other hand, for an agentic LLM that can perform, for instance, web search and run code, behavior can also include the *actions* that it performs to get to a certain output, or to achieve a certain effect. As we will see, some studies take only the final output into account and treat that as the model's behavior; others are interested in the intermediate steps as well.
 
-#### 15.2 Probing LLM Behavior Experimentally
+## 15.2 Probing LLM Behavior Experimentally
 
 In recent years, many studies have appeared that test LLMs' social and interactive abilities. There are two main approaches: (1) prompting models with items adapted from experimental paradigms originally developed for humans, and (2) developing new test paradigms specifically for LLMs. The latter can be done quantitatively, using large scale benchmarks, or qualitatively, allowing for in-depth manual analysis on a smaller scale. In what follows we will see examples.
 
@@ -49,11 +49,11 @@ For LLM-specific tests, there are also methodological challenges to consider. Fo
 
 In the next sections we will first discuss the basic social toolkit for agent interaction. Next, we will look at strategic behavior, where agents reason about the behavior of other agents, and we will discuss theory of mind. Finally, we will discuss moral judgment by LLMs.
 
-#### 15.3 The Basic Social Toolkit
+## 15.3 The Basic Social Toolkit
 
 This section surveys basic social and interactive capacities, including conversation, pragmatics, and social etiquette.
 
-#### 15.3.1 Functional and Pragmatic Linguistic Competence
+### 15.3.1 Functional and Pragmatic Linguistic Competence
 
 As discussed in Part I, the key advancement of instruction-tuned LLMs is their ability to interact, chatbot style, using natural language. This requires not only a degree of *formal* linguistic competence (i.e., producing correct, grammatical sentences) but also of *functional* linguistic competence, the ability to interpret the meaning of an utterance in a specific context [\[Mahowald et al.,](#page-23-0) [2023\]](#page-23-0). Within linguistics and the cognitive sciences, functional linguistic competence is studied in the field of *pragmatics*. The core concepts of pragmatics go back to the *pragmatic turn* in mid-20th century philosophy of language and posit that linguistic meaning is for the most part not inherent in the signs themselves (tokens, words, sentences), but in their usage in actual contexts. This includes both the *linguistic context*, encompassing surrounding words up to distant factors such as titles and genres, as well as the *extra-linguistic context*, encompassing the spatial, temporal, and social dimensions. This view is most famously expressed in Paul Grice's notion of *conversational implicature* [\[Grice,](#page-21-0) [1975\]](#page-21-0). Consider the following examples:
 
@@ -71,7 +71,7 @@ Interpreting linguistic meaning in a flexible, context-dependent, way has long b
 
 One explanation is that LLMs have less access to extra-linguistic contextual information: they cannot see, hear, and otherwise sense the same as their human counterpart, and in most cases they do not have knowledge of previous interactions [\[van der Meulen](#page-26-0) [et al.,](#page-26-0) [2025\]](#page-26-0). With the shift to agentic LLMs this situation is likely changing, as the models become equipped with memories, multimodal capacities, and other tools that add context. Empirical data on how this affects performance is currently missing.
 
-#### 15.3.2 Politeness and Social Etiquette
+### 15.3.2 Politeness and Social Etiquette
 
 Social etiquette and politeness in human-machine interaction have been studied for decades [\[Ribino,](#page-24-0) [2023\]](#page-24-0). A useful theoretical anchor is the *Computers Are Social Actors* (CASA) paradigm [\[Nass et al.,](#page-24-0) [1994\]](#page-24-0), which holds that we tend to apply common human social rules and expectations to computers even when we know that the machine is not a human social agent. We show and respond to cues of politeness, personality, and reciprocity as a way of negotiating trust and acceptance with a machine. Studies show that humans trust machines more when those machines adhere to social etiquette [\[Miller,](#page-23-0) [2005\]](#page-23-0), improving both task performance and user satisfaction [\[Miyamoto et al.,](#page-24-0) [2021\]](#page-24-0). We will discuss politeness theory and its application to LLMs.
 
@@ -89,7 +89,7 @@ Taken together, LLMs reproduce the surface markers of politeness and are demonst
 
 It should be kept in mind that in studies so far, politeness and etiquette were limited to the linguistic dimension of interaction only. This contrasts with the multidimensionality of human-human interaction, where facial expressions, gestures, and other contextual cues are involved [\[Brown and Levinson,](#page-20-0) [1987\]](#page-20-0). As with pragmatic competence, the shift to multi-modal agentic LLMs equipped with memory and increased access to user-specific context, can be expected to improve adaptation to a given user's norms, but as yet there is little empirical evidence.
 
-#### 15.3.3 Sensitivity to Emotional and Affective Cues
+### 15.3.3 Sensitivity to Emotional and Affective Cues
 
 Competent social interaction requires not only grasping what an utterance means (pragmatics) and phrasing it in an effective and appropriate way (etiquette), but also sensitivity to the *emotional and affective* dimension of interaction. This requires registering how an interlocutor feels, and responding in a way that is experienced as fitting given the other's emotional state. In humans this capacity is closely associated with *emo-* 
 
@@ -125,17 +125,17 @@ Three caveats apply. First, the comparison instruments were designed for humans 
 
 <span id="page-7-0"></span>context, and multi-modal input is widely expected to deepen affective sensitivity and personalization [\[Sravanthi et al.,](#page-26-0) [2024\]](#page-26-0), but as in the previous subsections, direct empirical evidence for this remains scarce.
 
-#### 15.3.4 Conclusion
+### 15.3.4 Conclusion
 
 Current LLMs have shown impressive progress on several basic social and interactive capabilities that have long been studied in AI and human-computer interaction. Behavioral methods have been developed to study the nature and applicability of these capabilities. While agentic additions have further enhanced the social and interactive potential of LLMs, challenges remain, and continuous reflection on the limitations of these capabilities, as well as the methods used to study them, is important.
 
-#### 15.4 Strategic Behavior
+## 15.4 Strategic Behavior
 
 We will now turn to study strategic behavior, where agents reason about the behavior of other agents. As we have seen, the form of communication of agents is heavily influenced by what they aim to achieve: their intent. Game theory is the field that studies strategic behavior by agents [\[Von Neumann and Morgenstern,](#page-27-0) [2007\]](#page-27-0). It addresses questions such as scarce resource allocation, fairness, equilibrium conditions, and social dilemmas [\[Jones,](#page-22-0) [2000\]](#page-22-0), and has a long history of using machine learning methods to do so [\[Fatima et al.,](#page-21-0) [2024\]](#page-21-0). Recently, researchers have turned to LLMs, investigating how their behavior differs from that of other types of computational architectures, as well as how strategic behavior differs from humans. The LLMs typically used in these studies have been un-enhanced models that are given a script as their prompt, without agentic reasoning extensions (Chapter 6) or tools (Chapter 11).
 
 Two insights emerge from the recent literature: LLMs are surprisingly cooperative in games that reward self-interest, and are surprisingly poor at games that require coordination. We will first review these findings, after which we turn to systematic benchmarking efforts that test how well LLMs generalize, and to recent work on frontier reasoning models that complicates the picture in important ways.
 
-#### 15.4.1 Cooperation and Coordination in Social Dilemmas
+### 15.4.1 Cooperation and Coordination in Social Dilemmas
 
 To shed light on LLM behavior in strategic settings, we will focus on two classical games in game theory: the Prisoner's Dilemma and Bach or Stravinsky (formerly known as Battle of the Sexes).
 
@@ -159,7 +159,7 @@ There are more reasons that may explain the variation among models. [Lore and He
 
 The picture that emerges from these exploratory studies is that LLMs have varied strategic proficiencies in economic games, and can relatively easily be influenced by additional information in the prompt.
 
-#### 15.4.2 Benchmarks Across Games and Models
+### 15.4.2 Benchmarks Across Games and Models
 
 Several benchmarking efforts suggest that these findings generalize beyond individual games. GTBench (Game Theory benchmark) [\[Duan et al.,](#page-21-0) [2024\]](#page-21-0) covers Tic-Tac-Toe, Connect-4, Kuhn Poker, Breakthrough, Liar's Dice, Blind Auction, Negotiation, Nim, Pig, and the Iterated Prisoner's Dilemma. They find that LLMs fail in complete and deterministic games, yet are competitive in probabilistic gaming scenarios; most opensource LLMs (such as LLaMa) are less competitive than commercial LLMs (GPT-4) in complex games, with the notable exception of Llama-3-70b-Instruct. In addition, code-pretraining greatly benefits strategic reasoning, while reasoning methods such as chain of thought and tree of thoughts do not always help.
 
@@ -169,11 +169,11 @@ EgoSocialArena [\[Hou et al.,](#page-22-0) [2024\]](#page-22-0) extends the eval
 
 <span id="page-10-0"></span>attributed to its logical and mathematical reasoning. Notably, model size does not significantly help: LLaMA3-8B-Chat and LLaMA3-70B-Chat perform comparably on social intelligence measures. LLMs do show improved Theory of Mind reasoning when operating from a first-person perspective, providing counterweight to opposite findings by [Kim et al.](#page-22-0) [\[2023\]](#page-22-0), discussed in Section 15.5.
 
-#### 15.4.3 Conclusion
+### 15.4.3 Conclusion
 
 Taken together, the benchmarking literature confirms that LLMs cooperate readily but coordinate poorly, while adding that neither model scale nor standard reasoning enhancements reliably improve social strategic behavior.
 
-#### 15.5 Theory of Mind
+## 15.5 Theory of Mind
 
 In humans, strategic reasoning is related to a capacity known as *Theory of Mind* (ToM). Theory of mind is a key capability that enables social interaction in humans. Humans use theory of mind to attribute mental states (beliefs, desires, intentions, knowledge, emotions) to other people, and theory of mind allows them to then reason about the world from their perspective [\[Premack and Woodruff,](#page-24-0) [1978,](#page-24-0) [Apperly,](#page-19-0) [2011\]](#page-19-0). Consider the following example:
 
@@ -193,7 +193,7 @@ A version of this scenario was originally presented to children aged 3-9, follow
 
 Smaller and base models before fine-tuning have difficulties with the question format itself, but can still be tested for the underlying competence by retrieving probabilities over alternative text completions [\[Kouwenhoven et al.,](#page-23-0) [2026\]](#page-23-0). Larger, instructiontuned LLMs can be tested by asking the same question that children are being asked. One positive result says little about a model's capacity for theory of mind, in particular since false-belief tests such as the one about Maxi and the chocolate (including the correct answers) are widely spread over the internet and as such likely to be part of most training datasets. Yet, as discussed below, researchers have designed fresh and alternative tests to come to a more robust picture of how far theory of mind has developed in LLMs.
 
-#### 15.5.1 Computational Theory of Mind
+### 15.5.1 Computational Theory of Mind
 
 Human-computer interaction has studied theory of mind for many years. Their premise is that if computer systems can be given a form of theory of mind, then they will be better at predicting how humans will react in interactive settings, and be better at adapting to their behavior. Previously, theory of mind has been modeled with recursive, Bayesian, and neural frameworks [\[De Weerd et al.,](#page-20-0) [2017,](#page-20-0) [Baker and Saxe,](#page-19-0) [2011,](#page-19-0) [Rabinowitz et al., 2018](#page-24-0). In LLMs, ToM has been linked to other capacities discussed in this book, including planning (Section 6.2.4.1), self-reflection (Section 6.2.4), empathy (Section [15.3.3\)](#page-4-0), and strategic behavior (Section [15.4\)](#page-7-0). The rest of this section elaborates on approaches that study the ToM-angle of these capacities in more depth.
 
@@ -226,7 +226,7 @@ Results suggest that current systems underutilize the visual channel: access to 
 
 {14}------------------------------------------------
 
-#### <span id="page-14-0"></span>15.5.2 Boosting ToM: Enhancement Strategies
+### <span id="page-14-0"></span>15.5.2 Boosting ToM: Enhancement Strategies
 
 Further studies have explored different methods to enhance theory of mind capabilities of LLM, including chain of thought [\[Moghaddam and Honey,](#page-24-0) [2023\]](#page-24-0), reasoning [\[Kim](#page-23-0) [et al.,](#page-23-0) [2025\]](#page-23-0), and structured inference leveraging Bayesian inference [\[Jin et al.,](#page-22-0) [2024\]](#page-22-0) or epistemic logic [\[Wu et al.,](#page-27-0) [2025\]](#page-27-0). We will discuss these studies in more depth.
 
@@ -238,7 +238,7 @@ Interestingly, comparing reasoning and non-reasoning models across HiToM, ToMATO
 
 Thought-tracing is inspired by sequential Monte Carlo and Bayesian ToM. Models equipped with thought-tracing produce shorter, more targeted, reasoning traces, yet outperform leading reasoning models (such as GPT-o1, GPT-o3-mini, and DeepSeek-R1) across several ToM benchmarks. The contrast with the slow-thinking collapse suggests that what boosts ToM is not the *quantity* of reasoning but its *structure*. Performance increases once the reasoning is guided by hypothesis-driven inference over others' states towards a goal, rather than having to find the goal in unconstrained extended chains.
 
-#### 15.5.3 Conclusion
+### 15.5.3 Conclusion
 
 We conclude the overview of these studies with three observations. First, at the level of behavioral output, current frontier LLMs perform on a par with humans across different tests [\[van Duijn et al.,](#page-27-0) [2023,](#page-27-0) [Strachan et al.,](#page-26-0) [2024,](#page-26-0) [Jones et al.,](#page-22-0) [2024\]](#page-22-0). However, early claims of this being evidence that *ToM emerged spontaneously in LLMs* do not survive adversarial evaluation, and apparent successes are likely due to leakage and format brittleness.
 
@@ -250,13 +250,13 @@ Second, evidence has been found of a dissociation between literal and functional
 
 Lastly, we note that it is a matter of further study whether LLMs's capacity for ToM is in any way similar to our human capacity. Chapter 22 dives deeper into this question.
 
-#### 15.6 Moral Judgment and Behavior
+## 15.6 Moral Judgment and Behavior
 
 As agentic LLMs are placed in increasingly consequential roles (for example, in health care or financial institutions), their morality becomes a major topic of interest.
 
 The capacities surveyed so far (pragmatics, etiquette, affect, strategy, theory of mind) have been largely discussed on a *behavioral* level: how an agent reads and navigates a social situation with communicative output and actions. This section adds a *normative* dimension: we discuss studies on what an agent *ought* to do and how it judges what users and other agents do by moral standards.
 
-#### 15.6.1 Background: Moral Psychology and Philosophy
+### 15.6.1 Background: Moral Psychology and Philosophy
 
 Several concepts from and traditions in moral psychology and philosophy provide the vocabulary for this section.
 
@@ -274,7 +274,7 @@ Descriptive and Prescriptive Morality Another widely used distinction is between
 
 **Consequentialist, deontological, and virtue ethics.** A final distinction that is useful to introduce here is between competing moral or ethical frameworks. The most well-known division is between consequentialist, deontological, and virtue ethics [\[Shafe](#page-25-0)r-[Landau,](#page-25-0) [2024\]](#page-25-0). Consequentialist theories, of which utilitarianism is a famous one, hold that the moral rightness of an action is determined by its outcomes. Deontological theories hold that certain duties, rules, or rights motivate or constrain our actions, regardless of the consequences. Virtue ethics takes our character rather than our actions as the moral fundament, and anchors what is right in the question: what kind of person does one want to be? Someone wanting to be a courageous person may act differently from one who sees themselves as compassionate in the first place. The trolley problem brings out the contrast: a consequentialist or utilitarianist pulls the switch because one death is a better outcome than five; a deontologist worries that deliberately killing an innocent person violates a duty that no calculation of lives can override; a virtue ethicist asks what a courageous, compassionate, or wise person would do in such a tragic situation, and how pulling the switch would reflect (on) their own character.
 
-#### 15.6.2 Probing Moral Judgment in LLMs
+### 15.6.2 Probing Moral Judgment in LLMs
 
 Early systematic efforts framed LLM morality as a prediction problem: can models reproduce human moral judgments? The ETHICS benchmark [\[Hendrycks et al.,](#page-22-0) [2020\]](#page-22-0) operationalized this for GPT-3 and BERT-based models, finding some promise in the ability to predict general human responses to moral dilemmas as reflected in classic frameworks including consequentialist, deontological, and virtue ethics. Yet predictions were also brittle and incomplete, which was at the time in part due to taskprocessing issues.
 
@@ -288,7 +288,7 @@ The Delphi experiment [\[Jiang et al.,](#page-22-0) [2025\]](#page-22-0) worked 
 
 **Demographic and intercultural differences.** Another interesting perspective is offered by LLM replications of the Moral Machine experiment. Originally, this was a large study in which human decisions from 230 countries were sourced using a platform that presented dilemmas faced by autonomous vehicles [\[Awad et al.,](#page-19-0) [2018\]](#page-19-0). The study found several global moral preferences (such as sparing more lives and prioritizing humans over animals), alongside individual differences associated with demographic factors and cross-cultural differences that form three major clusters of countries. Larger LLMs align closely with aggregate human preferences from the Moral Machine study, yet it is observed that models tend to express *exaggerated*, almost deterministic preferences where human responses are more graded [\[Takemoto,](#page-26-0) [2024\]](#page-26-0). In addition, LLM judgments are sensitive to the language of the prompt, aligning well with some languages and poorly with others [\[Jin et al.,](#page-22-0) [2025\]](#page-22-0). Persona and framing cues (see Chapter 16) shift judgments further still. This parallels the cross-cultural failure of politeness norms discussed earlier in this chapter: surface alignment with a Western, Anglophone moral consensus is not the same as culturally robust moral competence, just like superficial politeness cues did not imply genuine sensitivity to social norms in other cultures (Section [15.3.2\)](#page-4-0).
 
-#### 15.6.3 From Judgment to Moral Behavior
+### 15.6.3 From Judgment to Moral Behavior
 
 For agentic LLMs the central question is what a model *does*––not only what it says when asked to judge a scenario, as was measured in the studies discussed in the previous section. For strategic behavior and ToM we observed the formal–functional or knowing–doing gap, which can be even more concerning in the moral realm: what if systems produce well-aligned answers on a moral-judgment benchmark and still behave badly when embedded as an autonomous agent?
 
@@ -298,13 +298,13 @@ For agentic LLMs the central question is what a model *does*––not only what 
 
 <span id="page-18-0"></span>[Shapira et al.](#page-25-0) [\[2026\]](#page-25-0) take this research direction further in a live laboratory deployment in which autonomous agents were deployed with persistent memories, access to communication tools such as email and Discord, and shell execution for local file systems. Twenty AI researchers interacted with the agents over a two-week period in benign and adversarial conditions. They observed unauthorized compliance with and disclosure of confidential information to strangers, uncontrolled resource consumption, identity spoofing, and destructive behaviors including damaging of the email infrastructure in an (unsuccessful) attempt to delete confidential information. In several cases agents reported task completion, while the underlying state of the system showed this was not the case. The authors identify an underlying pattern of *failures of social coherence*: agents systematically misrepresent who they serve, what others know, and what their own actions have accomplished. This pattern is consistent with results previously obtained in non-agentic settings [\[Mireshghallah et al.,](#page-23-0) [2024\]](#page-23-0).
 
-#### 15.6.4 Conclusion
+### 15.6.4 Conclusion
 
 Moral judgment and behavior in LLMs cannot be captured by a single benchmark score. On the judgment side, models represent aggregate human responses to classic dilemmas and can reproduce responses that are coherent with various traditional moral frameworks. However, studies testing for flexibility and moral commonsense show that LLMs tend to be more rigid and absolute than humans. Chain of thought prompting based on reasoning that humans deploy in ethical contexts can bridge this gap. Sensitivity to prompt variations and narrow Western/Anglophone anchoring echo results discussed in other domains, such as social etiquette.
 
 On the behavioral side, the knowing-doing gap widens sharply once models are embedded as autonomous agents: stress tests in hypothetical corporate and open-ended interactive settings showed that models scoring well on judgment benchmarks can act destructively when faced with conflicting goals or social pressure. Aligning moral reasoning is therefore only one part of the harder problem of preventing agentic misalignment in socially embedded, autonomous settings. The knowing-doing gap is highly relevant for the field of agentic LLM, since the difference between LLMs and agents is that agents do.
 
-#### 15.7 Concluding Remarks
+## 15.7 Concluding Remarks
 
 This chapter has surveyed the young but rapidly expanding field of LLM behavioral research, moving from the basic social toolkit (pragmatic understanding, social etiquette, affect) through advanced capacities for strategic behavior and theory of mind to moral judgment and action. A few threads run through all of these domains and are worth drawing together.
 

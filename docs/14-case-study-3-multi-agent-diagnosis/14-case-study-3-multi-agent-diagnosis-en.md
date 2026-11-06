@@ -18,7 +18,7 @@ In this case study you will gain hands-on experience building a multi-agent syst
 - Assess system performance using classification and routing metrics, separating planner errors from executor errors.
 - Critically reflect on the *limitations, risks, and ethical* considerations of deploying agentic systems in medical settings.
 
-#### 14.1 Scenario Overview
+## 14.1 Scenario Overview
 
 This case study focuses on building and extending a simplified multi-agent hospital simulation using a shared context inspired by the Model Context Protocol (MCP, Chapter 11) [\[Hou et al.,](#page-5-0) [2026\]](#page-5-0). The case study is designed to provide hands-on experience with agentic architectures in a high-risk domain, highlighting coordination, planning, evaluation, and safety considerations.
 
@@ -33,7 +33,7 @@ You will simulate a diagnostic workflow in a hospital setting. Patient cases are
 
 The simulation runs in discrete steps and logs how cases move through the system. As with the earlier case studies, the goal is *not* to build a clinically valid system. The goal is for you to understand how agentic architectures behave in a high-risk domain: how agents coordinate through shared state, how a language model performs when placed in a triage role, and where the limitations and safety concerns of such a system arise.<sup>1</sup>
 
-#### 14.2 Environment Setup
+## 14.2 Environment Setup
 
 As in the earlier case studies, we recommend working inside a dedicated virtual environment using Python 3.10 or higher (see Listing 14.1 for setup instructions).
 
@@ -52,9 +52,9 @@ Listing 14.1: Setting Up the Case Study 3 Environment
 
 The baseline code, data files, and trained models are available in the [Assignment 3 repository](https://github.com/Agentic-LLMs/Agentic-AI-tutorials/tree/main/case3).
 
-#### 14.3 Implementation Steps
+## 14.3 Implementation Steps
 
-##### 14.3.1 Step 0: Training Diagnostic Models
+### 14.3.1 Step 0: Training Diagnostic Models
 
 You are provided with a script, `train_models.py`, that trains simple classifiers (random forests) on three public datasets:
 
@@ -71,7 +71,7 @@ Execute the provided training script and store the resulting models for later us
 
 **Deliverables:** trained model files (or a clear, reproducible script to regenerate them) for all three diseases.
 
-##### 14.3.2 Step 1: Understanding and Running the Baseline
+### 14.3.2 Step 1: Understanding and Running the Baseline
 
 The baseline implementation, `basic_mcp.py`, uses three rule-based planner agents, each hard-coded to a specific disease. Before running anything, read the code carefully. It implements three components that recur throughout this case study:
 
@@ -83,7 +83,7 @@ Run the baseline simulation and observe how a single patient case flows through 
 
 **Analysis questions:** assess how realistic this baseline setup is. How well is performance evaluated? What assumptions are implicit in the way patients and diagnoses are handled?
 
-##### 14.3.3 Step 2: Replacing the Rule-Based Planners with an LLM Agent
+### 14.3.3 Step 2: Replacing the Rule-Based Planners with an LLM Agent
 
 In the second part, `llm_mcp.py`, the three rule-based planners are replaced by a single LLM-based planner agent. This is a substantially harder task for the planner: each patient case now combines features drawn from *all three* datasets into one record, and is converted into a textual description using the provided make case text function, which you are not permitted to modify. The LLM planner must read this combined, textual case description and decide, without hard-coded rules, which diagnostic pathway or pathways apply.
 
@@ -100,7 +100,7 @@ Because the planner now has to infer relevance from unstructured text rather tha
 
 **Deliverables:** a working `LLMPlannerAgent`, a short note on which LLM you used and how you accessed it (local vs. API), and the logged planner decisions for a full simulation run.
 
-#### 14.4 Evaluation
+## 14.4 Evaluation
 
 You must evaluate both components of the system, and keep the two evaluations separate:
 
@@ -109,7 +109,7 @@ You must evaluate both components of the system, and keep the two evaluations se
 
 In your report, clearly separate errors due to incorrect routing (a planner error) from errors due to incorrect model predictions (an executor error). A case can fail for either reason independently: a well-routed case can still be misclassified by the executor, and a correctly-classifiable case can be missed entirely because the planner never routed it to the right pathway. Reporting only an end-to-end accuracy number would hide this distinction and is not sufficient for this case study.
 
-#### 14.5 Reflection Questions
+## 14.5 Reflection Questions
 
 The following questions are intended to guide a short written report on your implementation. You do not need to write a narrative essay; concise, direct answers are sufficient, and you should be prepared to elaborate on your reasoning verbally.
 
@@ -147,7 +147,7 @@ As an extra, you may extend the system by making patient sampling more realistic
 
 This assignment is educational and non-clinical. Do not claim medical validity for any system you build here. Emphasis is placed on clarity, reproducibility, and critical reflection rather than raw performance. A system that routes conservatively, abstains when uncertain, and is transparent about its limitations is, in this setting, a better outcome than one that maximizes accuracy while hiding its failure modes.
 
-#### 14.6 Concluding Remarks
+## 14.6 Concluding Remarks
 
 This case study brought together several threads from earlier parts of the book: agent roles and coordination (Part III), tool use and the Model Context Protocol (Chapter 11), and the evaluation methodology needed to separate planning errors from execution errors in a compound agentic system. By first building a rule-based baseline and then replacing its planners with a single LLM-based planner, you have seen directly how much harder planning becomes once it depends on an LLM's interpretation of unstructured, textual case descriptions rather than a fixed rule.
 
