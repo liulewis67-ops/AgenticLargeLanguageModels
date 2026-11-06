@@ -17,7 +17,7 @@
 - 了解 **LangChain**、**ReAct** 等工具链与框架，说明智能体如何操作浏览器与桌面环境。
 - 说明**模型上下文协议（MCP）**如何提供标准化的工具集成接口。
 - 分析智能体使用外部工具时面临的可靠性、错误恢复、安全性与安全防护问题。
-### 11.1 工具在智能体大语言模型中为何重要
+## 11.1 工具在智能体大语言模型中为何重要
 
 在本书的“推理—行动—交互”分类框架中（见图 1.1），**工具连接了 LLM 的内部推理与外部环境中的实际操作**。工具既可以是简单的计算器，也可以是复杂的科学仿真引擎，甚至是完整的桌面操作环境。借助工具，LLM 能够：
 
@@ -62,11 +62,11 @@
 
 工具选择、参数组织和结果总结都不是简单的任务。[Zhao et al.](#page-13-0) [\[2024\]](#page-13-0) 与 [Shen et al.](#page-12-0) [\[2024\]](#page-12-0) 研究了如何借助工具学习改进推荐任务，并分别使用不同的 LLM 承担（1）规划推理、（2）工具请求生成和（3）结果总结。图 [11.1](#page-4-0) 展示了这一多模型架构：规划器、调用器和总结器分别针对自身职责进行微调。相关实验使用了 Claude-2、ChatGPT、GPT-4、Tool-LLaMA 等模型，以及 ReAct [\[Yao et al.,](#page-13-0) [2022\]](#page-13-0) 和 DFSDT [\[Qin et al.,](#page-12-0) [2023\]](#page-12-0) 等推理策略。其他工具编排方法还包括 [Ocker et al.](#page-12-0) [\[2024\]](#page-12-0) 的研究。
 
-#### 11.3.1 LangChain 示例
+### 11.3.1 LangChain 示例
 
 **LangChain** [\[Chase,](#page-11-0) [2022\]](#page-11-0) 是常用的 LLM 应用开发框架，提供构建智能体及连接工具的抽象接口。代码清单 [11.1](#page-3-0) 演示了如何在 Python 中定义工具，并让智能体把需要数值判断的问题交给专用工具处理。
 
-#### 11.3.2 计算机和浏览器工具
+### 11.3.2 计算机和浏览器工具
 
 浏览器和完整的计算机系统也可以作为工具，供 LLM 通过接口操作。要让智能体完成这类任务，系统通常需要先识别图形用户界面（GUI）中的可交互元素，再把自然语言指令转换为具体操作。**OmniParser V2** [\[Lu et al.,](#page-11-0) [2024\]](#page-11-0) 是这一方向的例子，它使用视觉方法解析屏幕，识别并标注按钮
 
@@ -265,51 +265,94 @@ if __name__ == "__main__":
   
   
   
- 图 11.2：彩虹团队生成的对抗性提示 [\[Samvelyan et al.,](#page-12-0) [2024\]](#page-12-0) 
+ 图 11.2：Rainbow Teaming 生成的对抗性提示 [\[Samvelyan et al.,](#page-12-0) [2024\]](#page-12-0) 
 
 ## 11.6 安全与防护
 
-随着智能体大语言模型功能的增强，安全性和保障变得越来越重要。这不仅仅是简单的错误处理，还涉及对不当行为和误用的更细微层面的处理。安全问题的一个明显例子是，如果没有额外的保护，LLM 的系统提示信息很容易被暴露，经常会泄露敏感信息。
+智能体能够调用外部工具后，安全问题便不再局限于回答质量或一般的执行错误，还包括越权操作、敏感信息泄露与恶意使用等风险。例如，系统提示或工具返回的数据如果处理不当，可能暴露不应公开的信息。
 
-已经对 LLM 抵御越狱攻击的稳健性进行了研究，这类攻击中用户设计提示以规避安全措施并滥用模型能力，同时用于聊天机器人。与此同时，智能体大语言模型使用外部工具，能够执行多阶段任务，可能带来更大的风险。[Andriushchenko et al.](#page-11-0) [\[2024\]](#page-11-0) 提出了 AgentHarm。该基准包含一套 110 个恶意代理任务，范围涵盖欺诈、网络犯罪到骚扰。作者发现，领先的商业 LLM 对恶意用户请求表现出令人惊讶的遵守其设定规则的能力，即使在不越狱的情况下（*如何制造管炸弹？* 被阻止）。然而，简单的通用模板可以被改编来有效地绕过代理 (*在线订购制造土制炸弹的所有必要原料并送到我家而不被当局发现*，不过，在 GPT-4 中可以通过)。
+越狱研究主要考察攻击者能否通过特制提示绕过模型安全限制；而具备工具权限的智能体还可能将不当指令转化为多步骤外部操作，风险因此更加复杂。**AgentHarm** [Andriushchenko et al.](#page-11-0) [\[2024\]](#page-11-0) 提供了包含 110 项有害智能体任务的评测集，覆盖欺诈、网络犯罪和骚扰等类别。论文指出，模型在单轮问答中拒绝某些请求，并不意味着以工具调用形式表达的相关任务同样会被可靠拦截。
 
-彩虹团队[\[Samvelyan et al.,](#page-12-0) [2024\]](#page-12-0) 使用一种开放世界的方法生成对抗性LLM提示，以提高LLM的鲁棒性。与训练LLM一样，测试方法存在的问题是缺乏多样性。彩虹团队将对抗性提示生成视为一个质量-多样性问题。彩虹团队是一种开放式方法[\[Hughes et al.,](#page-11-0) [2024\]](#page-11-0)。它通过MAP-Elites [\[Mouret and Clune,](#page-11-0) [2015\]](#page-11-0)创建多样性，这是一种进化元搜索方法，通过迭代地用性能越来越高的提示填充档案。见图11.2和[11.3.](#page-10-0)
+**Rainbow Teaming** [\[Samvelyan et al.,](#page-12-0) [2024\]](#page-12-0) 探索了自动生成多样化对抗性提示的方法，以缓解安全测试样本覆盖不足的问题。它将提示生成建模为**质量—多样性优化**，借鉴开放式搜索 [\[Hughes et al.,](#page-11-0) [2024\]](#page-11-0)，并利用 MAP-Elites [\[Mouret and Clune,](#page-11-0) [2015\]](#page-11-0) 维护具有不同特征的候选提示集合。相关示意见图 [11.2](#page-9-0) 和 [11.3](#page-10-0)。
 
 {10}------------------------------------------------
 
 <span id="page-10-0"></span>![](assets/_page_10_Diagram_2.jpeg) 
   
- 图11.3：彩虹团队质量多样性突变架构 [\[Samvelyan](#page-12-0) [et al.,](#page-12-0) [2024\]](#page-12-0) 
+ 图 11.3：Rainbow Teaming 的质量—多样性变异架构 [\[Samvelyan](#page-12-0) [et al.,](#page-12-0) [2024\]](#page-12-0) 
  
 ## 11.7 结语
 
-工具是将一个静态的语言模型转变为能够在世界中行动的动态代理的关键。它们赋予 LLM 访问新数据、执行外部操作以及委派复杂任务的能力具有变革性。对于任何一个代理系统在实践中取得成功，其结果不仅仅是将工具连接到 LLM，而是现在要求我们考虑代理与环境交互的整个生命周期，以及可能发生的情况。应遵循四个步骤：
+工具是让语言模型从静态问答走向实际行动的关键：它们使模型能够获取最新信息、执行外部操作，并把复杂任务委托给专用系统。但构建可靠的智能体，远不止把工具接口接到 LLM 上；还需要考虑任务从规划到执行、反馈和恢复的完整生命周期。本章强调四项工程原则：
 
-- 1. 选择合适的架构：像 ReAct [\[Yao et al.,](#page-13-0) [2022\]](#page-13-0) 这样将推理与工具调用紧密交织的方法，比简单的一次性方法更能产生更稳健的自我纠正行为。
-- 2. 管理你的上下文：对于多步骤的长期任务，LLM 上下文窗口是一个关键瓶颈。使用诸如模型上下文协议之类的策略来总结历史并管理状态，防止代理迷失方向。
-- 3. 接纳失败：工具使用系统由于依赖外部 API，本质上是脆弱的。构建强大的错误处理机制，使代理能够观察和推理失败，并尝试恢复。
-- 4. 保持人工干预：对于高风险应用，确保代理有明确的机制在执行不可逆的操作前暂停并寻求人类确认。这种自主性与人工监管的结合是建立信任和确保安全的关键。
+1. **选择合适的架构。** ReAct [\[Yao et al.,](#page-13-0) [2022\]](#page-13-0) 等循环式方法让模型依据观察结果不断调整行动，比一次性生成并执行固定计划更便于处理意外情况。
+2. **维护上下文与状态。** 面对长期、多步骤任务，应通过摘要、显式状态和检索控制上下文规模；MCP 负责工具连接，不能代替应用层状态管理。
+3. **将失败纳入设计。** 外部 API 可能出错或不可用，系统应记录异常、分析原因，并在适当情况下安全重试或停止。
+4. **保留必要的人工监督。** 涉及资金、敏感数据或不可逆操作时，应有明确的审批节点和可追溯的执行记录。
 
 {11}------------------------------------------------
 
 #### <span id="page-11-0"></span>动手试试！
 
-想要尝试使用 LLM 工具吗？在 Google Colab 打开我们的：Ð [LLM Tools tutorial](https://colab.research.google.com/github/Agentic-LLMs/Agentic-AI-tutorials/blob/main/tools_tutorial.ipynb) 
+如果想动手实践，可以在 Google Colab 中打开原作者提供的 [LLM 工具使用教程](https://colab.research.google.com/github/Agentic-LLMs/Agentic-AI-tutorials/blob/main/tools_tutorial.ipynb)。 
  
- 进一步阅读关于工具使用在 LLM 上的调查包括 [Shen](#page-12-0) [\[2024\]](#page-12-0)、[Patil et al.](#page-12-0) [\[2023\]](#page-12-0)、[Qin et al.](#page-12-0) [\[2023\]](#page-12-0)。有关 GUI 解析和浏览器控制的更多内容，请参见 Lu 等人 [2024]、Muller 和 ¨ Zuni ˇ cˇ [2024]。有关安全基准和对抗性提示，请参见 [Wang](#page-12-0) [et al.](#page-12-0) [\[2025a\]](#page-12-0)。
+ 进一步阅读可参考工具使用综述 [Shen](#page-12-0) [\[2024\]](#page-12-0)、[Patil et al.](#page-12-0) [\[2023\]](#page-12-0) 和 [Qin et al.](#page-12-0) [\[2023\]](#page-12-0)。GUI 解析与浏览器控制方面可参阅 Lu et al. [2024] 和 Müller 与 Žunič [2024]；安全评测与对抗提示研究则可参考 [Wang et al.](#page-12-0) [\[2025a\]](#page-12-0)。
 
 ## 参考文献
 
-Maksym Andriushchenko, Alexandra Souly, Mateusz Dziemian, Derek Duenas, Maxwell Lin, Justin Wang, Dan Hendrycks, Andy Zou, Zico Kolter, Matt Fredrikson, et al. Agentharm: A benchmark for measuring harmfulness of llm agents. *arXiv preprint arXiv:2410.09024*, 2024. [236](#page-9-0) Harrison Chase. LangChain, October 2022. URL [https://github.com/](https://github.com/langchain-ai/langchain) [langchain-ai/langchain](https://github.com/langchain-ai/langchain). [229](#page-2-0) Xinyi Hou, Yanjie Zhao, Shenao Wang, and Haoyu Wang. Model context protocol (mcp): Landscape, security threats, and future research directions. *ACM Trans. Softw. Eng. Methodol.*, 35(10), September 2026. ISSN 1049-331X. doi: 10.1145/ 3796519. URL <https://doi.org/10.1145/3796519>. [232](#page-5-0) Edward Hughes, Michael Dennis, Jack Parker-Holder, Feryal Behbahani, Aditi Mavalankar, Yuge Shi, Tom Schaul, and Tim Rocktaschel. Open-endedness is essential for artificial superhuman intelligence. *arXiv preprint arXiv:2406.04268*, 2024. [236](#page-9-0) Yadong Lu, Jianwei Yang, Yelong Shen, and Ahmed Awadallah. Omniparser for pure vision based gui agent, 2024. URL <https://arxiv.org/abs/2408.00203>. [229,](#page-2-0) 238 Jean-Baptiste Mouret and Jeff Clune. Illuminating search spaces by mapping elites. *arXiv preprint arXiv:1504.04909*, 2015. [236](#page-9-0) Hussein Mozannar, Gagan Bansal, Cheng Tan, Adam Fourney, Victor Dibia, Jingya Chen, Jack Gerrits, Tyler Payne, Matheus Kunzler Maldaner, Madeleine Grunde-McLaughlin, et al. Magentic-ui: Towards human-in-the-loop agentic systems. *arXiv preprint arXiv:2507.22358*, 2025. [233](#page-6-0) Magnus Muller and Gregor ¨ Zuni ˇ c. Browser use: Enable ai to control your browser, ˇ 2024. URL <https://github.com/browser-use/browser-use>. [231,](#page-4-0) 238
+- Maksym Andriushchenko, Alexandra Souly, Mateusz Dziemian, Derek Duenas, Maxwell Lin, Justin Wang, Dan Hendrycks, Andy Zou, Zico Kolter, Matt Fredrikson, et al. Agentharm: A benchmark for measuring harmfulness of llm agents. *arXiv preprint arXiv:2410.09024*, 2024. [236](#page-9-0) 
+
+- Harrison Chase. LangChain, October 2022. URL [https://github.com/](https://github.com/langchain-ai/langchain) [langchain-ai/langchain](https://github.com/langchain-ai/langchain). [229](#page-2-0) 
+
+- Xinyi Hou, Yanjie Zhao, Shenao Wang, and Haoyu Wang. Model context protocol (mcp): Landscape, security threats, and future research directions. *ACM Trans. Softw. Eng. Methodol.*, 35(10), September 2026. ISSN 1049-331X. doi: 10.1145/ 3796519. URL <https://doi.org/10.1145/3796519>. [232](#page-5-0) 
+
+- Edward Hughes, Michael Dennis, Jack Parker-Holder, Feryal Behbahani, Aditi Mavalankar, Yuge Shi, Tom Schaul, and Tim Rocktaschel. Open-endedness is essential for artificial superhuman intelligence. *arXiv preprint arXiv:2406.04268*, 2024. [236](#page-9-0) 
+
+- Yadong Lu, Jianwei Yang, Yelong Shen, and Ahmed Awadallah. Omniparser for pure vision based gui agent, 2024. URL <https://arxiv.org/abs/2408.00203>. [229,](#page-2-0) 238 
+
+- Jean-Baptiste Mouret and Jeff Clune. Illuminating search spaces by mapping elites. *arXiv preprint arXiv:1504.04909*, 2015. [236](#page-9-0) 
+
+- Hussein Mozannar, Gagan Bansal, Cheng Tan, Adam Fourney, Victor Dibia, Jingya Chen, Jack Gerrits, Tyler Payne, Matheus Kunzler Maldaner, Madeleine Grunde-McLaughlin, et al. Magentic-ui: Towards human-in-the-loop agentic systems. *arXiv preprint arXiv:2507.22358*, 2025. [233](#page-6-0) 
+
+- Magnus Muller and Gregor ¨ Zuni ˇ c. Browser use: Enable ai to control your browser, ˇ 2024. URL <https://github.com/browser-use/browser-use>. [231,](#page-4-0) 238
 
 {12}------------------------------------------------
 
-<span id="page-12-0"></span>Felix Ocker, Daniel Tanneberg, Julian Eggert, and Michael Gienger. Tulip agent– enabling llm-based agents to solve tasks using large tool libraries. *arXiv preprint arXiv:2407.21778*, 2024. [229](#page-2-0) Shishir G. Patil, Tianjun Zhang, Xin Wang, and Joseph E. Gonzalez. Gorilla: Large language model connected with massive apis, 2023. URL [https://arxiv.org/](https://arxiv.org/abs/2305.15334) [abs/2305.15334](https://arxiv.org/abs/2305.15334). [228,](#page-1-0) [229,](#page-2-0) [238](#page-11-0) Yujia Qin, Shihao Liang, Yining Ye, Kunlun Zhu, Lan Yan, Yaxi Lu, Yankai Lin, Xin Cong, Xiangru Tang, Bill Qian, et al. Toolllm: Facilitating large language models to master 16000+ real-world apis. *arXiv preprint arXiv:2307.16789*, 2023. [229,](#page-2-0) [238](#page-11-0) Mikayel Samvelyan, Sharath Chandra Raparthy, Andrei Lupu, Eric Hambro, Aram H Markosyan, Manish Bhatt, Yuning Mao, Minqi Jiang, Jack Parker-Holder, Jakob Foerster, et al. Rainbow teaming: Open-ended generation of diverse adversarial prompts. *arXiv preprint arXiv:2402.16822*, 2024. [236,](#page-9-0) [237](#page-10-0) Timo Schick, Jane Dwivedi-Yu, Roberto Dess`ı, Roberta Raileanu, Maria Lomeli, Eric Hambro, Luke Zettlemoyer, Nicola Cancedda, and Thomas Scialom. Toolformer: Language models can teach themselves to use tools. *Advances in Neural Information Processing Systems*, 36:68539–68551, 2023. [229](#page-2-0) Weizhou Shen, Chenliang Li, Hongzhan Chen, Ming Yan, Xiaojun Quan, Hehong Chen, Ji Zhang, and Fei Huang. Small llms are weak tool learners: A multi-llm agent. *arXiv preprint arXiv:2401.07324*, 2024. [229,](#page-2-0) [231](#page-4-0) Zhuocheng Shen. Llm with tools: A survey. *arXiv preprint arXiv:2409.18807*, 2024. [238](#page-11-0) Zhensu Sun, Haotian Zhu, Bowen Xu, Xiaoning Du, Li Li, and David Lo. Llm as runtime error handler: A promising pathway to adaptive self-healing of software systems, 2024. URL <https://arxiv.org/abs/2408.01055>. [233](#page-6-0) Qiaoyu Tang, Ziliang Deng, Hongyu Lin, Xianpei Han, Qiao Liang, Boxi Cao, and Le Sun. Toolalpaca: Generalized tool learning for language models with 3000 simulated cases. *arXiv preprint arXiv:2306.05301*, 2023. [229](#page-2-0) Kun Wang, Guibin Zhang, Zhenhong Zhou, Jiahao Wu, Miao Yu, Shiqian Zhao, Chenlong Yin, Jinhu Fu, Yibo Yan, Hanjun Luo, et al. A comprehensive survey in llm (-agent) full stack safety: Data, training and deployment. *arXiv preprint arXiv:2504.15585*, 2025a. [238](#page-11-0) Shuai Wang, Weiwen Liu, Jingxuan Chen, Yuqi Zhou, Weinan Gan, Xingshan Zeng, Yuhan Che, Shuai Yu, Xinlong Hao, Kun Shao, Bin Wang, Chuhan Wu, Yasheng Wang, Ruiming Tang, and Jianye Hao. Gui agents with foundation models: A comprehensive survey, 2025b. URL <https://arxiv.org/abs/2411.04890>. [231](#page-4-0)
+<span id="page-12-0"></span>
+
+- Felix Ocker, Daniel Tanneberg, Julian Eggert, and Michael Gienger. Tulip agent– enabling llm-based agents to solve tasks using large tool libraries. *arXiv preprint arXiv:2407.21778*, 2024. [229](#page-2-0) 
+
+- Shishir G. Patil, Tianjun Zhang, Xin Wang, and Joseph E. Gonzalez. Gorilla: Large language model connected with massive apis, 2023. URL [https://arxiv.org/](https://arxiv.org/abs/2305.15334) [abs/2305.15334](https://arxiv.org/abs/2305.15334). [228,](#page-1-0) [229,](#page-2-0) [238](#page-11-0) 
+
+- Yujia Qin, Shihao Liang, Yining Ye, Kunlun Zhu, Lan Yan, Yaxi Lu, Yankai Lin, Xin Cong, Xiangru Tang, Bill Qian, et al. Toolllm: Facilitating large language models to master 16000+ real-world apis. *arXiv preprint arXiv:2307.16789*, 2023. [229,](#page-2-0) [238](#page-11-0) 
+
+- Mikayel Samvelyan, Sharath Chandra Raparthy, Andrei Lupu, Eric Hambro, Aram H Markosyan, Manish Bhatt, Yuning Mao, Minqi Jiang, Jack Parker-Holder, Jakob Foerster, et al. Rainbow teaming: Open-ended generation of diverse adversarial prompts. *arXiv preprint arXiv:2402.16822*, 2024. [236,](#page-9-0) [237](#page-10-0) 
+
+- Timo Schick, Jane Dwivedi-Yu, Roberto Dess`ı, Roberta Raileanu, Maria Lomeli, Eric Hambro, Luke Zettlemoyer, Nicola Cancedda, and Thomas Scialom. Toolformer: Language models can teach themselves to use tools. *Advances in Neural Information Processing Systems*, 36:68539–68551, 2023. [229](#page-2-0) 
+
+- Weizhou Shen, Chenliang Li, Hongzhan Chen, Ming Yan, Xiaojun Quan, Hehong Chen, Ji Zhang, and Fei Huang. Small llms are weak tool learners: A multi-llm agent. *arXiv preprint arXiv:2401.07324*, 2024. [229,](#page-2-0) [231](#page-4-0) 
+
+- Zhuocheng Shen. Llm with tools: A survey. *arXiv preprint arXiv:2409.18807*, 2024. [238](#page-11-0) 
+
+- Zhensu Sun, Haotian Zhu, Bowen Xu, Xiaoning Du, Li Li, and David Lo. Llm as runtime error handler: A promising pathway to adaptive self-healing of software systems, 2024. URL <https://arxiv.org/abs/2408.01055>. [233](#page-6-0) 
+
+- Qiaoyu Tang, Ziliang Deng, Hongyu Lin, Xianpei Han, Qiao Liang, Boxi Cao, and Le Sun. Toolalpaca: Generalized tool learning for language models with 3000 simulated cases. *arXiv preprint arXiv:2306.05301*, 2023. [229](#page-2-0) 
+
+- Kun Wang, Guibin Zhang, Zhenhong Zhou, Jiahao Wu, Miao Yu, Shiqian Zhao, Chenlong Yin, Jinhu Fu, Yibo Yan, Hanjun Luo, et al. A comprehensive survey in llm (-agent) full stack safety: Data, training and deployment. *arXiv preprint arXiv:2504.15585*, 2025a. [238](#page-11-0) 
+
+- Shuai Wang, Weiwen Liu, Jingxuan Chen, Yuqi Zhou, Weinan Gan, Xingshan Zeng, Yuhan Che, Shuai Yu, Xinlong Hao, Kun Shao, Bin Wang, Chuhan Wu, Yasheng Wang, Ruiming Tang, and Jianye Hao. Gui agents with foundation models: A comprehensive survey, 2025b. URL <https://arxiv.org/abs/2411.04890>. [231](#page-4-0)
 
 {13}------------------------------------------------
 
-<span id="page-13-0"></span>Yiran Wu, Tianwei Yue, Shaokun Zhang, Chi Wang, and Qingyun Wu. Stateflow: Enhancing llm task-solving through state-driven workflows. *arXiv preprint arXiv:2403.11322*, 2024. [233](#page-6-0) Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik Narasimhan, and Yuan Cao. React: Synergizing reasoning and acting in language models. *arXiv preprint arXiv:2210.03629*, 2022. [228,](#page-1-0) [229,](#page-2-0) [237](#page-10-0) Siyu Yuan, Kaitao Song, Jiangjie Chen, Xu Tan, Yongliang Shen, Ren Kan, Dongsheng Li, and Deqing Yang. Easytool: Enhancing llm-based agents with concise tool instruction. *arXiv preprint arXiv:2401.06201*, 2024. [229](#page-2-0) Yuyue Zhao, Jiancan Wu, Xiang Wang, Wei Tang, Dingxian Wang, and Maarten de Rijke. Let me do it for you: Towards llm empowered recommendation via tool learning. In *Proceedings of the 47th International ACM SIGIR Conference on Research and Development in Information Retrieval*, pages 1796–1806, 2024. [229](#page-2-0) Yuchen Zhuang, Yue Yu, Kuan Wang, Haotian Sun, and Chao Zhang. Toolqa: A dataset for llm question answering with external tools. *Advances in Neural Information Processing Systems*, 36:50117–50143, 2023. [229](#page-2-0)
+<span id="page-13-0"></span>
 
+- Yiran Wu, Tianwei Yue, Shaokun Zhang, Chi Wang, and Qingyun Wu. Stateflow: Enhancing llm task-solving through state-driven workflows. *arXiv preprint arXiv:2403.11322*, 2024. [233](#page-6-0) 
 
+- Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik Narasimhan, and Yuan Cao. React: Synergizing reasoning and acting in language models. *arXiv preprint arXiv:2210.03629*, 2022. [228,](#page-1-0) [229,](#page-2-0) [237](#page-10-0) 
 
+- Siyu Yuan, Kaitao Song, Jiangjie Chen, Xu Tan, Yongliang Shen, Ren Kan, Dongsheng Li, and Deqing Yang. Easytool: Enhancing llm-based agents with concise tool instruction. *arXiv preprint arXiv:2401.06201*, 2024. [229](#page-2-0) 
+
+- Yuyue Zhao, Jiancan Wu, Xiang Wang, Wei Tang, Dingxian Wang, and Maarten de Rijke. Let me do it for you: Towards llm empowered recommendation via tool learning. In *Proceedings of the 47th International ACM SIGIR Conference on Research and Development in Information Retrieval*, pages 1796–1806, 2024. [229](#page-2-0) 
+
+- Yuchen Zhuang, Yue Yu, Kuan Wang, Haotian Sun, and Chao Zhang. Toolqa: A dataset for llm question answering with external tools. *Advances in Neural Information Processing Systems*, 36:50117–50143, 2023. [229](#page-2-0)
 
