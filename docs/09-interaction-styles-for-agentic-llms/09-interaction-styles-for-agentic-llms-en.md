@@ -14,11 +14,11 @@ This chapter introduces agentic interaction styles and memory. By the end, you w
 - Describe five interaction styles for agentic LLMs.
 - Explain why agents need memory and identify several memory architectures.
 
-# 9.1 Agents in AI
+## 9.1 Agents in AI
 
 Agents are a central concept in artificial intelligence. We begin with a brief overview of the main perspectives on AI agents.
 
-## 9.1.1 Agents Act and Adapt in Their Environment
+### 9.1.1 Agents Act and Adapt in Their Environment
 
 In AI, an entity that acts in the world is called an *agent*. The concept is an attempt to understand intelligence by building systems that perform some of the activities associated with human beings.
 
@@ -56,7 +56,7 @@ Swarm agents draw on the connectionist tradition of embodied AI [Brooks, 1990](#
 
 Multi-agent systems and agentic LLMs can support all three perspectives: agents as tools, agents as cognitive entities, and agents as a way to study social behavior. Part IV of this book focuses on agents as tools; Part V focuses on cognition and agent societies.
 
-## 9.1.2 Agentic LLMs as Reinforcement-Learning Agents
+### 9.1.2 Agentic LLMs as Reinforcement-Learning Agents
 
 AI has a long tradition of studying how intelligent agents behave and learn from their environments. Reinforcement learning studies how agents learn from feedback [Sutton and Barto, 2018](#page-15-0); multi-agent reinforcement learning extends this perspective to interacting agents [Wong et al., 2021](#page-15-0).
 
@@ -101,7 +101,7 @@ The reinforcement-learning loop gives a useful model of agents that learn from e
 
 The LLM can also be part of the environment: it can calculate a state's reward, \(\mathrm{LLM}_R(s)\), or predict the next state, \(\mathrm{LLM}_T(s,a)\). In Figure 9.3, one LLM fills three roles—policy, transition function, and reward function—using a different prompt for each. For example, Tree of Thoughts can use an LLM to evaluate a state. The reinforcement-learning framework provides a common language for comparing these agentic styles.
 
-# 9.2 Learning Mechanisms in Agentic LLMs
+## 9.2 Learning Mechanisms in Agentic LLMs
 
 Agentic LLM research is relatively new, and the preceding chapters have introduced several ways to use LLMs in agentic systems. Here, we organize those approaches by prompting and training method.
 
@@ -109,7 +109,7 @@ We distinguish five interaction styles. Table 9.1 summarizes how the harness pro
 
 The table's first column names each style, from a simple query to reinforcement fine-tuning. The second describes the prompting method, from a static instruction to a dynamic RL prompt. The third describes whether the LLM is pretrained or fine-tuned. The last column gives examples from the literature.
 
-## 9.2.1 Agentic Interaction Styles
+### 9.2.1 Agentic Interaction Styles
 
 We now examine the five styles. In the first three, the user supplies a static prompt that does not change during the interaction.
 
@@ -189,7 +189,7 @@ Styles D and E require care to achieve stable convergence. At the time of writin
 
 {9}------------------------------------------------
 
-# 9.3 Memory Architectures for Agentic LLMs
+## 9.3 Memory Architectures for Agentic LLMs
 
 Humans and other living beings use memory to maintain identity, remember relationships, learn from experience, and adapt behavior. Memory loss can change a person's behavior and, in severe cases, undermine their sense of identity.
 
@@ -229,7 +229,7 @@ Traditional machine learning often trains a model on one dataset for one task. H
 
 Continual-learning research offers architectures that support this kind of training.
 
-## 9.3.2 Memory Architectures
+### 9.3.2 Memory Architectures
 
 Research on memory architectures for LLM agents is still young. The following sections describe several approaches.
 
@@ -281,7 +281,7 @@ The next chapter turns from theory to a practical case study and applies some of
 
 {13}------------------------------------------------
 
-# <span id="page-13-0"></span>Bibliography
+## <span id="page-13-0"></span>Bibliography
 Rodney A Brooks. Elephants don't play chess. *Robotics and autonomous systems*, 6 (1-2):3–15, 1990. [195](#page-2-0) Tom Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared D Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, et al. Language models are few-shot learners. *Advances in neural information processing systems*, 33:1877–1901, 2020. [197,](#page-4-0) [198](#page-5-0) Prateek Chhikara, Dev Khant, Saket Aryan, Taranjeet Singh, and Deshraj Yadav. Mem0: Building production-ready ai agents with scalable long-term memory. *arXiv preprint arXiv:2504.19413*, 2025. [204](#page-11-0) Marco Dorigo, Mauro Birattari, and Thomas Stutzle. Ant colony optimization. *IEEE computational intelligence magazine*, 1(4):28–39, 2007. [195](#page-2-0) Ali Dorri, Salil S Kanhere, and Raja Jurdak. Multi-agent systems: A survey. *Ieee Access*, 6:28573–28593, 2018. [194](#page-1-0) Michael Georgeff, Barney Pell, Martha Pollack, Milind Tambe, and Michael Wooldridge. The belief-desire-intention model of agency. In *International workshop on agent theories, architectures, and languages*, pages 1–10. Springer, 1998. [194](#page-1-0) Brian R Johnson and Timothy A Linksvayer. Deconstructing the superorganism: social physiology, groundplans, and sociogenomics. *The Quarterly Review of Biology*, 85 (1):57–79, 2010. [195](#page-2-0) Takeshi Kojima, Shixiang Shane Gu, Machel Reid, Yutaka Matsuo, and Yusuke Iwasawa. Large language models are zero-shot reasoners. *Advances in neural information processing systems*, 35:22199–22213, 2022. [197,](#page-4-0) [199](#page-6-0) Nathan Lambert, Jacob Morrison, Valentina Pyatkin, Shengyi Huang, Hamish Ivison, Faeze Brahman, Lester James V Miranda, Alisa Liu, Nouha Dziri, Shane Lyu, et al. Tulu 3: Pushing frontiers in open language model post-training. *arXiv preprint arXiv:2411.15124*, 2024. [197](#page-4-0) Brian Lester, Rami Al-Rfou, and Noah Constant. The power of scale for parameterefficient prompt tuning. In *Proceedings of the 2021 conference on empirical methods in natural language processing*, pages 3045–3059, 2021. [204](#page-11-0) Liunian Harold Li, Jack Hessel, Youngjae Yu, Xiang Ren, Kai-Wei Chang, and Yejin Choi. Symbolic chain-of-thought distillation: Small models can also "think" stepby-step. In Anna Rogers, Jordan Boyd-Graber, and Naoaki Okazaki, editors, *Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)*, pages 2665–2679, Toronto, Canada, July 2023. Association for Computational Linguistics. doi: 10.18653/v1/2023.acl-long.150. URL <https://aclanthology.org/2023.acl-long.150/>. [199](#page-6-0)
 
 {14}------------------------------------------------
