@@ -224,9 +224,13 @@ Roles and interaction protocols provide crucial scaffolding where internal coord
 
 This chapter moved from LLM agents facing one another in strategic games, through role-based collaboration patterns and the multiple setups that coordinate them in practice, to a critical assessment of when multi-agent systems work or fail.
 
-In Chapter 15, we saw that single models often coordinate poorly: even when they can predict a partner’s behavior in principle, they may fail to act on that prediction as agents. Both patterns also appear in multi-agent settings. Across benchmarks and platforms (e.g. [\[Xu et al.,](#page-16-0) [2024,](#page-16-0) Agashe et al., 2025]), {13}------------------------------------------------
+In Chapter 15, we saw that single models often coordinate poorly: even when they can predict a partner’s behavior in principle, they may fail to act on that prediction as agents. Both patterns also appear in multi-agent settings. Across benchmarks and platforms, studies illustrate this coordination gap (e.g. [Xu et al., 2024](#page-16-0); [Agashe et al., 2025](#page-13-0)).
 
-<span id="page-13-0"></span>interacting LLM agents could reason about self-interest, yet failed to coordinate their behavior such that they could turn this reasoning into a strategic advantage. A central issue is whether agents can condition their behavior on their partners’ perspectives, a challenge foreshadowed by the gap between knowing and doing in theory-of-mind tasks discussed in Section 15.5. This resonates with work that systematically identifies inter-agent misalignment as a dominant failure category for multi-agent systems [\[Cemri et al.,](#page-14-0) [2025\]](#page-14-0).
+{13}------------------------------------------------
+
+<span id="page-13-0"></span>
+
+Interacting LLM agents could reason about self-interest, yet failed to coordinate their behavior well enough to turn this reasoning into a strategic advantage. A central issue is whether agents can condition their behavior on their partners’ perspectives, a challenge foreshadowed by the gap between knowing and doing in theory-of-mind tasks discussed in Section 15.5. This resonates with work that systematically identifies inter-agent misalignment as a dominant failure category for multi-agent systems [\[Cemri et al.,](#page-14-0) [2025\]](#page-14-0).
 
 This literal-functional problem, once again, links to construct validity: just as acing a theory of mind test does not establish a human-grade capacity for social reasoning, a multi-agent setup outperforming a single LLM query does not establish collective intelligence. Strong baselines, matched inference budgets, and ablations of the collaborative structure and interaction protocols would be the multi-agent equivalents of the perturbed ToM testing discussed in Section 15.5. More research is needed in the multi-agent field to establish a solid empirical picture of where agentic LLM interaction stands.
 
