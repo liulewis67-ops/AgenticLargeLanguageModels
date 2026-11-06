@@ -10,15 +10,15 @@
 
 本章介绍智能体交互风格与智能体记忆。学完后，你将能够：
 
-- 识别人工智能中三种历史上的智能体类型，并说明它们与当代智能体 LLM 的联系。
-- 描述智能体 LLM 的五种交互风格。
+- 识别人工智能中三种历史上的智能体类型，并说明它们与当代智能体大语言模型 的联系。
+- 描述智能体大语言模型 的五种交互风格。
 - 解释智能体为何需要记忆，并辨识几类智能体记忆架构。
 
-# 9.1 人工智能中的智能体
+## 9.1 人工智能中的智能体
 
 智能体是人工智能领域的核心概念。本节先简要回顾人工智能研究中的几种智能体观点。
 
-## 9.1.1 智能体在环境中行动并适应环境
+### 9.1.1 智能体在环境中行动并适应环境
 
 在人工智能中，能够在现实或模拟世界中行动的实体称为*智能体*。研究者试图通过构建能够执行人类某些活动的系统，来理解智能的本质。
 
@@ -54,13 +54,13 @@ BDI 智能体源于逻辑推理传统。它们被赋予目标，并通过行动�
 
 群体智能体承袭了具身人工智能中的连接主义传统 [Brooks，1990](#page-13-0)。研究者关注智能体之间的通信如何产生合作等大规模行为模式。蚁群优化是著名的群体算法 [Dorigo 等，2007](#page-13-0)，NetLogo 则是用于研究这类行为的软件环境 [Wilensky 和 Rand，2015](#page-15-0)。<sup>1</sup>
 
-多智能体系统和智能体 LLM 都可以用于研究上述三种方向：把智能体当作工具、把智能体视为认知实体，以及借助智能体研究社会行为。全书第四部分聚焦作为工具的智能体，第五部分聚焦认知和智能体社会。
+多智能体系统和智能体大语言模型 都可以用于研究上述三种方向：把智能体当作工具、把智能体视为认知实体，以及借助智能体研究社会行为。全书第四部分聚焦作为工具的智能体，第五部分聚焦认知和智能体社会。
 
-## 9.1.2 将智能体 LLM 视为强化学习智能体
+### 9.1.2 将智能体 LLM 视为强化学习智能体
 
 人工智能长期以来都在研究智能体如何行动，以及如何从环境中学习。强化学习研究智能体如何从反馈中学习 [Sutton 和 Barto，2018](#page-15-0)；多智能体强化学习则将这一视角扩展到相互作用的多个智能体 [Wong 等，2021](#page-15-0)。
 
-下一节将介绍智能体 LLM 的五种交互风格。在此之前，我们先借助强化学习概念描述与世界交互的智能体。
+下一节将介绍智能体大语言模型 的五种交互风格。在此之前，我们先借助强化学习概念描述与世界交互的智能体。
 
 图 [9.1](#page-3-0) 展示了由智能体和环境组成的强化学习系统。智能体采取行动，环境则返回新的状态，以及表示该状态优劣的奖励。
 
@@ -80,7 +80,7 @@ BDI 智能体源于逻辑推理传统。它们被赋予目标，并通过行动�
 
 *图 9.2：由 LLM 参数化智能体策略 \(\pi_{\mathrm{LLM}_\pi}\) 的强化学习系统。该策略使用环境反馈 \(r\) 来选择行动 \(a\)。*
 
-强化学习循环为理解智能体如何从环境反馈中学习提供了一个有用模型。从这个角度看，LLM 可以被视为将提示映射为答案的函数。它既可以在智能体一侧发挥作用，例如根据奖励反馈 *r* 为状态 *s* 选择行动 *a*，充当策略改进器；也可以在环境一侧发挥作用。上下文强化学习会用 LLM 改进策略，思维树则可以用 LLM 生成并评估候选行动。
+强化学习循环为理解智能体如何从环境反馈中学习提供了一个有用模型。从这个角度看，LLM 可以视为将提示映射为输出的函数。模型既可以在智能体一侧发挥作用，例如根据奖励反馈 *r* 为状态 *s* 选择行动 *a*，充当策略改进器；也可以在环境一侧发挥作用。上下文强化学习会用 LLM 改进策略，思维树则可以用 LLM 生成并评估候选行动。
 
 ![](assets/_page_3_Diagram_8.jpeg)
 
@@ -101,15 +101,15 @@ BDI 智能体源于逻辑推理传统。它们被赋予目标，并通过行动�
 
 LLM 也可以置于环境一侧，用来计算状态奖励 \(\mathrm{LLM}_R(s)\)，或预测下一状态 \(\mathrm{LLM}_T(s,a)\)。图 9.3 中，同一个 LLM 通过不同提示承担策略、状态转移和奖励函数三种角色。例如，思维树可以调用 LLM 评估某个状态。强化学习框架为比较不同智能体风格提供了统一的描述方式。
 
-# 9.2 智能体 LLM 中的学习机制
+## 9.2 智能体 LLM 中的学习机制
 
-智能体 LLM 是一个较新的研究领域，前面几章介绍了多种在智能体场景中使用 LLM 的方法。本节根据提示方式和训练方式梳理这些方法。
+智能体大语言模型 是一个较新的研究领域，前面几章介绍了多种在智能体场景中使用 LLM 的方法。本节根据提示方式和训练方式梳理这些方法。
 
 我们将其归纳为五种交互风格。表 9.1 概括了每种风格在推理时如何由执行框架提示 LLM、模型经过何种训练，以及有哪些代表性实例。不同风格都可以在适合的领域中构建实用助手或交互伙伴；更复杂的风格则旨在提升模型处理困难任务的能力。
 
 表格第一列列出交互风格，从简单查询到强化微调；第二列说明提示方式，从静态指令到动态强化学习提示；第三列说明 LLM 是否经过预训练或微调；最后一列列出文献中的实例。
 
-## 9.2.1 智能体交互风格
+### 9.2.1 智能体交互风格
 
 下面逐一介绍这五种风格。前三种使用静态提示，由用户提供，交互过程中不会改变。
 
@@ -189,27 +189,27 @@ LLM 的开发通常包括三个阶段：预训练、微调和测试（推理）�
 
 {9}------------------------------------------------
 
-# 9.3 智能体 LLM 的记忆架构
+## 9.3 智能体 LLM 的记忆架构
 
 人类和其他生物都依赖记忆维持身份、记住关系、从经验中学习并调整行为。记忆丧失可能改变一个人的行为，严重时还会损害其身份认同。
 
-智能体同样需要记忆。本节将说明智能体 LLM 系统为何需要记忆，并概述几类记忆架构。
+智能体同样需要记忆。本节将说明智能体大语言模型 系统为何需要记忆，并概述几类记忆架构。
 
 ### 9.3.1 为什么需要记忆
 
 统计模型 \(f(x)\to\hat y\) 根据训练期间学到的关系 \(f\)，由输入 \(x\) 估计输出 \(\hat y\)。这种输入—输出函数本身不会保留训练后出现的新信息；新信息必须通过输入 \(x\) 提供。因此，早期聊天机器人会使用隐藏的*系统提示*加入对话历史，帮助模型维持连贯对话。
 
-随着智能体 LLM 的应用增多，仅靠系统提示已不足以满足需求。以下场景说明了记忆的作用。
+随着智能体大语言模型 的应用增多，仅靠系统提示已不足以满足需求。以下场景说明了记忆的作用。
 
 #### 9.3.1.1 连贯对话
 
 许多 LLM 基准采用“提问—回答”形式，适合将输入映射到输出的统计模型。但在实际应用中，人们通常希望聊天机器人能够进行有意义的交流。为了保持对话连贯，机器人必须跟踪用户和助手之前说过的内容。
 
-因此，智能体 LLM 的首要记忆需求，是能够访问相关对话历史。
+因此，智能体大语言模型 的首要记忆需求，是能够访问相关对话历史。
 
 #### 9.3.1.2 适应
 
-根据第 1 章的定义，智能体 LLM 应具备学习能力。如果机器人正在切洋葱，而刀的位置发生了变化，它就应先找到刀，再继续切菜。智能体会与环境交互；环境发生变化时，智能体也应作出调整。
+根据第 1 章的定义，智能体大语言模型 应具备学习能力。如果机器人正在切洋葱，而刀的位置发生了变化，它就应先找到刀，再继续切菜。智能体会与环境交互；环境发生变化时，智能体也应作出调整。
 
 智能体可以依靠泛化能力很强的预训练策略，也可以通过灵活的架构识别何时需要适应、微调甚至重新训练。记忆能够支持这一过程。
 
@@ -229,9 +229,9 @@ LLM 的开发通常包括三个阶段：预训练、微调和测试（推理）�
 
 持续学习领域提出了多种支持此类训练的架构。
 
-## 9.3.2 记忆架构
+### 9.3.2 记忆架构
 
-面向 LLM 智能体的记忆架构仍是一个较新的研究领域。以下小节介绍其中几类方法。
+面向 LLM 智能体的记忆架构仍在快速发展。以下介绍几类代表性方法。
 
 #### 9.3.2.1 微调
 
@@ -281,7 +281,7 @@ AgeMem 将记忆管理操作整合进智能体策略，并进行端到端优化�
 
 {13}------------------------------------------------
 
-# <span id="page-13-0"></span>Bibliography
+## <span id="page-13-0"></span>参考文献
 Rodney A Brooks. Elephants don't play chess. *Robotics and autonomous systems*, 6 (1-2):3–15, 1990. [195](#page-2-0) Tom Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared D Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, et al. Language models are few-shot learners. *Advances in neural information processing systems*, 33:1877–1901, 2020. [197,](#page-4-0) [198](#page-5-0) Prateek Chhikara, Dev Khant, Saket Aryan, Taranjeet Singh, and Deshraj Yadav. Mem0: Building production-ready ai agents with scalable long-term memory. *arXiv preprint arXiv:2504.19413*, 2025. [204](#page-11-0) Marco Dorigo, Mauro Birattari, and Thomas Stutzle. Ant colony optimization. *IEEE computational intelligence magazine*, 1(4):28–39, 2007. [195](#page-2-0) Ali Dorri, Salil S Kanhere, and Raja Jurdak. Multi-agent systems: A survey. *Ieee Access*, 6:28573–28593, 2018. [194](#page-1-0) Michael Georgeff, Barney Pell, Martha Pollack, Milind Tambe, and Michael Wooldridge. The belief-desire-intention model of agency. In *International workshop on agent theories, architectures, and languages*, pages 1–10. Springer, 1998. [194](#page-1-0) Brian R Johnson and Timothy A Linksvayer. Deconstructing the superorganism: social physiology, groundplans, and sociogenomics. *The Quarterly Review of Biology*, 85 (1):57–79, 2010. [195](#page-2-0) Takeshi Kojima, Shixiang Shane Gu, Machel Reid, Yutaka Matsuo, and Yusuke Iwasawa. Large language models are zero-shot reasoners. *Advances in neural information processing systems*, 35:22199–22213, 2022. [197,](#page-4-0) [199](#page-6-0) Nathan Lambert, Jacob Morrison, Valentina Pyatkin, Shengyi Huang, Hamish Ivison, Faeze Brahman, Lester James V Miranda, Alisa Liu, Nouha Dziri, Shane Lyu, et al. Tulu 3: Pushing frontiers in open language model post-training. *arXiv preprint arXiv:2411.15124*, 2024. [197](#page-4-0) Brian Lester, Rami Al-Rfou, and Noah Constant. The power of scale for parameterefficient prompt tuning. In *Proceedings of the 2021 conference on empirical methods in natural language processing*, pages 3045–3059, 2021. [204](#page-11-0) Liunian Harold Li, Jack Hessel, Youngjae Yu, Xiang Ren, Kai-Wei Chang, and Yejin Choi. Symbolic chain-of-thought distillation: Small models can also "think" stepby-step. In Anna Rogers, Jordan Boyd-Graber, and Naoaki Okazaki, editors, *Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)*, pages 2665–2679, Toronto, Canada, July 2023. Association for Computational Linguistics. doi: 10.18653/v1/2023.acl-long.150. URL <https://aclanthology.org/2023.acl-long.150/>. [199](#page-6-0)
 
 {14}------------------------------------------------
