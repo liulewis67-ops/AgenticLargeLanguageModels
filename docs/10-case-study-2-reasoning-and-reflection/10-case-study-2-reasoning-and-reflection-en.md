@@ -48,7 +48,7 @@ The games range from easy to difficult: BabyAI, Crafter, TextWorld, Baba Is AI, 
 
 BALROG challenges in-context agents with games that require reasoning, planning, and long sequences of actions. Figure 10.1 summarizes the skills and difficulty represented across its six environments.
 
-#### 10.1.1 Puzzles and Games
+### 10.1.1 Puzzles and Games
 
 BALROG consists of the six puzzles and games shown in Figure 10.1. The games run from easy grid world puzzles to hard text-based dungeon and dragons strategy games, with long credit assignment episodes and flat reward landscapes.
 
@@ -89,7 +89,7 @@ export GEMINI_API_KEY=<KEY>
 ```
 
 *Listing 10.1: Setting API keys in the environment.*
-#### 10.1.3 Agent
+### 10.1.3 Agent
 
 Please read the [BALROG agent tutorial](https://github.com/balrog-ai/BALROG/blob/main/docs/agents.md). In BALROG, agents are small pieces of Python code that call an LLM with a prompt to provide an answer how to determine the next step. The agent code is responsible for receiving answers from the model (observations) and for selecting the next action. The LLM is used to execute various prompts.
 
@@ -128,23 +128,23 @@ python eval.py \
 
 We will now provide some exercises to help you explore building your agents.
 
-#### 10.2.1 Reproduce Paper
+### 10.2.1 Reproduce Paper
 
 We start by trying to reproduce the results in the BALROG paper. Please have a look at the BALROG code at Github <https://github.com/balrog-ai/BALROG>. Read the Evaluation Guide, the Agent Development tutorial, and the instructions how to run Few Shot Learning experiments (in-context learning). Install the relevant tools on your computer, and the right Python version (and put it in your PATH). Check the version by starting the Python interpreter from the command prompt: \$ python.
 
 First, run the standard evaluation, to make sure you installed things correctly, see Listing 10.2.
 
-#### 10.2.2 Different LLMs
+### 10.2.2 Different LLMs
 
 Compare the standard agent across benchmarks using several models, including hosted and open-weight options such as models from OpenAI, Anthropic, DeepSeek, OLMo, and Qwen. Especially the open version from OpenAI, Claude, DeepSeek, OLMo and Qwen may work well.
 
 Running these models is important, and will lead to more insight into the relative strengths of the various models.
 
-#### 10.2.3 Different Puzzles
+### 10.2.3 Different Puzzles
 
 Next, to get a better understanding of the benchmark, you should, after running the LLM agent in the different puzzle problems, have a closer look at the prompts and the answers of LLM. See if you can see where the LLM agent fails, where the weakness of the agent lies. By close inspection of the individual actions, and a deeper understanding of the puzzle, you might be able to think of a way to improve your agent.
 
-#### 10.2.4 Computational Cost
+### 10.2.4 Computational Cost
 
 BALROG agents call an LLM for each step that the agent makes, often with a long prompt. In these puzzles and games many such steps are made. Running different 
 
@@ -154,7 +154,7 @@ LLMs on the full benchmark, for different seeds, will easily require many tokens
 
 In your experiments, first try a small and cheap LLM, such as Qwen-3B. Start with the easiest benchmarks (BabyAI and Crafter). If you wish to expand, please go ahead, but be mindful of the computational cost. You want insights, but you also want your experiments to finish in a reasonable time for a reasonable cost.
 
-#### 10.2.5 Implement Own Reasoning Agent
+### 10.2.5 Implement Own Reasoning Agent
 
 Now it is time to implement your own learning agent. Go to the agents directory in balrog, and edit the custom.py file. Listing [10.3](#page-6-0) reproduces the code for Custom Agent from the BALROG documentation. The code can be run with the command in Listing [10.4](#page-7-0) (specifying the custom agent, and running with fewer workers). Of course, you can specify your own LLM of choice in the command.
 
