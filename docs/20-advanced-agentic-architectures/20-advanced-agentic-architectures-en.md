@@ -6,7 +6,7 @@
 
 ## Chapter 20
 
-# \*Advanced Transformer and Agentic Architectures
+# Advanced Transformer and Agentic Architectures
 
 #### What You Will Learn
 
@@ -27,7 +27,7 @@ The success of large language models has opened new avenues for research on Tran
 
 <span id="page-1-0"></span>directly at the level of the embeddings.
 
-#### 20.1.1 Transformers are Turing-complete
+### 20.1.1 Transformers are Turing-complete
 
 The difficulty LLMs have in managing state at inference time suggests that they may be limited in the computations they can perform. In theoretical computer science, *Turing-completeness* describes whether a computational system can simulate a universal model of computation, including one that manages state. Alan Turing introduced this idea in a landmark 1936 paper [\[Turing,](#page-10-0) [1936\]](#page-10-0). A Turing-complete system can simulate any other computational device and execute any algorithmically specified computation, given sufficient time and memory. Most general-purpose programming languages are Turing-complete.<sup>1</sup>
 
@@ -37,7 +37,7 @@ This is an encouraging result: it suggests there is no fundamental barrier preve
 
 Theoretical possibility does not guarantee that a capability will be easy or efficient to achieve. Architectural extensions, for example, may make effective state management easier. The next section discusses methods designed to help Transformers solve decision-making and planning problems efficiently.
 
-## 20.1.2 Pretraining on Decision Traces and Backtracking
+### 20.1.2 Pretraining on Decision Traces and Backtracking
 
 The finding that Transformers are Turing-complete has encouraged research on planning and decision-making. This section describes studies that pretrain Transformer architectures on decision traces. The models discussed here are not trained on natural language and are therefore distinct from LLMs.
 
@@ -61,7 +61,7 @@ These results are promising, but it remains unclear how far they address Transfo
 
 {3}------------------------------------------------
 
-## <span id="page-3-0"></span>20.1.3 Looped LLMs and Recursive Multi-Agent Systems
+### <span id="page-3-0"></span>20.1.3 Looped LLMs and Recursive Multi-Agent Systems
 
 Increasing the expressive power of Transformers brings them closer to general-purpose computing architectures. This section covers two developments: looped language models and recursive systems.
 
@@ -77,7 +77,7 @@ RecursiveMAS introduces a two-level recursive link. Training a multi-agent syste
 
 Research on agentic LLMs has also produced new agent architectures. First, we examine in-context reinforcement learning, in which an LLM can improve its policy when its prompt includes a history of state–action–reward triples. Next, we consider the benefits and drawbacks of self-modifying agents. Finally, we discuss meta-agents.
 
-## 20.2.1 In-Context Reinforcement Learning
+### 20.2.1 In-Context Reinforcement Learning
 
 Recall from Section 2.2.3 that reinforcement learning seeks a policy that selects an optimal action for each state [\[Sutton and Barto,](#page-10-0) [2018\]](#page-10-0). As the agent
 
@@ -113,7 +113,7 @@ How does ICRL work inside an LLM? At inference time, the model computes tokens t
 
 An LLM can serve as the agent and policy optimizer, and another can simulate the environment and generate the next state and reward. Using separate models helps prevent the agent from gaining unintended access to the environment's information. This remains an active area of research.
 
-## 20.2.2 Self-Modifying Hyperagents
+### 20.2.2 Self-Modifying Hyperagents
 
 This book has discussed self-reflective prompt improvers based on search algorithms and reinforcement learning. Human researchers write the code for these external algorithms, and it does not change while the agent learns. As a result, prompt improvement is constrained by the capabilities of the fixed algorithms.
 
