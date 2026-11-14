@@ -124,11 +124,15 @@ $$
 
 > **编者公式与操纵检查（非原文）：**公式 (18.1) 没有单独定义 $V$ 如何由**正／负／中性效价**映射为数值，也未说明“负面记忆乘以 1.5”的操作在归一化前还是归一化后发生。由于所有 $\alpha_i=1$，**1.5 不是 $\alpha_{\mathrm{val}}$ 的取值**，而应在 $V$ 的构造规则中另行明示。实现时需固定正、负记忆的符号和权重映射、分数尺度、截断及同分处理规则；用受控记忆样例先验证负面记忆确实更容易被检索，再讨论下游行为变化。未核对项目代码前，不应擅自把示意公式改成另一种确定形式。
 
+> **编者源码歧义消解（非原文；依据 `fvdveen/generative_agents@64259883`）：**已定位 `simulation_server/agent/retrieve.go`，其中效价分数依次经过**绝对值 → 候选记忆内 min–max 归一化到 [0,1] → 对原始负效价按 `NegativityBias` 倍率放大 → 再乘 `ValenceWeight`**。公开的 Dolores 与 Maeve 初始设置均为 `valence_w=0`、`negativity_bias=1.0`、`asymetric_encoding=false`；仅将偏向倍率改为 1.5、却不启用效价权重，并不会改变总检索得分。两人的 `learned` 描述和日程也并非完全一致；课程实验还**同时**操纵负效价检索与非对称编码，不能凭单次结果分辨两者的独立效应。这里仅完成**源码静态核验，尚未运行社会模拟或证明因果效应**。详见[专项审计](https://github.com/liulewis67-ops/AgenticLargeLanguageModels/blob/main/reports/source-code-audit-2026-11-14-ch14-ch18.md)。
+
 ### 18.3.5 设置与安装
 
 克隆仓库，并按照其中 README 的说明操作：
 
 <https://github.com/DorotaMoravcikova/generative_agents/tree/course-exercises>
+
+> **编者失效链接校勘（非原文）：**核查时上方原书引用的 `course-exercises` 分支在对应仓库中已不存在。实际[课程指南](https://github.com/DorotaMoravcikova/agentic-llm-course-excercises/blob/main/course/COURSE_GUIDE.md)指向可用的仿真代码仓库 [fvdveen/generative_agents](https://github.com/fvdveen/generative_agents)。为保留原书出处，上方历史链接未删除；安装运行应以课程指南为准。
 
 > **编者实验设计审校（非原文）：**建议预先定义**2×2 因子设计**：人格提示（基线／变体）× 记忆检索（标准／负面偏向），保持模型快照、温度、角色初始状态、地图、任务及调用预算一致。每种条件运行多个**独立初始化的完整模拟**，同一种子可以成对比较但不能把同一模拟的上千条对话当作上千次独立试验。分别报告规范形成、冲突频率和社交网络变化等预先确定指标的**效果量与不确定性区间**，并检验两因素交互作用。
 

@@ -33,11 +33,12 @@ pnpm docs:preview
 
 ## 学术审校与质量审计
 
-双语结构审计现已覆盖**第 2–23 章**，包含四批可追踪的学术校勘、实验设计和证据等级。阅读[第 2–7 章审计](reports/academic-audit-2026-11-14.md)、[第 8–13 章审计](reports/academic-audit-2026-11-14-ch08-ch13.md)、[第 14–18 章审计](reports/academic-audit-2026-11-14-ch14-ch18.md)、[第 19–23 章审计](reports/academic-audit-2026-11-14-ch19-ch23.md)，以及[多智能体实验审计协议](reports/multi-agent-experiment-audit-protocol.md)。
+双语结构审计现已覆盖**第 2–23 章**，包含四批可追踪的学术校勘、实验设计和证据等级。阅读[第 2–7 章审计](reports/academic-audit-2026-11-14.md)、[第 8–13 章审计](reports/academic-audit-2026-11-14-ch08-ch13.md)、[第 14–18 章审计](reports/academic-audit-2026-11-14-ch14-ch18.md)、[第 19–23 章审计](reports/academic-audit-2026-11-14-ch19-ch23.md)，以及[多智能体实验审计协议](reports/multi-agent-experiment-audit-protocol.md)。新增[第 14/18 章上游源码、引文真实性与可复现性专项审计](reports/source-code-audit-2026-11-14-ch14-ch18.md)，其中明确区分“静态源码核验”“数值边界自检”“原 PDF 视觉核验”“真实实验复现”的完成程度。
 
 ```sh
 pnpm docs:audit-structure      # CI 检查第 2–23 章
 pnpm docs:audit-structure-all  # 手动扫描全部编号章节
+pnpm docs:audit-formula       # 第 18/21 章编者数学边界自检；非原模型复现
 ```
 
 **注意：**结构检查通过不表示已与原始 PDF 完成逐页对照。对于尚未核查的学术结论、数学公式和实验数据，请继续以原始论文为准。

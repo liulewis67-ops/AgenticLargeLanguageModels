@@ -38,5 +38,8 @@ jobs:
       - name: Audit bilingual academic chapter structure (02-23)
         run: pnpm docs:audit-structure
 
+      - name: Verify editorial formula arithmetic (not experimental replication)
+        run: pnpm docs:audit-formula
+
       - name: Build and validate the site
         run: pnpm docs:build && pnpm docs:check-dist
