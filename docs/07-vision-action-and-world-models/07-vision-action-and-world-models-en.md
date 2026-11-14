@@ -338,7 +338,9 @@ Figure 7.23: In model-based reinforcement learning, environment feedback improve
 
 #### 7.3.5.2 Model-Based Reinforcement Learning
 
-Direct reinforcement learning does not retain sampled experience; each policy update requires new interaction. But interacting with the real world—for example, a robot whose joints wear out—can be expensive. A straightforward improvement is to store past samples and reuse them. A more advanced approach also learns a local model $\hat{M}=(\hat{T},\hat{R})$ of the environment dynamics. Once learned, this model can generate additional simulated samples at lower cost (Figure 7.23).
+Model-free reinforcement learning does **not explicitly learn an environment transition model for planning**, but many off-policy model-free algorithms can still store and reuse experience through **experience replay**. Real-world interaction can be costly, as with a robot whose joints wear out. **Model-based reinforcement learning** additionally learns a local dynamics model $\hat{M}=(\hat{T},\hat{R})$ and uses it to simulate possible futures or generate samples for planning and policy improvement (Figure 7.23).
+
+> **Editorial correction (not in the source):** The source conflates **whether an algorithm learns an environment model** with **whether it stores or reuses experience**. Model-free approaches can also use experience replay.
 
 These are indirect methods: the agent learns a local dynamics model from the environment, then uses that model to improve its policy. The model’s estimates $\hat{T}$ and $\hat{R}$ approximate the true transition and reward functions $T$ and $R$, which are only directly known to the environment. Model-based reinforcement learning has been successful in tasks such as Go [Silver et al. (2016)], Diplomacy [Bakhtin et al. (2022)], and StarCraft [Vinyals et al. (2019)], and in learning across domains [Hafner et al. (2020b)](#page-26-0).
 
