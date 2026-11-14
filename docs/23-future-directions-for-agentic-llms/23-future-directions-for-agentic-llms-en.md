@@ -10,29 +10,29 @@
 
 # Future Directions for Agentic LLMs
 
-As we reach the end of this book, we provide a concise overview of the material we have discussed. First, we look back at how agentic LLMs are built. Then we summarize their applications and behavior in single-agent and multi-agent settings. Finally, in Section [23.2](#page-1-0), we examine the limitations of current approaches and what the future may bring.
+As this book concludes, we revisit agentic LLMs from three connected perspectives: technology, applications, and observed behavior. We then examine limitations in memory, scale, interpretability, safety, and high-stakes applications (Section [23.2](#page-1-0)), before drawing together the themes of reasoning, acting, and interacting.
 
 ## 23.1 The State of Agentic LLMs
 
 As discussed in Parts I, II, and III, the foundations of agentic LLMs lie in language modeling, reasoning, tool use, and different degrees of autonomy.
 
-#### 23.1.1 Technology
+### 23.1.1 Technology
 
-Agentic LLMs are reasoning models that act in the world and adapt their behavior based on feedback. After pretraining and fine-tuning (Chapter 3), they may access external information at inference time through retrieval-augmented generation (RAG; Chapter 12). They may also prompt themselves to verify results, enabling self-reflection and in-context reinforcement learning (Chapter 6). Agentic LLMs are increasingly multimodal, operating across language, vision, and action (Chapter 7). To support these capabilities, they can be equipped with pretrained world models that provide a rudimentary understanding of the physical world. Interactions with the environment may then improve these world models at test time.
+Agentic LLM systems combine reasoning with the ability to act through tools, observe feedback, and revise subsequent steps. After pretraining and fine-tuning (Chapter 3), they may access external information at inference time through retrieval-augmented generation (RAG; Chapter 12). They may use self-reflection and verification strategies during inference (Chapter 6). In-context adaptation should be distinguished from updating the underlying model weights during training. Agentic LLMs are increasingly multimodal, operating across language, vision, and action (Chapter 7). To support these capabilities, they can be equipped with pretrained world models that provide a rudimentary understanding of the physical world. Interactions with the environment may then improve these world models at test time.
 
 The main machine-learning architecture is the Transformer. Models are pretrained through self-supervision (next-token prediction) and fine-tuned for specific tasks through supervised and reinforcement learning.
 
-In-context chain-of-thought prompting has significantly improved models’ reasoning abilities. Inference-time methods now support fine-tuning (e.g., RLVR and GRPO) and self-reflection (e.g., ReAct and Reflexion; Chapter 6).
+Chain-of-thought prompting and search can improve reasoning on some tasks. RLVR and GRPO are post-training approaches, whereas ReAct and Reflexion are inference-time prompting and agent-control strategies (Chapter 6). These methods should not be treated as interchangeable forms of inference-time training.
 
 {1}------------------------------------------------
 
 <span id="page-1-0"></span>A broad range of prompting styles for agent–environment interaction has also been developed (Chapter 9).
 
-#### 23.1.2 Applications
+### 23.1.2 Applications
 
 Part IV introduced tools that make it easier to build agentic LLMs (Chapter 11). These systems have been designed for many applications. In e-commerce, they can help identify users’ preferences and make recommendations. In medicine, they can read and summarize diagnostic texts. In finance, they can analyze financial reports and advise traders. In science and education, they can support literature research, generate experiment scripts, analyze results, help write papers, and assist with reviewing them (Chapter 13).
 
-#### 23.1.3 Behavior
+### 23.1.3 Behavior
 
 In Part V, we shifted from a technical view of agentic LLMs to studying their behavior in single-agent and multi-agent settings. After introducing basic behavioral features of LLMs, Chapter 15 examined how LLM-driven agents perform on tasks adapted from human behavioral methods and frameworks developed for AI benchmarking. Chapter 16 focused on multi-agent interactions built around predefined roles and protocols. In Chapter 17, the focus shifted to open-ended settings, where researchers studied behavioral structures, norms, and conventions that emerged at the system level from small-scale interactions among agents.
 
@@ -46,15 +46,15 @@ Agentic LLMs build on the capabilities of large language models and have greatly
 
 
 <span id="page-2-0"></span>
-#### 23.2.1 Memory and Self-reflection
+### 23.2.1 Memory and Self-reflection
 
-Language models are functions: the output that they compute is only based on their input—they are memory-less between calls. In order for agents to act naturally in the world, to hold a conversation, to be able to learn from their actions by self-reflection, agents must be able to remember. For us, our identity hinges on our ability to remember. Agents require a form of memory.
+In the usual inference interface, a model call does not automatically preserve state across separate calls. Persistent agent memory is therefore implemented through conversation history, external storage, or another state-management mechanism. In order for agents to act naturally in the world, to hold a conversation, to be able to learn from their actions by self-reflection, agents must be able to remember. Memory is central to human identity, but memory in current agent architectures is primarily an engineering mechanism for retaining and retrieving task-relevant information.
 
 One simple way to provide rudimentary memory is to feed past interactions back into the prompt, an approach used successfully by current chatbots. However, context windows remain limited despite progress in long-context modeling. Agent memory is an active research area, including how LLMs can best compress information and store it in short- or long-term memory.
 
 Agents can access external information through retrieval-augmented generation (RAG), for example from corporate databases. Researchers are also developing agent memory architectures that provide longer-term storage, either as text or as token embeddings in vector databases (Section 9.3).
 
-#### 23.2.2 Scale
+### 23.2.2 Scale
 
 As agents become able to self-reflect and to learn from interactions with their environment, we should discuss the topic of scaling of the underlying language models.
 
@@ -76,7 +76,7 @@ For scaling to work, synthetic training data must be diverse and differ from exi
 
 Another way to improve performance is to develop better training methods. Curriculum learning builds on the observation that learning often improves when a system starts with easy tasks before moving on to harder ones. This applies to both human learning and artificial neural networks. Most domains have hierarchies of related concepts that build on one another; in school, for example, students learn addition before long division or logarithms. Researchers are exploring curriculum methods for both pretraining and post-training [Chen et al., 2025; Elgaar and Amiri, 2026].
 
-#### 23.2.3 Hallucination and Explainability
+### 23.2.3 Hallucination and Explainability
 
 Another limitation is hallucination: models often give plausible-sounding but factually incorrect answers, and their stated reasoning may not be causally responsible for their outputs—a failure of *faithfulness*.
 
@@ -86,7 +86,7 @@ Tools such as sparse autoencoders, neural lenses, and activation patching have b
 
 Another direction is to compare human and Transformer cognitive architectures. Language models appear to produce natural language in ways that resemble humans. Does this reflect similar underlying architectures, coincidence, or some other explanation? Chapter 22 explored this question.
 
-#### 23.2.4 Emotional Behavior and Consciousness
+### 23.2.4 Emotional Behavior and Consciousness
 
 {4}------------------------------------------------
 
@@ -98,13 +98,13 @@ Reports describe emotional relationships between chatbots and people, some of wh
 
 Consciousness is actively debated in AI philosophy. It is generally understood as awareness of oneself and the environment, together with subjective experiences, thoughts, and feelings [Velmans, 2009; Butlin et al., 2023]. But how can it be tested? A pragmatic view holds that behavior and its consequences matter to society, regardless of whether the acting entity is conscious. Bengio and Elmoznino [2025] argue that even the appearance of consciousness in an agent’s actions can have consequences, and that distinguishing conscious from non-conscious entities will become increasingly difficult. They argue that society must decide how to respond to agents acting in domains such as medicine, finance, and science. Credit and liability must be assigned fairly, and society must determine how to handle self-preserving AI systems.
 
-#### 23.2.5 Social Behavior
+### 23.2.5 Social Behavior
 
 We have discussed how LLMs can simulate human reasoning (Chapter 15) and how they can improve simulations of social behavior in multi-agent systems. However, these simulations remain heavily influenced by their prompt scripts. Some studies report realistic social behavior, while others identify substantial limitations.
 
 Studying emergent behavior at scale also poses challenges (Chapter 17). As in any multi-agent simulation, it is difficult to validate how closely the simulated behavior reflects reality, although some studies report impressive results [Park et al., 2024].
 
-#### 23.2.6 Legal and Ethical Aspects
+### 23.2.6 Legal and Ethical Aspects
 
 Assistants’ actions in the real world have real-world consequences. Agentic LLMs therefore raise legal and ethical challenges, especially when imperfect models act. Questions of responsibility and liability should be addressed before deployment—for example, when a financial assistant hallucinates or a self-driving robot makes an incorrect inference.
 
@@ -120,13 +120,13 @@ Another approach is continual adversarial training and automated red-teaming to 
 
 Questions about who is responsible for an agent’s actions remain unresolved. As agents begin to be used in the real world, addressing these issues becomes urgent. Many safety, ethical, and trust concerns must be addressed before the full potential of agentic LLMs can be realized. These topics will remain important research priorities and warrant dedicated surveys and books [Gan et al., 2024; Jiao et al., 2025; Raza et al., 2025].
 
-#### 23.2.7 Crime
+### 23.2.7 Crime
 
 The discussion on ethics and consciousness becomes quite concrete when we consider criminal behavior. Technological developments can be used by people who act within the law, and those who act outside of the law. They can also be used for unethical behavior for which no effective laws yet exist. As agentic LLMs are able to display more and more believable behavior, it will become difficult to distinguish real and artificial behavior. This may lead to dangerous ethical situations, for example when criminals use the technology to influence the behavior of unsuspecting victims.
 
 The boundary between lawful persuasion, exploitation of trust, and fraud can be unclear. Agentic LLMs may make social engineering more sophisticated across social networks, marketing, espionage, and cybercrime [Kshetri, 2025; Lupinacci et al., 2025]. They may also help combat crime [Challita and Parrend, 2025; Andriushchenko et al., 2024], but public awareness may take time to catch up with the risks. People less familiar with social networks and LLMs may be especially vulnerable to confidence tricks and agent-enabled cybercrime.
 
-#### 23.2.8 Limitations of Applications
+### 23.2.8 Limitations of Applications
 
 Agentic LLMs have a wide range of potential applications. Proofs of concept can be impressive at first glance, but closer examination reveals limitations that may be difficult to address and could have serious consequences when these systems are used in the real world.
 
