@@ -59,6 +59,8 @@ Evaluating multi-agent systems inherits every methodological difficulty of evalu
 
 With these caveats in mind, the chapter proceeds to the simplest multi-agent setting: LLM agents facing each other in strategic settings, with no roles assigned beyond the game itself (Section 16.2). Next, we examine what changes when interaction is streamlined by defining coordination protocols and explicit roles (Section [16.3\)](#page-6-0).
 
+> **Editorial causal-identification audit (not in the source):** To attribute gains to **multi-agent role coordination**, rather than to extra inference, compare matched **total token/call budgets** and the same tasks and base model across a single agent, single-agent reflection, equal-budget independent sampling plus aggregation, multi-agent interaction without roles, and explicitly role-based agents. Ablate role prompts, communication protocols, debate rounds, and tool access separately. Use repeated full runs and report effect sizes with uncertainty; without such controls, results describe a system difference, not an identified role-coordination effect.
+
 ## 16.2 Strategic Interaction Among LLM Agents
 
 In Chapter 15 we examined how LLMs behave when prompted to play economic games against a scripted opponent. Here we consider studies in which *LLM agents interact with one another* in game-theoretical scenarios. The agents in this section are symmetric peers: each pursues its own interests and none is assigned a coordinating or supervisory role. We look first at benchmarks that score LLM agents across many games at once, and then at behavior in single, richer simulation platforms built around one scenario.
@@ -168,6 +170,8 @@ Another approach, also motivated by Minsky's society of minds, is ReConcile, a m
 <span id="page-9-0"></span>other to improve their answers. Experiments on seven benchmarks demonstrate that a confidence-weighted voting mechanism significantly improves LLMs' reasoning. Furthermore, the authors find that diversity (using different underlying models) is critical for performance.
 
 MindStorms introduces an LLM-based implementation [\[Zhuge et al.,](#page-16-0) [2023\]](#page-16-0) on the CAMEL framework [\[Li et al.,](#page-14-0) [2023\]](#page-14-0). Extensive experiments are reported with up to 129 agents solving common AI problems: visual question answering, image captioning, text-to-image synthesis, 3D generation, egocentric retrieval, embodied AI, and general language-based task solving. The authors find that, in specific applications, mindstorms among many members outperform those among fewer members, and longer mindstorms outperform shorter ones.
+
+> **Editorial statistical and evaluator-bias note (not in the source):** Distinguish **majority agreement**, correctness against an independent ground truth, and **LLM-judge agreement**. Agents sharing the same foundation model and templates may make correlated mistakes; votes are not independent pieces of evidence. Record matched computation, failure rates, latency, and blinded human assessment when comparing debate configurations. Claims of 'significant' error reductions need an explicit statistical test, not a selected anecdote.
 
 ### 16.3.3 Role-Based Software Teams
 
