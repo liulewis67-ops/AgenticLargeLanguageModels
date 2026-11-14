@@ -6,7 +6,7 @@
 
 ## <span id="page-0-0"></span>Chapter 21
 
-# \*Mechanistic Interpretability for LLM Agents
+# Mechanistic Interpretability for LLM Agents
 
 ### What You Will Learn
 
@@ -307,13 +307,13 @@ The journey from post-hoc behavioral observation to mechanistic circuit diagrams
 
 {14}------------------------------------------------
 
-#### <span id="page-14-0"></span>- Further Reading
+<span id="page-14-0"></span>
 
-For those interested in the foundational research that defined this field, we highly recommend the [Transformer Circuits Thread](https://transformer-circuits.pub/)*<sup>a</sup>* .
+**Suggested reading**
 
-*a*<https://transformer-circuits.pub/>
+For foundational work in the field, see the [Transformer Circuits](https://transformer-circuits.pub/) research series.
 
-# Bibliography
+## Bibliography
 
 Guillaume Alain and Yoshua Bengio. Understanding intermediate layers using linear classifier probes. *arXiv preprint arXiv:1610.01644*, 2016. [404](#page-1-0)
 
