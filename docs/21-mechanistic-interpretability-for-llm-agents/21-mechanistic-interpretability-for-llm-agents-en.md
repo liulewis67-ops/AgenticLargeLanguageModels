@@ -22,7 +22,7 @@ In this chapter you will learn how to look inside the black box of large languag
 
 ## 21.1 Opening the LLM
 
-How do LLMs work internally? Opening the black box of large neural networks is an important research goal. We want to understand how billions of neurons encode representations, how models reason, and how they reach conclusions. Explainable artificial intelligence (XAI) offers many methods for investigating these questions [\[Minh et al.,](#page-16-0) [2022,](#page-16-0) [Rios et al.,](#page-17-0) [2020,](#page-17-0) [Van Stein et al.,](#page-18-0) [2022,](#page-18-0) [Selvaraju et al.,](#page-17-0) [2017,](#page-17-0) [Ali et al.,](#page-14-0) [2022](#page-14-0).
+How do LLMs work internally? Opening the black box of large neural networks is an important research goal. We want to understand how billions of neurons encode representations, how models reason, and how they reach conclusions. Explainable artificial intelligence (XAI) offers many methods for investigating these questions [Minh et al. (2022)](#page-16-0), [Rios et al. (2020)](#page-17-0), [Van Stein et al. (2022)](#page-18-0), [Selvaraju et al. (2017)](#page-17-0) and [Ali et al. (2022)](#page-14-0).
 
 {1}------------------------------------------------
 
