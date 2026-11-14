@@ -49,6 +49,8 @@ For LLM-specific tests, there are also methodological challenges to consider. Fo
 
 In the next sections we will first discuss the basic social toolkit for agent interaction. Next, we will look at strategic behavior, where agents reason about the behavior of other agents, and we will discuss theory of mind. Finally, we will discuss moral judgment by LLMs.
 
+> **Editorial construct-validity audit (not in the source):** A model's **observable answers** on politeness, false-belief, or moral scenarios do not by themselves establish human-like empathy, theory of mind, or moral agency. Predefine observable outcomes, controls, and alternative explanations; test **paraphrases, prompt-order perturbations, adversarial controls, unseen task formats, and cross-model replications** to separate memorization or pattern matching from robust task generalization. Behavioral resemblance does not demonstrate shared internal cognitive mechanisms.
+
 ## 15.3 The Basic Social Toolkit
 
 This section surveys basic social and interactive capacities, including conversation, pragmatics, and social etiquette.
@@ -168,6 +170,8 @@ EgoSocialArena [\[Hou et al.,](#page-22-0) [2024\]](#page-22-0) extends the eval
 {10}------------------------------------------------
 
 <span id="page-10-0"></span>attributed to its logical and mathematical reasoning. Notably, model size does not significantly help: LLaMA3-8B-Chat and LLaMA3-70B-Chat perform comparably on social intelligence measures. LLMs do show improved Theory of Mind reasoning when operating from a first-person perspective, providing counterweight to opposite findings by [Kim et al.](#page-22-0) [\[2023\]](#page-22-0), discussed in Section 15.5.
+
+> **Editorial statistical audit (not in the source):** Cross-game and cross-model comparisons should report **sample sizes, effect estimates, and uncertainty intervals per task**. Repeated answers from one model are not independent human-like participants. Outcomes may cluster within games, prompt templates, sessions, or model families; uncertainty estimation should respect these clusters. Prespecify primary outcomes and address multiple comparisons across many games and models. Without an appropriate test design, an observed difference is neither automatically statistically significant nor causal.
 
 ### 15.4.3 Conclusion
 
