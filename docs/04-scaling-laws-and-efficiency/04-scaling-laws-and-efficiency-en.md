@@ -35,6 +35,8 @@ We define these three quantities ($C$, $D$, $N$) as follows:
 
 Training large models comes at considerable cost, usually in the realm of tens of millions of dollars, and up to months of compute time. Scaling laws allow us to predict whether a model will train well.
 
+> **Editorial verification note (not in the source):** $C\approx6ND$ is a rough FLOP estimate commonly used for **dense Transformer training**, not an identity for every architecture or training regime. Attention costs, embeddings, sequence length, and sparse activation can change the effective compute. State the compute convention when comparing scaling results.
+
 ### 4.1.1 Kaplan Scaling Laws
 
 There are different empirical results for scaling laws that are found by fitting a function to empirical test data. For instance, in Figure 4.1, every point is a trained model on a fixed dataset with a similar experimental setup, while only changing the three primary variables $C$, $D$, $N$. In early 2020, [Kaplan et al.](#page-21-0) [\[2020\]](#page-21-0) found how model performance is related to $C$, $D$, $N$. They estimated, following empirical observations, that the loss follows independent power laws related to the three main variables: $L(N)\propto N^{-\alpha_N}$ and $L(D)\propto D^{-\alpha_D}$, with $\alpha_N\approx0.076$ and $\alpha_D\approx0.095$.
