@@ -33,12 +33,13 @@ Edit the bilingual source Markdown under `docs/`. The `site/content/` directory 
 
 ## Academic quality audit
 
-The reproducible bilingual structure audit now covers **Chapters 2–23** across four documented scholarly review passes. Read the [Chapters 2–7 audit](reports/academic-audit-2026-11-14.md), [Chapters 8–13 audit](reports/academic-audit-2026-11-14-ch08-ch13.md), [Chapters 14–18 audit](reports/academic-audit-2026-11-14-ch14-ch18.md), [Chapters 19–23 audit](reports/academic-audit-2026-11-14-ch19-ch23.md), and [multi-agent experimental audit protocol](reports/multi-agent-experiment-audit-protocol.md). A new [Chapters 14/18 source-pinned code, citation, and reproducibility audit](reports/source-code-audit-2026-11-14-ch14-ch18.md) distinguishes upstream static review, arithmetic sanity checks, pending original-PDF visual validation, and actual experimental replication.
+The reproducible bilingual structure audit now covers **Chapters 2–23** across four documented scholarly review passes. Read the [Chapters 2–7 audit](reports/academic-audit-2026-11-14.md), [Chapters 8–13 audit](reports/academic-audit-2026-11-14-ch08-ch13.md), [Chapters 14–18 audit](reports/academic-audit-2026-11-14-ch14-ch18.md), [Chapters 19–23 audit](reports/academic-audit-2026-11-14-ch19-ch23.md), and [multi-agent experimental audit protocol](reports/multi-agent-experiment-audit-protocol.md). A new [Chapters 14/18 source-pinned code, citation, and reproducibility audit](reports/source-code-audit-2026-11-14-ch14-ch18.md) and the [Chapters 14/18/21 arXiv v1 manuscript, formula, and citation-version concordance](reports/arxiv-source-concordance-2026-11-14-ch14-ch18-ch21.md) distinguishes upstream static review, arithmetic sanity checks, pending original-PDF visual validation, and actual experimental replication.
 
 ```sh
 pnpm docs:audit-structure      # CI-enforced Chapters 2–23 audit
 pnpm docs:audit-structure-all  # Manually audit all numbered chapters
 pnpm docs:audit-formula       # Editorial Ch18/21 arithmetic checks, NOT experimental replication
+pnpm docs:audit-source        # Static regression checks for verified arXiv v1 wording
 ```
 
 **Important:** Passing the structural checks does not prove that every passage, formula, or figure has been verified against the original PDF.
