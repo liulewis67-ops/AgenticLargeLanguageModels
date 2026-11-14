@@ -147,7 +147,7 @@ Adaptive retrieval reduces latency and cost by avoiding unnecessary searches, an
 
 ### 12.4.1 Adaptive Retrieval via Self-RAG and Self-Ask
 
-The Self-RAG framework of [Asai et al.](#page-17-0) [\[2023\]](#page-17-0) teaches the model to request retrieval on demand by emitting a special <RETRIEVE> token during generation. The pseudocode in Listing 12.2 sketches how such a loop operates. The model maintains a growing context and alternates between generating output tokens and pulling in new evidence when needed.
+The Self-RAG framework of [Asai et al.](#page-17-0) [\[2023\]](#page-17-0) teaches the model to request retrieval on demand by emitting a special `<RETRIEVE>` token during generation. The pseudocode in Listing 12.2 sketches how such a loop operates. The model maintains a growing context and alternates between generating output tokens and pulling in new evidence when needed.
 
 ```python
 # Input: question q, search index, and trained Self-RAG model
@@ -168,6 +168,8 @@ def self_rag_answer(q, index, model):
 ```
 
 *Listing 12.2: High-level pseudocode demonstrating Self-RAG.*
+
+> **Editorial code audit (not in the source):** This is **control-flow pseudocode**, not a runnable implementation. Once `model.generate_stream(q, context)` starts iterating, extending the `context` list does not necessarily recondition the active decoder. A real implementation must stop or interleave decoding, incorporate new evidence into a new call or supported continuation, and handle retrieval failures, timeouts, and data access permissions.
 
 It should be noted that for Self-RAG to work, the foundation model should be trained or fine-tuned to produce the <RETRIEVE> token. Self-Ask [\[Press et al.,](#page-19-0) [2022\]](#page-19-0) on the other hand is not dependent on the language model. Self-Ask decomposes a complex question into simpler sub-questions, retrieves evidence for each and synthesizes the final answer. The following high-level pseudo-code shows one way to implement this strategy:
 
@@ -487,6 +489,8 @@ and \(\operatorname{rel}_i\) is the graded relevance of the document at rank \(i
 **Generation metrics.** After assembling the context, assess the quality of the generated answer. Automatic metrics such as BLEU, ROUGE, and BERTScore are often of limited use because there may be no single ground-truth answer. More suitable measures include *faithfulness* and *helpfulness*. Faithfulness can be measured with entailment models: for a generated output \(y\) and retrieved context \(x\), check whether each claim is supported by the cited passages, for example with natural-language inference or citation checking.
 
 \[\operatorname{Faithfulness}=\frac{\text{outputs entailed by context}}{\text{total outputs}}\tag{12.11}\]
+
+> **Editorial metric note (not in the source):** This is a schematic ratio. Specify the **unit of evaluation**: complete answers, sentences, or independently verifiable factual claims. At claim level, the denominator is the number of claims assessed, not tokens; unsupported and uncheckable claims need an explicit policy. High contextual faithfulness alone does **not** establish factual accuracy or answer completeness. Separately assess correctness, coverage, freshness, and provenance.
 
 Helpfulness (or utility) measures whether the answer meets the user's information need. This often requires human evaluation or a specialized LLM evaluator. Latency and cost also matter in interactive settings. Helpfulness can be based on human or model scores:
 
