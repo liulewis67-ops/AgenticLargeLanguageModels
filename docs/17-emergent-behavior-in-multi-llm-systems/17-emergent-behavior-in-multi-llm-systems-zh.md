@@ -1,3 +1,5 @@
+<!-- Source: AgenticLargeLanguageModels.pdf; physical PDF pages 335-352; Marker split PDF pages 1-18. -->
+
 {0}------------------------------------------------
 
 # <span id="page-0-0"></span>第 17 章
