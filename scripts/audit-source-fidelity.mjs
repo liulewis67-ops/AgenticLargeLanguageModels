@@ -56,5 +56,27 @@ for (const lang of ["en", "zh"]) {
   }
   checks += 3;
 }
+
+for (const lang of ["en", "zh"]) {
+  const ch19 = read(19, lang);
+  const ch20 = read(20, lang);
+  const claims19 = lang === "en"
+    ? ["**61 tasks and approximately 193,000 instances**", "**cross-task generalization**", "ACL 2022 Natural Instructions paper"]
+    : ["**61 个任务、约 19.3 万条任务实例**", "**跨任务泛化**", "ACL 2022 Natural Instructions 原论文"];
+  const claims20 = lang === "en"
+    ? ["fixed random subset of 50 SWE-bench Verified problems", "iteration 15 it reports 51%", "only GSM8K", "not independently reproduced"]
+    : ["固定随机 50 题子集", "迭代 15 的结果为 51%", "默认仅启用 GSM8K", "非独立实验复现"];
+  for (const assertion of claims19) {
+    assert.ok(ch19.includes(assertion), "Chapter 19 source qualifier missing (" + lang + "): " + assertion);
+    checks++;
+  }
+  for (const assertion of claims20) {
+    assert.ok(ch20.includes(assertion), "Chapter 20 sample/config qualifier missing (" + lang + "): " + assertion);
+    checks++;
+  }
+}
+// Static guards only: these strings were separately checked against primary sources,
+// but this offline script cannot itself verify their external truth.
+
 console.log("PASS " + checks + " manuscript provenance checks");
 console.log("These are static guards, NOT original-PDF rendering or research replication.");
