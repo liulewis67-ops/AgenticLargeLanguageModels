@@ -15,7 +15,8 @@
     "docs:check-dist": "node scripts/validate-site-dist.mjs",
     "docs:preview": "vitepress preview site",
     "docs:audit-structure": "node scripts/audit-bilingual-structure.mjs",
-    "docs:audit-structure-all": "node scripts/audit-bilingual-structure.mjs --all"
+    "docs:audit-structure-all": "node scripts/audit-bilingual-structure.mjs --all",
+    "docs:audit-formula": "node scripts/audit-formula-regressions.mjs"
   },
   "devDependencies": {
     "markdown-it-mathjax3": "^4.3.2",
