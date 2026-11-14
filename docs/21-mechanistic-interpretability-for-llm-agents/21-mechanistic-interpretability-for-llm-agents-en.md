@@ -199,6 +199,8 @@ Manually identifying circuits is labor-intensive. The study of the *indirect obj
 
 <span id="page-9-0"></span>roles such as *Name Movers*, *S-Inhibition Heads*, and *Duplicate Token Detectors*) that collectively perform coreference resolution. *Coreference resolution* refers to the process of identifying when different tokens in a text refer to the same underlying entity. For example, in the IOI task, the model must determine that a later mention of a name (the indirect object) refers back to a specific person introduced earlier in the sentence, a computation implemented by a specialized sub-network of attention heads.
 
+> **Editorial citation-version check (not in the source):** The **26 heads** above match the abstract of the cited [2022 arXiv preprint (2211.00593)](https://arxiv.org/abs/2211.00593). The [published ICLR 2023 version](https://openreview.net/pdf/1e69126a0944a99f44e32245d87e213a30cc2eb2.pdf) reports **28 heads** in seven classes. These are version-dependent reported figures, not contradictory newly reproduced measurements; retain the original book's 26 and cite the specific paper version when comparing results.
+
 However, scaling these findings to frontier models requires *automated circuit discovery (ACD)*.
 
 - ACD: [Conmy et al.](#page-15-0) [\[2023\]](#page-15-0) introduced an algorithm that performs recursive ablation to prune edges in the computation graph, preserving only those whose removal significantly degrades model performance on a specific task.
