@@ -151,6 +151,8 @@ EvalAssist [\[Santillán Cooper et al.,](#page-22-0) [2025\]](#page-22-0) 将类
 
 **自动化红队测试。**机器生成评估的一种具体用途，是通过*自动化红队测试*开展面向安全的评估。一个 LLM 会生成对抗性提示，在模型部署前探测其漏洞 [\[Ganguli et al.,](#page-16-0) [2022\]](#page-16-0)。研究人员可以批量生成潜在恶意提示，对模型进行压力测试，并提升其抵御有害输出、越狱和行为失调的能力；这种规模是人工红队难以企及的 [\[Perez et al.,](#page-21-0) [2022\]](#page-21-0)。由于这些提示随后还可用于微调目标模型、弥补已发现的缺陷，红队测试处于合成评估数据与合成训练数据的交界处。
 
+> **编者评价协议审校（非原文）：**合成测试题与生成式裁判都可能引入**评测污染与同源偏差**：测试集若来自教师训练语料，或裁判与被评模型共享家族及偏好，就可能高估泛化能力。应按任务与来源冻结独立留出的真实或人工核验测试集，记录题目生成与过滤过程，报告与盲评人工评分的一致性，并将生成器、被评模型和裁判之间的依赖关系作为潜在混杂因素。不能仅凭合成评估分数或裁判投票宣称能力提升。
+
 ### 19.3.3 生成智能体数据
 
 在智能体场景中，合成数据必须覆盖完整轨迹，而不只是单轮指令—响应对。智能体与环境交互时，会产生一连串工具调用、观察结果和决策 [\[Kang et al.,](#page-18-0) [2025\]](#page-18-0)。这类数据超出了常规 LLM 在单个输入—输出对层面进行训练或评估的需求。即使两者通常由相同的生成模型产出，合成智能体数据也比用于训练底层 LLM 的数据更复杂。下面看一个例子。
@@ -217,6 +219,8 @@ MetaSynth 通过生成合成数据来解决这个问题，这些数据通过元�
 {12}------------------------------------------------
 
 <span id="page-12-0"></span>模型崩溃、偏差放大、安全与隐私漏洞，以及法律和伦理问题。
+
+> **编者训练因果审校（非原文）：**比较真实数据与合成数据时，必须隔离**训练 token 总量、训练步数、模型初始化、样本去重和算力预算**。建议采用真实数据、仅合成数据、真实＋合成混合数据三组，以及不同合成占比和连续代际再训练的敏感性实验；在**同一独立真实测试集**上报告长尾覆盖、群体质量差异、校准误差和不确定性。模型崩溃不应被表述为任何合成数据都会导致的必然结果：其发生与生成流程、数据混合、采样和训练条件有关。
 
 ### 19.5.1 模型崩溃
 
@@ -286,7 +290,7 @@ MetaSynth 通过生成合成数据来解决这个问题，这些数据通过元�
 
 - Nicholas Crispino, Kyle Montgomery, Fankun Zeng, Dawn Song, and Chenguang Wang. Agent Instructs Large Language Models to Be General Zero-Shot Reasoners. In Ruslan Salakhutdinov, Zico Kolter, Katherine Heller, Adrian Weller, Nuria
 
-  {16}------------------------------------------------
+{16}------------------------------------------------
 
   <span id="page-16-0"></span>Oliver, Jonathan Scarlett, and Felix Berkenkamp, editors, *Proceedings of the 41st International Conference on Machine Learning*, vol. 235 of *Proceedings of Machine Learning Research*, pp. 9458–9549. PMLR, 21–27 July 2024. URL <https://proceedings.mlr.press/v235/crispino24a.html>. [372](#page-9-0)
 
@@ -303,7 +307,7 @@ MetaSynth 通过生成合成数据来解决这个问题，这些数据通过元�
 - Isabel O. Gallegos, Ryan A. Rossi, Joe Barrow, Md Mehrab Tanjim, Sungchul Kim, Franck Dernoncourt, Tong Yu, Ruiyi Zhang, and Nesreen K. Ahmed. Bias and Fairness in Large Language Models: A Survey. *Computational Linguistics*, 50(3):1097–1179, 2024. doi: 10.1162/coli_a_00524. URL <https://aclanthology.org/2024.cl-3.8/>. [374](#page-11-0), [375](#page-12-0)
 
 - Deep Ganguli, Liane Lovitt, Jackson Kernion, Amanda Askell, Yuntao Bai, Saurav Kadavath, Ben Mann, Ethan Perez, Nicholas Schiefer, Kamal Ndousse, Andy Jones, Sam Bowman, Anna Chen, Tom Conerly, Nova DasSarma, Dawn Drain, Nelson Elhage, Sheer El-Showk, Stanislav Fort, Zac Hatfield-Dodds, Tom Henighan, Danny Hernandez, Tristan Hume, Josh Jacobson, Scott Johnston, Shauna Kravec, Catherine Olsson, Sam Ringer, Eli Tran-Johnson, Dario Amodei, Tom Brown, Nicholas Joseph, Sam McCandlish, Chris Olah, Jared Kaplan, and Jack Clark. Red Teaming
-  {17}------------------------------------------------
+{17}------------------------------------------------
   <span id="page-17-0"></span>Language Models to Reduce Harms: Methods, Scaling Behaviors, and Lessons Learned, 2022. URL <https://arxiv.org/abs/2209.07858>. [371](#page-8-0)
 
 - Jiaxuan Gao, Jiaao Chen, Chuyi He, Wei-Chen Wang, Shusheng Xu, Hanrui Wang, Di Jin, and Yi Wu. From Self-Evolving Synthetic Data to Verifiable-Reward RL: Post-Training Multi-turn Interactive Tool-Using Agents, 2026. URL <https://arxiv.org/abs/2601.22607>. [372](#page-9-0)
@@ -325,7 +329,7 @@ MetaSynth 通过生成合成数据来解决这个问题，这些数据通过元�
 - Chengsong Huang, Wenhao Yu, Xiaoyang Wang, Hongming Zhang, Zongxia Li, Ruosen Li, Jiaxin Huang, Haitao Mi, and Dong Yu. R-Zero: Self-Evolving Reasoning LLM from Zero Data. arXiv:2508.05004, 2025. <https://arxiv.org/abs/2508.05004>. [368](#page-5-0)
 
 - Yuanhong Huang, Huili Wang, Xueying Bai, Jinrui Wang, Jiajun Liu, Ziqin Wang, Wanchun Ni, Shangguang Wang, and Tao Qi. Robust Membership Inference for Large Language Models under Adversarial Generative Corruption. In Maria Liakata,
-  {18}------------------------------------------------
+{18}------------------------------------------------
   <span id="page-18-0"></span>Viviane P. Moreira, Jiajun Zhang, and David Jurgens, editors, *Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)*, pages 39531–39547, San Diego, California, United States, July 2026. Association for Computational Linguistics. ISBN 979-8-89176-390-6. doi: 10.18653/v1/2026.acl-long.1835. URL <https://aclanthology.org/2026.acl-long.1835/>. [374](#page-11-0)
 
 - Nikhil Kandpal, Haikang Deng, Adam Roberts, Eric Wallace, and Colin Raffel. Large language models struggle to learn long-tail knowledge. In Andreas Krause, Emma Brunskill, Kyunghyun Cho, Barbara Engelhardt, Sivan Sabato, and Jonathan Scarlett, editors, *Proceedings of the 40th International Conference on Machine Learning*, volume 202 of *Proceedings of Machine Learning Research*, pages 15696–15707. PMLR, 23–29 Jul 2023. URL <https://proceedings.mlr.press/v202/kandpal23a.html>. [375](#page-12-0)
@@ -340,7 +344,7 @@ MetaSynth 通过生成合成数据来解决这个问题，这些数据通过元�
 
 - Seungone Kim, Juyoung Suk, Xiang Yue, Vijay Viswanathan, Seongyun Lee, Yizhong Wang, Kiril Gashteovski, Carolin Lawrence, Sean Welleck, and Graham Neubig. Evaluating Language Models as Synthetic Data Generators. In Wanxiang Che, Joyce Nabende, Ekaterina Shutova, and Mohammad Taher Pilehvar, editors, Proceedings
 
-  {19}------------------------------------------------
+{19}------------------------------------------------
 
   <span id="page-19-0"></span>of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 6385–6403, Vienna, Austria, July 2025b. Association for Computational Linguistics. ISBN 979-8-89176-251-0. doi: 10.18653/v1/2025.acl-long.320. URL <https://aclanthology.org/2025.acl-long.320/>. [373](#page-10-0)
 
@@ -357,7 +361,7 @@ MetaSynth 通过生成合成数据来解决这个问题，这些数据通过元�
 - Bingbin Liu, Sebastien Bubeck, Ronen Eldan, Janardhan Kulkarni, Yuanzhi Li, Anh Nguyen, Rachel Ward, and Yi Zhang. TinyGSM: achieving >80% on GSM8k with small language models, 2023. URL <https://arxiv.org/abs/2312.09241>. [369](#page-6-0)
 
 - Lin Long, Rui Wang, Ruixuan Xiao, Junbo Zhao, Xiao Ding, Gang Chen, and Haobo Wang. On LLMs-driven Synthetic Data Generation, Curation, and Evaluation: A Survey. In Lun-Wei Ku, Andre Martins, and Vivek Srikumar, editors, *Findings of the Association for Computational Linguistics: ACL 2024*, pages 11065–
-  {20}------------------------------------------------
+{20}------------------------------------------------
   <span id="page-20-0"></span>11082, Bangkok, Thailand, August 2024. Association for Computational Linguistics. doi: 10.18653/v1/2024.findings-acl.658. URL <https://aclanthology.org/2024.findings-acl.658/>. [364](#page-1-0), [373](#page-10-0)
 
 - Kevin Lu and Thinking Machines Lab. On-Policy Distillation. *Thinking Machines Lab: Connectionism*, 2025. doi: [10.64434/tml.20251026](https://doi.org/10.64434/tml.20251026). URL <https://thinkingmachines.ai/blog/on-policy-distillation/>. [367](#page-4-0)
@@ -421,7 +425,7 @@ Avi Singh, John D. Co-Reyes, Rishabh Agarwal, Ankesh Anand, Piyush Patil, Xavier
 - Pablo Villalobos, Anson Ho, Jaime Sevilla, Tamay Besiroglu, Lennart Heim, and Marius Hobbhahn. Position: Will We Run Out of Data? Limits of LLM Scaling Based on Human-Generated Data. In *Proceedings of the 41st International Conference on Machine Learning*, volume 235, pages 49523–49544, 2024. URL <https://openreview.net/forum?id=ViZcgDQjyG>. [363](#page-0-0), [364](#page-1-0)
 
 - Vijay Viswanathan, Xiang Yue, Alisa Liu, Yizhong Wang, and Graham Neubig. Synthetic Data in the Era of Large Language Models. In Yuki Arase, David Jurgens, and Fei Xia, editors, *Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 5: Tutorial Abstracts)*, pages 11–12, Vienna, Austria, July 2025. Association for Computational Linguistics. ISBN 979-8-89176-255-8.
-  {24}------------------------------------------------
+{24}------------------------------------------------
   <span id="page-24-0"></span>doi: 10.18653/v1/2025.acl-tutorials.7. URL <https://aclanthology.org/2025.acl-tutorials.7/>. [364](#page-1-0)
 
 - Dong Wang, Yang Li, Ansong Ni, Ching-Feng Yeh, Youssef Emad, Xinjie Lei, Liam Robbins, Karthik Padthe, Hu Xu, Xian Li, Asli Celikyilmaz, Ramya Raghavendra, Lifei Huang, Carole-Jean Wu, and Shang-Wen Li. Matrix: Peer-to-Peer Multi-Agent Synthetic Data Generation Framework, 2025a. URL <https://arxiv.org/abs/2511.21686>. [365](#page-2-0)
@@ -435,7 +439,7 @@ Avi Singh, John D. Co-Reyes, Rishabh Agarwal, Ankesh Anand, Piyush Patil, Xavier
 - Yizhong Wang, Yeganeh Kordi, Swaroop Mishra, Alisa Liu, Noah A. Smith, Daniel Khashabi, and Hannaneh Hajishirzi. Self-Instruct: Aligning Language Models with Self-Generated Instructions. In Anna Rogers, Jordan Boyd-Graber, and Naoaki Okazaki, editors, *Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)*, pages 13484–13508, Toronto, Canada, July 2023b. Association for Computational Linguistics. doi: 10.18653/v1/2023.acl-long.754. URL <https://aclanthology.org/2023.acl-long.754/>. [366](#page-3-0), [369](#page-6-0), [370](#page-7-0)
 
 - Qingyun Wu, Gagan Bansal, Jieyu Zhang, Yiran Wu, Beibin Li, Erkang Zhu, Li Jiang, Xiaoyun Zhang, Shaokun Zhang, Jiale Liu, Ahmed Hassan Awadallah, Ryen W
-  {25}------------------------------------------------
+{25}------------------------------------------------
   <span id="page-25-0"></span>White, Doug Burger, and Chi Wang. AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation. In *ICLR 2024 Workshop on Large Language Model (LLM) Agents*, 2024. URL <https://openreview.net/forum?id=uAjxFFing2>. [372](#page-9-0)
 
 - Zhangchen Xu, Fengqing Jiang, Luyao Niu, Bill Yuchen Lin, and Radha Poovendran. Stronger Models are Not Always Stronger Teachers for Instruction Tuning. In Luis Chiruzzo, Alan Ritter, and Lu Wang, editors, *Proceedings of the 2025 Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)*, pages 4392–4405, Albuquerque, New Mexico, April 2025a. Association for Computational Linguistics. ISBN 979-8-89176-189-6. doi: 10.18653/v1/2025.naacl-long.224. URL <https://aclanthology.org/2025.naacl-long.224/>. [366](#page-3-0)
@@ -449,7 +453,7 @@ Avi Singh, John D. Co-Reyes, Rishabh Agarwal, Ankesh Anand, Piyush Patil, Xavier
 - Ann Yuan, Daphne Ippolito, Vitaly Nikolaev, Chris Callison-Burch, Andy Coenen, and Sebastian Gehrmann. SynthBio: A Case Study in Faster Curation of Text Datasets. In *Thirty-fifth Conference on Neural Information Processing Systems Datasets and Benchmarks Track (Round 2)*, 2021. URL <https://datasets-benchmarks-proceedings.neurips.cc/paper/2021/hash/9fc3d7152ba9336a670e36d0ed79bc43-Abstract-round2.html>. [371](#page-8-0)
 
 - Xiang Yue, Huseyin Inan, Xuechen Li, Girish Kumar, Julia McAnallen, Hoda Shajari, Huan Sun, David Levitan, and Robert Sim. Synthetic Text Generation with Differential Privacy: A Simple and Practical Recipe. In Anna Rogers, Jordan Boyd-Graber, and Naoaki Okazaki, editors, *Proceedings of the 61st Annual Meeting of the
-  {26}------------------------------------------------
+{26}------------------------------------------------
   <span id="page-26-0"></span>Association for Computational Linguistics (Volume 1: Long Papers)*, pages 1321–1342, Toronto, Canada, July 2023. Association for Computational Linguistics. doi: 10.18653/v1/2023.acl-long.74. URL <https://aclanthology.org/2023.acl-long.74/>. [376](#page-13-0)
 
 - Xiang Yue, Tuney Zheng, Ge Zhang, and Wenhu Chen. MAmmoTH2: Scaling Instructions from the Web. In A. Globerson, L. Mackey, D. Belgrave, A. Fan, U. Paquet, J. Tomczak, and C. Zhang, editors, *Advances in Neural Information Processing Systems*, volume 37, pages 90629–90660. Curran Associates, Inc., 2024. doi: 10.52202/079017-2877. URL <https://proceedings.neurips.cc/paper_files/paper/2024/hash/a4ca07aa108036f80cbb5b82285fd4b1-Abstract-Conference.html>. [369](#page-6-0)
@@ -465,7 +469,7 @@ Avi Singh, John D. Co-Reyes, Rishabh Agarwal, Ankesh Anand, Piyush Patil, Xavier
 - Lianmin Zheng, Wei-Lin Chiang, Ying Sheng, Siyuan Zhuang, Zhanghao Wu, Yonghao Zhuang, Zi Lin, Zhuohan Li, Dacheng Li, Eric P. Xing, Hao Zhang, Joseph E. Gonzalez, and Ion Stoica. Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena. In *Advances in Neural Information Processing Systems*, volume 36, pages 46595–46623. Curran Associates, Inc., 2024. doi: 10.52202/075280-2020. URL <https://proceedings.neurips.cc/paper_files/paper/2023/hash/91f18a1287b398d378ef22505bf41832-Abstract-Datasets_and_Benchmarks.html>. [371](#page-8-0)
 
 - Yifei Zhou, Sergey Levine, Jason E Weston, Xian Li, and Sainbayar Sukhbaatar. Self-Challenging Language Model Agents. In D. Belgrave, C. Zhang,
-  {27}------------------------------------------------
+{27}------------------------------------------------
   <span id="page-27-0"></span>H. Lin, R. Pascanu, P. Koniusz, M. Ghassemi, and N. Chen, editors, *Advances in Neural Information Processing Systems*, volume 38, pages 113959–113991. Curran Associates, Inc., 2025. doi: 10.52202/085713-3801. URL <https://proceedings.neurips.cc/paper_files/paper/2025/hash/a5a305fac88fb4ae40969cfec5eef48d-Abstract-Conference.html>. [368](#page-5-0)
 
 

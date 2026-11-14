@@ -62,6 +62,8 @@ To test this, [Chen et al.](#page-15-0) [\[2026\]](#page-15-0) utilized *causal 
 
 Conversely, the absence of such causal links in smaller models suggests that *faithful reasoning* may be an emergent property of scale, appearing only when the model possesses sufficient parameters to represent complex, multi-step algorithms. Developing robust metrics to quantify this faithfulness is a critical frontier in AI safety; by peeking into the model's activations, we can potentially develop hallucination detectors that trigger when a model's internal confidence features do not align with its external verbosity.
 
+> **Editorial mechanistic and statistical note (not in the source):** **Answer accuracy, faithfulness of verbal chain-of-thought, and causal manipulability of latent activations** are distinct claims. Activation injection changing output probabilities on selected arithmetic tasks does not demonstrate that all stated reasoning traces faithfully reflect computation, nor establish a universal scale threshold for faithful reasoning. Prespecify tasks and model sizes, report intervention effects and control interventions with uncertainty across seeds/models, and test whether manipulations create out-of-distribution activations.
+
 ## 21.3 The Residual Stream and Iterative Refinement
 
 Before exploring specific MI methods it is necessary to establish a formal mental model of the transformer architecture. Unlike classical feed-forward networks where each layer replaces the representation of the previous one, modern transformers operate on a *residual stream* [\[Elhage et al.,](#page-15-0) [2021\]](#page-15-0).
@@ -238,6 +240,8 @@ Beyond localization, patching is the primary tool for *path patching*, which ide
 {11}------------------------------------------------
 
 <span id="page-11-0"></span>
+
+> **Editorial formula and causal audit (not in the source):** Equation (21.7) is a **normalized recovery ratio** and requires a non-negligible clean–corrupted difference in the denominator; when that gap is near zero, the score is unstable or undefined. Patching effects depend on intervention sites, counterfactuals, and outcome metrics. They do not by themselves prove unique mediation or necessity across inputs. Report raw probability/logit differences, a preregistered near-zero-denominator rule, random-site/incorrect-site controls, and multiple counterfactual prompts; validate gradient attribution approximations with exact patching.
 
 ## 21.8 Sparse Autoencoders: Dictionary Learning for Feature Discovery
 

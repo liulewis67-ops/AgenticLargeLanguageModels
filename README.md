@@ -33,10 +33,10 @@ pnpm docs:preview
 
 ## 学术审校与质量审计
 
-双语结构审计已扩展至**第 2–18 章**，包含可追踪的技术校勘、实验设计与证据等级。阅读[第 2–7 章审计](reports/academic-audit-2026-11-14.md)、[第 8–13 章审计](reports/academic-audit-2026-11-14-ch08-ch13.md)、[第 14–18 章审计](reports/academic-audit-2026-11-14-ch14-ch18.md)，以及[多智能体实验审计协议](reports/multi-agent-experiment-audit-protocol.md)。
+双语结构审计现已覆盖**第 2–23 章**，包含四批可追踪的学术校勘、实验设计和证据等级。阅读[第 2–7 章审计](reports/academic-audit-2026-11-14.md)、[第 8–13 章审计](reports/academic-audit-2026-11-14-ch08-ch13.md)、[第 14–18 章审计](reports/academic-audit-2026-11-14-ch14-ch18.md)、[第 19–23 章审计](reports/academic-audit-2026-11-14-ch19-ch23.md)，以及[多智能体实验审计协议](reports/multi-agent-experiment-audit-protocol.md)。
 
 ```sh
-pnpm docs:audit-structure      # CI 检查第 2–18 章
+pnpm docs:audit-structure      # CI 检查第 2–23 章
 pnpm docs:audit-structure-all  # 手动扫描全部编号章节
 ```
 

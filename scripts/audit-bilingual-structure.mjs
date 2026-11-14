@@ -1,6 +1,6 @@
 // Validate structural parity of Chinese/English academic chapter sources.
 // Run: node scripts/audit-bilingual-structure.mjs [--all]
-// Default scope is chapters 02-18; --all checks all numbered chapters.
+// Default scope is chapters 02-23; --all checks all numbered chapters.
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
@@ -9,8 +9,9 @@ const root = process.cwd();
 const entries = JSON.parse(readFileSync(path.join(root, 'config/chapters.json'), 'utf8')).entries;
 const auditAll = process.argv.includes('--all');
 const selected = entries.filter((entry) => entry.type === 'chapter' &&
-  (auditAll || /^(0[2-9]|1[0-8])-/.test(entry.id)));
+  (auditAll || /^(0[2-9]|1\d|2[0-3])-/.test(entry.id)));
 const errors = [];
+const warnings = [];
 const summary = [];
 
 function values(source, pattern, group = 0) {
@@ -86,6 +87,41 @@ for (const entry of selected) {
     if (!sameItems(a, b)) errors.push(
       entry.id + ': ' + label + ' mismatch (zh=' + a.length + ', en=' + b.length + ')');
   }
+  // Detect reordered evidence even when both languages contain the same items.
+  // Earlier chapters may contain extraction-specific ordering, so strict ordering
+  // begins with the newly audited 19-23 group until legacy cases are reconciled.
+  if (Number(chapter) >= 19 && Number(chapter) <= 23) {
+    for (const [label, re, group] of checks.slice(0, 4)) {
+      const a = values(files.zh, re, group);
+      const b = values(files.en, re, group);
+      if (JSON.stringify(a) !== JSON.stringify(b)) errors.push(
+        entry.id + ': ' + label + ' bilingual order mismatch');
+    }
+  }
+  // Source bibliography links often point to page anchors in the same chapter.
+  // For the fully inspected 19-23 block, reject dangling local PDF citations.
+  if (Number(chapter) >= 19 && Number(chapter) <= 23) {
+    for (const [lang, content] of Object.entries(files)) {
+      const ids = new Set(values(content, /<span id="(page-\d+-\d+)"><\/span>/g, 1));
+      const targets = new Set(values(content, /\]\(#(page-\d+-\d+)\)/g, 1));
+      for (const target of targets) {
+        if (!ids.has(target)) errors.push(
+          entry.id + ' (' + lang + '): unresolved local PDF citation #' + target);
+      }
+    }
+  }
+  // Source extraction can leave some physical divider markers indented or inline.
+  // Record gaps for manual PDF review; never synthesize a missing page boundary.
+  const declaredPages = files.zh.match(/Marker split PDF pages 1-(\d+)/);
+  if (declaredPages) {
+    const expectedPages = Number(declaredPages[1]);
+    const markers = new Set(values(files.zh, /^\{(\d+)\}-{8,}\s*$/gm, 1).map(Number));
+    const missing = Array.from({ length: expectedPages }, (_, i) => i)
+      .filter((page) => !markers.has(page));
+    if (missing.length) warnings.push(
+      entry.id + ': missing standalone PDF divider markers on zh pages ' +
+      missing.join(', ') + '; check inline anchors/source PDF before editing');
+  }
   const mathCountZh = values(files.zh, /\$\$[\s\S]*?\$\$/g).length;
   const mathCountEn = values(files.en, /\$\$[\s\S]*?\$\$/g).length;
   if (mathCountZh !== mathCountEn) errors.push(
@@ -107,10 +143,11 @@ for (const entry of selected) {
   });
 }
 const result = {
-  scope: auditAll ? 'all chapters' : 'chapters 02-18',
+  scope: auditAll ? 'all chapters' : 'chapters 02-23',
   checked_pairs: summary.length,
   status: errors.length ? 'failed' : 'passed',
   summary,
+  warnings,
   errors,
   limitation: 'Structural comparison only; does not verify PDF text fidelity or translation semantics.',
 };
