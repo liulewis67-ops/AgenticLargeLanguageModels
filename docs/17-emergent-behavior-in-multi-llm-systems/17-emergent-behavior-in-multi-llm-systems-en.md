@@ -51,6 +51,8 @@ The methodological issues discussed in Chapters 15 and 16 all carry over to the 
 
 Overviews of this emerging field are provided by [Mou et al.](#page-14-0) [\[2024\]](#page-14-0), [Savarimuthu et al.](#page-15-0) [\[2024\]](#page-15-0), and [Xi et al.](#page-15-0) [\[2023\]](#page-15-0). Section 17.2 reviews simulation infrastructure and platforms; Section [17.3](#page-7-0) covers conventions and norms; and Section [17.4](#page-10-0) discusses open-world environments. Section [17.5](#page-11-0) considers their risks. Chapter 18 provides a hands-on case study of an open-ended simulation.
 
+> **Editorial causal-attribution audit (not in the source):** Observing a norm or polarization in a simulated population does **not** by itself establish that it emerged through interaction. Compare identical agents under **no interaction, randomized information exchange, scripted communication, and actual interaction**; ablate persona prompts, initial norms, topology, memory retrieval, agent count, and seeds. If desired norms or reward targets were built into the environment, distinguish designed selection pressure from genuinely unprescribed outcomes. Causal claims must be restricted to the intervention and assumptions actually tested.
+
 ## 17.2 Simulation Infrastructure
 
 Open-ended simulations require infrastructure that records research data while agents interact over extended periods. It must also leave enough room for bottom-up phenomena and unknown structures to emerge. In this section we focus on scale, going from a single simulated community inhabiting a virtual town to societies of a million agents.
@@ -108,6 +110,8 @@ AgentVerse [\[Chen et al.,](#page-13-0) [2023\]](#page-13-0) is a borderline cas
 <span id="page-7-0"></span>![](assets/_page_7_Diagram_2.jpeg)
 
 Figure 17.6: Four Stages for Decision Making in AgentVerse [\[Chen et al.,](#page-13-0) [2023\]](#page-13-0)
+
+> **Editorial external-validity and replication note (not in the source):** Thousands of interactions in one simulation are **not independent experimental replications**. For policy, misinformation, and norm studies, treat independently initialized **full simulation runs** (seeds and networks) as the primary unit; report effect sizes, dispersion, uncertainty intervals, and the frequency of failed emergence. Assess transfer to real populations by calibrating **demographics, social-network structure, behavior rates, response to interventions, and time scales** against external data. Without such validation, conclusions apply to simulated populations, not real policy outcomes.
 
 ## 17.3 Emergent Conventions and Norms
 
