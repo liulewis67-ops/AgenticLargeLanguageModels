@@ -44,7 +44,7 @@
 | R14-02 | **高** | `2_llm_mcp.py` 的 `call_llm_fn` 返回固定 JSON 演示字符串，`LLMPlannerAgent.step()` 只有任务注释与输入解包、未实现路由；底部的路由评估也标为 TODO。 | 原样脚本不是可运行的完整 LLM 对照实验；应要求实现、版本固定、JSON 校验、异常日志和可重跑评测。 |
 | R14-03 | 中 | `1_basic_mcp.py` 的结果字段叫 `y_pred`，但图表条件检查 `"Prediction" in results_df.columns`；`2_llm_mcp.py` 同样存在此条件。 | 预测类别图不会进入预期绘制分支。检查图表代码时必须以实际字段名为准。 |
 | R14-04 | 中 | `0_train_models.py` 中随机森林未提供 `random_state`，抽样 `sample(1)` 也不固定随机生成器；病例 ID 用 UUID 整数串前 4 位。 | 重跑无法严格对齐案例／模型，短 ID 还有碰撞风险；改用固定种子、真实唯一 ID 与全链路 provenance。 |
-| R14-05 | 中 | 仓库中真实文件名包含数字前缀：`0_train_models.py`、`1_basic_mcp.py`、`2_llm_mcp.py`；原书用的是不带前缀的教学简称。 | 保留忠实原文，在双语编者注中提供可执行文件名与目录。 |
+| R14-05 | 中 | **arXiv v1 原书和上游仓库均有数字前缀**：`0_train_models.py`、`1_basic_mcp.py`、`2_llm_mcp.py`；先前 Markdown 提取误删前缀，上轮将错误文件名当作“原书简称”也属于错误判断。 | 已对照 [arXiv 官方 v1 HTML](https://arxiv.org/html/2610.13455v1) **直接恢复双语正文的原始文件名**并撤销错误解释；详见[原始文本勘误记录](arxiv-source-concordance-2026-11-14-ch14-ch18-ch21.md)。 |
 
 **静态判断，不是运行结果：** 第 14 章的“规划器性能”和“执行器分类性能”应独立核查，且对照组必须使用同一留出病例；现有脚本既不能支持公平的临床结论，也不能提供公平的 LLM vs 规则规划器因果比较。
 

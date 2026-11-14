@@ -52,13 +52,13 @@ Listing 14.1: Setting Up the Case Study 3 Environment
 
 The baseline code, data files, and trained models are available in the [Assignment 3 repository](https://github.com/Agentic-LLMs/Agentic-AI-tutorials/tree/main/case3).
 
-> **Editorial upstream-code verification (not in the source; audited at commit `b7b8f683`):** The actual teaching files are named `0_train_models.py`, `1_basic_mcp.py`, and `2_llm_mcp.py` (the unprefixed names below are the source book's shorthand). The training script fits all three random forests on their **entire datasets**, while the simulation samples cases from those same datasets: its reported classifier results therefore **are not held-out estimates**. The LLM planner's `step()` and triage evaluation are unfinished exercises, and `call_llm_fn` returns placeholder JSON rather than querying an LLM. The supplied plots also look for a nonexistent `Prediction` column instead of `y_pred`. See the [source-pinned audit](https://github.com/liulewis67-ops/AgenticLargeLanguageModels/blob/main/reports/source-code-audit-2026-11-14-ch14-ch18.md) before attempting a reproducibility claim.
+> **Editorial upstream-code verification (not in the source; audited at commit `b7b8f683`):** The actual teaching files are named `0_train_models.py`, `1_basic_mcp.py`, and `2_llm_mcp.py` (the arXiv v1 source already contains these numeric prefixes; the earlier Markdown conversion dropped them). The training script fits all three random forests on their **entire datasets**, while the simulation samples cases from those same datasets: its reported classifier results therefore **are not held-out estimates**. The LLM planner's `step()` and triage evaluation are unfinished exercises, and `call_llm_fn` returns placeholder JSON rather than querying an LLM. The supplied plots also look for a nonexistent `Prediction` column instead of `y_pred`. See the [source-pinned audit](https://github.com/liulewis67-ops/AgenticLargeLanguageModels/blob/main/reports/source-code-audit-2026-11-14-ch14-ch18.md) before attempting a reproducibility claim.
 
 ## 14.3 Implementation Steps
 
 ### 14.3.1 Step 0: Training Diagnostic Models
 
-You are provided with a script, `train_models.py`, that trains simple classifiers (random forests) on three public datasets:
+You are provided with a script, `0_train_models.py`, that trains simple classifiers (random forests) on three public datasets:
 
 - **Diabetes:** the Pima Indians Diabetes dataset.
 - **Breast cancer:** the Wisconsin breast cancer dataset, available through `sklearn.datasets`.
@@ -75,7 +75,7 @@ Execute the provided training script and store the resulting models for later us
 
 ### 14.3.2 Step 1: Understanding and Running the Baseline
 
-The baseline implementation, `basic_mcp.py`, uses three rule-based planner agents, each hard-coded to a specific disease. Before running anything, read the code carefully. It implements three components that recur throughout this case study:
+The baseline implementation, `1_basic_mcp.py`, uses three rule-based planner agents, each hard-coded to a specific disease. Before running anything, read the code carefully. It implements three components that recur throughout this case study:
 
 - Shared context (MCP-like layer). A central data structure that stores incoming patient cases, assigned diagnostic tasks, and diagnostic results. All agents interact *only* through this shared context, never directly with one another, mirroring the shared-state coordination pattern discussed for the Model Context Protocol in Section 11.
 - Planner agents. Each rule-based planner reads unassigned cases, decides (using a fixed rule) whether its disease domain applies, and creates a task in the shared context.
@@ -87,7 +87,7 @@ Run the baseline simulation and observe how a single patient case flows through 
 
 ### 14.3.3 Step 2: Replacing the Rule-Based Planners with an LLM Agent
 
-In the second part, `llm_mcp.py`, the three rule-based planners are replaced by a single LLM-based planner agent. This is a substantially harder task for the planner: each patient case now combines features drawn from *all three* datasets into one record, and is converted into a textual description using the provided make case text function, which you are not permitted to modify. The LLM planner must read this combined, textual case description and decide, without hard-coded rules, which diagnostic pathway or pathways apply.
+In the second part, `2_llm_mcp.py`, the three rule-based planners are replaced by a single LLM-based planner agent. This is a substantially harder task for the planner: each patient case now combines features drawn from *all three* datasets into one record, and is converted into a textual description using the provided `make_case_text` function, which you are not permitted to modify. The LLM planner must read this combined, textual case description and decide, without hard-coded rules, which diagnostic pathway or pathways apply.
 
 Your tasks are to:
 

@@ -199,6 +199,8 @@ Manually identifying circuits is labor-intensive. The study of the *indirect obj
 
 <span id="page-9-0"></span>roles such as *Name Movers*, *S-Inhibition Heads*, and *Duplicate Token Detectors*) that collectively perform coreference resolution. *Coreference resolution* refers to the process of identifying when different tokens in a text refer to the same underlying entity. For example, in the IOI task, the model must determine that a later mention of a name (the indirect object) refers back to a specific person introduced earlier in the sentence, a computation implemented by a specialized sub-network of attention heads.
 
+> **Editorial citation-version check (not in the source):** The **26 heads** above match the abstract of the cited [2022 arXiv preprint (2211.00593)](https://arxiv.org/abs/2211.00593). The [published ICLR 2023 version](https://openreview.net/pdf/1e69126a0944a99f44e32245d87e213a30cc2eb2.pdf) reports **28 heads** in seven classes. These are version-dependent reported figures, not contradictory newly reproduced measurements; retain the original book's 26 and cite the specific paper version when comparing results.
+
 However, scaling these findings to frontier models requires *automated circuit discovery (ACD)*.
 
 - ACD: [Conmy et al.](#page-15-0) [\[2023\]](#page-15-0) introduced an algorithm that performs recursive ablation to prune edges in the computation graph, preserving only those whose removal significantly degrades model performance on a specific task.
@@ -215,13 +217,15 @@ While observational tools such as the logit lens or probing can identify correla
 **Formal framework.** The procedure involves two distinct forward passes:
 
 1. **Clean run** ($x_{\mathrm{clean}}$): an input that produces the target behavior (e.g., *The Eiffel Tower is in Paris*).
-2. **Corrupted or counterfactual run** ($x_{\mathrm{corr}}$): a modified input that disrupts the target behavior (e.g., *The Eiffel Tower is in Rome*) or adds Gaussian noise to the *Eiffel Tower* embedding.
+2. **Corrupted or counterfactual run** ($x_{\mathrm{corr}}$): a modified input that disrupts the target behavior (e.g., *The Colosseum is in Rome*) or adds Gaussian noise to the *Eiffel Tower* embedding.
 
 {10}------------------------------------------------
 
 <span id="page-10-0"></span>![](assets/_page_10_Diagram_2.jpeg)
 
 Figure 21.6: *Activation patching.* Activations from a *clean run* (where the model succeeds) are swapped into a *corrupted run* (where it fails). If this interchange restores the correct output, the patched component is causally implicated in the task.
+
+> **Editorial arXiv-source and experimental-control check (not in the source):** The original arXiv v1 counterfactual example says *The Colosseum is in Rome*, not *The Eiffel Tower is in Rome* (the latter entered this Markdown edition). **Both the entity and the place differ** between the clean and counterfactual examples, so the pair by itself does not isolate a single model mechanism. For an actual activation-patching study, preregister controlled input pairs, document the target token and corruption method, and include no-op or unrelated-site patches as negative controls.
 
 Let $z_{i,\ell}$ denote the activation of component $i$ at layer $\ell$. Activation patching replaces the corrupted-run activation $z^{\mathrm{corr}}_{i,\ell}$ with its clean-run counterpart $z^{\mathrm{clean}}_{i,\ell}$ during the corrupted forward pass. We then measure probability recovery:
 
