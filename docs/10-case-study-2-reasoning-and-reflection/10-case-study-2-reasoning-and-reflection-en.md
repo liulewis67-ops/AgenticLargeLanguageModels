@@ -126,6 +126,8 @@ python eval.py \
 ```
 
 *Listing 10.2: Running the standard evaluation.*
+
+> **Editorial reproducibility note (not in the source):** The example `client.model_id` pins a historical model version. A reproducibility claim also needs the BALROG commit, dependencies, environment/image, game configuration, sampling settings, and API backend. If the original model is unavailable, document the substitute and do not call the new score a direct replication.
 ## 10.2 Implementation Steps
 
 We will now provide some exercises to help you explore building your agents.
@@ -169,6 +171,8 @@ The performance of your agent will be reported by BALROG as a progression percen
 What agent types work well, and on what benchmark do they work well? Make a matrix in which you log progression for the agent types and the benchmark types that you try.
 
 Note that LLM experiments are inherently non-deterministic: two runs with the same prompt may give different results. Therefore, perform multiple runs of each experiment. If you get five identical results in a row, you may start to trust these results. If they vary widely, you may want to investigate. Is the reason purely statistical? Does turning down the temperature solve the problem, or is there another problem?
+
+> **Editorial correction (not in the source):** Five identical results are **not a statistical reliability criterion**. Pre-register the game version, evaluation split, model snapshot, agent setup, action budget, and seeds; report sample counts, success rates, variance/intervals for progression, and matched baseline runs. Inspect individual failure traces.
 
 Do not blindly trust the progression numbers that are reported. Since you are using code on a computer, there may be bugs, or other issues. The BALROG system facilitates delving deeper into the runs. It logs csv files that you can look at with a spreadsheet. Have a look at some of the runs, and decide if it makes sense what you see, or if the agents are exhibiting degenerative behavior. If they do, try to find the reason. Did you do something wrong? Is there unexpected interference between the benchmark and the agent behavior? Is the reward landscape too flat, so that there is no signal for the agent to go after, and all it does is random actions running in circles in a way that makes no sense at all? Is there something that you can do about this?
 
