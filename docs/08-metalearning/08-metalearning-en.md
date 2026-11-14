@@ -65,6 +65,8 @@ The inner loop optimizes the base parameters \(\theta_i\); the outer loop optimi
 
 The inner optimization finds parameters \(\theta_i\) for each task's training data. The outer optimization evaluates the resulting learning procedure across tasks and selects \(\omega\). The result is an optimized set of hyperparameters, \(\omega^*\).
 
+> **Editorial academic note (not in the source):** The nested expression above is **schematic**: the outer loss omits an explicit task distribution and validation/query split. Rigorous meta-learning normally adapts to each task using support data and evaluates an outer objective on separate query/validation examples; fitting training examples alone does not establish few-shot generalization.
+
 After metalearning, the tuned algorithm is expected to work well across a set of tasks in its application domain. We can then expect it to generalize to a new task after seeing only a few examples, achieving high accuracy on unseen examples.
 
 {3}------------------------------------------------
@@ -95,6 +97,8 @@ This is static metalearning because, once a phase has finished, its weights are 
 #### 8.3.1.2 In-Context Learning
 
 Beyond zero-shot learning, in-context learning is a form of few-shot learning: the user supplies a small number of examples in the prompt, and the LLM uses them to produce a better answer. The pretrained model is the inner loop; the examples in the prompt guide the outer loop.
+
+> **Editorial academic note (not in the source):** Interpreting pretraining and prompt examples as inner/outer loops is a **conceptual analogy**, not necessarily a literal gradient-based meta-learning algorithm. Gradient-based meta-learning explicitly optimizes an outer objective across tasks, whereas ordinary ICL need not update weights or compute meta-gradients.
 
 {4}------------------------------------------------
 

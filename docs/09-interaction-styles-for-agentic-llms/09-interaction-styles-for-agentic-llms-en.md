@@ -239,6 +239,8 @@ One pragmatic approach is to incorporate new information into the model as it ar
 
 In an agentic setting, fine-tuning would need to happen quickly enough that users do not experience a noticeable delay. Parameter-efficient methods such as LoRA are one option [Yang et al., 2024](#page-15-0). This approach avoids external memory structures, but fine-tuning is often too slow for interactive use; an in-context or harness-based solution may be more practical.
 
+> **Editorial academic note (not in the source):** Fine-tuning changes **parametric knowledge**, but does not provide directly addressable, reversible user or task memory. Encoding transient user information in weights raises additional questions about catastrophic forgetting, rollback, privacy deletion, and provenance.
+
 #### <span id="page-11-0"></span>9.3.2.2 Long Context Windows and Compression
 
 Another approach manages the prompt. Chatbots commonly include a truncated conversation history alongside the user's latest message. This works in many cases, but context windows have finite capacity, and processing long contexts can be expensive because standard attention has quadratic time complexity in sequence length.
@@ -259,7 +261,9 @@ A limitation of explicit memory management is that an LLM may not have been trai
 
 {12}------------------------------------------------
 
-<span id="page-12-0"></span>The Model Context Protocol (MCP) provides a set of strategies for managing context; Section 11.4 discusses it in more detail.
+<span id="page-12-0"></span>The Model Context Protocol (MCP) standardizes how applications expose and access external **resources, prompts, and tools**; Section 11.4 discusses it in more detail.
+
+> **Editorial correction (not in the source):** The original passage conflates an integration protocol with **application-level memory policy**. MCP does not prescribe how long-term memory must be selected, compressed, retained, or deleted. Those policies belong to the host application and its storage services. See the [official MCP specification (2026-07-28)](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/docs/specification/2026-07-28/index.mdx).
 
 **Learning to use memory.** Mem1 takes another approach: after each interaction, the agent updates a compact state to share with future LLM calls. The state has a fixed size, so it does not grow until it exceeds the context window. Reasoning-style tags help construct the shared state, and reinforcement learning trains the agent to consolidate it [Zhou et al., 2025](#page-16-0). Mem-\(\alpha\) also uses reinforcement learning to train agents to use memory effectively [Wang et al., 2025](#page-15-0).
 

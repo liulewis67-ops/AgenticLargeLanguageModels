@@ -1,6 +1,6 @@
 // Validate structural parity of Chinese/English academic chapter sources.
 // Run: node scripts/audit-bilingual-structure.mjs [--all]
-// Default scope is chapters 02-07; --all checks all numbered chapters.
+// Default scope is chapters 02-13; --all checks all numbered chapters.
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
@@ -9,7 +9,7 @@ const root = process.cwd();
 const entries = JSON.parse(readFileSync(path.join(root, 'config/chapters.json'), 'utf8')).entries;
 const auditAll = process.argv.includes('--all');
 const selected = entries.filter((entry) => entry.type === 'chapter' &&
-  (auditAll || /^(02|03|04|05|06|07)-/.test(entry.id)));
+  (auditAll || /^(0[2-9]|1[0-3])-/.test(entry.id)));
 const errors = [];
 const summary = [];
 
@@ -95,7 +95,7 @@ for (const entry of selected) {
   });
 }
 const result = {
-  scope: auditAll ? 'all chapters' : 'chapters 02-07',
+  scope: auditAll ? 'all chapters' : 'chapters 02-13',
   checked_pairs: summary.length,
   status: errors.length ? 'failed' : 'passed',
   summary,
