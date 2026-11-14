@@ -33,10 +33,10 @@ pnpm docs:preview
 
 ## 学术审校与质量审计
 
-已建立针对**第 2–7 章**的双语结构审计，并完成首轮学术问题校勘。详见[审计报告（含问题清单、证据级别和未核验项）](reports/academic-audit-2026-11-14.md)。
+双语结构审计已扩展至**第 2–13 章**，包含可追踪的技术校勘、证据等级与待核验项。详见[第 2–7 章审计报告](reports/academic-audit-2026-11-14.md)及[第 8–13 章审计报告](reports/academic-audit-2026-11-14-ch08-ch13.md)。
 
 ```sh
-pnpm docs:audit-structure      # CI 检查第 2–7 章
+pnpm docs:audit-structure      # CI 检查第 2–13 章
 pnpm docs:audit-structure-all  # 手动扫描全部编号章节
 ```
 
