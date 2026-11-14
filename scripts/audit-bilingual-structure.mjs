@@ -98,6 +98,18 @@ for (const entry of selected) {
         entry.id + ': ' + label + ' bilingual order mismatch');
     }
   }
+  // Source bibliography links often point to page anchors in the same chapter.
+  // For the fully inspected 19-23 block, reject dangling local PDF citations.
+  if (Number(chapter) >= 19 && Number(chapter) <= 23) {
+    for (const [lang, content] of Object.entries(files)) {
+      const ids = new Set(values(content, /<span id="(page-\d+-\d+)"><\/span>/g, 1));
+      const targets = new Set(values(content, /\]\(#(page-\d+-\d+)\)/g, 1));
+      for (const target of targets) {
+        if (!ids.has(target)) errors.push(
+          entry.id + ' (' + lang + '): unresolved local PDF citation #' + target);
+      }
+    }
+  }
   // Source extraction can leave some physical divider markers indented or inline.
   // Record gaps for manual PDF review; never synthesize a missing page boundary.
   const declaredPages = files.zh.match(/Marker split PDF pages 1-(\d+)/);
