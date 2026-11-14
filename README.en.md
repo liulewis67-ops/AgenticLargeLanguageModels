@@ -33,10 +33,10 @@ Edit the bilingual source Markdown under `docs/`. The `site/content/` directory 
 
 ## Academic quality audit
 
-The reproducible bilingual structure audit now covers **Chapters 2–18**, with documented technical corrections, research-design caveats, and evidence levels. Read the [Chapters 2–7 audit](reports/academic-audit-2026-11-14.md), [Chapters 8–13 audit](reports/academic-audit-2026-11-14-ch08-ch13.md), [Chapters 14–18 audit](reports/academic-audit-2026-11-14-ch14-ch18.md), and [multi-agent experimental audit protocol](reports/multi-agent-experiment-audit-protocol.md).
+The reproducible bilingual structure audit now covers **Chapters 2–23** across four documented scholarly review passes. Read the [Chapters 2–7 audit](reports/academic-audit-2026-11-14.md), [Chapters 8–13 audit](reports/academic-audit-2026-11-14-ch08-ch13.md), [Chapters 14–18 audit](reports/academic-audit-2026-11-14-ch14-ch18.md), [Chapters 19–23 audit](reports/academic-audit-2026-11-14-ch19-ch23.md), and [multi-agent experimental audit protocol](reports/multi-agent-experiment-audit-protocol.md).
 
 ```sh
-pnpm docs:audit-structure      # CI-enforced Chapters 2–18 audit
+pnpm docs:audit-structure      # CI-enforced Chapters 2–23 audit
 pnpm docs:audit-structure-all  # Manually audit all numbered chapters
 ```
 
