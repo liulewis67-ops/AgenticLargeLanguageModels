@@ -82,7 +82,7 @@ for (const entry of selected) {
   for (const [lang, content] of Object.entries(files)) {
     if (content.includes('\uFFFD')) errors.push(
       entry.id + ' (' + lang + '): replacement character');
-    if (/(^|[^\n])\{\d+\}-{8,}/m.test(content)) errors.push(
+    if (/[^\r\n]\{\d+\}-{8,}/m.test(content)) errors.push(
       entry.id + ' (' + lang + '): page divider embedded in prose');
   }
   summary.push({
