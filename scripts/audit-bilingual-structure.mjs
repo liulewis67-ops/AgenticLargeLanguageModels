@@ -39,6 +39,18 @@ for (const entry of selected) {
     }
   }
   if (!files.zh || !files.en) continue;
+  // Validate the provenance metadata against the canonical chapter page map.
+  // This checks declared source ranges, not that text matches the PDF itself.
+  for (const [lang, content] of Object.entries(files)) {
+    const source = content.match(/<!--\s*Source:\s*AgenticLargeLanguageModels\.pdf;\s*physical PDF pages (\d+)-(\d+);/);
+    if (!source) {
+      errors.push(entry.id + ' (' + lang + '): missing source PDF page metadata');
+    } else if (Number(source[1]) !== entry.page_start || Number(source[2]) !== entry.page_end) {
+      errors.push(entry.id + ' (' + lang + '): source PDF page range ' +
+        source[1] + '-' + source[2] + ' differs from config/chapters.json ' +
+        entry.page_start + '-' + entry.page_end);
+    }
+  }
   const chapter = String(Number(entry.id.split('-')[0]));
   const zh = numberedHeadings(files.zh, chapter);
   const en = numberedHeadings(files.en, chapter);
