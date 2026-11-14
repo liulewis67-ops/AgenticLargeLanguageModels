@@ -32,5 +32,5 @@
 - [LLM 智能体的机制可解释性](21-mechanistic-interpretability-for-llm-agents/21-mechanistic-interpretability-for-llm-agents-zh.md)（PDF 第 403–422 页）
 - [智能体 LLM 的认知视角](22-cognitive-perspectives-on-agentic-llms/22-cognitive-perspectives-on-agentic-llms-zh.md)（PDF 第 423–456 页）
 - [VII 结论](part-vii-conclusion/part-vii-conclusion-zh.md)（PDF 第 457–460 页）
-- [智能体 LLM 的未来方向](23-future-directions-for-agentic-llms/23-future-directions-for-agentic-llms-zh.md)（PDF 第 461–468 页）
+- [智能体大语言模型的未来方向](23-future-directions-for-agentic-llms/23-future-directions-for-agentic-llms-zh.md)（PDF 第 461–468 页）
 - [参考文献](90-references/90-references-zh.md)（PDF 第 469–472 页）
