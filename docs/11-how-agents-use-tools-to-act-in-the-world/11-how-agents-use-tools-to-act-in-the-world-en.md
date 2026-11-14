@@ -276,6 +276,8 @@ Rainbow Teaming [\[Samvelyan et al.,](#page-12-0) [2024\]](#page-12-0) uses an o
 
 Figure 11.3: Quality Diversity Mutation Architecture of Rainbow Teaming [\[Samvelyan](#page-12-0) [et al.,](#page-12-0) [2024\]](#page-12-0)
 
+> **Editorial security note (not in the source):** Retrieved pages, documents, search snippets, and tool responses are **lower-trust inputs**, even if they contain text masquerading as higher-priority instructions. The host must enforce least-privilege tool permissions, argument validation, approval gates, secret isolation, and audit logs; do not rely solely on the model to recognize prompt injection. Measure **instruction-injection success** separately from **actual unauthorized tool actions**.
+
 ## 11.7 Concluding Remarks
 
 Tools are what turn a static language model into a dynamic agent that can act in the world. Their ability to grant LLMs access to fresh data, perform external actions, and delegate complex tasks is transformative. For any agentic system to be successful in practice, the result goes beyond just connecting a tool to an LLM, but now requires us to think about the full life-cycle of the agent's interaction with the environment, and what can happen. Four steps should be followed:
