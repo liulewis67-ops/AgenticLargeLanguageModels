@@ -23,19 +23,19 @@ Large language models are generally trained through a sequence of stages. First,
 
 {1}------------------------------------------------
 
-#### <span id="page-1-0"></span>3.1.1 Encoder versus Decoder Models
+### <span id="page-1-0"></span>3.1.1 Encoder versus Decoder Models
 
 As discussed in Chapter 2, two broad model architectures are common: encoders and decoders. Encoders can build rich contextualized representations of input data. Many recent high-performing models, however, use decoder architectures. Encoders are well suited to understanding tasks such as classification and sentiment analysis, whereas decoders excel at generation. Decoder models have grown in both parameter count and training-data volume, enabling surprisingly strong generalization to contexts they have not seen.
 
 Next, we examine the main stages of a decoder-only training pipeline.
 
-#### 3.1.2 Pretraining/Finetuning Paradigm
+### 3.1.2 Pretraining/Finetuning Paradigm
 
 A key to modern training pipelines is transfer learning. A common practice is to take a model trained on a large, general-purpose dataset and continue training it on a new task. The model is first *pretrained* on a large, general corpus and then *fine-tuned* on a smaller dataset for a specific task. Fine-tuning is faster because the task-specific dataset is small and training starts from the pretrained weights rather than from scratch.
 
 The pretraining/fine-tuning distinction lies at the heart of LLM training pipelines. Instead of starting from scratch, a model can reuse linguistic knowledge learned during pretraining, which speeds up adaptation. Pretraining a large commercial model may take months. A downstream task is usually specific, such as answering questions in a particular domain or performing sentiment analysis, and uses a dedicated dataset for fine-tuning. During fine-tuning, some of the model's weights are updated to teach it the new task while preserving its general language capabilities. Adapting a model to a new task typically takes minutes to hours.
 
-#### 3.1.3 Open and Closed Models
+### 3.1.3 Open and Closed Models
 
 Popular LLMs are OpenAI's ChatGPT series [\[Achiam et al.,](#page-13-0) [2023,](#page-13-0) [Ouyang et al.,](#page-16-0) [2022\]](#page-16-0), Meta's LLaMa family [\[Touvron et al.,](#page-18-0) [2023\]](#page-18-0), Google's Gemma [\[Chowdhery](#page-14-0) [et al.,](#page-14-0) [2023\]](#page-14-0) and Gemini [\[Anil et al.,](#page-13-0) [2023\]](#page-13-0), Anthropic's Claude family, Moonshot AI's Kimi, DeepSeek [\[Guo et al.,](#page-15-0) [2025\]](#page-15-0), and Qwen [\[Bai et al.,](#page-13-0) [2025\]](#page-13-0), among others.
 
@@ -55,7 +55,7 @@ Although all these models are based on the Transformer architecture, their compo
 
 We now examine the stages of a standard LLM training pipeline [\[Radford et al.,](#page-16-0) [2019,](#page-16-0) [Minaee et al.,](#page-16-0) [2024\]](#page-16-0). The order in which these stages are combined is known as a training *recipe*. Each stage may use a different dataset and loss function and is designed to teach the model a particular capability. Figure 3.1 shows one example.
 
-#### 3.2.1 Acquire Data
+### 3.2.1 Acquire Data
 
 The first step is to acquire data. Pretraining typically uses massive, general-purpose text corpora [\[Brown et al.,](#page-14-0) [2020\]](#page-14-0). These corpora contain raw text and do not require manual labeling. They are assembled from curated and uncurated online sources, then processed with cleaning heuristics to reduce harmful content and remove private or copyrighted material. Pretraining corpora are enormous: modern LLMs may be trained on trillions of tokens. Examples include:
 
@@ -63,7 +63,9 @@ The first step is to acquire data. Pretraining typically uses massive, general-p
 
 {3}------------------------------------------------
 
-- <span id="page-3-0"></span>• Dolma 3 is a data mixture designed to perform well across a diverse set of tasks. It is used in the OLMo open-source, open-data project [\[Ettinger et al.,](#page-15-0) [2025,](#page-15-0) [Soldaini et al.,](#page-17-0) [2024\]](#page-17-0).
+<span id="page-3-0"></span>
+
+- Dolma 3 is a data mixture designed to perform well across a diverse set of tasks. It is used in the OLMo open-source, open-data project [\[Ettinger et al.,](#page-15-0) [2025,](#page-15-0) [Soldaini et al.,](#page-17-0) [2024\]](#page-17-0).
 - SmolLM3 uses a three-stage training strategy with 11.2 trillion tokens, dynamically mixing web, mathematics, and code data to improve reasoning and knowledge acquisition [\[Bakouch et al.,](#page-13-0) [2025\]](#page-13-0).
 
 Recent research emphasizes that data diversity can matter as much as data volume for cross-domain knowledge and downstream generalization [\[Gao et al.,](#page-15-0) [2020\]](#page-15-0). *The Pile* was created as a heterogeneous corpus. Models trained on it show substantial gains in Bits Per Byte (BPB)<sup>1</sup> scores across domains such as GitHub repositories, medical papers, and philosophy texts (Figure [3.2\)](#page-4-0). BPB on The Pile is therefore often used as a benchmark and as an indicator of a model's knowledge across domains and its ability to reason about complex material.
@@ -72,7 +74,7 @@ Pretraining data curation requires a pipeline that turns raw material from many 
 
 The pipeline must also select data that meets safety and ethical requirements, often using heuristic filters. Toxicity-detection systems may remove hate speech, although their results can be mixed. Bias mitigation is another challenge: automated filters can mistakenly flag legitimate content written in particular dialects, such as African American English, and exclude diverse voices from the training set.
 
-#### 3.2.2 Pretraining
+### 3.2.2 Pretraining
 
 The second stage is pretraining on a curated corpus to produce a general-purpose language model. This stage commonly uses a self-supervised Transformer approach [\[Vaswani et al.,](#page-18-0) [2017\]](#page-18-0). In self-supervised learning, training targets are derived from the text itself, so human-labeled examples are not required. Encoder models can predict masked tokens from surrounding context, whereas decoder-only language models typically predict the next token from preceding tokens. Equation 3.1 presents the autoregressive objective used by the latter. These objectives help models learn representations of language, semantic relationships, and world knowledge.
 
@@ -108,7 +110,7 @@ Other techniques are also needed because training at this scale can be unstable 
 
 {6}------------------------------------------------
 
-#### <span id="page-6-0"></span>3.2.3 Fine-tuning
+### <span id="page-6-0"></span>3.2.3 Fine-tuning
 
 After pretraining, the model enters post-training, which begins with fine-tuning. In practice, people use LLMs to answer questions, offer advice, and retrieve information rather than simply autocomplete text by predicting the next word. Fine-tuning continues training a pretrained model on a smaller, task-specific dataset. In supervised fine-tuning, labeled examples adapt a general-purpose model to a particular task. A parameter-efficient method is Low-Rank Adaptation (LoRA): it freezes the pretrained weights and adds trainable low-rank matrices, reducing the number of trainable parameters [\[Hu et al.,](#page-15-0) [2021,](#page-15-0) [Wei et al.,](#page-18-0) [2022,](#page-18-0) [Minaee et al.,](#page-16-0) [2024\]](#page-16-0).
 
@@ -132,7 +134,7 @@ Fine-tuning can turn a general-purpose model into a task specialist and enable s
 
 Figure 3.5: High-level overview of RLHF: training a reward model (left) and optimizing a language model (the policy) against its reward [Dong et al.](#page-14-0) [\[2024\]](#page-14-0).
 
-#### 3.2.4 Preference Tuning
+### 3.2.4 Preference Tuning
 
 A pretrained model can reproduce or amplify undesirable patterns in its training data, including extreme or harmful content. Preference tuning adds a post-training stage that uses preference feedback to steer the model toward desired behaviors.
 
@@ -156,9 +158,11 @@ Figure 3.6: Comparison of RLHF (specifically, PPO) to RLVR (specifically, GRPO) 
 
 **Objective alignment.** For tasks with verifiable answers, such as mathematics and coding, reinforcement learning with verifiable rewards (RLVR) [\[Lambert et al.,](#page-16-0) [2024\]](#page-16-0) uses outcome checks or other ground-truth signals to reward correct results. Examples include code that passes tests and correct mathematical solutions. Group Relative Policy Optimization (GRPO) [\[Guo et al.,](#page-15-0) [2025\]](#page-15-0) is a PPO-style method used for mathematical reasoning. It samples several answers for the same prompt and compares their verifier-assigned rewards; unlike PPO, it does not require a separate value model, which reduces memory use. In some setups, a deterministic verifier provides binary rewards, such as +1 for a correct answer and −1 for an incorrect one [\[Guo et al.,](#page-15-0) [2025,](#page-15-0) [Shao et al.,](#page-17-0) [2024\]](#page-17-0). Figure 3.6 compares PPO-based RLHF with GRPO.
 
-#### 3.2.5 Inference
+### 3.2.5 Inference
 
 Once training is complete, the model is used at inference time, when users interact with it.
+
+> **Editorial verification note (not in the source):** Inference appears here to complete the development-to-deployment lifecycle; it is **not a training stage**. In-context learning at inference time normally does not update the model weights, unlike fine-tuning and preference optimization.
 
 Users commonly provide natural-language prompts—instructions or questions—to elicit responses from the model. The wording and order of a prompt can affect the response.
 
@@ -170,13 +174,13 @@ As discussed in the previous chapter, large decoder-only models can perform *in-
 
 Later chapters show how in-context learning is used in agentic systems. At inference time, prompts and examples are one way to guide the behavior of agentic LLMs.
 
-#### 3.2.6 Conclusion
+### 3.2.6 Conclusion
 
 This section has outlined one common LLM training pipeline. Actual training recipes vary across models, and modern pipelines are complex and costly. Improving them remains an active area of research; see, for example, [Guo et al.](#page-15-0) [\[2025\]](#page-15-0) and [Du et al.](#page-14-0) [\[2025\]](#page-14-0).
 
 Fast inference matters, so researchers have developed methods to accelerate generation. One trade-off is between inference-time reasoning effort and response quality, a topic studied under *test-time scaling*. More effort requires additional computation and time but may improve the answer. [Chapter 4](../04-scaling-laws-and-efficiency/04-scaling-laws-and-efficiency-en.md) discusses this and other efficiency techniques.
 
-### 3.3 Benchmarks and Performance
+## 3.3 Benchmarks and Performance
 
 After training, benchmarks help evaluate model performance across tasks and datasets. Language understanding is measured with benchmarks such as GLUE and SuperGLUE [\[Wang et al.,](#page-18-0) [2018,](#page-18-0) [2019\]](#page-18-0); reading comprehension and question answering with datasets such as SQuAD [\[Rajpurkar et al.,](#page-17-0) [2016\]](#page-17-0); and summarization with datasets such as XSum [\[Narayan et al.,](#page-16-0) [2018\]](#page-16-0). Other evaluated tasks include translation [\[Kocmi et al.,](#page-15-0) [2022,](#page-15-0) [Papineni et al.,](#page-16-0) [2002,](#page-16-0) [Sennrich et al.,](#page-17-0) [2015\]](#page-17-0) and poetry generation [\[Zhang and Eger,](#page-18-0) [2024\]](#page-18-0). These tasks illustrate the range of capabilities studied, while the field's rapid development continues to raise questions about what LLMs can do across domains and contexts.
 
@@ -184,13 +188,13 @@ The next sections introduce commonly used benchmarks and metrics for evaluating 
 
 {10}------------------------------------------------
 
-#### <span id="page-10-0"></span>3.3.1 Common tasks
+### <span id="page-10-0"></span>3.3.1 Common tasks
 
 LLM tasks can be grouped broadly into the two language-processing categories introduced earlier: natural language understanding (NLU) and natural language generation (NLG). The appropriate metric depends on the category, task formulation, and dataset; we discuss these in turn.
 
 The term *performance* can refer either to task performance, such as accuracy, or to computational performance, such as speed. Evaluation usually focuses on task performance, but inference cost and latency can also matter, as later chapters discuss.
 
-#### 3.3.2 Metrics
+### 3.3.2 Metrics
 
 The metrics used to monitor or report LLM task performance depend on the evaluation objective and the model's stage of development.
 
@@ -211,7 +215,7 @@ As an alternative, *bits per byte* (BPB), shown in Equation 3.3, normalizes the 
 <span id="page-11-0"></span>Higher accuracy is better. In a standard single-sample setup, the model gives one answer per question. When multiple samples are allowed, *Pass@K* measures the percentage of problems for which at least one of $K$ attempts is correct; higher is better. Common values of $K$ include 1, 5, 10, and 100.
 
 
-#### 3.3.3 Common Benchmarks
+### 3.3.3 Common Benchmarks
 
 Measuring LLM performance remains an active area of research, but many datasets have become common tools for reporting a model’s general capabilities. These datasets are intended solely for *evaluation*, not as additional training data, and therefore serve as semi-standardized benchmarks. Ongoing efforts to establish field-wide standards, such as MLCommons [\[Thiyagalingam et al.,](#page-18-0) [2022\]](#page-18-0), reflect the growing need for objective, well-founded evaluation methods.
 

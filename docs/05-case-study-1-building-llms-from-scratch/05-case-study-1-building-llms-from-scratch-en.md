@@ -62,7 +62,7 @@ A web inference server and lightweight JavaScript chat interface are included, s
 
 **Repository.** Clone the course repository and read its README carefully before writing any code.
 
-Listing 5.1: Cloning the nanochat repository
+Code listing 5.1: Cloning the nanochat repository
 
     git clone git@github.com:karpathy/nanochat.git
 
@@ -92,11 +92,11 @@ Pay attention to where you find each piece of information. Some fields appear on
 
 ## 5.5 Task 1: Tokenization
 
-#### 5.5.1 What to Do
+### 5.5.1 What to Do
 
 Train a BPE tokenizer using nanochat's Rust tokenizer trainer on a 500-million-character sample of CLIMBMix. Run two experiments, with vocabulary sizes of *8,192* and *32,768* tokens.
 
-#### 5.5.2 Deliverables
+### 5.5.2 Deliverables
 
 - A short script that reproduces your tokenizer training run.
 - A report section (at most one page) answering the following questions with evidence from your tokenizer outputs:
@@ -114,11 +114,11 @@ Pay attention to the correctness of your BPE explanation, the quality of your em
 
 ## 5.6 Task 2: Pretraining
 
-#### 5.6.1 What to Do
+### 5.6.1 What to Do
 
 Pretrain a Transformer on CLIMBMix using nanochat with --depth 4, or --depth 2 if your computer is not fast enough. Log training loss, validation loss, and bits per byte (bpb) at regular intervals.
 
-#### 5.6.2 Deliverables
+### 5.6.2 Deliverables
 
 - Training and validation bpb curves, presented as plots in your report. Use bpb rather than raw loss.
 - A saved model checkpoint.
@@ -129,13 +129,13 @@ Pretrain a Transformer on CLIMBMix using nanochat with --depth 4, or --depth 2 i
 
 {5}------------------------------------------------
 
-- 4. **Qualitative inspection:** Sample five completions from your pretrained model without a system prompt (raw next-token prediction). What can the model do at this stage, and why?
+  4. **Qualitative inspection:** Sample five completions from your pretrained model without a system prompt (raw next-token prediction). What can the model do at this stage, and why?
   
 Pay attention to the correctness of your depth-parameter and auto-configuration explanations, the accuracy of your architecture description, the scaling-law calculations, the quality of your loss analysis, and the insightfulness of your qualitative assessment.
 
 ## 5.7 Task 3: Mid-Training and Supervised Fine-Tuning
 
-#### 5.7.1 What to Do
+### 5.7.1 What to Do
 
 nanochat performs two training stages: pretraining and SFT. The book also discusses how additional mid-training can improve a model. In this task, you will add a mid-training stage by modifying scripts/chat_sft.py. The goal is to separate *reasoning adaptation* (mid-training) from *instruction following* (SFT), then measure the effect.
 
@@ -147,7 +147,7 @@ After each stage, evaluate the model on ARC-Easy, ARC-Challenge, and GSM-8K usin
 
 **Sanity check.** Before Stage 1, inspect the data by printing the first few rows of the MMLU and SmolTalk datasets. Determine how many training examples each dataset contributes and what a single example looks like.
 
-#### 5.7.2 Deliverables
+### 5.7.2 Deliverables
 
 - Two checkpoints, one for each stage (mid-training and SFT).
 - A table of ARC-Easy, ARC-Challenge, and GSM-8K evaluation scores after each stage.
@@ -167,7 +167,7 @@ Pay attention to the clarity of your implementation description, correctness of 
 
 ## 5.8 Task 4: Inference, Deployment, and Critical Reflection
 
-#### 5.8.1 Part A: Inference and Deployment
+### 5.8.1 Part A: Inference and Deployment
 
 Launch nanochat's inference server and web UI, and interact with your trained model. Then address the following in your report (approximately one page):
 
@@ -178,7 +178,9 @@ Launch nanochat's inference server and web UI, and interact with your trained mo
 
 <span id="page-7-0"></span>3. **Capability comparison and scaling:** Find published ARC-Easy, ARC-Challenge, and GSM-8K scores for at least two publicly available models: one comparable in size to your nanochat model and one substantially larger. Report the evaluation conditions (for example, zero-shot or few-shot), and cite each source. Put your own results alongside the published scores in a table. Where does your model stand relative to similarly sized models? What does the gap between your model and a well-trained model of the same size reveal about data quality, training duration, and alignment?
 
-#### 5.8.2 Part B: Critical Reflection
+> **Editorial verification note (not in the source):** Published benchmark scores under different zero-shot/few-shot settings, decoding parameters, scoring scripts, or test splits are **not directly comparable rankings**. Record the evaluation protocol and prefer a matched setup when interpreting differences.
+
+### 5.8.2 Part B: Critical Reflection
 
 Write a short discussion (approximately 0.5–1 page) responding to *one* of the following prompts.
 

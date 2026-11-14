@@ -19,7 +19,7 @@ In this chapter you will learn how natural language can be processed in machine 
 - Describe how the *transformer architecture* is built from attention, and identify its main components.
 - Contrast *encoder* (classification) and *decoder* (generation) models, and select the appropriate one for a given NLP task.
 
-# 2.1 Processing Natural Language
+## 2.1 Processing Natural Language
 
 Language is the primary medium through which humans communicate. It takes many forms, from printed books and digital media to spoken discourse. Language research has long been a focus of multidisciplinary study. In artificial intelligence and computer science, language is especially significant: we use it to express complex ideas and write algorithms in programming languages.
 
@@ -44,7 +44,7 @@ Figure 2.2: The standard NLP pipeline, as visualized by [Manning et al.](#page-3
 
 ![](assets/_page_2_Diagram_2.jpeg)
 
-#### 2.1.1 Language Understanding and Language Generation
+### 2.1.1 Language Understanding and Language Generation
 
 Before considering how computers process language, we will consider how humans understand language.
 
@@ -117,7 +117,7 @@ Before we introduce the recent technologies that provide at least a partial answ
 
 Representing natural language in a computer is difficult because natural language is rich and complex. In the remainder of this section, we discuss the principle of distributional representation, which states that the semantic meaning of a word is driven by the context that surrounds that word. Next, we will look at tokenization methods: methods for splitting sentences into words. Finally we will discuss how we can work with vectors of tokens to arrive at a representation that encodes meaning.
 
-#### 2.1.3 Distributional Representations
+### 2.1.3 Distributional Representations
 
 How can we teach a machine to understand complex semantic relationships and grammatical structures without manually encoding them all? The answer lies in the distributional hypothesis, a foundational concept in modern NLP. The core idea was articulated in the late 1950s:
 
@@ -139,7 +139,7 @@ Word-level methods also struggle with rare and unseen words because the vocabula
 
 {7}------------------------------------------------
 
-#### 2.1.4 Tokenization
+### 2.1.4 Tokenization
 
 Before a computer can process language, the text must be divided into manageable units. Whether the input is raw text collected from the web or text transcribed from speech, tokenization splits a continuous character sequence into meaningful units. A robust strategy must do more than split on spaces: it must handle differences among languages and dialects, complex punctuation, and newer forms such as emojis, while mapping the resulting tokens to a fixed-size vocabulary.
 
@@ -169,7 +169,7 @@ Large vocabularies are problematic due to the mechanics of *one-hot encoding*. I
 
 {8}------------------------------------------------
 
-<span id="page-8-0"></span>vocabulary. As these one-hot vectors will later form the input to our neural networks, for texts that do not contain all words in a certain vocabulary, we end up creating sparse, computationally inefficient representations that fail to capture semantic relationships between words.
+<span id="page-8-0"></span>As these one-hot vectors will later form the input to our neural networks, for texts that do not contain all words in a certain vocabulary, we end up creating sparse, computationally inefficient representations that fail to capture semantic relationships between words.
 
 **Character-Level Tokenization.** Pure character-level modeling seems like a clear solution to the problem of growing vocabularies and has been explored over the years [\[Mielke et al.,](#page-30-0) [2021\]](#page-30-0). It restricts the vocabulary to the alphabet and nearly eliminates OOV issues. However, it greatly lengthens sequences and increases computational cost. Because individual characters carry little meaning, the model must learn word morphology before broader linguistic patterns, which increases training time.
 
@@ -178,7 +178,7 @@ Large vocabularies are problematic due to the mechanics of *one-hot encoding*. I
 - Byte Pair Encoding (BPE): An iterative algorithm that begins with individual characters and merges the most frequent adjacent pairs into single tokens until a target vocabulary size is reached [\[Sennrich et al.,](#page-31-0) [2016\]](#page-31-0) (e.g., *highest* → [*high*, *est*]). BPE was originally proposed as a data compression algorithm [\[Gage,](#page-28-0) [1994\]](#page-28-0).
 - WordPiece: An iterative algorithm, similar to BPE, that merges pairs based on a likelihood criterion rather than on raw frequency, aiming to maximize the probability of the training data [\[Wu et al.,](#page-32-0) [2016\]](#page-32-0).
 
-#### 2.1.5 Early Methods for Language Representation
+### 2.1.5 Early Methods for Language Representation
 
 After tokenization, the next question is how to combine linguistic units (tokens) into coherent, meaningful sentences. In human language, the order of these units follows strict syntactic and semantic rules. If computational methods could accurately produce sensible text sequences, we might say that they capture—or at least reproduce—those rules.
 
@@ -218,7 +218,7 @@ These probabilistic and count-based methods ultimately yield a numerical represe
 
 While count-based representations are tractable, they result in vectors that are high-dimensional and sparse, leading to computational inefficiencies and poor generalization on unseen data. Consequently, modern NLP has transitioned toward learning dense, low-dimensional vector representations, known as *embeddings*, using neural networks. Instead of relying on explicit counting, these models learn continuous representations as a byproduct of predicting a word from its surrounding context, capturing deeper semantic relationships in a more efficient format. These modern approaches will be discussed in Section [2.3.](#page-13-0) First, we will briefly review three important machine learning approaches.
 
-# 2.2 Machine Learning Methods For Natural Language Processing
+## 2.2 Machine Learning Methods For Natural Language Processing
 
 Having established a primer on language representation, we will now turn to the learning algorithms that allow us to create the large models powering modern AI systems. LLMs are trained using methods from the broader field of machine learning. While machine learning is an extensive field of research, understanding LLMs requires familiarity with three core paradigms, and how they are used in language modeling: *supervised learning*, *autoregressive learning*, and *reinforcement learning*. We briefly touch upon these essential methods and refer to standard works for deeper exploration.
 
@@ -240,9 +240,11 @@ Generally speaking, problems with few variables (low-dimensional problems, such 
 
 Supervised learning remains a core machine-learning method and is covered in many textbooks [\[Bishop and Bishop,](#page-27-0) [2023,](#page-27-0) [Goodfellow et al.,](#page-28-0) [2016\]](#page-28-0). It is also central to LLM training, for example in supervised fine-tuning, which we discuss in the next chapter.
 
-#### 2.2.2 Autoregressive Learning
+### 2.2.2 Autoregressive Learning
 
 Many generative LLMs, especially decoder-only models, are trained autoregressively. Unlike supervised learning, this approach does not require a manually labeled input–output dataset; it uses large text corpora. The model predicts the next token in a sequence, using the text itself to provide the target. Autoregressive training is therefore a form of self-supervised learning.
+
+> **Editorial verification note (not in the source):** Autoregression specifies a sequence-prediction objective, while supervised versus self-supervised learning describes the origin of training targets. These are distinct dimensions, not mutually exclusive algorithm families.
 
 During autoregressive pretraining, the model uses the preceding tokens $x_1,\ldots,x_{t-1}$ as context to predict the target token $x_t$ at position $t$. This next-token prediction objective is central to many modern NLP training pipelines [\[Radford et al.,](#page-31-0) [2018\]](#page-31-0).
 
@@ -254,9 +256,11 @@ Figure 2.4: Reinforcement Learning, after [Sutton and Barto](#page-32-0) [\[2018
 
 Autoregressive learning is also covered in NLP textbooks [\[Jurafsky and Martin,](#page-29-0) [2025\]](#page-29-0). We will provide more details of these methods in Section [2.3](#page-13-0) and Chapter 3.
 
-#### 2.2.3 Reinforcement Learning
+### 2.2.3 Reinforcement Learning
 
-Supervised and autoregressive learning usually rely on pre-collected datasets, so this chapter treats them as *offline* methods. In online reinforcement learning (RL), an agent can learn without a fixed labeled dataset when a function can evaluate state quality. The agent takes an action $a$, moving the environment from state $s$ to $s'$, and receives a reward $r(s')$; it generates experience through interaction during training, which is why RL is called an online method. The agent uses the reward to update a parameterized policy $\pi_\theta(s)\rightarrow a$, which selects an action for each state. In sequential decision problems, rewards may depend on a sequence of earlier actions. This creates the *credit-assignment problem*: which actions should receive credit for a reward? By repeatedly observing states, taking actions, and receiving rewards, the agent can explore the state space and learn an optimal policy $\pi^*(s)$ that selects an action in each state.
+Supervised and autoregressive learning usually rely on pre-collected datasets, so this chapter treats them as *offline* methods. In online reinforcement learning (RL), an agent can learn without a fixed labeled dataset when a function can evaluate state quality. The agent takes an action $a$, moving the environment from state $s$ to $s'$, and receives a reward $r(s')$; it generates experience through interaction during training, which is why RL is called an online method.
+
+> **Editorial verification note (not in the source):** This passage describes the online RL setting. Reinforcement learning can also be trained from a fixed logged dataset (**offline RL**); online interaction is not a universal requirement of RL. The agent uses the reward to update a parameterized policy $\pi_\theta(s)\rightarrow a$, which selects an action for each state. In sequential decision problems, rewards may depend on a sequence of earlier actions. This creates the *credit-assignment problem*: which actions should receive credit for a reward? By repeatedly observing states, taking actions, and receiving rewards, the agent can explore the state space and learn an optimal policy $\pi^*(s)$ that selects an action in each state.
 
 Because reinforcement learning is online, it forms a feedback loop. Early in training, the agent has little experience, so its policy is informed by feedback from only a few states. If it greedily exploits that limited information, it may visit only a small part of the environment and settle on a locally optimal policy. To find better policies, it must also explore—for example, by trying random actions and, ideally, covering the state space.
 
@@ -274,7 +278,7 @@ Reinforcement learning is useful when an agent can generate experience by intera
 
 With these language and machine-learning principles in place, we now return to language modeling.
 
-# 2.3 Modeling Language
+## 2.3 Modeling Language
 
 With the foundations of language representation and machine learning in place, we can examine three broad paradigms in NLP: symbolic, statistical, and neural approaches [\[Kautz,](#page-29-0) [2020,](#page-29-0) [Deng and Liu,](#page-28-0) [2018\]](#page-28-0). Each reflects a different way to represent language and manage its complexity. Over time, the field has drawn on increasingly powerful machine-learning methods and computing resources to process more data and train larger models.
 
@@ -308,7 +312,7 @@ The first, *skip-gram*, predicts which context words are likely to surround a gi
 
 The second, *continuous bag-of-words* (CBOW), performs the reverse operation. It predicts a single target word based on a combined set of surrounding context words. By averaging the context vectors before predicting the target, CBOW inherently smooths over the specific details of individual context words. This distributional smoothing is the reason for its distinct performance profile: CBOW trains significantly faster than skip-gram and is highly effective at capturing general syntactic relationships among frequent words, though it is less sensitive to rare words.
 
-#### 2.3.2 Shifting to Contextualized Embeddings
+### 2.3.2 Shifting to Contextualized Embeddings
 
 Word2vec marked a major advance in learning high-quality word embeddings. However, it produces *static embeddings*: each word maps to a single vector regardless of context. This creates a problem for polysemous words. Consider the two uses of *bank* in the following sentences:
 
@@ -323,7 +327,7 @@ Figure 2.5: Visualizations of the skipgram (left) and continuous bag-of-words (r
 
 In a static model, both uses of *bank* share one representation, which cannot reliably distinguish the financial sense from the geographic one. Modern architectures such as BERT and GPT (discussed later in this chapter) address this limitation with *contextualized embeddings*. Rather than retrieving a fixed vector from a lookup table, the model processes the full sequence and computes the representation of *bank* from its surrounding tokens (*money* and *withdraw* versus *river* and *swimmer*). The resulting vector reflects the word’s meaning in that context.
 
-## 2.3.3 Recurrent Neural Networks
+### 2.3.3 Recurrent Neural Networks
 
 Although embeddings capture the complex semantics of individual words, we still need an efficient way to process language as a sequence. For classification tasks, simplifying independence assumptions can make computation more manageable. One option is to concatenate embeddings from a sliding window into a single vector representing the sentence. However, this quickly increases the classifier’s input size and does not scale well to long texts.
 
@@ -395,7 +399,7 @@ This forces the information into a *bottleneck*: compressing information of an i
 
 The context vector acts as the bridge between the encoder and the decoder. It is the final hidden state of the encoder that is passed to the decoder as its initial hidden state. This vector encodes the semantic meaning of the entire source sentence, so the decoder can begin generating the target sequence accurately. The decoder is a second RNN that produces output tokens, conditioned on the context vector. Its goal is to generate the output sequence one token at a time. This continues until a special end-of-sequence token is generated. This approach works well, in principle. However, forcing a long input sentence into a single, fixed-length context vector causes information loss (the bottleneck problem). Moreover, RNNs struggle to remember the beginning of long sequences by the time they reach the end. These two problems combined prompted the development of a more dynamic approach for passing information between the encoder and decoder, which we will discuss next.
 
-#### 2.3.4 Attention
+### 2.3.4 Attention
 
 To address the bottleneck problem, researchers developed ways to pass information from the full input sequence to the decoder. During generation, the decoder can then select the input positions that matter for predicting the next token.
 
@@ -434,7 +438,7 @@ In multi-head attention, each head applies its own linear projections to the que
 
 $\operatorname{MultiHead}(Q,K,V)=\operatorname{Concat}(\operatorname{head}_1,\ldots,\operatorname{head}_h)W^O$ (2.12), where $\operatorname{head}_i=\operatorname{Attention}(QW_i^Q,KW_i^K,VW_i^V)$
 
-#### 2.3.5 Transformers
+### 2.3.5 Transformers
 
 How can attention be used to build a language-modeling architecture? One answer is the Transformer, introduced in the seminal work by [Vaswani et al.](#page-32-0) [\[2017\]](#page-32-0).
 
@@ -495,7 +499,7 @@ Encoder-only models are well suited to transfer learning: their representations 
 
 Having covered encoder-only models, we now turn to decoder-only models.
 
-#### 2.3.7 Decoder-only (GPT)
+### 2.3.7 Decoder-only (GPT)
 
 Decoder-only models are commonly used for language generation. They are trained autoregressively to predict the next token and often generate text one token at a time. Because each prediction depends on the tokens generated so far, the model uses *causal attention*: it cannot use future tokens when predicting the current one. A look-ahead mask, often represented as a triangular matrix, sets future-token attention scores to $-\infty$. For example, when predicting *apple* in *The boy ate the...*, the model must not attend to *apple* in the training sequence; it must rely only on preceding context. Thus, encoders use masked language modeling, while decoders use *causal language modeling*, as shown in [Equation 3.1 in Chapter 3](../03-llm-training-pipeline/03-llm-training-pipeline-en.md#page-4-0).
 
@@ -507,11 +511,11 @@ Pretraining and fine-tuning therefore play different roles for decoders.
 
 Decoder-only models include the *Generative Pre-trained Transformer* (GPT) family [\[Radford et al.,](#page-31-0) [2018,](#page-31-0) [2019,](#page-31-0) [Brown et al.,](#page-27-0) [2020,](#page-27-0) [Ouyang et al.,](#page-30-0) [2022,](#page-30-0) [Achiam et al.,](#page-27-0) [2023\]](#page-27-0). These models are widely used, and many other open and closed models have also been developed. Together, the training methods discussed in this chapter form the basis of the modern LLM pipeline, which [Chapter 3](../03-llm-training-pipeline/03-llm-training-pipeline-en.md) examines in more detail.
 
-# 2.4 Concluding Remarks
+## 2.4 Concluding Remarks
 
 This chapter traced NLP’s evolution from its linguistic foundations to the neural architectures behind today’s large language models. Human language is complex, shaped by syntax, morphology, and subtle semantic and pragmatic features. NLP has progressed through symbolic, statistical, and neural paradigms. These shifts produced core components of modern language models, including dense embeddings and attention, alongside increases in data, model size, and compute. Encoder models are generally suited to NLU, while decoder models are suited to NLG. Both rely on pretraining and fine-tuning; decoder models also support prompt-based in-context learning.
 
-#### 2.4.1 Open challenges
+### 2.4.1 Open challenges
 
 Although modern LLMs perform impressively and support many useful applications, important challenges remain. Understanding them can help researchers identify open questions and build more robust systems, including agentic LLMs.
 

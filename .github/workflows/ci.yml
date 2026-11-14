@@ -35,5 +35,8 @@ jobs:
       - name: Install locked dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Audit bilingual academic chapter structure (02-07)
+        run: pnpm docs:audit-structure
+
       - name: Build and validate the site
         run: pnpm docs:build && pnpm docs:check-dist

@@ -24,7 +24,7 @@ As discussed in Chapter 3, large language models can learn from examples supplie
 
 {1}------------------------------------------------
 
-#### <span id="page-1-0"></span>6.1.1 In-Context Learning
+### <span id="page-1-0"></span>6.1.1 In-Context Learning
 
 In-context learning [\[Dong et al.,](#page-20-0) [2022\]](#page-20-0) takes place at inference time, not during training. The model receives examples in its prompt and uses them to answer a query. These examples can help a decoder model draw on relevant knowledge learned during pretraining. A model may perform a task accurately with only a few examples, which is why ICL is often described as *few-shot learning*. This depends on the model having acquired broad knowledge during training.
 
@@ -48,7 +48,7 @@ Most LLM applications also use hidden system prompts to assign the model a role 
 
 ICL has prompted further research, including multi-step reasoning—the subject of this chapter. LLMs have historically struggled with reasoning tasks such as simple arithmetic. The following sections introduce benchmarks for these tasks and then examine an ICL method that substantially improved performance.
 
-#### 6.1.2 Multi-step Reasoning Benchmarks
+### 6.1.2 Multi-step Reasoning Benchmarks
 
 Progress in artificial intelligence is often measured with benchmarks. Research on multi-step LLM reasoning began with elementary-school math word problems. The GSM8K benchmark was created to study this type of reasoning [\[Cobbe et al.,](#page-20-0) [2021\]](#page-20-0). It contains 8,500 human-written problems and solutions, designed to be high-quality, diverse, and moderately difficult. Before chain-of-thought prompting, language models struggled to perform well on this dataset. Here is a typical example:
 
@@ -64,7 +64,7 @@ Other benchmarks assess reasoning in additional domains, including advanced math
 
 Benchmarks are intended to make it possible to compare approaches, but results can be difficult to compare when studies use different experimental conditions. See [Kamoi et al.](#page-21-0) [\[2024\]](#page-21-0) and [Shojaee et al.](#page-23-0) [\[2025\]](#page-23-0) for critical discussions of challenges in evaluating LLM reasoning.
 
-#### 6.1.3 Chain-of-Thought Prompting
+### 6.1.3 Chain-of-Thought Prompting
 
 Around 2022, standard LLMs performed poorly on simple math word problems. Simply increasing model size, the approach discussed in Chapter 4, did not solve the problem [\[Rae et al.,](#page-22-0) [2021\]](#page-22-0). Researchers therefore explored a different approach.
 
@@ -133,9 +133,11 @@ In-context learning is a powerful few-shot method. When examples include reasoni
 
 This section examines limits of in-context learning and ways to extend them. It first considers state and memory: how state can be passed between separate LLM calls, what longer context windows make possible, and how well LLMs solve problems that require them to track and update state.
 
-#### 6.2.1 LLMs as Memoryless Functions
+### 6.2.1 LLMs as Memoryless Functions
 
-In-context few-shot learning uses the prompt to condition an LLM’s retrieval of learned information. The transformer produces the next token based on its parameters, often denoted by $(K,V)$. With chain-of-thought prompts, the model is also conditioned on the example reasoning steps included in the prompt.
+In-context few-shot learning uses the prompt to condition an LLM’s retrieval of learned information. The Transformer predicts the next token using its trained **model weights** (conventionally denoted by $\theta$) and the supplied context. Chain-of-thought prompts also condition the model on example reasoning steps.
+
+> **Editorial correction (not in the source):** The source denotes model parameters by $(K,V)$, which is easily confused with attention **keys and values** or the inference-time KV cache. Here $\theta$ denotes model weights; the KV cache is an inference-time state, not the parameter set.
 
 In this setting, all information supplied to the LLM is part of the prompt. We can describe the model as a function $f$ that maps a prompt $x$ to an answer $y$:
 
@@ -151,7 +153,7 @@ Repeating the full conversation in every new question would be cumbersome. Chatb
 
 Figure 6.3: Tic-tac-toe is a simple board game in which keeping track of state matters.
 
-#### 6.2.2 Retrieval Augmentation and Long Context Windows
+### 6.2.2 Retrieval Augmentation and Long Context Windows
 
 The memory limitation goes beyond separate calls. All information needed to answer a query must fit in the context window, whose finite size limits how much can be provided at once. This becomes a challenge when summarizing a long text such as a book. Section 20.2.1 also discusses in-context reinforcement-learning methods that store complete episode histories in the context window. These cases motivate methods for supplying more relevant information to an LLM.
 
@@ -159,7 +161,7 @@ One early way to expand the information available at inference time is retrieval
 
 Longer context windows allow models to accept longer texts. With the standard Transformer architecture, computation grows quadratically with context length, so researchers are also developing linear-complexity architectures [Ren et al. (2024)](#page-22-0). Other approaches compress context, for example through semantic compression [Fei et al. (2024)](#page-20-0), chunking [Wang et al. (2023); Zhou et al. (2025)](#page-25-0), or recursive processing [Zhang et al. (2025)](#page-25-0). New memory architectures for LLMs remain an active research area [Yan et al. (2025)](#page-24-0).
 
-#### 6.2.3 LLMs and Stateful Problems
+### 6.2.3 LLMs and Stateful Problems
 
 LLMs often struggle with problems that require accurate state tracking [Wong et al. (2025)](#page-24-0). This includes planning tasks in which the current state must be remembered, even in simple board games such as the one in Figure 6.3. A model may confuse board states and give plausible-sounding moves that would be valid in familiar games but are wrong for the actual position [Paglieri et al. (2025); Ruoss et al. (2024)](#page-23-0).
 
@@ -177,7 +179,7 @@ Both the knowing-doing gap and the disappearing-pieces problem can be avoided by
 
 Chapter 20 discusses other approaches to state and memory in Transformer-based systems.
 
-#### 6.2.4 Agentic Harnesses for Prompt Improvement
+### 6.2.4 Agentic Harnesses for Prompt Improvement
 
 External code execution is one way to manage state. Another is to add small external algorithms that explicitly manage state and prompts. Such a control algorithm is called a *harness*.
 
@@ -282,7 +284,7 @@ This chapter has examined ways to improve LLM reasoning. Chain-of-thought prompt
 
 {18}------------------------------------------------
 
-#### <span id="page-18-0"></span>6.3.1 Brittleness
+### <span id="page-18-0"></span>6.3.1 Brittleness
 
 Many algorithms have been proposed for building agentic harnesses because the field is young and still faces substantial challenges.
 
@@ -290,7 +292,7 @@ These methods can also be brittle. A small prompt change—even a comma—may de
 
 This instability can be frustrating, but it is common in a developing field. Experiments should include multiple runs with different seeds, models, and hyperparameter settings to show how reliably a method works across conditions.
 
-#### 6.3.2 Thinking, Fast and Slow
+### 6.3.2 Thinking, Fast and Slow
 
 This chapter closes with a broader perspective on reasoning in LLMs. Two traditions in AI are symbolic AI and connectionism. Symbolic AI models intelligence as the manipulation of symbols according to logical rules. Connectionism studies how intelligent behavior can emerge from interactions among connected units, such as neurons, cells, ants, people, or robots. Symbolic AI draws on mathematics, while connectionism draws on biology. As discussed in Section 2.3, both traditions have produced useful methods and important results, from search and reasoning to deep learning and LLMs.
 
@@ -304,7 +306,7 @@ Researchers sometimes describe LLMs in human terms, but an LLM generates text by
 
 <span id="page-19-0"></span>Reasoning can be viewed as narrowing the distribution of possible continuations until the correct answer becomes more likely, without assuming that the model’s process mirrors human cognition [Guo et al. (2025)](#page-21-0).
 
-#### 6.3.3 Conclusion
+### 6.3.3 Conclusion
 
 This chapter has discussed how LLMs use next-token prediction to perform language tasks and how they can approach tasks that require multi-step reasoning. It has also covered methods for managing complex reasoning structures.
 

@@ -16,7 +16,7 @@ Agents act in a world that involves more than language. This chapter explains ho
 - Explain how *vision-language-action* (VLA) models work and how training on robotic actions can support more general robot behavior.
 - Explain how *world models* can help agents account for physical features of their surroundings, such as walls that cannot be walked through.
 
-# 7.1 Multimodal Vision-Language Models
+## 7.1 Multimodal Vision-Language Models
 
 Many decisions involve vision. As this section shows, transformer architectures can also learn patterns in visual tokens. Models pretrained on both language and visual data are called vision-language models, or VLMs. They typically include a language component, a vision component, and a component that combines their representations.
 
@@ -70,7 +70,7 @@ A VLM also needs to combine image and language representations and generate text
 
 More elaborate VLMs can contain several transformer modules. Figure [7.4](#page-4-0) shows the generative Stable Diffusion architecture [Esser et al. (2024)](#page-25-0).
 
-#### 7.1.3 Learning Algorithms
+### 7.1.3 Learning Algorithms
 
 VLM training must align and combine information from visual and language encoders. Once the representations are connected, the model can relate an image to text, interpret a query, and produce an answer. Researchers have developed several training approaches.
 
@@ -119,7 +119,7 @@ Figure 7.8: Stable Diffusion examples [Esser et al. (2024)](#page-25-0).
 
 Figure 7.9: “VLA” and “Vlas” mean different things in different languages; one of the images hints at which language is shown.
 
-# 7.2 Decisions and Vision-Language-Action Models
+## 7.2 Decisions and Vision-Language-Action Models
 
 Agents must weigh options before acting. One way to model this process is to train transformers on sequences of states, actions, and rewards, $(s,a,r)$ (see Section 20.1.2). Vision-language-action models (VLAs) are trained on sequences that combine language, visual observations, and robot actions. They produce robot API commands—a specialized language for controlling movement.
 
@@ -192,11 +192,11 @@ Figure 7.16: Architecture of $\pi^0$, a VLM-based model trained with cross-embod
 
 The dataset covers a range of manipulation tasks. Inspired by Transfusion [Zhou et al. (2024)](#page-29-0), $\pi^0$ adds a separate action expert that generates robot actions through flow matching, supporting smooth manipulation. The model can perform tasks directly from prompts or be fine-tuned on higher-quality data for complex, multi-stage tasks such as folding laundry or assembling a box (Figure 7.16).
 
-#### 7.2.3 Learning Algorithms
+### 7.2.3 Learning Algorithms
 
 Most VLA architectures build on VLMs and may add navigation maps. Robot commands are often represented as ordinary text tokens. VLA pretraining and fine-tuning commonly use self-supervised methods similar to those used for LLMs, VLMs, and decision transformers. Some systems reuse pretrained models to reduce training costs.
 
-#### 7.2.4 Results
+### 7.2.4 Results
 
 Several VLAs have shown zero-shot generalization to situations not seen during training. Mobility VLA, RT-2, and Magma are examples of models that perform navigation and object manipulation; $\pi^0$ has also been used for tasks such as folding laundry [Chiang et al. (2024); Brohan et al. (2023); Yang et al. (2025); Black et al. (2024)](#page-29-0).
 
@@ -204,7 +204,7 @@ Several VLAs have shown zero-shot generalization to situations not seen during t
 
 <span id="page-13-0"></span>The results are best appreciated in video demonstrations. Videos are available for $\pi^0$<sup>2</sup> and RT-2.<sup>3</sup>
 
-# 7.3 World Models, Physics, and Planning
+## 7.3 World Models, Physics, and Planning
 
 An image presented to a VLM is a pattern of pixels; it does not inherently tell the model what is physically possible. Agents that interact with the world need knowledge of physical constraints so they do not, for example, attempt to walk through a wall.
 
@@ -224,7 +224,7 @@ This section reviews how world models are used in agentic LLM systems.
 
 {14}------------------------------------------------
 
-#### <span id="page-14-0"></span>7.3.1 Tasks
+### <span id="page-14-0"></span>7.3.1 Tasks
 
 A world model should encode enough knowledge for an agent to take meaningful actions grounded in its environment. A robot controller should account for the limits of an arm’s joints. A navigation agent should represent gravity, distance, and walls as solid obstacles. A financial agent should understand the consequences of a negative account balance. People often take such facts for granted, so an agent’s failure to represent them can be surprising. A VLM trained only on pixels may not recognize whether a texture represents clothing, smoke, or a wall.
 
@@ -256,7 +256,7 @@ Figure 7.19: WorldGPT architecture [Ge et al. (2024)](#page-25-0).
 
 The generated Python code is more efficient to execute than repeated LLM inference. WorldCoder has been evaluated on grid-based tasks such as Sokoban (Figure [7.17](#page-15-0)) and household planning tasks in ALFWorld (Figure [7.18](#page-15-0)).
 
-#### 7.3.2 Architecture
+### 7.3.2 Architecture
 
 A world model adds meaning to observations by representing how actions change the environment—something LLMs and VLMs may not capture reliably on their own. For example, it should distinguish walkable floor from a wall that blocks movement. A reward function indicates which outcomes are desirable. World-model systems therefore often combine an environment model with a policy learned from reward feedback. One useful perspective is to view a world model as a VLM combined with a policy learner.
 
@@ -284,7 +284,7 @@ Figure 7.21: WorldCoder architecture [Tang et al. (2024)](#page-28-0).
 
 In many model-based LLM approaches, the LLM simulates the world at inference time. WorldCoder instead uses the LLM to build a simulator that can be executed later. A Python interpreter applies the transition function; in ReAct, by contrast, the LLM reasons over the world state directly. The symbolic approach can be better suited to planning tasks because LLMs may struggle to plan reliably at inference time (Section 6.2.3).
 
-#### 7.3.3 Learning Algorithms
+### 7.3.3 Learning Algorithms
 
 This section reviews the pretraining and fine-tuning methods used by the three approaches.
 
@@ -316,7 +316,7 @@ Representing world knowledge as code has several advantages. Prior knowledge can
 
 Figure 7.22: Standard reinforcement-learning loop. The agent learns a parameterized policy $\pi_\theta$ from reward feedback from the environment [Sutton and Barto (2018)](#page-28-0).
 
-#### 7.3.5 Model-Based Reinforcement Learning
+### 7.3.5 Model-Based Reinforcement Learning
 
 World models are used in agentic LLM systems as well as in model-based reinforcement learning. This section briefly reviews the latter to clarify how its ideas are applied to LLM world models.
 
@@ -338,7 +338,9 @@ Figure 7.23: In model-based reinforcement learning, environment feedback improve
 
 #### 7.3.5.2 Model-Based Reinforcement Learning
 
-Direct reinforcement learning does not retain sampled experience; each policy update requires new interaction. But interacting with the real world—for example, a robot whose joints wear out—can be expensive. A straightforward improvement is to store past samples and reuse them. A more advanced approach also learns a local model $\hat{M}=(\hat{T},\hat{R})$ of the environment dynamics. Once learned, this model can generate additional simulated samples at lower cost (Figure 7.23).
+Model-free reinforcement learning does **not explicitly learn an environment transition model for planning**, but many off-policy model-free algorithms can still store and reuse experience through **experience replay**. Real-world interaction can be costly, as with a robot whose joints wear out. **Model-based reinforcement learning** additionally learns a local dynamics model $\hat{M}=(\hat{T},\hat{R})$ and uses it to simulate possible futures or generate samples for planning and policy improvement (Figure 7.23).
+
+> **Editorial correction (not in the source):** The source conflates **whether an algorithm learns an environment model** with **whether it stores or reuses experience**. Model-free approaches can also use experience replay.
 
 These are indirect methods: the agent learns a local dynamics model from the environment, then uses that model to improve its policy. The model’s estimates $\hat{T}$ and $\hat{R}$ approximate the true transition and reward functions $T$ and $R$, which are only directly known to the environment. Model-based reinforcement learning has been successful in tasks such as Go [Silver et al. (2016)], Diplomacy [Bakhtin et al. (2022)], and StarCraft [Vinyals et al. (2019)], and in learning across domains [Hafner et al. (2020b)](#page-26-0).
 
