@@ -4,7 +4,7 @@
 
 {0}------------------------------------------------
 
-## Part VII Conclusion
+## Part VII: Conclusion
 
 {1}------------------------------------------------
 
@@ -12,7 +12,7 @@
 
 {2}------------------------------------------------
 
-Agentic LLMs are a new field that uses large language models to build agents capable of acting in the world. In the conclusion, we discuss their impact, what they can do, their current limitations, and what the future may bring.
+Agentic LLM systems combine language-model reasoning with tools, environmental feedback, and multi-step action. This final part revisits their capabilities across **reasoning, acting, and interacting**, then considers open questions in memory, reliability, safety, and accountability in Chapter 23.
 
 {3}------------------------------------------------
 
