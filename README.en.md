@@ -31,6 +31,17 @@ pnpm docs:preview
 
 Edit the bilingual source Markdown under `docs/`. The `site/content/` directory is generated and ignored by Git. Chapter ordering and original PDF page ranges are defined in `config/chapters.json`.
 
+## Academic quality audit
+
+A reproducible bilingual structure audit now covers **Chapters 2–7**, alongside an initial scholarly editorial review. See the [audit report](reports/academic-audit-2026-11-14.md) for issues, evidence levels, and outstanding PDF-verification work.
+
+```sh
+pnpm docs:audit-structure      # CI-enforced Chapters 2–7 audit
+pnpm docs:audit-structure-all  # Manually audit all numbered chapters
+```
+
+**Important:** Passing the structural checks does not prove that every passage, formula, or figure has been verified against the original PDF.
+
 ## Translation status, attribution, and corrections
 
 The English text is extracted and formatted from the source PDF; the Chinese text is translated by this project. **Both editions may contain extraction, page-break, equation, citation, or formatting errors**, especially where passages have not yet been compared with the original by a human reviewer.
