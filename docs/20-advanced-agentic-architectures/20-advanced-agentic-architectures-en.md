@@ -113,6 +113,8 @@ How does ICRL work inside an LLM? At inference time, the model computes tokens t
 
 An LLM can serve as the agent and policy optimizer, and another can simulate the environment and generate the next state and reward. Using separate models helps prevent the agent from gaining unintended access to the environment's information. This remains an active area of research.
 
+> **Editorial learning-mechanism audit (not in the source):** *In-context reinforcement learning* generally describes behavior adapted to **interaction/reward history in the prompt**, not necessarily gradient-based or persistent weight updates. Compare matched-length histories **without rewards, with permuted rewards, and with neutral demonstrations**, and verify whether model parameters actually change. Separate feedback-conditioned policy adaptation from pattern matching; apparent improvement across rounds can also reflect growing context, contamination, or sampling variability.
+
 ### 20.2.2 Self-Modifying Hyperagents
 
 This book has discussed self-reflective prompt improvers based on search algorithms and reinforcement learning. Human researchers write the code for these external algorithms, and it does not change while the agent learns. As a result, prompt improvement is constrained by the capabilities of the fixed algorithms.
@@ -128,6 +130,8 @@ Self-modifying code—programs that alter their own instructions while running�
 An advantage of self-modifying agents is open-endedness: they can continue to improve without the fixed boundaries imposed by static algorithms [\[Schmidhuber,](#page-10-0) [2007\]](#page-10-0). Doing so safely remains a challenge [\[Zhang et al.,](#page-11-0) [2026b\]](#page-11-0). Darwin-Gödel Machine-Hyperagents combine (1) an agent that solves a target task and (2) a meta-agent that modifies both itself and the task-solving agent in a single editable program. Because the meta-level modification procedure is itself editable, the system can in principle improve both task-solving behavior and the process that generates future improvements [\[Zhang et al.,](#page-11-0) [2026c\]](#page-11-0). However, the experiments do not achieve full openness: they use a fixed task distribution and fixed protocols for parent selection and evaluation.
 
 As approaches become more open-ended, controlling the improvement process becomes more difficult. Systems must keep improving without degenerating [\[Cemri et al.,](#page-8-0) [2025,](#page-8-0) [Ecoffet et al.,](#page-9-0) [2020\]](#page-9-0). More generally, powerful metalearning methods require stable learning processes: strong generation must be matched by strong evaluation and adaptation to the environment.
+
+> **Editorial self-modification safety audit (not in the source):** Agents that edit their own harness must have **non-editable approval and permission boundaries**. Otherwise, an agent may alter the judge, tests, logs, or safety checks along with its implementation, making reported gains unidentifiable. Separate proposal, execution, evaluation, and approval trust domains; validate candidates in pinned-version sandboxes with secrets and write access isolated; use a hidden regression set, and preserve commit, diff, cost, failure, and rollback traces. Claims of improvement require independent evaluation under unchanged rules.
 
 ### 20.2.3 Meta-Agents
 
