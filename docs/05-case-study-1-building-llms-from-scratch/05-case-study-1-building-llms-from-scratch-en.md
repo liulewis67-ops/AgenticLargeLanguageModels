@@ -62,7 +62,7 @@ A web inference server and lightweight JavaScript chat interface are included, s
 
 **Repository.** Clone the course repository and read its README carefully before writing any code.
 
-Listing 5.1: Cloning the nanochat repository
+Code listing 5.1: Cloning the nanochat repository
 
     git clone git@github.com:karpathy/nanochat.git
 
@@ -129,7 +129,7 @@ Pretrain a Transformer on CLIMBMix using nanochat with --depth 4, or --depth 2 i
 
 {5}------------------------------------------------
 
-- 4. **Qualitative inspection:** Sample five completions from your pretrained model without a system prompt (raw next-token prediction). What can the model do at this stage, and why?
+  4. **Qualitative inspection:** Sample five completions from your pretrained model without a system prompt (raw next-token prediction). What can the model do at this stage, and why?
   
 Pay attention to the correctness of your depth-parameter and auto-configuration explanations, the accuracy of your architecture description, the scaling-law calculations, the quality of your loss analysis, and the insightfulness of your qualitative assessment.
 
@@ -177,6 +177,8 @@ Launch nanochat's inference server and web UI, and interact with your trained mo
 {7}------------------------------------------------
 
 <span id="page-7-0"></span>3. **Capability comparison and scaling:** Find published ARC-Easy, ARC-Challenge, and GSM-8K scores for at least two publicly available models: one comparable in size to your nanochat model and one substantially larger. Report the evaluation conditions (for example, zero-shot or few-shot), and cite each source. Put your own results alongside the published scores in a table. Where does your model stand relative to similarly sized models? What does the gap between your model and a well-trained model of the same size reveal about data quality, training duration, and alignment?
+
+> **Editorial verification note (not in the source):** Published benchmark scores under different zero-shot/few-shot settings, decoding parameters, scoring scripts, or test splits are **not directly comparable rankings**. Record the evaluation protocol and prefer a matched setup when interpreting differences.
 
 ### 5.8.2 Part B: Critical Reflection
 
