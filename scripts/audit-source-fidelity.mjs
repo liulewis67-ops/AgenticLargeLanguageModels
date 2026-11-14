@@ -9,6 +9,8 @@ const root = resolve(import.meta.dirname, "..");
 const paths = {
   14: "14-case-study-3-multi-agent-diagnosis",
   18: "18-case-study-4-simulating-societies",
+  19: "19-synthetic-data-generation",
+  20: "20-advanced-agentic-architectures",
   21: "21-mechanistic-interpretability-for-llm-agents",
 };
 const read = (chapter, lang) =>
