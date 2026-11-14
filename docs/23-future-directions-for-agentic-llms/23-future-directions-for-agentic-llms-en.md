@@ -54,6 +54,8 @@ One simple way to provide rudimentary memory is to feed past interactions back i
 
 Agents can access external information through retrieval-augmented generation (RAG), for example from corporate databases. Researchers are also developing agent memory architectures that provide longer-term storage, either as text or as token embeddings in vector databases (Section 9.3).
 
+> **Editorial continual-learning audit (not in the source):** Cross-session storage, in-context adaptation to feedback, parameter fine-tuning, and robust **continual learning** are different mechanisms. Distinguish the unchanged-weight model retrieving external memory from one actually updated through training; test forgetting on earlier tasks, memory revocation, temporal drift, and authorization/deletion. The ability to cite past interactions does not by itself establish lifelong learning without catastrophic forgetting.
+
 ### 23.2.2 Scale
 
 Beyond memory, agentic systems face challenges in scaling the underlying models, inference budgets, and overall execution costs.
@@ -85,6 +87,8 @@ Explainable AI (XAI) offers a range of techniques, from behavioral and attributi
 Tools such as sparse autoencoders, logit lenses, and activation patching can support investigations of internal mechanisms and the causal role of reasoning traces. However, identifying a circuit associated with a particular failure does not by itself establish a general-purpose hallucination detector. As agentic LLMs enter high-stakes settings, MI may help researchers develop hallucination detectors that flag discrepancies between a model’s internal confidence features and its external output.
 
 Another direction is to compare human and Transformer cognitive architectures. Language models appear to produce natural language in ways that resemble humans. Does this reflect similar underlying architectures, coincidence, or some other explanation? Chapter 22 explored this question.
+
+> **Editorial forecast-evidence note (not in the source):** SAEs, logit lenses, and activation patching offer feature descriptions, intermediate readouts, and controlled interventions; none by itself establishes a deployable general hallucination monitor. Freeze detection thresholds and evaluate **held-out models, topics, tool workflows, and distribution shifts** for false positives, false negatives, calibration, adversarial robustness, and cost. Validate readable feature labels separately from causal dependence on those features.
 
 ### 23.2.4 Emotional Behavior and Consciousness
 
@@ -165,6 +169,8 @@ Clinical deployment requires independent validation of accuracy, failure modes, 
 As in trading, the most promising medical applications of agentic LLMs involve analyzing and summarizing text, such as meeting reports or literature reviews. Results in other applications, including treatment planning and surgery, remain limited.
 
 Medicine may be one of the most valuable—and most cautious—domains for agentic LLMs. In matters of life and death, we must proceed carefully, even as the potential benefits remain substantial.
+
+> **Editorial research-roadmap note (not in the source):** Future-work claims should explicitly separate **observed evidence, testable hypotheses, and normative governance choices**. Track reproducible benchmarks and data provenance, causal ablations and statistical uncertainty, tool permissions and human approvals, transfer across environments, and real-world harm monitoring. A proof of concept or short-term benchmark gain cannot substitute for an independent deployment safety, legal, and ethical assessment.
 
 ## 23.3 Concluding Remarks
 
