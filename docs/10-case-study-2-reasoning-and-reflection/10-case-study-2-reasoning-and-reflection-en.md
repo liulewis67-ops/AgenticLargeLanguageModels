@@ -302,7 +302,7 @@ Evaluate τ_0 using M_e
 Generate initial self-reflection s_r0 using M_sr
 Set memory = {s_r0}
 Set t = 0
-while M_e does not pass, or t < maximum trials:
+while M_e does not pass and t < maximum trials:
     Generate trajectory τ_t = (a_0, o_0, ..., a_t, o_t) using π_θ
     Evaluate τ_t using M_e
     Generate self-reflection s_rt using M_sr
@@ -311,6 +311,8 @@ while M_e does not pass, or t < maximum trials:
 end while
 return
 ```
+
+> **Editorial algorithm correction (not in the source):** The source uses **OR** in the loop condition, which can invalidate the trial limit: an agent that keeps failing may continue beyond the maximum, and a successful agent may keep running while trials remain. This editorial version uses **AND**, so the loop continues only while evaluation has not passed **and** budget remains. A real implementation must update the evaluation state each iteration and enforce termination.
 
 *Figure 10.5: Reflexion algorithm.*
 
