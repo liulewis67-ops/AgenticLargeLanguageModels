@@ -17,7 +17,7 @@ In this chapter you will learn how performance of language models scales with da
 - Recognize the difference between *inference-time compute* and training-time compute.
 - Reflect on *sustainable language models* and the environmental and privacy implications of large-scale deployment.
 
-# 4.1 Scaling Laws: Compute, Data, Parameters
+## 4.1 Scaling Laws: Compute, Data, Parameters
 
 There are three primary factors involved in the training of LLMs: (1) the amount of compute, (2) the size of the dataset, and (3) the size of the model. Studies have shown that these three factors relate to the final performance of a model, measured as its loss on a held-out test set ($L$). This relation has been found to be both smooth and predictable. The relationship takes the form of a *power law*: as any of the three resources is increased, the loss decreases proportionally to a negative power of that resource. For instance, doubling the model size might reduce the loss by a factor of $2^{-\alpha}$ for some positive exponent $\alpha$. Because the behavior is predictable, we can estimate how much a model will improve (for instance, from doubling the training dataset size) *before* committing to an expensive training run.
 
@@ -35,7 +35,7 @@ We define these three quantities ($C$, $D$, $N$) as follows:
 
 Training large models comes at considerable cost, usually in the realm of tens of millions of dollars, and up to months of compute time. Scaling laws allow us to predict whether a model will train well.
 
-#### 4.1.1 Kaplan Scaling Laws
+### 4.1.1 Kaplan Scaling Laws
 
 There are different empirical results for scaling laws that are found by fitting a function to empirical test data. For instance, in Figure 4.1, every point is a trained model on a fixed dataset with a similar experimental setup, while only changing the three primary variables $C$, $D$, $N$. In early 2020, [Kaplan et al.](#page-21-0) [\[2020\]](#page-21-0) found how model performance is related to $C$, $D$, $N$. They estimated, following empirical observations, that the loss follows independent power laws related to the three main variables: $L(N)\propto N^{-\alpha_N}$ and $L(D)\propto D^{-\alpha_D}$, with $\alpha_N\approx0.076$ and $\alpha_D\approx0.095$.
 
@@ -63,7 +63,7 @@ At first, this recommendation seems to conflict with the exponents: because $\al
 
 <span id="page-3-0"></span>
 
-#### 4.1.2 Chinchilla Scaling Laws
+### 4.1.2 Chinchilla Scaling Laws
 
 In 2022, Hoffmann et al. [\[2022\]](#page-21-0) reevaluated Kaplan et al.’s findings with a model called Chinchilla and found that most large models at the time were severely undertrained. This discrepancy stemmed from Kaplan et al.’s methodology: their optimal allocation was extrapolated from the early, non-converged training dynamics of many models rather than from runs trained to convergence. This systematically biased their conclusions toward larger models trained for fewer steps.
 
@@ -106,7 +106,7 @@ so the ratio $D_{\mathrm{opt}}/N_{\mathrm{opt}}$ stays near a constant value of 
 
 The picture so far is fairly clean: test loss falls smoothly, monotonically, and predictably with compute, data, and parameters. However, in practice, various factors influence our results. We discuss four phenomena that each probe a different edge of that picture: (1) compute-optimal curves, (2) emergent abilities, (3) inverse scaling, and (4) grokking.
 
-#### 4.1.3 Compute-Optimal Curve
+### 4.1.3 Compute-Optimal Curve
 
 Computer hardware and energy are finite resources. A practical question is how to split a fixed compute budget $C$ between model size $N$ and dataset size $D$ to obtain the best possible model. Scaling laws answer this through the *compute-optimal frontier*: the allocation of $C$ that minimizes the loss.
 
@@ -134,7 +134,7 @@ Figure 4.4: Eight examples of emergence in the few-shot prompting setting, each 
 
 small set of added parameters (as in LoRA) [\[Hu et al.,](#page-21-0) [2021\]](#page-21-0). The lesson most relevant to compute budgeting is that finetuning performance improves more from scaling the size of the *base model* than from collecting additional finetuning data, while adding more trainable PEFT parameters helps little. In practice, a task that underperforms is usually better served by starting from a larger pretrained model than by enlarging the adapter or gathering more finetuning examples.
 
-#### 4.1.4 Emergent Abilities
+### 4.1.4 Emergent Abilities
 
 Some of the most interesting phenomena in LLM scaling are *emergent abilities*: capabilities that are not present in smaller models but that appear suddenly as model size or compute cross a certain threshold [\[Wei et al.,](#page-25-0) [2022\]](#page-25-0). Examples include multi-step reasoning, few-shot translation, and specialized coding tasks, as shown in Figure 4.4. The ability to perform a task via few-shot prompting is emergent when a language model achieves random performance until a certain scale, after which performance significantly increases to well-above random.
 
@@ -146,7 +146,7 @@ However, whether these abilities appear suddenly has been contested. [Schaeffer 
 
 Figure 4.5: Claimed emergent abilities evaporate upon changing the metric from a nonlinear (top) to a smooth (bottom) metric [\[Schaeffer et al.,](#page-24-0) [2023\]](#page-24-0)
 
-#### 4.1.5 Inverse Scaling
+### 4.1.5 Inverse Scaling
 
 While most tasks improve with scale, some exhibit *inverse scaling*, where larger models perform worse or develop stronger biases. This may happen in tasks where a distractor answer is more probable according to the language modeling objective than the correct answer, leading larger (and more confident) models to consistently choose the wrong option [\[McKenzie et al.,](#page-23-0) [2023,](#page-23-0) [Michaelov and Bergen,](#page-23-0) [2023\]](#page-23-0).
 
@@ -162,7 +162,7 @@ Figure 4.6: Scaling behavior for the Hindsight Neglect (left) and Repetitive Alg
 
 Figure 4.7: Early memorization of the training set (blue) versus late generalization (red: grokking) on a modular addition task [\[Nanda et al.,](#page-23-0) [2023\]](#page-23-0)
 
-#### 4.1.6 Grokking
+### 4.1.6 Grokking
 
 Grokking is a relatively recent paradox in statistical learning theory. This theory holds that, conventionally, when a large model is presented with a small dataset, it will overfit, due to memorization of the examples. Grokking, then, occurs when we continue to train this too-large model, and, after much more training, the model suddenly finds a generalizing solution [\[Power et al.,](#page-24-0) [2022\]](#page-24-0).
 
@@ -176,7 +176,7 @@ Grokking is relevant to language modeling since we are rapidly running out of hi
 
 <span id="page-9-0"></span>scaling for next-generation models. Because of these inherent limits, researchers are looking beyond simple scaling of $D$. As an alternative, we can look at a variety of these new frontiers: (1) better architectural efficiency (such as Mixture of Experts), (2) inference-time scaling (such as giving models more compute during inference to *think*, as seen in OpenAI\'s o-series), or (3) synthetic data generation (Chapter 19).
 
-# 4.2 Small Language Models
+## 4.2 Small Language Models
 
 As the requirements for compute and data continue to grow, there is an increasing interest in *small language models* (SLMs): models that are small enough to run on consumer hardware or even mobile or edge devices while maintaining high performance. These models are often developed using techniques that optimize for efficiency without sacrificing too much performance.
 
@@ -250,7 +250,7 @@ Alternatively, rather than casting all weights to the same precision, *mixed pre
 
 <span id="page-13-0"></span>**Speculative decoding.** A small draft model quickly proposes several tokens, which a larger target model then verifies in parallel [\[Leviathan et al.,](#page-22-0) [2023\]](#page-22-0). This can speed up inference—by up to two or three times in some settings—without changing the target model's output distribution, combining models from different points on the scaling curve.
 
-#### 4.2.2 Data-centric Optimization
+### 4.2.2 Data-centric Optimization
 
 In addition to model-centric approaches, the literature emphasizes that data quality and curation are often more important than the size of the dataset when training efficient models [\[Luo et al.,](#page-22-0) [2025\]](#page-22-0). Small models can perform well if they are trained on highly curated, high-quality data. Hence, it is important to create a good data recipe, in addition to an efficient model architecture. Data-centric techniques broadly fall into two camps: *selecting* the most useful parts from a broader pool of data, and *generating* new synthetic data where good data is scarce.
 
@@ -334,7 +334,7 @@ To reduce these privacy risks and reliance on cloud infrastructure, developers c
 Local inference remains constrained by the physical limits of consumer and edge hardware, especially memory and bandwidth. LLM inference is typically memory-bound: storing model weights requires substantial RAM, while generating tokens requires high memory bandwidth. Many mobile devices also run on batteries, and sustained matrix operations can quickly drain them or trigger thermal throttling.
 
 Making local deployment practical requires inference optimizations such as 4-bit quantization and speculative decoding. Specialized Neural Processing Units (NPUs) designed for low-power edge AI are also becoming more widely available.
-# 4.5 Concluding Remarks
+## 4.5 Concluding Remarks
 
 As LLM use becomes more ubiquitous and the demand for quick responses increases, the focus in LLM development is shifting towards more efficient solutions. Hence, the focus on scaling data, compute, and model size purely for raw performance is transitioning into a focus on scaling for *efficiency*.
 
