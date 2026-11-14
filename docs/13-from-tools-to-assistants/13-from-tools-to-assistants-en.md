@@ -131,6 +131,8 @@ Figure 13.2: Medical Education Copilot [Wei et al., 2024a](#page-13-0)
 
 For systematic evaluation of medical retrieval-augmented generation, a dedicated benchmark is provided by [Qiao et al.](#page-12-0) [\[2024\]](#page-12-0).
 
+> **Editorial academic note (not in the source):** High performance on medical QA or diagnostic benchmarks does **not** establish prospective clinical safety. Distinguish retrospective offline tests, simulated cases, clinician–AI studies, and deployment; audit population shifts, false negatives, calibration, patient privacy, and qualified oversight.
+
 ## 13.6 Trading Assistant
 
 Financial trading is another specialized domain. Financial organizations already use many non-LLM algorithms to support trading decisions, and interest in agentic LLMs is growing [\[Ding et al.,](#page-10-0) [2024\]](#page-10-0).
@@ -148,6 +150,8 @@ So far, most financial market machine learning has focused on single agent syste
 **Evaluation.** Financial trading is a challenging field of research. The competitive interests in financial trading are high, and there is a natural tendency to keep strong research findings private, which creates a tension with the principles of openness and transparency of scientific research.
 
 Furthermore, despite the abundance of available numerical data in the field, there are relatively few benchmarking studies that compare different agentic LLM approaches on the same data. A recent benchmarking study found methodological flaws in some financial LLM studies, such as selecting short evaluation periods with positive market trends or leakage of test data into training data [\[Li et al.,](#page-11-0) [2026\]](#page-11-0).
+
+> **Editorial evaluation note (not in the source):** Financial backtests must fix the information cutoff and train/test time split, avoid look-ahead leakage, and include **transaction fees, slippage, market impact, and risk-adjusted returns**. Gains during a short bullish interval or a single simulation do not establish generalizable live-trading advantage.
 
 ## 13.7 Automated Scientific Discovery
 
@@ -168,6 +172,8 @@ Figure 13.3: SWE-Agent for Software Engineering [Yang et al., 2024b](#page-13-0)
 Together, the two solvers produce a complete research report in LaTeX format based on the experimental results. They employ iterative refinement, self-evaluation, and reward-based scoring to improve code and report quality across cycles.
 
 Evaluation results demonstrate that Agent Laboratory can autonomously generate complete research projects, including executable code and publication-ready reports, at a fraction of the computational cost of comparable systems (approximately \$2.33 per paper using the gpt-4o backend). Human-in-the-loop or co-pilot mode further improves research quality and usability, with participants reporting high satisfaction and continued use intentions. Nonetheless, human oversight remains essential, as automated self-evaluations tend to overestimate research quality compared to human reviewers.
+
+> **Editorial research note (not in the source):** Generating executable code, a polished paper, or reviewer feedback does not amount to independently validated scientific discovery. Audit **experiment traces, data and code provenance, statistical methodology, replication success, and human peer review**. Reported model-run costs may exclude human review, infrastructure, and failed attempts.
 
 ## 13.8 Coding Assistants and General Advances
 
