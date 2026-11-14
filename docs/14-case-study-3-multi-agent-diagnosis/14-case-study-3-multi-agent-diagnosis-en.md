@@ -109,6 +109,10 @@ You must evaluate both components of the system, and keep the two evaluations se
 
 In your report, clearly separate errors due to incorrect routing (a planner error) from errors due to incorrect model predictions (an executor error). A case can fail for either reason independently: a well-routed case can still be misclassified by the executor, and a correctly-classifiable case can be missed entirely because the planner never routed it to the right pathway. Reporting only an end-to-end accuracy number would hide this distinction and is not sufficient for this case study.
 
+> **Editorial experiment-design note (not in the source):** These cases combine features from three unrelated medical datasets and are constructed to have a known disease pathway; they are not realistic clinical triage cases with comorbidities, prevalence shifts, and missing information. Compare rule-based versus LLM planners on the **same held-out cases, fixed classifiers, input representations, tool permissions, and task budgets**, changing only the planner. Separate classifier training from final evaluation; group by patient or source where needed to prevent leakage.
+
+> **Editorial statistical note (not in the source):** Report sample counts, class prevalence, per-pathway confusion matrices, missed routes, abstentions, and end-to-end errors. Use **paired performance differences with uncertainty intervals** for the two planners on matched cases; when the LLM is stochastic, report model-sampling variability separately from case-sampling uncertainty. A difference in accuracy does not isolate a general multi-agent collaboration effect or establish clinical validity.
+
 ## 14.5 Reflection Questions
 
 The following questions are intended to guide a short written report on your implementation. You do not need to write a narrative essay; concise, direct answers are sufficient, and you should be prepared to elaborate on your reasoning verbally.
