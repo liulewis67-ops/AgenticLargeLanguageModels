@@ -40,7 +40,7 @@ Several recurring patterns emerged across the approaches and studies in Part V: 
 
 ## 23.2 Limitations and Future Work
 
-Agentic LLMs build on the capabilities of large language models and have greatly expanded their uses. They still face many limitations. We begin with more technical topics—memory, scale, explainability, and cognitive architectures—then turn to broader questions, including potential sentience or consciousness and the ethical implications of these properties. Earlier chapters have discussed possible approaches to some of these challenges.
+Agentic LLMs extend what language models can do, but also turn model errors into actions with possible real-world consequences. We first examine memory, scale, hallucinations, and interpretability, then consider contested questions about cognition and consciousness, societal risks, governance, and domain-specific deployment requirements.
 
 {2}------------------------------------------------
 
@@ -56,11 +56,11 @@ Agents can access external information through retrieval-augmented generation (R
 
 ### 23.2.2 Scale
 
-As agents become able to self-reflect and to learn from interactions with their environment, we should discuss the topic of scaling of the underlying language models.
+Beyond memory, agentic systems face challenges in scaling the underlying models, inference budgets, and overall execution costs.
 
-A major challenge is to continue improving LLM performance. Initially, model size was a key determinant—hence the term *large* language models. Only sufficiently large models trained on sufficiently large text corpora achieved strong benchmark results, and in-context learning was observed only in larger models. Scaling model size and training data therefore seemed a promising path. Further scaling is now increasingly difficult: much of the high-quality data available on the Internet has already been used to train current models, while training larger models for longer periods requires substantial time, money, and energy. Current methods may be reaching a plateau [Sutskever, 2024].
+A major challenge is to continue improving LLM performance. Initially, model size was a key determinant—hence the term *large* language models. Only sufficiently large models trained on sufficiently large text corpora achieved strong benchmark results, and in-context learning was observed only in larger models. Scaling model size and training data therefore seemed a promising path. Further scaling is now increasingly difficult: much of the high-quality data available on the Internet has already been used to train current models, while training larger models for longer periods requires substantial time, money, and energy. Whether prevailing scaling approaches are approaching a plateau remains debated [Sutskever, 2024].
 
-Further gains require challenging training data (Chapter 19). One approach is to use agent–environment interactions as training data. When such data is new, diverse, and high quality, it may support pretraining (see also Figure 1.1). Some inference-time methods, including GRPO and RLVR, already use results generated at inference time to fine-tune models [Guo et al., 2025]. Vision-language-action (VLA) models are also trained on self-generated action data [Black et al., 2024; Brohan et al., 2023] (Chapter 7).
+Further gains require challenging training data (Chapter 19). One approach is to use agent–environment interactions as training data. When such data is new, diverse, and high quality, it may support pretraining (see also Figure 1.1). GRPO and RLVR are post-training approaches that can learn from generated outcomes and verification feedback [Guo et al., 2025]; they should not be confused with inference-time adaptation without weight updates. Vision-language-action (VLA) models are also trained on self-generated action data [Black et al., 2024; Brohan et al., 2023] (Chapter 7).
 
 ##### Overthinking
 
@@ -78,11 +78,11 @@ Another way to improve performance is to develop better training methods. Curric
 
 ### 23.2.3 Hallucination and Explainability
 
-Another limitation is hallucination: models often give plausible-sounding but factually incorrect answers, and their stated reasoning may not be causally responsible for their outputs—a failure of *faithfulness*.
+Two distinct limitations are factual inaccuracy and reasoning unfaithfulness. A model may produce a plausible but incorrect answer, or present a convincing chain of thought that was not causally responsible for its output.
 
 Explainable AI (XAI) offers a range of techniques, from behavioral and attribution-based methods such as SHAP and LIME, which treat the model as a black box, to concept-based interpretability, which probes internal representations for human-understandable features. Mechanistic interpretability (MI), discussed in Chapter 21, goes further by aiming to reverse-engineer computational circuits inside Transformer models.
 
-Tools such as sparse autoencoders, neural lenses, and activation patching have been used to investigate circuits associated with hallucinations and to test whether chain-of-thought reasoning can be a faithful, causally active part of model behavior in sufficiently large architectures. As agentic LLMs enter high-stakes settings, MI may help researchers develop hallucination detectors that flag discrepancies between a model’s internal confidence features and its external output.
+Tools such as sparse autoencoders, logit lenses, and activation patching can support investigations of internal mechanisms and the causal role of reasoning traces. However, identifying a circuit associated with a particular failure does not by itself establish a general-purpose hallucination detector. As agentic LLMs enter high-stakes settings, MI may help researchers develop hallucination detectors that flag discrepancies between a model’s internal confidence features and its external output.
 
 Another direction is to compare human and Transformer cognitive architectures. Language models appear to produce natural language in ways that resemble humans. Does this reflect similar underlying architectures, coincidence, or some other explanation? Chapter 22 explored this question.
 
@@ -92,9 +92,9 @@ Another direction is to compare human and Transformer cognitive architectures. L
 
 
 <span id="page-4-0"></span>
-Humans tend to anthropomorphize: when inanimate objects behave like us, or sometimes even when they do not, we may attribute purposeful behavior and implicitly attribute consciousness to them. This can lead us to say that *the computer is thinking*, *the computer wants something*, or *the computer must not be feeling well*—or even that *this book loves to be read*. LLMs can elicit similar reactions, and their utterances may persuade even rational observers to believe they have purposes. The source text argues that they cannot have purposes because they are algorithms executed by mechanical devices, unlike humans, whom it describes as organic.<sup>1</sup>
+Humans tend to anthropomorphize: when inanimate objects behave like us, or sometimes even when they do not, we may attribute purposeful behavior and implicitly attribute consciousness to them. This can lead us to say that *the computer is thinking*, *the computer wants something*, or *the computer must not be feeling well*—or even that *this book loves to be read*. LLMs can elicit similar reactions, and their utterances may persuade even rational observers to believe they have purposes. The authors take a strong position here: because LLMs are algorithms executed by machines rather than organic organisms, they argue that LLMs lack purposes in the human sense. This position is contested by functionalist and behaviorist perspectives, and the underlying philosophical and empirical questions remain open.<sup>1</sup>
 
-Reports describe emotional relationships between chatbots and people, some of which have led to dangerous behavior and worse.
+Reports of close emotional relationships with chatbots raise concerns about misplaced trust, dependency, and, in some circumstances, dangerous outcomes. These risks require careful attention to evidence and context.
 
 Consciousness is actively debated in AI philosophy. It is generally understood as awareness of oneself and the environment, together with subjective experiences, thoughts, and feelings [Velmans, 2009; Butlin et al., 2023]. But how can it be tested? A pragmatic view holds that behavior and its consequences matter to society, regardless of whether the acting entity is conscious. Bengio and Elmoznino [2025] argue that even the appearance of consciousness in an agent’s actions can have consequences, and that distinguishing conscious from non-conscious entities will become increasingly difficult. They argue that society must decide how to respond to agents acting in domains such as medicine, finance, and science. Credit and liability must be assigned fairly, and society must determine how to handle self-preserving AI systems.
 
@@ -128,7 +128,7 @@ The boundary between lawful persuasion, exploitation of trust, and fraud can be 
 
 ### 23.2.8 Limitations of Applications
 
-Agentic LLMs have a wide range of potential applications. Proofs of concept can be impressive at first glance, but closer examination reveals limitations that may be difficult to address and could have serious consequences when these systems are used in the real world.
+Agentic demonstrations can illustrate potential value, but a successful proof of concept is not the same as reliable operation or accountable deployment. The relevant evidence and safeguards vary considerably by domain.
 
 #### 23.2.8.1 AI Science
 
@@ -140,7 +140,7 @@ Many agentic LLMs are being developed to support scientific research across the 
 
 In mathematics, LLM-based systems have achieved impressive results on olympiad-level problems in both geometry [Trinh et al., 2024] and algebra [Hubert et al., 2026]. These systems include Transformer networks but are otherwise specialized mathematics solvers that use automated theorem-proving tools such as Lean [De Moura et al., 2015] and reinforcement learning [Silver et al., 2017; Browne et al., 2012].
 
-In 2025, a benchmark study evaluated AI science tools across several tasks in machine learning [Nathani et al., 2025]. Using the frontier models available at the time, the authors found no evidence that these systems could generate novel hypotheses, algorithms, or architectures, or make substantial scientific advances. They noted that *modern LLM agents can successfully tackle a diverse array of quantitative experiments, reflecting advanced skills and domain adaptability*, while also cautioning that *it is not yet clear if the notion of scientific novelty can be successfully automated or even formally defined in a form suitable for agents*.
+In 2025, a benchmark study evaluated AI science tools across several tasks in machine learning [Nathani et al., 2025]. Under the tested tasks and with the frontier models available at the time, the researchers found no consistent evidence that the evaluated systems could originate substantively novel hypotheses, algorithms, or architectures. These findings should not be generalized beyond the study's model and evaluation scope. They noted that *modern LLM agents can successfully tackle a diverse array of quantitative experiments, reflecting advanced skills and domain adaptability*, while also cautioning that *it is not yet clear if the notion of scientific novelty can be successfully automated or even formally defined in a form suitable for agents*.
 
 #### 23.2.8.2 E-commerce
 
@@ -148,7 +148,7 @@ Liability is a major obstacle to deploying agentic LLMs in e-commerce. Security 
 
 #### 23.2.8.3 Trading
 
-Liability is paramount in financial trading. Studies report that LLMs can outperform human analysts at summarizing large volumes of financial reports, but the stakes are high: incorrect advice can cause direct financial losses. Because markets are unpredictable, it may take time to identify a faulty model; an individual loss may result from a model error or simply an unlucky trade. Models need thorough testing before they can be trusted. Automated trading systems are unlikely to replace human decision-making unless they prove exceptionally reliable.
+Liability is paramount in financial trading. Studies report that LLMs can outperform human analysts at summarizing large volumes of financial reports, but the stakes are high: incorrect advice can cause direct financial losses. Because markets are unpredictable, it may take time to identify a faulty model; an individual loss may result from a model error or simply an unlucky trade. Models need thorough testing before they can be trusted. Automated trading systems require prospective evaluation, stress testing, and enforceable risk limits; historical backtests cannot establish future reliability or returns.
 
 LLMs have had the most success in finance when analyzing textual reports. Some studies of financial time-series analysis report positive results, but reliable and verifiable benchmarks remain difficult to establish.
 
@@ -160,7 +160,7 @@ Li et al. [2026] likewise question whether agentic LLMs can reliably predict fin
 
 #### 23.2.8.4 Medicine
 
-In medicine, accuracy and especially explainability are essential for trust. Model predictions have direct implications for liability and the ethics of action, so medical agentic LLM systems must keep a human in the decision-making loop.
+Clinical deployment requires independent validation of accuracy, failure modes, interpretability, privacy, and accountability. Diagnosis, treatment planning, and other high-stakes decisions require appropriate qualified human oversight.
 
 As in trading, the most promising medical applications of agentic LLMs involve analyzing and summarizing text, such as meeting reports or literature reviews. Results in other applications, including treatment planning and surgery, remain limited.
 
@@ -170,7 +170,7 @@ Medicine may be one of the most valuable—and most cautious—domains for agent
 
 Agentic LLM technology is developing rapidly. This book has traced that development across three connected pillars: *reasoning*, *acting*, and *interacting*. Reasoning LLMs provide a cognitive foundation through chain of thought, self-reflection, and retrieval augmentation, enabling multi-step problem solving, literature synthesis, and complex decision support. Acting agents extend these capabilities into the real world through tools, APIs, and world models, assisting users in fields from robotics to finance and medicine. Interacting agents go further by engaging in multi-agent simulations that exhibit emergent social behaviors—such as cooperation, trust, and norm formation—that were not explicitly scripted in the prompts.
 
-These three pillars are connected. As Figure 1.1 illustrates, they form a cycle: reasoning enables better action and interaction, while data generated by agents as they act and interact can be used to pretrain and fine-tune better reasoning models. This virtuous cycle may help move beyond plateaus in LLM scaling. Interaction data from agentic assistants, robotic systems, and multi-agent simulations could provide a continually replenished source of diverse, high-quality training signals.
+These three pillars are connected. As Figure 1.1 illustrates, reasoning supports more capable actions and interactions; interaction traces can, after verification and curation, feed future training and evaluation. This feedback cycle may expand the pool of useful learning data, but its benefits are not automatic: they depend on data quality, coverage, error control, and independent evaluation.
 
 Yet, significant challenges remain across all three pillars. Hallucination undermines trust in reasoning chains and threatens the stability of self-improving systems. Safety, liability, and ethical accountability are unresolved for acting agents in high-stakes domains. Emergent behavior in large-scale multi-agent systems remains difficult to validate and control. Further research in the fields of mechanistic interpretability, open world models, scalable simulation infrastructures, and robust safety benchmarks is required to overcome these challenges.
 
