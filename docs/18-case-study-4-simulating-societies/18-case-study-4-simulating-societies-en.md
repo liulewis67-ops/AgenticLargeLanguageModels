@@ -120,11 +120,17 @@ $$
 
 All weights are set to $\alpha_i=1$. Thus, the only difference between the two variants is the addition of the valence term; everything else is identical.
 
+> **Editorial formula and manipulation check (not in the source):** Equation (18.1) does not explicitly define how positive, negative, and neutral valence map into the numerical term $V$, or whether the proposed 1.5 multiplier applies before or after normalization. Since all $\alpha_i=1$, **1.5 is not the value of $\alpha_{\mathrm{val}}$**: its place in the construction of $V$ must be specified. Freeze valence mapping, score ranges, clipping, and tie-breaking, then verify on controlled memory examples that negative items actually become more retrievable. Do not silently replace the schematic source formula with a new mathematical definition before checking the implementation.
+
 ### 18.3.5 Setup and Installation
 
 Clone the repository and follow the instructions in its README:
 
 <https://github.com/DorotaMoravcikova/generative_agents/tree/course-exercises>
+
+> **Editorial experimental-design audit (not in the source):** Prespecify a **2×2 factorial experiment**: persona prompt (baseline/variant) × memory retrieval (standard/negativity-weighted), keeping model snapshot, sampling temperature, initial agents, world layout, tasks, and inference budget fixed. Run several **independently initialized full simulations** per condition; paired seeds are useful for comparisons, but thousands of turns in one run are not thousands of independent trials. Define key group-level outcomes (such as norm adoption, conflict rates, network change) in advance, and report **effect sizes, uncertainty intervals, and prompt×memory interaction**.
+
+> **Editorial external-validity audit (not in the source):** Even if weighted negative memories increase conflict in the simulation, this supports only that **the retrieval intervention changes observable behavior under the tested simulation assumptions**. It does not establish the same causal mechanism in humans. Any psychological or policy generalization requires independent human-behavior calibration and checks for persona, topology, interaction-frequency, and evaluator-bias confounds.
 
 ## 18.4 Discussion
 
