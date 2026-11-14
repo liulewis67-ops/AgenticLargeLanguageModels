@@ -169,7 +169,7 @@ Large vocabularies are problematic due to the mechanics of *one-hot encoding*. I
 
 {8}------------------------------------------------
 
-<span id="page-8-0"></span>vocabulary. As these one-hot vectors will later form the input to our neural networks, for texts that do not contain all words in a certain vocabulary, we end up creating sparse, computationally inefficient representations that fail to capture semantic relationships between words.
+<span id="page-8-0"></span>As these one-hot vectors will later form the input to our neural networks, for texts that do not contain all words in a certain vocabulary, we end up creating sparse, computationally inefficient representations that fail to capture semantic relationships between words.
 
 **Character-Level Tokenization.** Pure character-level modeling seems like a clear solution to the problem of growing vocabularies and has been explored over the years [\[Mielke et al.,](#page-30-0) [2021\]](#page-30-0). It restricts the vocabulary to the alphabet and nearly eliminates OOV issues. However, it greatly lengthens sequences and increases computational cost. Because individual characters carry little meaning, the model must learn word morphology before broader linguistic patterns, which increases training time.
 
@@ -244,6 +244,8 @@ Supervised learning remains a core machine-learning method and is covered in man
 
 Many generative LLMs, especially decoder-only models, are trained autoregressively. Unlike supervised learning, this approach does not require a manually labeled input–output dataset; it uses large text corpora. The model predicts the next token in a sequence, using the text itself to provide the target. Autoregressive training is therefore a form of self-supervised learning.
 
+> **Editorial verification note (not in the source):** Autoregression specifies a sequence-prediction objective, while supervised versus self-supervised learning describes the origin of training targets. These are distinct dimensions, not mutually exclusive algorithm families.
+
 During autoregressive pretraining, the model uses the preceding tokens $x_1,\ldots,x_{t-1}$ as context to predict the target token $x_t$ at position $t$. This next-token prediction objective is central to many modern NLP training pipelines [\[Radford et al.,](#page-31-0) [2018\]](#page-31-0).
 
 {12}------------------------------------------------
@@ -256,7 +258,9 @@ Autoregressive learning is also covered in NLP textbooks [\[Jurafsky and Martin,
 
 ### 2.2.3 Reinforcement Learning
 
-Supervised and autoregressive learning usually rely on pre-collected datasets, so this chapter treats them as *offline* methods. In online reinforcement learning (RL), an agent can learn without a fixed labeled dataset when a function can evaluate state quality. The agent takes an action $a$, moving the environment from state $s$ to $s'$, and receives a reward $r(s')$; it generates experience through interaction during training, which is why RL is called an online method. The agent uses the reward to update a parameterized policy $\pi_\theta(s)\rightarrow a$, which selects an action for each state. In sequential decision problems, rewards may depend on a sequence of earlier actions. This creates the *credit-assignment problem*: which actions should receive credit for a reward? By repeatedly observing states, taking actions, and receiving rewards, the agent can explore the state space and learn an optimal policy $\pi^*(s)$ that selects an action in each state.
+Supervised and autoregressive learning usually rely on pre-collected datasets, so this chapter treats them as *offline* methods. In online reinforcement learning (RL), an agent can learn without a fixed labeled dataset when a function can evaluate state quality. The agent takes an action $a$, moving the environment from state $s$ to $s'$, and receives a reward $r(s')$; it generates experience through interaction during training, which is why RL is called an online method.
+
+> **Editorial verification note (not in the source):** This passage describes the online RL setting. Reinforcement learning can also be trained from a fixed logged dataset (**offline RL**); online interaction is not a universal requirement of RL. The agent uses the reward to update a parameterized policy $\pi_\theta(s)\rightarrow a$, which selects an action for each state. In sequential decision problems, rewards may depend on a sequence of earlier actions. This creates the *credit-assignment problem*: which actions should receive credit for a reward? By repeatedly observing states, taking actions, and receiving rewards, the agent can explore the state space and learn an optimal policy $\pi^*(s)$ that selects an action in each state.
 
 Because reinforcement learning is online, it forms a feedback loop. Early in training, the agent has little experience, so its policy is informed by feedback from only a few states. If it greedily exploits that limited information, it may visit only a small part of the environment and settle on a locally optimal policy. To find better policies, it must also explore—for example, by trying random actions and, ideally, covering the state space.
 
