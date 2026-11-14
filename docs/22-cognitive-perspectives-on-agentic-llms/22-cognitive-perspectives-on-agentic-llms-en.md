@@ -6,7 +6,7 @@
 
 ## Chapter 22
 
-# \*Cognitive Perspectives on Agentic LLMs
+# Cognitive Perspectives on Agentic LLMs
 
 ### What You Will Learn
 
@@ -267,7 +267,7 @@ Findings from subsequent studies are mixed. Three caveats apply. First, metacogn
 
 {15}------------------------------------------------
 
-#### <span id="page-15-0"></span>22.5.2 Introspection
+### <span id="page-15-0"></span>22.5.2 Introspection
 
 The question of whether humans have privileged access to their own inner states also applies to LLMs: do they have access to information that an external observer, given the same behavioral data, cannot obtain? [Binder et al.](#page-23-0) [\[2025\]](#page-23-0) fine-tuned a model to predict its own behavior in hypothetical situations. It did so more accurately than a second model trained on the first model's behavioral data. This suggests that the first model had access to internal information unavailable from behavior alone. In contrast, when models' verbal judgments about their own linguistic knowledge (for example, whether a sentence is grammatical) were compared with the probabilities they assigned to those sentences, the judgments tracked those probabilities no better than judgments from other models [\[Song et al.,](#page-31-0) [2025\]](#page-31-0).
 
@@ -283,7 +283,7 @@ Agents studied by [Shapira et al.](#page-31-0) [\[2026\]](#page-31-0) reported t
 
 {16}------------------------------------------------
 
-#### <span id="page-16-0"></span>22.5.4 Conclusion
+### <span id="page-16-0"></span>22.5.4 Conclusion
 
 LLM metacognition, introspection, and self-knowledge are detectable, but also limited in multiple ways. On the monitoring side, a model's verbalizations, internal probabilities, and activations carry different degrees of information about the reliability of its answers. Evidence for privileged introspective access is mixed and points towards limited access at best. On the control side, evidence is even thinner: monitoring signals are often not used to regulate behavior. This leaves space for agentic setups that can design for behavior that is functionally equivalent to what humans achieve with metacognitive control.
 
@@ -299,7 +299,7 @@ As human observers and users of LLMs, we freely use expressions such as *the sys
 
 {17}------------------------------------------------
 
-#### <span id="page-17-0"></span>22.6.2 Functionalism and Theory-Driven Assessment
+### <span id="page-17-0"></span>22.6.2 Functionalism and Theory-Driven Assessment
 
 Building on Part V and the discussion above, [Butlin et al.](#page-24-0) [\[2023\]](#page-24-0) argue that behavior alone is a poor guide to the inner workings of LLMs. They propose starting from leading scientific theories of consciousness and deriving *indicator properties* that can be assessed in current AI architectures and systems. Their account rests on *computational functionalism*: the view that computations of the right kind are both necessary and sufficient for consciousness. On this view, what matters is a system's functional organization—what information it represents, how it transforms that information, and how its components interact—not the material substrate that implements those processes.
 
