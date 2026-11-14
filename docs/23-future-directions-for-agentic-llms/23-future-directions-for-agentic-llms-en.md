@@ -177,3 +177,7 @@ Yet, significant challenges remain across all three pillars. Hallucination under
 <span id="page-8-0"></span>
 
 We are at an early and consequential moment. Proofs of concept are impressive, real-world deployments are beginning, and the theoretical foundations of memory, metacognition, consciousness, and collective intelligence remain open questions that connect artificial intelligence to philosophy, cognitive science, and law. This book has aimed to give you the technical grounding and conceptual vocabulary to contribute to these questions. The field needs researchers who understand both the power and the limits of what agentic LLMs can do today, and who can help shape what they will become tomorrow.
+
+---
+
+**Editorial navigation:** [Continue to the bibliography](../90-references/90-references-en.md).
