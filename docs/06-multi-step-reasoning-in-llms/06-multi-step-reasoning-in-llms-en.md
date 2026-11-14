@@ -135,7 +135,9 @@ This section examines limits of in-context learning and ways to extend them. It 
 
 ### 6.2.1 LLMs as Memoryless Functions
 
-In-context few-shot learning uses the prompt to condition an LLM’s retrieval of learned information. The transformer produces the next token based on its parameters, often denoted by $(K,V)$. With chain-of-thought prompts, the model is also conditioned on the example reasoning steps included in the prompt.
+In-context few-shot learning uses the prompt to condition an LLM’s retrieval of learned information. The Transformer predicts the next token using its trained **model weights** (conventionally denoted by $\theta$) and the supplied context. Chain-of-thought prompts also condition the model on example reasoning steps.
+
+> **Editorial correction (not in the source):** The source denotes model parameters by $(K,V)$, which is easily confused with attention **keys and values** or the inference-time KV cache. Here $\theta$ denotes model weights; the KV cache is an inference-time state, not the parameter set.
 
 In this setting, all information supplied to the LLM is part of the prompt. We can describe the model as a function $f$ that maps a prompt $x$ to an answer $y$:
 
