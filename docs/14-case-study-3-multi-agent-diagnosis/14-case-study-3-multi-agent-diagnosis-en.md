@@ -52,6 +52,8 @@ Listing 14.1: Setting Up the Case Study 3 Environment
 
 The baseline code, data files, and trained models are available in the [Assignment 3 repository](https://github.com/Agentic-LLMs/Agentic-AI-tutorials/tree/main/case3).
 
+> **Editorial upstream-code verification (not in the source; audited at commit `b7b8f683`):** The actual teaching files are named `0_train_models.py`, `1_basic_mcp.py`, and `2_llm_mcp.py` (the unprefixed names below are the source book's shorthand). The training script fits all three random forests on their **entire datasets**, while the simulation samples cases from those same datasets: its reported classifier results therefore **are not held-out estimates**. The LLM planner's `step()` and triage evaluation are unfinished exercises, and `call_llm_fn` returns placeholder JSON rather than querying an LLM. The supplied plots also look for a nonexistent `Prediction` column instead of `y_pred`. See the [source-pinned audit](../../reports/source-code-audit-2026-11-14-ch14-ch18.md) before attempting a reproducibility claim.
+
 ## 14.3 Implementation Steps
 
 ### 14.3.1 Step 0: Training Diagnostic Models
