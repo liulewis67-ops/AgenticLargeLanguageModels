@@ -6,7 +6,7 @@
 
 ## <span id="page-0-0"></span>Chapter 21
 
-# \*Mechanistic Interpretability for LLM Agents
+# Mechanistic Interpretability for LLM Agents
 
 ### What You Will Learn
 
@@ -22,7 +22,7 @@ In this chapter you will learn how to look inside the black box of large languag
 
 ## 21.1 Opening the LLM
 
-How do LLMs work internally? Opening the black box of large neural networks is an important research goal. We want to understand how billions of neurons encode representations, how models reason, and how they reach conclusions. Explainable artificial intelligence (XAI) offers many methods for investigating these questions [\[Minh et al.,](#page-16-0) [2022,](#page-16-0) [Rios et al.,](#page-17-0) [2020,](#page-17-0) [Van Stein et al.,](#page-18-0) [2022,](#page-18-0) [Selvaraju et al.,](#page-17-0) [2017,](#page-17-0) [Ali et al.,](#page-14-0) [2022](#page-14-0).
+How do LLMs work internally? Opening the black box of large neural networks is an important research goal. We want to understand how billions of neurons encode representations, how models reason, and how they reach conclusions. Explainable artificial intelligence (XAI) offers many methods for investigating these questions [Minh et al. (2022)](#page-16-0), [Rios et al. (2020)](#page-17-0), [Van Stein et al. (2022)](#page-18-0), [Selvaraju et al. (2017)](#page-17-0) and [Ali et al. (2022)](#page-14-0).
 
 {1}------------------------------------------------
 
@@ -307,13 +307,13 @@ The journey from post-hoc behavioral observation to mechanistic circuit diagrams
 
 {14}------------------------------------------------
 
-#### <span id="page-14-0"></span>- Further Reading
+<span id="page-14-0"></span>
 
-For those interested in the foundational research that defined this field, we highly recommend the [Transformer Circuits Thread](https://transformer-circuits.pub/)*<sup>a</sup>* .
+**Suggested reading**
 
-*a*<https://transformer-circuits.pub/>
+For foundational work in the field, see the [Transformer Circuits](https://transformer-circuits.pub/) research series.
 
-# Bibliography
+## Bibliography
 
 Guillaume Alain and Yoshua Bengio. Understanding intermediate layers using linear classifier probes. *arXiv preprint arXiv:1610.01644*, 2016. [404](#page-1-0)
 
