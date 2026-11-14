@@ -38,6 +38,9 @@ jobs:
       - name: Audit bilingual academic chapter structure (02-23)
         run: pnpm docs:audit-structure
 
+      - name: Guard corrections verified against original arXiv text
+        run: pnpm docs:audit-source
+
       - name: Verify editorial formula arithmetic (not experimental replication)
         run: pnpm docs:audit-formula
 
