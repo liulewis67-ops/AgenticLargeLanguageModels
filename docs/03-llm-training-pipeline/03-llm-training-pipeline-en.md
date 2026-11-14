@@ -63,7 +63,9 @@ The first step is to acquire data. Pretraining typically uses massive, general-p
 
 {3}------------------------------------------------
 
-- <span id="page-3-0"></span>• Dolma 3 is a data mixture designed to perform well across a diverse set of tasks. It is used in the OLMo open-source, open-data project [\[Ettinger et al.,](#page-15-0) [2025,](#page-15-0) [Soldaini et al.,](#page-17-0) [2024\]](#page-17-0).
+<span id="page-3-0"></span>
+
+- Dolma 3 is a data mixture designed to perform well across a diverse set of tasks. It is used in the OLMo open-source, open-data project [\[Ettinger et al.,](#page-15-0) [2025,](#page-15-0) [Soldaini et al.,](#page-17-0) [2024\]](#page-17-0).
 - SmolLM3 uses a three-stage training strategy with 11.2 trillion tokens, dynamically mixing web, mathematics, and code data to improve reasoning and knowledge acquisition [\[Bakouch et al.,](#page-13-0) [2025\]](#page-13-0).
 
 Recent research emphasizes that data diversity can matter as much as data volume for cross-domain knowledge and downstream generalization [\[Gao et al.,](#page-15-0) [2020\]](#page-15-0). *The Pile* was created as a heterogeneous corpus. Models trained on it show substantial gains in Bits Per Byte (BPB)<sup>1</sup> scores across domains such as GitHub repositories, medical papers, and philosophy texts (Figure [3.2\)](#page-4-0). BPB on The Pile is therefore often used as a benchmark and as an indicator of a model's knowledge across domains and its ability to reason about complex material.
@@ -159,6 +161,8 @@ Figure 3.6: Comparison of RLHF (specifically, PPO) to RLVR (specifically, GRPO) 
 ### 3.2.5 Inference
 
 Once training is complete, the model is used at inference time, when users interact with it.
+
+> **Editorial verification note (not in the source):** Inference appears here to complete the development-to-deployment lifecycle; it is **not a training stage**. In-context learning at inference time normally does not update the model weights, unlike fine-tuning and preference optimization.
 
 Users commonly provide natural-language prompts—instructions or questions—to elicit responses from the model. The wording and order of a prompt can affect the response.
 
