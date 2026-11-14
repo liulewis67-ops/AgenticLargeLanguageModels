@@ -215,13 +215,15 @@ While observational tools such as the logit lens or probing can identify correla
 **Formal framework.** The procedure involves two distinct forward passes:
 
 1. **Clean run** ($x_{\mathrm{clean}}$): an input that produces the target behavior (e.g., *The Eiffel Tower is in Paris*).
-2. **Corrupted or counterfactual run** ($x_{\mathrm{corr}}$): a modified input that disrupts the target behavior (e.g., *The Eiffel Tower is in Rome*) or adds Gaussian noise to the *Eiffel Tower* embedding.
+2. **Corrupted or counterfactual run** ($x_{\mathrm{corr}}$): a modified input that disrupts the target behavior (e.g., *The Colosseum is in Rome*) or adds Gaussian noise to the *Eiffel Tower* embedding.
 
 {10}------------------------------------------------
 
 <span id="page-10-0"></span>![](assets/_page_10_Diagram_2.jpeg)
 
 Figure 21.6: *Activation patching.* Activations from a *clean run* (where the model succeeds) are swapped into a *corrupted run* (where it fails). If this interchange restores the correct output, the patched component is causally implicated in the task.
+
+> **Editorial arXiv-source and experimental-control check (not in the source):** The original arXiv v1 counterfactual example says *The Colosseum is in Rome*, not *The Eiffel Tower is in Rome* (the latter entered this Markdown edition). **Both the entity and the place differ** between the clean and counterfactual examples, so the pair by itself does not isolate a single model mechanism. For an actual activation-patching study, preregister controlled input pairs, document the target token and corruption method, and include no-op or unrelated-site patches as negative controls.
 
 Let $z_{i,\ell}$ denote the activation of component $i$ at layer $\ell$. Activation patching replaces the corrupted-run activation $z^{\mathrm{corr}}_{i,\ell}$ with its clean-run counterpart $z^{\mathrm{clean}}_{i,\ell}$ during the corrupted forward pass. We then measure probability recovery:
 
