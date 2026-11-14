@@ -263,10 +263,12 @@ SAEs 的有效性已在各种规模上得到验证。[Cunningham et al.](#page-1
 从事后观察模型行为到绘制机制电路图，代表了人工智能研究范式的转变。我们不再满足于模型“能用”，还希望理解它们*如何工作*。研究者把稀疏自编码器这台“显微镜”与激活（及注意力）修补这把“手术刀”结合起来，逐个电路描绘 Transformer 的内部计算。
 {14}------------------------------------------------
 
-#### <span id="page-14-0"></span>- 深入阅读
+<span id="page-14-0"></span>
 
-对于那些对定义这一领域的基础研究感兴趣的人，我们强烈推荐 [Transformer Circuits Thread](https://transformer-circuits.pub/)*<sup>a</sup>*。*a*<https://transformer-circuits.pub/>
-# 参考文献
+**延伸阅读资源**
+
+想进一步了解经典电路分析研究，可阅读 [Transformer Circuits](https://transformer-circuits.pub/) 系列文章。
+## 参考文献
 
 Guillaume Alain and Yoshua Bengio. Understanding intermediate layers using linear classifier probes. *arXiv preprint arXiv:1610.01644*, 2016. [404](#page-1-0)
 
