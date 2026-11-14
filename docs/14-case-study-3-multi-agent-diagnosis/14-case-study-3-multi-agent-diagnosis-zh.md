@@ -50,7 +50,9 @@ pip install -r requirements.txt
 
 #### 🚀 在 GitHub 上查看！
 
-基线代码、数据文件及预训练模型可从 [案例研究 3 的开源仓库](https://github.com/Agentic-LLMs/Agentic-AI-tutorials/tree/main/case3) 获取。 
+基线代码、数据文件及预训练模型可从 [案例研究 3 的开源仓库](https://github.com/Agentic-LLMs/Agentic-AI-tutorials/tree/main/case3) 获取。
+
+> **编者上游源码核验（非原文；基于提交 `b7b8f683`）：**实际教学文件名为 `0_train_models.py`、`1_basic_mcp.py`、`2_llm_mcp.py`（下文不带数字前缀的名称是原书简称）。训练脚本在三份数据的**全量样本**上拟合随机森林，而模拟又从同一批样本抽取案例，现成结果**不能视为独立测试集的泛化指标**。LLM 规划器的 `step()` 和路由统计仍是待完成练习，`call_llm_fn` 返回固定示例 JSON，而不是调用实际模型。原代码绘图条件还检查不存在的 `Prediction` 字段（真实字段为 `y_pred`）。参见[固定源码版本的专项审计](../../reports/source-code-audit-2026-11-14-ch14-ch18.md)，不要把教学模板当作已复现的临床实验。 
 
 ## 14.3 实施步骤
 
