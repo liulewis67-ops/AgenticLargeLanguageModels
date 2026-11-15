@@ -33,6 +33,8 @@ pnpm docs:preview
 
 ## 学术审校与质量审计
 
+新增[第 5–7 章参考文献、nanochat 可复现性与证据边界审计](reports/academic-audit-2026-11-15-ch05-ch07-integrity.md)；配套提供[nanochat 运行记录模板](reports/nanochat-reproducibility-run-template.md)，用于固定实验来源、环境、数据和评测协议。
+
 新增[第 4 章规模律公式和参考文献核查](reports/academic-audit-2026-11-15-ch04-scaling-bibliography.md)：按 arXiv v1 将参考文献恢复为 72 条独立条目，纠正跨页 DOI / OpenReview 链接，并对 Chinchilla 计算最优指数增加算术回归检查。
 
 继续核对[第 2–3 章原始书目条目和评价指标专项报告](reports/academic-audit-2026-11-15-ch02-ch03-bibliography.md)：恢复第 2 章中文版遗漏的前 6 条参考文献，按 arXiv v1 重建第 2 章 59 条与第 3 章 52 条双语书目，并对 Pass@K 原文歧义加编者校勘。

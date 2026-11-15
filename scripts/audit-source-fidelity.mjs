@@ -254,5 +254,44 @@ assert.ok(Math.abs(a - 0.45) < 0.005 && Math.abs(b - 0.55) < 0.005 &&
   Math.abs(a + b - 1) < 1e-12, "Chapter 4 Chinchilla exponents are inconsistent");
 checks++;
 
+
+// Chapter 5–7 reference extraction regressions aligned to arXiv:2610.13455v1.
+// Counts are bibliography entries, not physical HTML lines or PDF page counts.
+for (const chapter of [
+  { id: "05-case-study-1-building-llms-from-scratch", expected: 9, first: "Loubna Ben Allal", last: "Ashish Vaswani" },
+  { id: "06-multi-step-reasoning-in-llms", expected: 72, first: "Michael Ahn", last: "Zijian Zhou" },
+  { id: "07-vision-action-and-world-models", expected: 69, first: "Mahmoud Assran", last: "Yuxin Zuo" },
+]) {
+  const bibliographies = {};
+  for (const lang of ["en", "zh"]) {
+    const content = readFileSync(resolve(root, "docs", chapter.id, chapter.id + "-" + lang + ".md"), "utf8");
+    const marker = lang === "en" ? "## Bibliography" : "## 参考文献";
+    assert.ok(content.includes(marker), "Missing Chapter 5–7 bibliography heading: " + chapter.id + " " + lang);
+    const bibliography = content.slice(content.lastIndexOf(marker) + marker.length);
+    bibliographies[lang] = bibliography;
+    const references = bibliography.split("\n").filter(line => line.startsWith("- "));
+    assert.equal(references.length, chapter.expected,
+      "Chapter 5–7 source-aligned references: " + chapter.id + " " + lang);
+    assert.ok(references[0].includes(chapter.first) && references.at(-1).includes(chapter.last),
+      "Chapter 5–7 bibliography order drifted: " + chapter.id + " " + lang);
+    assert.ok(Math.max(...bibliography.split("\n").map(line => line.length)) < 1500,
+      "Chapter 5–7 bibliography has merged reference lines: " + chapter.id + " " + lang);
+    assert.ok(!/\]\(#page-\d+-\d+\) [A-Z]/.test(bibliography),
+      "Chapter 5–7 bibliography has a merged reference boundary: " + chapter.id + " " + lang);
+    assert.ok(!/URL \[[^\]]+\]\(https?:\/\/[^)\n]+\) \[[^\]]+\]\(/.test(bibliography),
+      "Chapter 5–7 bibliography contains PDF-split URL: " + chapter.id + " " + lang);
+    const note = chapter.id.startsWith("05-")
+      ? (lang === "en" ? "Editorial reproducibility and provenance note" : "编者复现与溯源提示")
+      : chapter.id.startsWith("06-")
+        ? (lang === "en" ? "Editorial interpretation note" : "编者结果解释提示")
+        : (lang === "en" ? "Editorial evidence boundary" : "编者证据边界提示");
+    assert.ok(content.includes(note), "Chapter 5–7 editorial source distinction missing: " + chapter.id + " " + lang);
+    checks += 7;
+  }
+  assert.equal(bibliographies.en, bibliographies.zh,
+    "Chapter 5–7 bibliography differs across languages: " + chapter.id);
+  checks++;
+}
+
 console.log("PASS " + checks + " manuscript provenance checks");
 console.log("These are static guards, NOT original-PDF rendering or research replication.");
