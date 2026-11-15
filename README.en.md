@@ -33,6 +33,8 @@ Edit the bilingual source Markdown under `docs/`. The `site/content/` directory 
 
 ## Academic quality audit
 
+The [Chapters 8–10 BALROG audit](reports/academic-audit-2026-11-15-ch08-ch10-balrog.md) restores 11/43/3 references, fixes split surnames, and distinguishes edited smoke-test flags from the source; see the [BALROG run sheet](reports/balrog-reproducibility-run-template.md).
+
 The [Chapters 5–7 bibliography and reproducibility audit](reports/academic-audit-2026-11-15-ch05-ch07-integrity.md) separates 9 / 72 / 69 source references and adds a [nanochat run metadata template](reports/nanochat-reproducibility-run-template.md) for reproducible experiment records.
 
 The [Chapter 4 scaling-laws formula and references audit](reports/academic-audit-2026-11-15-ch04-scaling-bibliography.md) restores 72 source-aligned bibliography entries, repairs cross-page DOI/URL splitting, and adds a Chinchilla exponent arithmetic guard.
