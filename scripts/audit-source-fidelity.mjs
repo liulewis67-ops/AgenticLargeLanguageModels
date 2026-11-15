@@ -134,5 +134,28 @@ for (const lang of ["en", "zh"]) {
 }
 
 
+
+for (const lang of ["en", "zh"]) {
+  const ch17 = read(17, lang);
+  const confirmed = lang === "en" ? [
+    "599 + 599 + 594 = 1,792",
+    "1,847 items", "55 fewer",
+    "40/40/27/20 runs",
+    "not been rerun here",
+    "CASA released-data verification",
+  ] : [
+    "599、599、594 条，共 1,792 条",
+    "1,847 条", "少 55 条",
+    "40、40、27、20",
+    "尚未运行复现实验",
+    "CASA 公开数据实核",
+  ];
+  for (const phrase of confirmed) {
+    assert.ok(ch17.includes(phrase),
+      "Chapter 17 primary-source qualifier missing (" + lang + "): " + phrase);
+    checks++;
+  }
+}
+
 console.log("PASS " + checks + " manuscript provenance checks");
 console.log("These are static guards, NOT original-PDF rendering or research replication.");
