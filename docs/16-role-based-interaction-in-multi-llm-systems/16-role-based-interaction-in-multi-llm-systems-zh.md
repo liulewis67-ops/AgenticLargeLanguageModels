@@ -90,6 +90,9 @@
 
 研究中的问答组件（见图16.2，右栏）通过分别针对环境理解、心理理论（ToM）和联合规划来分解问题。他们发现，LLM在第一类中得分普遍较高（最佳模型约80%），在心理理论方面得分较低，而在联合规划方面得分最差（最佳模型不到40%，开源模型甚至低于随机概率）。这与《Overcooked》（环境驱动）和《Hanabi》（心理理论和规划驱动）之间的得分差异一致。
 
+> **编者原论文与参考文献勘误（非原书内容）：**[NAACL 2025 正式论文](https://aclanthology.org/2025.findings-naacl.448/)的评测包含**四种纯协调游戏**及 **198 道 CoordQA 题**，后者由**66 个手工设计场景、每个场景 3 道问题**组成。不能把 198 道问题视为 198 个独立博弈样本；区间估计应按场景聚类，问答表现也不能直接代表实际互动协调能力。原书参考文献将文章页码误写为 **8038–8057**，出版机构及论文印刷首页均确认应为 **8053–8072**，DOI 为 **10.18653/v1/2025.findings-naacl.448**。已对下方书目做明确的编者勘误。参见[专项审计](https://github.com/liulewis67-ops/AgenticLargeLanguageModels/blob/main/reports/primary-source-data-audit-2026-11-15-ch15-ch17.md)。
+
+
 纯合作游戏的关键特征是代理必须完全合作，彼此之间没有竞争动机。相比之下，在竞争环境中，例如 
 
 {5}------------------------------------------------
@@ -244,7 +247,7 @@ MindStorms 引入了一个基于 LLM 的实现 [\[Zhuge et al.,](#page-16-0) [20
 
 ## 参考文献
 
-Saaket Agashe, Yue Fan, Anthony Reyna, and Xin Eric Wang. Llm-coordination: evaluating and analyzing multi-agent coordination abilities in large language models. In *Findings of the Association for Computational Linguistics: NAACL 2025*, pages 8038–8057, 2025. [320,](#page-3-0) [321,](#page-4-0) 330
+Saaket Agashe, Yue Fan, Anthony Reyna, and Xin Eric Wang. Llm-coordination: evaluating and analyzing multi-agent coordination abilities in large language models. In *Findings of the Association for Computational Linguistics: NAACL 2025*, pages 8053–8072, 2025. [320,](#page-3-0) [321,](#page-4-0) 330
 
 Yuntao Bai, Saurav Kadavath, Sandipan Kundu, Amanda Askell, Jackson Kernion, Andy Jones, Anna Chen, Anna Goldie, Azalia Mirhoseini, Cameron McKinnon, et al. Constitutional ai: Harmlessness from ai feedback. *arXiv preprint arXiv:2212.08073*, 2022. [324](#page-7-0)
 
