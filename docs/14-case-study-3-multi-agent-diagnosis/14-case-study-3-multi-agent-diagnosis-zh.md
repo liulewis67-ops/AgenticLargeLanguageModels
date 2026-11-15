@@ -33,6 +33,8 @@
 
 模拟按离散步骤执行，并记录案例在系统中的流转过程。**本练习不用于临床诊断，也不能据此认定系统具备医疗有效性。** 它旨在帮助读者观察共享状态协调、LLM 分诊决策和错误传播等工程问题。<sup>1</sup> 
 
+> **编者协议边界补充（非原文）：**本例的内存 `SharedContext` 是一种**共享状态设计模式**，并不是可互操作的 MCP Host、Client、Server 或 MCP 传输协议实现。如果需要验证真正的 MCP 集成，应另行实现真实服务器传输与工具 schema，并分别测试请求/响应校验、授权、重试和审计日志；不可将本教学模拟宣称为可用的临床 MCP 服务。
+
 ## 14.2 环境设置
 
 与前面的案例研究一样，我们建议在专用的虚拟环境中使用 Python 3.10 或更高版本进行工作（有关设置说明，请参见清单 14.1）。
@@ -161,4 +163,4 @@ pip install -r requirements.txt
 
 ## 参考文献
 
-Xinyi Hou, Yanjie Zhao, Shenao Wang, and Haoyu Wang. Model context protocol (mcp): Landscape, security threats, and future research directions. *ACM Trans. Softw. Eng. Methodol.*, 35(10), September 2026. ISSN 1049-331X. doi: 10.1145/3796519. URL <https://doi.org/10.1145/3796519>. [277](#page-0-0)
+- Xinyi Hou, Yanjie Zhao, Shenao Wang, and Haoyu Wang. Model context protocol (mcp): Landscape, security threats, and future research directions. *ACM Trans. Softw. Eng. Methodol.*, 35(10), September 2026. ISSN 1049-331X. doi: 10.1145/3796519. URL <https://doi.org/10.1145/3796519>. [277](#page-0-0)
