@@ -293,5 +293,52 @@ for (const chapter of [
   checks++;
 }
 
+
+// Chapters 8–10: source-aligned reference boundaries and BALROG CLI regression guards.
+// Counts are checked against arXiv:2610.13455v1 HTML, not inferred from page breaks.
+for (const chapter of [
+  { id: "08-metalearning", expected: 11, first: "Pavel Brazdil", last: "Guan Wang" },
+  { id: "09-interaction-styles-for-agentic-llms", expected: 43, first: "Rodney A Brooks", last: "Zijian Zhou" },
+  { id: "10-case-study-2-reasoning-and-reflection", expected: 3, first: "Davide Paglieri", last: "Shunyu Yao" },
+]) {
+  const bibliographies = {};
+  for (const lang of ["en", "zh"]) {
+    const text = readFileSync(resolve(root, "docs", chapter.id, chapter.id + "-" + lang + ".md"), "utf8");
+    const title = lang === "en" ? "Bibliography" : "参考文献";
+    const heading = text.match(new RegExp("^#{1,3}[ \\t]+(?:<span id=\\"page-\\\\d+-0\\"></span>)?" + title + "[ \\t]*$", "m"));
+    assert.ok(heading, "Missing source bibliography: " + chapter.id + " (" + lang + ")");
+    const body = text.slice(heading.index + heading[0].length);
+    bibliographies[lang] = body;
+    const references = body.split("\n").filter((line) => line.startsWith("- "));
+    assert.equal(references.length, chapter.expected, "Incorrect bibliography count: " + chapter.id + " (" + lang + ")");
+    assert.ok(references[0].includes(chapter.first) && references.at(-1).includes(chapter.last),
+      "Source bibliography order changed: " + chapter.id + " (" + lang + ")");
+    assert.ok(Math.max(...body.split("\n").map((line) => line.length)) < 900,
+      "Bibliography contains PDF-merged long lines: " + chapter.id + " (" + lang + ")");
+    assert.ok(!/\]\(#page-\d+-\d+\) [A-Z]/.test(body),
+      "PDF extraction merged two bibliography entries: " + chapter.id + " (" + lang + ")");
+    if (chapter.id.startsWith("09-")) {
+      assert.ok(!body.includes("\n- Li.") && body.includes("and Tianrui Li. Improving open-world") &&
+        body.includes("and Hang Li. Reft:"),
+        "Chapter 9 split author surnames returned: " + lang);
+    }
+    if (chapter.id.startsWith("10-")) {
+      assert.ok(body.includes("Łukasz Kuciński") && body.includes("Tim Rocktäschel") &&
+        body.includes("https://openreview.net/forum?id=fp6t3F669F"),
+        "BALROG primary publication metadata transcription: " + lang);
+      assert.ok(text.includes("  agent.max_text_history=16 \\") &&
+        text.includes("  eval.num_workers=4 \\") &&
+        !text.includes("  agent.max_history=16 \\"),
+        "BALROG custom-agent command mismatches Hydra config: " + lang);
+      assert.ok(text.includes(lang === "en" ? "Editorial command correction (not in the source)"
+        : "编者命令修正（非原文）"), "BALROG corrected command must identify editorial changes: " + lang);
+    }
+    checks += 7;
+  }
+  assert.equal(bibliographies.en, bibliographies.zh,
+    "Chapters 8–10 bibliography not identical in both languages: " + chapter.id);
+  checks++;
+}
+
 console.log("PASS " + checks + " manuscript provenance checks");
 console.log("These are static guards, NOT original-PDF rendering or research replication.");
