@@ -250,13 +250,15 @@ ACTION: <your next action>
 python eval.py \
   agent.type=custom \
   agent.max_image_history=0 \
-  agent.max_history=16 \
-  eval.num_workers=64 \
+  agent.max_text_history=16 \
+  eval.num_workers=4 \
   client.client_name=openai \
   client.model_id=gpt-4o-mini-2024-07-18
 ```
 
 *Listing 10.4: Running the custom-agent evaluation.*
+
+> **Editorial command correction (not in the source):** The original book/example uses `agent.max_history=16` and `eval.num_workers=64`. BALROG's published Hydra config uses **`agent.max_text_history`**, not `agent.max_history`. The standard evaluation example uses 16 workers; this edited teaching example uses **4 workers** for a lower-cost local smoke test. Pin a BALROG commit and check supported flags before running. This is not the paper's original reproduction configuration. Record seeds, episodes, action budgets, model/API version, and score uncertainty in the [BALROG run sheet](https://github.com/liulewis67-ops/AgenticLargeLanguageModels/blob/main/reports/balrog-reproducibility-run-template.md).
 
 ![](assets/_page_7_Picture_4.jpeg)
 
@@ -331,9 +333,14 @@ This has been an important practical case study. You have explored writing an ag
 
 ## <span id="page-10-0"></span>Bibliography
 
-Davide Paglieri, Bartłomiej Cupiał, Samuel Coward, Ulyana Piterbarg, Maciej Wolczyk, Akbir Khan, Eduardo Pignatelli, Łukasz Kucinski, Lerrel Pinto, Rob Fer- ´ gus, Jakob Nicolaus Foerster, Jack Parker-Holder, and Tim Rocktaschel. BAL- ¨ ROG: Benchmarking agentic LLM and VLM reasoning on games. In *The Thirteenth International Conference on Learning Representations*, 2025. URL [https:](https://openreview.net/forum?id=fp6t3F669F) [//openreview.net/forum?id=fp6t3F669F](https://openreview.net/forum?id=fp6t3F669F). [211,](#page-0-0) [212,](#page-1-0) [213](#page-2-0) Noah Shinn, Federico Cassano, Ashwin Gopinath, Karthik Narasimhan, and Shunyu Yao. Reflexion: Language agents with verbal reinforcement learning. *Advances in Neural Information Processing Systems*, 36, 2024. [218,](#page-7-0) [219,](#page-8-0) [220](#page-9-0) Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik Narasimhan, and Yuan Cao. React: Synergizing reasoning and acting in language models. *arXiv preprint arXiv:2210.03629*, 2022. [218](#page-7-0)
+- Davide Paglieri, Bartłomiej Cupiał, Samuel Coward, Ulyana Piterbarg, Maciej Wolczyk, Akbir Khan, Eduardo Pignatelli, Łukasz Kuciński, Lerrel Pinto, Rob Fergus, Jakob Nicolaus Foerster, Jack Parker-Holder, and Tim Rocktäschel. BALROG: Benchmarking agentic LLM and VLM reasoning on games. In *The Thirteenth International Conference on Learning Representations*, 2025. [OpenReview](https://openreview.net/forum?id=fp6t3F669F). [211](#page-0-0), [212](#page-1-0), [213](#page-2-0).
 
+- Noah Shinn, Federico Cassano, Ashwin Gopinath, Karthik Narasimhan, and Shunyu Yao. Reflexion: Language agents with verbal reinforcement learning. *Advances in Neural Information Processing Systems*, 36, 2024. [218](#page-7-0), [219](#page-8-0), [220](#page-9-0).
+
+- Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik Narasimhan, and Yuan Cao. ReAct: Synergizing reasoning and acting in language models. *arXiv preprint arXiv:2210.03629*, 2022. [218](#page-7-0).
 {11}------------------------------------------------
+
+
 
 
 
