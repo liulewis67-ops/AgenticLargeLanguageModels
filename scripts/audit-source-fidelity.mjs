@@ -222,5 +222,37 @@ for (const lang of ["en", "zh"]) {
 // Chapter 2/3 reference counts are checked against arXiv:2610.13455v1 HTML.
 // These are static source-integrity guards, not PDF image inspection or experiment replication.
 
+
+for (const lang of ["en", "zh"]) {
+  const chapter = "04-scaling-laws-and-efficiency";
+  const source = readFileSync(resolve(root, "docs", chapter, chapter + "-" + lang + ".md"), "utf8");
+  const marker = lang === "en" ? "## Bibliography" : "## 参考文献";
+  assert.ok(source.includes(marker), "Chapter 4 bibliography heading missing: " + lang);
+  const bibliography = source.slice(source.indexOf(marker) + marker.length);
+  const references = bibliography.split("\n").filter(line => line.startsWith("- "));
+  assert.equal(references.length, 72, "Chapter 4 source-aligned reference count: " + lang);
+  assert.ok(references[0].startsWith("- Marah Abdin") && references.at(-1).startsWith("- Chunting Zhou"),
+    "Chapter 4 bibliography source order drifted: " + lang);
+  assert.ok(Math.max(...bibliography.split("\n").map(x => x.length)) < 1500,
+    "Chapter 4 merged bibliography reference line: " + lang);
+  assert.ok(bibliography.includes("10.18653/v1/2023.trustnlp-1.5"),
+    "Chapter 4 ACL reference DOI broken across PDF lines: " + lang);
+  assert.ok(bibliography.includes("https://openreview.net/forum?id=aVSxwicpAk") &&
+    !bibliography.includes("[net/forum?id=aVSxwicpAk]"),
+    "Chapter 4 OpenReview URL broken across PDF page boundary: " + lang);
+  for (const number of ["4.1", "4.2", "4.3", "4.4", "4.5", "4.6"]) {
+    assert.ok(source.includes("(" + number + ")") || source.includes("（" + number + "）"),
+      "Chapter 4 source equation label missing: " + number + " (" + lang + ")");
+  }
+  checks += 12;
+}
+// The fitted Chinchilla parameters give the displayed rounded compute-optimal exponents.
+// Arithmetic sanity check only; not an experimental replication.
+const a = 0.28 / (0.34 + 0.28);
+const b = 0.34 / (0.34 + 0.28);
+assert.ok(Math.abs(a - 0.45) < 0.005 && Math.abs(b - 0.55) < 0.005 &&
+  Math.abs(a + b - 1) < 1e-12, "Chapter 4 Chinchilla exponents are inconsistent");
+checks++;
+
 console.log("PASS " + checks + " manuscript provenance checks");
 console.log("These are static guards, NOT original-PDF rendering or research replication.");
