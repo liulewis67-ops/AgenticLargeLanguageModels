@@ -70,6 +70,8 @@ nanochat 默认通过一个复杂度参数来配置计算最优模型：--depth�
 
 **日志记录。** nanochat 可按设定的时间间隔在终端记录训练损失、验证损失和每字节比特数，也提供报告和保存运行信息的功能。建议从一开始就启用结构化日志，并写入 .jsonl 文件；运行结束后再补日志会很麻烦。你可以尝试不同的日志格式。正式训练完整模型前，建议试用 wandb.ai 等服务。
 
+> **编者复现与溯源提示（非原文）：**本节是教学实验，而非已固定版本的完整复现协议。运行 nanochat 前，应使用[运行元数据模板](../../reports/nanochat-reproducibility-run-template.md)记录上游提交 SHA、`uv.lock` 版本、完整命令、分词器及数据快照、数据切分、随机种子、GPU/数值精度、训练预算、检查点和评测设置；ARC/GSM8K 分数需在相同协议下比较。原书将 nanochat 的发布时间写成 **2025 年 4 月**，但项目官方 README 将 **2025 年 10 月 13 日**描述为其最初介绍的日期。这是**尚待原始发布记录核实的来源差异**，不能悄悄改写为已证实的原文勘误。
+
 {3}------------------------------------------------
 
 ## 5.4 任务 0：模型仓库热身
@@ -215,9 +217,24 @@ B 部分评估：分析深度、证据使用情况，以及对既有假设的审
 
 你的 depth-4 模型与前沿模型之间会有明显差距，因为你很可能无法获得数据中心级别的计算资源。不过，原则上这些实验可以扩展：增加模型深度和训练数据后重新运行，应该能得到能力更强的模型，这与规模定律的预测一致。完成作业 1 后，你就亲手训练了一个完整的 LLM，也会更有准备开展需要更大规模资源的后续实验。
 ## 参考文献
+- Loubna Ben Allal et al. SmolTalk, 2024. URL <https://huggingface.co/datasets/HuggingFaceTB/smoltalk>. [112](#page-1-0)
 
-Loubna Ben Allal et al. SmolTalk, 2024. URL [https://huggingface.co/](https://huggingface.co/datasets/HuggingFaceTB/smoltalk) [datasets/HuggingFaceTB/smoltalk](https://huggingface.co/datasets/HuggingFaceTB/smoltalk). [112](#page-1-0) Emily M. Bender, Timnit Gebru, Angelina McMillan-Major, and Shmargaret Shmitchell. On the dangers of stochastic parrots: Can language models be too big? In *Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency*, FAccT '21, page 610–623, New York, NY, USA, 2021. Association for Computing Machinery. ISBN 9781450383097. doi: 10.1145/3442188.3445922. URL <https://doi.org/10.1145/3442188.3445922>. 119 Shizhe Diao, Yu Yang, Yonggan Fu, Xin Dong, Dan Su, Markus Kliegl, Zijia Chen, Peter Belcak, Yoshi Suhara, Hongxu Yin, et al. Nemotron-climb: Clustering-based
+- Emily M. Bender, Timnit Gebru, Angelina McMillan-Major, and Shmargaret Shmitchell. On the dangers of stochastic parrots: Can language models be too big? In *Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency*, FAccT '21, page 610–623, New York, NY, USA, 2021. Association for Computing Machinery. ISBN 9781450383097. doi: 10.1145/3442188.3445922. URL <https://doi.org/10.1145/3442188.3445922>. 119
+
+- Shizhe Diao, Yu Yang, Yonggan Fu, Xin Dong, Dan Su, Markus Kliegl, Zijia Chen, Peter Belcak, Yoshi Suhara, Hongxu Yin, et al. Nemotron-climb: Clustering-based
 
 {9}------------------------------------------------
 
-<span id="page-9-0"></span>iterative data mixture bootstrapping for language model pre-training. *Advances in Neural Information Processing Systems*, 38, 2026. [112,](#page-1-0) [119](#page-8-0) Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, Elena Buchatskaya, Trevor Cai, Eliza Rutherford, Diego de Las Casas, Lisa Anne Hendricks, Johannes Welbl, Aidan Clark, Tom Hennigan, Eric Noland, Katie Millican, George van den Driessche, Bogdan Damoc, Aurelia Guy, Simon Osindero, Karen Simonyan, Erich Elsen, Oriol Vinyals, Jack W. Rae, and Laurent Sifre. Training compute-optimal large language models. In *Proceedings of the 36th International Conference on Neural Information Processing Systems*, NIPS '22, Red Hook, NY, USA, 2022. Curran Associates Inc. ISBN 9781713871088. [115,](#page-4-0) [119](#page-8-0) Hugging Face. The hugging face LLM course, 2022. URL [https://](https://huggingface.co/learn/llm-course) [huggingface.co/learn/llm-course](https://huggingface.co/learn/llm-course). [113,](#page-2-0) [119](#page-8-0) Mathieu Labonne. LLM course, 2023. URL [https://github.com/mlabonne/](https://github.com/mlabonne/llm-course) [llm-course](https://github.com/mlabonne/llm-course). [113,](#page-2-0) [119](#page-8-0) Long Ouyang, Jeffrey Wu, Xu Jiang, Diogo Almeida, Carroll Wainwright, Pamela Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, et al. Training language models to follow instructions with human feedback. *Advances in Neural Information Processing Systems*, 35:27730–27744, 2022. [113,](#page-2-0) [119](#page-8-0) Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, Ilya Sutskever, et al. Language models are unsupervised multitask learners. *OpenAI blog*, 1(8):9, 2019. [112](#page-1-0) Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin. Attention is all you need. *Advances in neural information processing systems*, 30, 2017. [118](#page-7-0)
+<span id="page-9-0"></span>iterative data mixture bootstrapping for language model pre-training. *Advances in Neural Information Processing Systems*, 38, 2026. [112,](#page-1-0) [119](#page-8-0)
+
+- Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, Elena Buchatskaya, Trevor Cai, Eliza Rutherford, Diego de Las Casas, Lisa Anne Hendricks, Johannes Welbl, Aidan Clark, Tom Hennigan, Eric Noland, Katie Millican, George van den Driessche, Bogdan Damoc, Aurelia Guy, Simon Osindero, Karen Simonyan, Erich Elsen, Oriol Vinyals, Jack W. Rae, and Laurent Sifre. Training compute-optimal large language models. In *Proceedings of the 36th International Conference on Neural Information Processing Systems*, NIPS '22, Red Hook, NY, USA, 2022. Curran Associates Inc. ISBN 9781713871088. [115,](#page-4-0) [119](#page-8-0)
+
+- Hugging Face. The hugging face LLM course, 2022. URL <https://huggingface.co/learn/llm-course>. [113,](#page-2-0) [119](#page-8-0)
+
+- Mathieu Labonne. LLM course, 2023. URL <https://github.com/mlabonne/llm-course>. [113,](#page-2-0) [119](#page-8-0)
+
+- Long Ouyang, Jeffrey Wu, Xu Jiang, Diogo Almeida, Carroll Wainwright, Pamela Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, et al. Training language models to follow instructions with human feedback. *Advances in Neural Information Processing Systems*, 35:27730–27744, 2022. [113,](#page-2-0) [119](#page-8-0)
+
+- Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, Ilya Sutskever, et al. Language models are unsupervised multitask learners. *OpenAI blog*, 1(8):9, 2019. [112](#page-1-0)
+
+- Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin. Attention is all you need. *Advances in neural information processing systems*, 30, 2017. [118](#page-7-0)
