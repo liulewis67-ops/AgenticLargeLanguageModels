@@ -32,7 +32,7 @@ This brings us to two definitions that we use in this book.
 
 *Agentic LLMs* are agents that integrate the power of LLMs, such as to communicate using natural language, write code, or process information.
 
-#### 1.2.1 Agents that Assist, Agents that Interact
+### 1.2.1 Agents that Assist, Agents that Interact
 
 The ability to act has increased the relevance and applicability of LLMs in many domains of society. How are agentic LLMs used? In this book, we distinguish two major classes of use cases for Agentic LLMs:
 
@@ -42,7 +42,7 @@ The ability to act has increased the relevance and applicability of LLMs in many
 
 Many research papers have been published in recent years in both domains. We will provide overviews of key studies and trends throughout the book.
 
-#### 1.2.2 Agentic Harness
+### 1.2.2 Agentic Harness
 
 From an engineering perspective, how do we construct agentic LLMs? Agentic LLMs consist of two elements: (1) the LLM, and (2) a piece of code that is called the *harness*.
 
@@ -50,7 +50,7 @@ From an engineering perspective, how do we construct agentic LLMs? Agentic LLMs 
 
 The harness is a piece of computer code that wraps around the model and controls how it is called (a horse's harness helps us guide the power of the noble animal in a productive direction). The harness performs tasks such as prompt construction, answer processing, calling external tools, state management, system prompt management, and skill management. The harness loops through the reasoning, acting, and observing that are necessary for task completion, without the need for human intervention to guide the process manually. The agentic harness can thus be seen as a versatile automatic prompt engineer (Part II, Chapter 6). Importantly, the harness may *adapt* the behavior policy of the agent based on feedback on its actions, using reinforcement learning (Part III, Chapter 9).
 
-#### 1.2.3 Multi-Modal Models
+### 1.2.3 Multi-Modal Models
 
 Understanding natural language is crucial for agents that interact with users and the world around them. However, for many tasks agents must also process other modalities, such as visual information, or other text formats, such as spreadsheets or computer code. As such, the domain of agentic LLMs extends beyond natural language,
 
@@ -62,7 +62,7 @@ Figure 1.1: Recursive self-improvement cycle connecting three categories of agen
 
 and includes multi-modal, code, and world models. Therefore, please note that in this book we use the term *LLM* pragmatically—depending on the context it can refer to language-only systems, or it can have a broader scope: *large transformer-based model that processes natural language, computer code, images, tool-commands, or other relevant modalities* (Part II, Chapter 7). In cases where the distinction is important, we flag which variant of the definition applies.
 
-#### 1.2.4 Training Data
+### 1.2.4 Training Data
 
 Agentic LLMs mark another paradigm shift in LLM engineering, that is related to machine learning. For a long time, the learning-emphasis in the field of LLMs has been on learning during model training, but now there is an increasing role for learning at inference time, when the model is queried.
 
