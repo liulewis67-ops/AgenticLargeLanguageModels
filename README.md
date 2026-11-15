@@ -33,6 +33,8 @@ pnpm docs:preview
 
 ## 学术审校与质量审计
 
+继续核对[第 2–3 章原始书目条目和评价指标专项报告](reports/academic-audit-2026-11-15-ch02-ch03-bibliography.md)：恢复第 2 章中文版遗漏的前 6 条参考文献，按 arXiv v1 重建第 2 章 59 条与第 3 章 52 条双语书目，并对 Pass@K 原文歧义加编者校勘。
+
 新增[第 1 章引文分条与 arXiv v1 文献对照审校](reports/academic-audit-2026-11-15-ch01-references.md)，修复首章 24 条被合并的引文，并对该问题建立持续回归检查。
 
 双语结构审计现已覆盖**第 1–23 章**，包含四批可追踪的学术校勘、实验设计和证据等级。阅读[第 2–7 章审计](reports/academic-audit-2026-11-14.md)、[第 8–13 章审计](reports/academic-audit-2026-11-14-ch08-ch13.md)、[第 14–18 章审计](reports/academic-audit-2026-11-14-ch14-ch18.md)、[第 19–23 章审计](reports/academic-audit-2026-11-14-ch19-ch23.md)，以及[多智能体实验审计协议](reports/multi-agent-experiment-audit-protocol.md)。新增[第 14/18 章上游源码、引文真实性与可复现性专项审计](reports/source-code-audit-2026-11-14-ch14-ch18.md)及[第 14/18/21 章官方 arXiv v1 原文对照、公式与论文版本核验](reports/arxiv-source-concordance-2026-11-14-ch14-ch18-ch21.md)、[第 19–20 章原始论文数据规模、SICA 试验与复现性核验](reports/primary-evidence-audit-2026-11-15-ch19-ch20.md)及[第 15–16 章社会智能/协作实验来源与数值单位核验](reports/primary-evidence-audit-2026-11-15-ch15-ch16.md)、[第 15–17 章 ToMBench 全量数据质量、协调论文勘误与 OASIS 资源审计](reports/primary-source-data-audit-2026-11-15-ch15-ch17.md)及[第 17 章 CASA 六文件数据清单与命名游戏原始实验审计](reports/casa-and-norms-evidence-audit-2026-11-15-ch17.md)，其中明确区分“静态源码核验”“数值边界自检”“原 PDF 视觉核验”“真实实验复现”的完成程度。
