@@ -41,6 +41,9 @@ jobs:
       - name: Guard corrections verified against original arXiv text
         run: pnpm docs:audit-source
 
+      - name: Self-test ToMBench JSONL audit (local synthetic fixtures only)
+        run: pnpm docs:audit-tombench --self-test
+
       - name: Verify editorial formula arithmetic (not experimental replication)
         run: pnpm docs:audit-formula
 
