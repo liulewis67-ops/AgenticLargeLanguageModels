@@ -44,6 +44,9 @@ jobs:
       - name: Self-test ToMBench JSONL audit (local synthetic fixtures only)
         run: pnpm docs:audit-tombench --self-test
 
+      - name: Self-test CASA JSON inventory (synthetic fixtures only)
+        run: pnpm docs:audit-casa --self-test
+
       - name: Verify editorial formula arithmetic (not experimental replication)
         run: pnpm docs:audit-formula
 
