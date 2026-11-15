@@ -60,6 +60,8 @@ Two further developments bridge classical and modern retrieval. First, [Robertso
 
 $\operatorname{BM25}(q,d)=\sum_{t\in q}\operatorname{IDF}(t,d)\cdot\frac{f_{t,d}(k_1+1)}{f_{t,d}+k_1\left(1-b+b\frac{|d|}{\operatorname{avgdl}}\right)}$ (12.5)
 
+> **Editorial equation correction (not in the source):** Equation **(12.5)** writes `IDF(t,d)`, but inverse document frequency is computed from the **document collection**: it should be `IDF(t,D)`. The equation's other quantities, such as `f_{t,d}` and `|d|`, are document-specific. In implementations, BM25 may use a corpus-dependent *smoothed probabilistic IDF* rather than the unsmoothed TF–IDF definition in Equation (12.2); record the exact IDF variant, `k_1`, `b`, tokenization and document statistics before comparing scores.
+
 where $|d|$ is the length of document $d$, avgdl is the average document length in the collection, and $k_1$ and $b$ are free parameters that control term-frequency saturation and length normalization, respectively (typical values: $k_1\in[1.2,2.0]$, $b=0.75$). BM25 remains the sparse-retrieval baseline referenced throughout the hybrid retrieval discussions in Section [12.3.](#page-3-0)
 
 Second, [Deerwester et al.](#page-17-0) [\[1990\]](#page-17-0) introduced *latent semantic analysis* (LSA), which applies singular value decomposition to the term-document matrix to uncover latent topics and match documents by meaning rather than by exact term overlap. LSA was the first widely used technique to address the vocabulary mismatch problem, the same problem that motivates dense and semantic retrieval today.
@@ -478,6 +480,8 @@ BEIR contains 18 heterogeneous datasets covering question answering, fact checki
 
 Here, \(\operatorname{rank}_i\) is the rank of the first relevant document for query \(i\).
 
+> **Editorial evaluation edge case (not in the source):** The MRR formula assumes a first relevant result exists. In standard evaluation, a query with no relevant item retrieved gets reciprocal rank **0**, rather than division by an undefined rank. Likewise, Recall@k has an undefined denominator for a query with no relevant ground-truth documents, and nDCG@k cannot divide by `IDCG@k = 0`; evaluation scripts must declare whether such queries are excluded or assigned a specified score. Test empty results, ties, duplicate IDs and relevance-judgment completeness.
+
 \[\operatorname{nDCG}@k=\frac{\operatorname{DCG}@k}{\operatorname{IDCG}@k}\tag{12.10}\]
 
 where
@@ -532,79 +536,79 @@ To experiment with retrieval-augmented generation, try the [RAG tutorial in Goog
 **Further reading.** For deeper coverage, consult surveys on RAG, evaluation, and graph-based methods [Gao et al., 2023b](#page-18-0); [Huang et al., 2024](#page-18-0); [Yu et al., 2024](#page-20-0); [Sharma et al., 2025](#page-19-0); [Peng et al., 2024](#page-19-0). Foundational work includes REALM, DPR, and the original RAG formulation [Guu et al., 2020](#page-18-0); [Karpukhin et al., 2020](#page-18-0); [Lewis et al., 2020](#page-18-0). Research on GraphRAG, evaluation, and agentic RAG is developing quickly; follow new papers and benchmarks to stay current.
 # Bibliography
 
-Akari Asai, Victor Zhong, Shi Chen, Hannaneh Hajishirzi, et al. Self-rag: Learning to retrieve, generate, and critique for language models. *arXiv preprint arXiv:2310.11511*, 2023. [245,](#page-4-0) [246,](#page-5-0) [247](#page-6-0)
+- Akari Asai, Victor Zhong, Shi Chen, Hannaneh Hajishirzi, et al. Self-rag: Learning to retrieve, generate, and critique for language models. *arXiv preprint arXiv:2310.11511*, 2023. [245,](#page-4-0) [246,](#page-5-0) [247](#page-6-0)
 
-Youan Cong, Cheng Wang, Pritom Saha Akash, and Kevin Chen-Chuan Chang. Query optimization for parametric knowledge refinement in retrieval-augmented large language models. *arXiv preprint arXiv:2411.07820*, 2024. [244](#page-3-0)
+- Youan Cong, Cheng Wang, Pritom Saha Akash, and Kevin Chen-Chuan Chang. Query optimization for parametric knowledge refinement in retrieval-augmented large language models. *arXiv preprint arXiv:2411.07820*, 2024. [244](#page-3-0)
 
-Scott Deerwester, Susan T. Dumais, George W. Furnas, Thomas K. Landauer, and Richard Harshman. Indexing by latent semantic analysis. *Journal of the American Society for Information Science*, 41(6):391–407, 1990. doi: 10.1002/(SICI) 1097-4571(199009)41:6⟨391::AID-ASI1⟩3.0.CO;2-9. [243](#page-2-0)
+- Scott Deerwester, Susan T. Dumais, George W. Furnas, Thomas K. Landauer, and Richard Harshman. Indexing by latent semantic analysis. *Journal of the American Society for Information Science*, 41(6):391–407, 1990. doi: 10.1002/(SICI) 1097-4571(199009)41:6⟨391::AID-ASI1⟩3.0.CO;2-9. [243](#page-2-0)
 
-Zhangyin Feng, Daya Guo, Duyu Tang, Nan Duan, Xiaocheng Feng, Ming Gong, Linjun Shou, Bing Qin, Ting Liu, Daxin Jiang, and Ming Zhou. CodeBERT: A pre-trained model for programming and natural languages, 2020. URL [https:](https://arxiv.org/abs/2002.08155) [//arxiv.org/abs/2002.08155](https://arxiv.org/abs/2002.08155). Accepted to Findings of EMNLP 2020. [251](#page-10-0) 
+- Zhangyin Feng, Daya Guo, Duyu Tang, Nan Duan, Xiaocheng Feng, Ming Gong, Linjun Shou, Bing Qin, Ting Liu, Daxin Jiang, and Ming Zhou. CodeBERT: A pre-trained model for programming and natural languages, 2020. URL <https://arxiv.org/abs/2002.08155>. Accepted to Findings of EMNLP 2020. [251](#page-10-0) 
 
 {18}------------------------------------------------
 
-<span id="page-18-0"></span>Thibault Formal, Carlos Lassance, Benjamin Piwowarski, and Stéphane Clinchant. SPLADE v2: Sparse lexical and expansion model for information retrieval. *arXiv preprint arXiv:2109.10086*, 2021. [244](#page-3-0)
+- <span id="page-18-0"></span>Thibault Formal, Carlos Lassance, Benjamin Piwowarski, and Stéphane Clinchant. SPLADE v2: Sparse lexical and expansion model for information retrieval. *arXiv preprint arXiv:2109.10086*, 2021. [244](#page-3-0)
 
-Luyu Gao, Zhuyun Dai, and Jamie Callan. HyDE: Hypothetical document embeddings for zero-shot dense retrieval. In *NeurIPS*, 2023a. [245,](#page-4-0) [249](#page-8-0)
+- Luyu Gao, Zhuyun Dai, and Jamie Callan. HyDE: Hypothetical document embeddings for zero-shot dense retrieval. In *NeurIPS*, 2023a. [245,](#page-4-0) [249](#page-8-0)
 
-Yang Gao et al. Retrieval-augmented generation for large language models: A survey. *arXiv preprint arXiv:2312.10997*, 2023b. [244,](#page-3-0) [258](#page-17-0)
+- Yang Gao et al. Retrieval-augmented generation for large language models: A survey. *arXiv preprint arXiv:2312.10997*, 2023b. [244,](#page-3-0) [258](#page-17-0)
 
-Kelvin Guu, Kenton Lee, Zora Tung, Panupong Pasupat, and Mingwei Chang. Retrieval augmented language model pre-training. In Hal Daumé III and Aarti Singh, editors, *Proceedings of the 37th International Conference on Machine Learning*, volume 119 of *Proceedings of Machine Learning Research*, pages 3929–3938. PMLR, 13–18 Jul 2020. URL [https://proceedings.mlr.press/v119/](https://proceedings.mlr.press/v119/guu20a.html) [guu20a.html](https://proceedings.mlr.press/v119/guu20a.html). [244,](#page-3-0) [258](#page-17-0)
+- Kelvin Guu, Kenton Lee, Zora Tung, Panupong Pasupat, and Mingwei Chang. Retrieval augmented language model pre-training. In Hal Daumé III and Aarti Singh, editors, *Proceedings of the 37th International Conference on Machine Learning*, volume 119 of *Proceedings of Machine Learning Research*, pages 3929–3938. PMLR, 13–18 Jul 2020. URL <https://proceedings.mlr.press/v119/guu20a.html>. [244,](#page-3-0) [258](#page-17-0)
 
-Yifu Huang et al. A survey on retrieval-augmented text generation for large language models. *arXiv preprint arXiv:2404.10981*, 2024. [244,](#page-3-0) [258](#page-17-0)
+- Yifu Huang et al. A survey on retrieval-augmented text generation for large language models. *arXiv preprint arXiv:2404.10981*, 2024. [244,](#page-3-0) [258](#page-17-0)
 
-Gautier Izacard, Mathilde Caron, Lucas Hosseini, Sebastian Riedel, Piotr Bojanowski, Armand Joulin, and Edouard Grave. Unsupervised dense information retrieval with contrastive learning. *Transactions on Machine Learning Research*, 2022. ISSN 2835-8856. URL <https://openreview.net/forum?id=jKN1pXi7b0>. [245](#page-4-0)
+- Gautier Izacard, Mathilde Caron, Lucas Hosseini, Sebastian Riedel, Piotr Bojanowski, Armand Joulin, and Edouard Grave. Unsupervised dense information retrieval with contrastive learning. *Transactions on Machine Learning Research*, 2022. ISSN 2835-8856. URL <https://openreview.net/forum?id=jKN1pXi7b0>. [245](#page-4-0)
 
-Hervé Jégou, Matthijs Douze, and Cordelia Schmid. Product quantization for nearest-neighbor search. *IEEE Transactions on Pattern Analysis and Machine Intelligence*, 33(1):117–128, 2011. doi: 10.1109/TPAMI.2010.57. [245](#page-4-0)
+- Hervé Jégou, Matthijs Douze, and Cordelia Schmid. Product quantization for nearest-neighbor search. *IEEE Transactions on Pattern Analysis and Machine Intelligence*, 33(1):117–128, 2011. doi: 10.1109/TPAMI.2010.57. [245](#page-4-0)
 
-Vladimir Karpukhin, Barlas Oguz, Sewon Min, Patrick Lewis, Ledell Wu, Sergey Edunov, Danqi Chen, and Wen-tau Yih. Dense passage retrieval for open-domain question answering. In *Empirical Methods in Natural Language Processing*, 2020. [242,](#page-1-0) [244,](#page-3-0) [245,](#page-4-0) [258](#page-17-0)
+- Vladimir Karpukhin, Barlas Oguz, Sewon Min, Patrick Lewis, Ledell Wu, Sergey Edunov, Danqi Chen, and Wen-tau Yih. Dense passage retrieval for open-domain question answering. In *Empirical Methods in Natural Language Processing*, 2020. [242,](#page-1-0) [244,](#page-3-0) [245,](#page-4-0) [258](#page-17-0)
 
-Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich Kuttler, Mike Lewis, Wen-tau Yih, Tim Rocktäschel, et al. Retrieval-augmented generation for knowledge-intensive nlp tasks. *Advances in Neural Information Processing Systems*, 33:9459–9474, 2020. [244,](#page-3-0) [258](#page-17-0)
+- Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich Kuttler, Mike Lewis, Wen-tau Yih, Tim Rocktäschel, et al. Retrieval-augmented generation for knowledge-intensive nlp tasks. *Advances in Neural Information Processing Systems*, 33:9459–9474, 2020. [244,](#page-3-0) [258](#page-17-0)
 
-Yu A. Malkov and D. A. Yashunin. Efficient and robust approximate nearest neighbor search using hierarchical navigable small world graphs. *IEEE Trans. Pattern Anal. Mach. Intell.*, 42(4):824–836, April 2020. ISSN 0162-8828. doi: 10.1109/TPAMI.2018.2889473. URL [https://doi.org/10.1109/TPAMI.](https://doi.org/10.1109/TPAMI.2018.2889473) [2018.2889473](https://doi.org/10.1109/TPAMI.2018.2889473). [245](#page-4-0)
+- Yu A. Malkov and D. A. Yashunin. Efficient and robust approximate nearest neighbor search using hierarchical navigable small world graphs. *IEEE Trans. Pattern Anal. Mach. Intell.*, 42(4):824–836, April 2020. ISSN 0162-8828. doi: 10.1109/TPAMI.2018.2889473. URL <https://doi.org/10.1109/TPAMI.2018.2889473>. [245](#page-4-0)
 
-Christopher D. Manning, Prabhakar Raghavan, and Hinrich Schütze. *Introduction to Information Retrieval*. Cambridge University Press, Cambridge, UK, 2008. [241](#page-0-0)
+- Christopher D. Manning, Prabhakar Raghavan, and Hinrich Schütze. *Introduction to Information Retrieval*. Cambridge University Press, Cambridge, UK, 2008. [241](#page-0-0)
 
 {19}------------------------------------------------
 
-<span id="page-19-0"></span>Tomáš Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. Efficient estimation of word representations in vector space. In Yoshua Bengio and Yann LeCun, editors, *1st International Conference on Learning Representations, ICLR 2013, Scottsdale, Arizona, USA, May 2-4, 2013, Workshop Track Proceedings*, 2013. URL [http:](http://arxiv.org/abs/1301.3781) [//arxiv.org/abs/1301.3781](http://arxiv.org/abs/1301.3781). [243](#page-2-0)
+- <span id="page-19-0"></span>Tomáš Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. Efficient estimation of word representations in vector space. In Yoshua Bengio and Yann LeCun, editors, *1st International Conference on Learning Representations, ICLR 2013, Scottsdale, Arizona, USA, May 2-4, 2013, Workshop Track Proceedings*, 2013. URL <http://arxiv.org/abs/1301.3781>. [243](#page-2-0)
 
-Bo Peng et al. Graph retrieval-augmented generation: A survey. *arXiv preprint arXiv:2408.08921*, 2024. [244,](#page-3-0) [249,](#page-8-0) [250,](#page-9-0) [258](#page-17-0)
+- Bo Peng et al. Graph retrieval-augmented generation: A survey. *arXiv preprint arXiv:2408.08921*, 2024. [244,](#page-3-0) [249,](#page-8-0) [250,](#page-9-0) [258](#page-17-0)
 
-Fabio Petroni, Aleksandra Piktus, Angela Fan, Patrick Lewis, et al. KILT: a benchmark for knowledge intensive language tasks. In *NAACL*, 2021. [255](#page-14-0)
+- Fabio Petroni, Aleksandra Piktus, Angela Fan, Patrick Lewis, et al. KILT: a benchmark for knowledge intensive language tasks. In *NAACL*, 2021. [255](#page-14-0)
 
-Ofir Press, Muru Zhang, Sewon Min, Ludwig Schmidt, Noah A Smith, and Mike Lewis. Measuring and narrowing the compositionality gap in language models. *arXiv preprint arXiv:2210.03350*, 2022. [246,](#page-5-0) [247](#page-6-0)
+- Ofir Press, Muru Zhang, Sewon Min, Ludwig Schmidt, Noah A Smith, and Mike Lewis. Measuring and narrowing the compositionality gap in language models. *arXiv preprint arXiv:2210.03350*, 2022. [246,](#page-5-0) [247](#page-6-0)
 
-Stephen Robertson and Hugo Zaragoza. The probabilistic relevance framework: BM25 and Beyond. *Foundations and Trends in Information Retrieval*, 3(4):333–389, 2009. doi: 10.1561/1500000019. [243](#page-2-0)
+- Stephen Robertson and Hugo Zaragoza. The probabilistic relevance framework: BM25 and Beyond. *Foundations and Trends in Information Retrieval*, 3(4):333–389, 2009. doi: 10.1561/1500000019. [243](#page-2-0)
 
-Stephen Edward Robertson, Steve Walker, Susan Jones, Micheline M Hancock-Beaulieu, Mike Gatford, et al. Okapi at trec. *NIST special publication*, 1994. [243](#page-2-0)
+- Stephen Edward Robertson, Steve Walker, Susan Jones, Micheline M Hancock-Beaulieu, Mike Gatford, et al. Okapi at trec. *NIST special publication*, 1994. [243](#page-2-0)
 
-Gerard Salton and Michael J. McGill. *Introduction to Modern Information Retrieval*. McGraw-Hill, New York, NY, 1983. [241](#page-0-0)
+- Gerard Salton and Michael J. McGill. *Introduction to Modern Information Retrieval*. McGraw-Hill, New York, NY, 1983. [241](#page-0-0)
 
-Gerard Salton, Anita Wong, and Chung-Shu Yang. A vector space model for automatic indexing. *Communications of the ACM*, 18(11):613–620, 1975. doi: 10.1145/361219.361220. [242](#page-1-0)
+- Gerard Salton, Anita Wong, and Chung-Shu Yang. A vector space model for automatic indexing. *Communications of the ACM*, 18(11):613–620, 1975. doi: 10.1145/361219.361220. [242](#page-1-0)
 
-Murugan Sankaradas, Ravi K. Rajendran, and Srimat T. Chakradhar. StreamingRAG: Real-time contextual retrieval and generation framework, 2025. URL [https://](https://arxiv.org/abs/2501.14101) [arxiv.org/abs/2501.14101](https://arxiv.org/abs/2501.14101). [255](#page-14-0)
+- Murugan Sankaradas, Ravi K. Rajendran, and Srimat T. Chakradhar. StreamingRAG: Real-time contextual retrieval and generation framework, 2025. URL <https://arxiv.org/abs/2501.14101>. [255](#page-14-0)
 
-Keshav Santhanam, Omar Khattab, Christopher Potts, and Matei Zaharia. ColBERTv2: Effective and efficient retrieval via lightweight late interaction. In *NAACL*, 2022. [245](#page-4-0)
+- Keshav Santhanam, Omar Khattab, Christopher Potts, and Matei Zaharia. ColBERTv2: Effective and efficient retrieval via lightweight late interaction. In *NAACL*, 2022. [245](#page-4-0)
 
-Chirayu Sharma et al. Retrieval-augmented generation. *arXiv preprint arXiv:2506.00054*, 2025. [244,](#page-3-0) [258](#page-17-0)
+- Chirayu Sharma et al. Retrieval-augmented generation. *arXiv preprint arXiv:2506.00054*, 2025. [244,](#page-3-0) [258](#page-17-0)
 
-Aditi Singh, Abul Ehtesham, Saket Kumar, and Tala Talaei Khoei. Agentic retrieval-augmented generation: A survey on agentic rag. *arXiv preprint arXiv:2501.09136*, 2025. [254](#page-13-0)
+- Aditi Singh, Abul Ehtesham, Saket Kumar, and Tala Talaei Khoei. Agentic retrieval-augmented generation: A survey on agentic rag. *arXiv preprint arXiv:2501.09136*, 2025. [254](#page-13-0)
 
-Karen Spärck Jones. A statistical interpretation of term specificity and its application in retrieval. *Journal of Documentation*, 28(1):11–21, 1972. doi: 10.1108/eb026526. [242](#page-1-0)
+- Karen Spärck Jones. A statistical interpretation of term specificity and its application in retrieval. *Journal of Documentation*, 28(1):11–21, 1972. doi: 10.1108/eb026526. [242](#page-1-0)
 
-Nandan Thakur, Nils Reimers, Johannes Daxenberger, and Iryna Gurevych. BEIR: A heterogeneous benchmark for zero-shot evaluation of information retrieval models. In *NeurIPS Datasets and Benchmarks*, 2021. [255](#page-14-0)
+- Nandan Thakur, Nils Reimers, Johannes Daxenberger, and Iryna Gurevych. BEIR: A heterogeneous benchmark for zero-shot evaluation of information retrieval models. In *NeurIPS Datasets and Benchmarks*, 2021. [255](#page-14-0)
 
 {20}------------------------------------------------
 
-<span id="page-20-0"></span>Hong Yu et al. Evaluation of retrieval-augmented generation: A survey. *arXiv preprint arXiv:2405.07437*, 2024. [244,](#page-3-0) [256,](#page-15-0) [258](#page-17-0)
+- <span id="page-20-0"></span>Hong Yu et al. Evaluation of retrieval-augmented generation: A survey. *arXiv preprint arXiv:2405.07437*, 2024. [244,](#page-3-0) [256,](#page-15-0) [258](#page-17-0)
 
-Xiaohan Yu, Pu Jian, and Chong Chen. Tablerag: A retrieval augmented generation framework for heterogeneous document reasoning, 2025. URL [https://arxiv.](https://arxiv.org/abs/2506.10380) [org/abs/2506.10380](https://arxiv.org/abs/2506.10380). [251](#page-10-0)
+- Xiaohan Yu, Pu Jian, and Chong Chen. Tablerag: A retrieval augmented generation framework for heterogeneous document reasoning, 2025. URL <https://arxiv.org/abs/2506.10380>. [251](#page-10-0)
 
-Chi Zhang, Qiyang Chen, and Mengqi Zhang. Mixture-of-rag: Integrating text and tables with large language models, 2025. URL [https://arxiv.org/abs/](https://arxiv.org/abs/2504.09554) [2504.09554](https://arxiv.org/abs/2504.09554). [251](#page-10-0)
+- Chi Zhang, Qiyang Chen, and Mengqi Zhang. Mixture-of-rag: Integrating text and tables with large language models, 2025. URL <https://arxiv.org/abs/2504.09554>. [251](#page-10-0)
 
-Jiawei Zhang. Graph-toolformer: To empower llms with graph reasoning ability via prompt augmented by chatgpt. *arXiv preprint arXiv:2304.11116*, 2023. [246](#page-5-0)
+- Jiawei Zhang. Graph-toolformer: To empower llms with graph reasoning ability via prompt augmented by chatgpt. *arXiv preprint arXiv:2304.11116*, 2023. [246](#page-5-0)
 
-Yuzhou Zhu. From static to dynamic: A streaming rag approach to real-time knowledge base, 2025. URL <https://arxiv.org/abs/2508.05662>. [255](#page-14-0)
+- Yuzhou Zhu. From static to dynamic: A streaming rag approach to real-time knowledge base, 2025. URL <https://arxiv.org/abs/2508.05662>. [255](#page-14-0)
 
 {21}------------------------------------------------
 
