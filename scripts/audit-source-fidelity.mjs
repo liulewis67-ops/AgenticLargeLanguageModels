@@ -194,17 +194,17 @@ for (const chapter of [
     assert.ok(text.includes(heading), "Missing chapter bibliography: " + chapter.id + " (" + lang + ")");
     const body = text.slice(text.lastIndexOf(heading) + heading.length);
     bodies[lang] = body;
-    const entries = body.split("\\n").filter((line) => line.startsWith("- "));
+    const entries = body.split("\n").filter((line) => line.startsWith("- "));
     assert.equal(entries.length, chapter.expected,
       "Source-aligned bibliography count for " + chapter.id + " (" + lang + ")");
     assert.ok(entries[0].includes(chapter.first) && entries.at(-1).includes(chapter.last),
       "Bibliography reference order drifted: " + chapter.id + " (" + lang + ")");
-    const maxLine = Math.max(...body.split("\\n").map((line) => line.length));
+    const maxLine = Math.max(...body.split("\n").map((line) => line.length));
     assert.ok(maxLine < 1500,
       "Likely merged references (line exceeds 1500 characters) in " + chapter.id + " (" + lang + ")");
-    assert.ok(!/\\]\\(#page-\\d+-\\d+\\) [A-Z]/.test(body),
+    assert.ok(!/\]\(#page-\d+-\d+\) [A-Z]/.test(body),
       "Merged reference boundary reappeared in " + chapter.id + " (" + lang + ")");
-    assert.ok(!/URL \\[[^\\]]+\\]\\(https?:\\/\\/[^\\n]+?\\) \\[[^\\]]+\\]\\(/.test(body),
+    assert.ok(!/URL \[[^\]]+\]\(https?:\/\/[^)\n]+\) \[[^\]]+\]\(/.test(body),
       "Split PDF-extracted bibliography URL reappeared in " + chapter.id + " (" + lang + ")");
     checks += 5;
   }
