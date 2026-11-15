@@ -46,7 +46,7 @@ LLM 展现出的自然语言能力令人印象深刻。但当模型具备智能�
 
 从工程角度看，如何构建智能体大语言模型？它由两部分组成：（1）LLM；（2）一段称为*执行框架*（harness）的代码。
 
-#### 智能体大语言模型 = LLM + 执行框架
+**智能体大语言模型 = LLM + 执行框架**
 
 执行框架是围绕模型运行的一层程序，负责控制模型何时、如何被调用。英文 *harness* 原指驾驭马匹的马具，借此强调它对模型能力的组织与引导作用。执行框架通常承担提示构造、结果处理、外部工具调用、状态管理、系统提示与技能管理等职责，并通过“推理—行动—观察”的循环推动任务完成，而不必由人逐步指挥。因此，它可以被视为一种灵活的自动化提示工程机制（第二部分第 6 章）。在某些设计中，执行框架还可利用行动反馈，通过强化学习*调整*智能体的行为策略（第三部分第 9 章）。
 
@@ -175,14 +175,58 @@ LLM 展现出的自然语言能力令人印象深刻。但当模型具备智能�
 
 ## 参考文献
 
-Ethem Alpaydin. *Machine learning*. MIT press, 2021. [19](#page-4-0)
+- Ethem Alpaydin. *Machine learning*. MIT press, 2021. [19](#page-4-0)
 
-C.M. Bishop and H. Bishop. *Deep Learning: Foundations and Concepts*. Computer Science. Springer International Publishing, 2023. ISBN 9783031454684. URL <https://books.google.nl/books?id=0uTgEAAAQBAJ>. [19](#page-4-0) Xi Chen, Aske Plaat, and Niki van Stein. How does chain of thought think? mechanistic interpretability of chain-of-thought reasoning with sparse autoencoding. In *AAAI2026, arXiv preprint arXiv:2507.22928*, 2026. 22 Francois Chollet and Franc¸ois Chollet. *Deep learning with Python*. simon and schuster, 2021. [19](#page-4-0) Peter Flach. *Machine learning: the art and science of algorithms that make sense of data*. Cambridge university press, 2012. [19](#page-4-0) Vincent Franc¸ois-Lavet, Peter Henderson, Riashat Islam, Marc G Bellemare, and Joelle Pineau. An introduction to deep reinforcement learning. *arXiv preprint arXiv:1811.12560*, 2018. [19](#page-4-0) Ian Goodfellow, Yoshua Bengio, and Aaron Courville. *Deep learning*. MIT press, 2016. [19](#page-4-0)
+- C.M. Bishop and H. Bishop. *Deep Learning: Foundations and Concepts*. Computer Science. Springer International Publishing, 2023. ISBN 9783031454684. URL <https://books.google.nl/books?id=0uTgEAAAQBAJ>. [19](#page-4-0)
+
+- Xi Chen, Aske Plaat, and Niki van Stein. How does chain of thought think? mechanistic interpretability of chain-of-thought reasoning with sparse autoencoding. In *AAAI2026, arXiv preprint arXiv:2507.22928*, 2026. [22](#page-7-0)
+
+- Francois Chollet and François Chollet. *Deep learning with Python*. simon and schuster, 2021. [19](#page-4-0)
+
+- Peter Flach. *Machine learning: the art and science of algorithms that make sense of data*. Cambridge university press, 2012. [19](#page-4-0)
+
+- Vincent François-Lavet, Peter Henderson, Riashat Islam, Marc G Bellemare, and Joelle Pineau. An introduction to deep reinforcement learning. *arXiv preprint arXiv:1811.12560*, 2018. [19](#page-4-0)
+
+- Ian Goodfellow, Yoshua Bengio, and Aaron Courville. *Deep learning*. MIT press, 2016. [19](#page-4-0)
 
 {8}------------------------------------------------
 
-<span id="page-8-0"></span>Laura Graesser and Wah Loon Keng. *Foundations of deep reinforcement learning: theory and practice in Python*. Addison-Wesley Professional, 2019. [19](#page-4-0) Suriya Gunasekar, Yi Zhang, Jyoti Aneja, Caio Cesar Teodoro Mendes, Allie Del ´ Giorno, Sivakanth Gopi, Mojan Javaheripi, Piero Kauffmann, Gustavo de Rosa, Olli Saarikivi, Adil Salim, Shital Shah, Harkirat Singh Behl, Xin Wang, Sebastien ´ Bubeck, Ronen Eldan, Adam Tauman Kalai, Yin Tat Lee, and Yuanzhi Li. Textbooks are all you need, 2023. URL <https://arxiv.org/abs/2306.11644>. [19](#page-4-0) Mike Huisman, Jan N Van Rijn, and Aske Plaat. A survey of deep meta-learning. *Artificial Intelligence Review*, 54(6):4483–4541, 2021. [22](#page-7-0) Daniel Jurafsky and James H. Martin. *Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics, and Speech Recognition, with Language Models*. Stanford, 3rd edition, 2025. URL [https:](https://web.stanford.edu/~jurafsky/slp3/) [//web.stanford.edu/˜jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/). Online manuscript released August 24, 2025. [15,](#page-0-0) [19](#page-4-0) Thomas M Moerland, Joost Broekens, Aske Plaat, Catholijn M Jonker, et al. Modelbased reinforcement learning: A survey. *Foundations and Trends® in Machine Learning*, 16(1):1–118, 2023. [22](#page-7-0) Joon Sung Park, Joseph O'Brien, Carrie Jun Cai, Meredith Ringel Morris, Percy Liang, and Michael S Bernstein. Generative agents: Interactive simulacra of human behavior. In *Proceedings of the 36th annual acm symposium on user interface software and technology*, pages 1–22, 2023. [22](#page-7-0) Aske Plaat. *Deep reinforcement learning*. Springer, 2022. [19,](#page-4-0) [22](#page-7-0) Aske Plaat, Max van Duijn, Niki van Stein, Mike Preuss, Peter van der Putten, and Kees Joost Batenburg. Agentic large language models, a survey. *Journal of Artificial Intelligence Research, arXiv preprint arXiv:2503.23037*, 84:29:1–29:74, 2025a. [22](#page-7-0) Aske Plaat, Annie Wong, Suzan Verberne, Joost Broekens, Niki van Stein, and Thomas Back. Multi-step reasoning with large language models, a survey. ¨ *ACM Computing Surveys, arXiv preprint arXiv:2407.11511*, 58(6):160:1–160:35, 2025b. [22](#page-7-0) Eli Stevens, Luca Antiga, and Thomas Viehmann. *Deep Learning with PyTorch: Build, train, and tune neural networks using Python tools*. Manning, 2020. [19](#page-4-0) Ilya Sutskever. Acceptance speech for test of time award. In *Advances in Neural Information Processing Systems*, Vancouver, British Columbia, Canada, 2024. [17](#page-2-0) Richard S Sutton and Andrew G Barto. *Reinforcement Learning*. Adaptive Computation and Machine Learning series. Bradford Books, Cambridge, MA, 2 edition, November 2018. [19](#page-4-0) Michiel Van Der Meer, Enrico Liscio, Catholijn Jonker, Aske Plaat, Piek Vossen, and Pradeep Murukannaiah. A hybrid intelligence method for argument mining. *Journal of Artificial Intelligence Research*, 80:1187–1222, 2024. [22](#page-7-0)
+<span id="page-8-0"></span>
+
+- Laura Graesser and Wah Loon Keng. *Foundations of deep reinforcement learning: theory and practice in Python*. Addison-Wesley Professional, 2019. [19](#page-4-0)
+
+- Suriya Gunasekar, Yi Zhang, Jyoti Aneja, Caio Cesar Teodoro Mendes, Allie Del ´ Giorno, Sivakanth Gopi, Mojan Javaheripi, Piero Kauffmann, Gustavo de Rosa, Olli Saarikivi, Adil Salim, Shital Shah, Harkirat Singh Behl, Xin Wang, Sebastien ´ Bubeck, Ronen Eldan, Adam Tauman Kalai, Yin Tat Lee, and Yuanzhi Li. Textbooks are all you need, 2023. URL <https://arxiv.org/abs/2306.11644>. [19](#page-4-0)
+
+- Mike Huisman, Jan N Van Rijn, and Aske Plaat. A survey of deep meta-learning. *Artificial Intelligence Review*, 54(6):4483–4541, 2021. [22](#page-7-0)
+
+- Daniel Jurafsky and James H. Martin. *Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics, and Speech Recognition, with Language Models*. Stanford, 3rd edition, 2025. URL <https://web.stanford.edu/~jurafsky/slp3/>. Online manuscript released August 24, 2025. [15,](#page-0-0) [19](#page-4-0)
+
+- Thomas M Moerland, Joost Broekens, Aske Plaat, Catholijn M Jonker, et al. Modelbased reinforcement learning: A survey. *Foundations and Trends® in Machine Learning*, 16(1):1–118, 2023. [22](#page-7-0)
+
+- Joon Sung Park, Joseph O'Brien, Carrie Jun Cai, Meredith Ringel Morris, Percy Liang, and Michael S Bernstein. Generative agents: Interactive simulacra of human behavior. In *Proceedings of the 36th annual acm symposium on user interface software and technology*, pages 1–22, 2023. [22](#page-7-0)
+
+- Aske Plaat. *Deep reinforcement learning*. Springer, 2022. [19,](#page-4-0) [22](#page-7-0)
+
+- Aske Plaat, Max van Duijn, Niki van Stein, Mike Preuss, Peter van der Putten, and Kees Joost Batenburg. Agentic large language models, a survey. *Journal of Artificial Intelligence Research, arXiv preprint arXiv:2503.23037*, 84:29:1–29:74, 2025a. [22](#page-7-0)
+
+- Aske Plaat, Annie Wong, Suzan Verberne, Joost Broekens, Niki van Stein, and Thomas Bäck. Multi-step reasoning with large language models, a survey. *ACM Computing Surveys, arXiv preprint arXiv:2407.11511*, 58(6):160:1–160:35, 2025b. [22](#page-7-0)
+
+- Eli Stevens, Luca Antiga, and Thomas Viehmann. *Deep Learning with PyTorch: Build, train, and tune neural networks using Python tools*. Manning, 2020. [19](#page-4-0)
+
+- Ilya Sutskever. Acceptance speech for test of time award. In *Advances in Neural Information Processing Systems*, Vancouver, British Columbia, Canada, 2024. [17](#page-2-0)
+
+- Richard S Sutton and Andrew G Barto. *Reinforcement Learning*. Adaptive Computation and Machine Learning series. Bradford Books, Cambridge, MA, 2 edition, November 2018. [19](#page-4-0)
+
+- Michiel Van Der Meer, Enrico Liscio, Catholijn Jonker, Aske Plaat, Piek Vossen, and Pradeep Murukannaiah. A hybrid intelligence method for argument mining. *Journal of Artificial Intelligence Research*, 80:1187–1222, 2024. [22](#page-7-0)
 
 {9}------------------------------------------------
 
-<span id="page-9-0"></span>Max J van Duijn, Bram van Dijk, Tom Kouwenhoven, Werner de Valk, Marco R Spruit, and Peter van der Putten. Theory of mind in large language models: Examining performance of 11 state-of-the-art models vs. children aged 7-10 on advanced tests. *arXiv preprint arXiv:2310.20320*, 2023. [22](#page-7-0) Niki van Stein and Thomas Back. Llamea: A large language model evolutionary algo- ¨ rithm for automatically generating metaheuristics. *arXiv preprint arXiv:2405.20132*, 2024. [22](#page-7-0) Fien van Wetten, Aske Plaat, and Max van Duijn. Baba is llm: Reasoning in a game with dynamic rules. *arXiv preprint arXiv:2506.19095*, 2025. [22](#page-7-0) Peiwen Xing, Aske Plaat, and Niki van Stein. Cocomposer: Llm multi-agent collaborative music composition. *arXiv preprint arXiv:2509.00132*, 2025. [22](#page-7-0)
+<span id="page-9-0"></span>
+
+- Max J van Duijn, Bram van Dijk, Tom Kouwenhoven, Werner de Valk, Marco R Spruit, and Peter van der Putten. Theory of mind in large language models: Examining performance of 11 state-of-the-art models vs. children aged 7-10 on advanced tests. *arXiv preprint arXiv:2310.20320*, 2023. [22](#page-7-0)
+
+- Niki van Stein and Thomas Bäck. LLaMEA: A large language model evolutionary algorithm for automatically generating metaheuristics. *arXiv preprint arXiv:2405.20132*, 2024. [22](#page-7-0)
+
+- Fien van Wetten, Aske Plaat, and Max van Duijn. Baba is llm: Reasoning in a game with dynamic rules. *arXiv preprint arXiv:2506.19095*, 2025. [22](#page-7-0)
+
+- Peiwen Xing, Aske Plaat, and Niki van Stein. Cocomposer: Llm multi-agent collaborative music composition. *arXiv preprint arXiv:2509.00132*, 2025. [22](#page-7-0)
