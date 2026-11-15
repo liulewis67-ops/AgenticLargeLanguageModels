@@ -157,5 +157,30 @@ for (const lang of ["en", "zh"]) {
   }
 }
 
+
+for (const lang of ["en", "zh"]) {
+  const introPath = resolve(root, "docs", "01-introduction", "01-introduction-" + lang + ".md");
+  const intro = readFileSync(introPath, "utf8");
+  const label = lang === "en" ? "## Bibliography" : "## 参考文献";
+  assert.ok(intro.includes(label), "Chapter 1 bibliography is missing: " + lang);
+  const bibliography = intro.slice(intro.indexOf(label) + label.length);
+  const pageGroups = bibliography.split(/<span id="page-(?:8|9)-0"><\/span>/);
+  const actualCounts = pageGroups.map((group) => (group.match(/^- /gm) ?? []).length);
+  assert.deepEqual(actualCounts, [7, 13, 4],
+    "Chapter 1 references must remain 24 distinct source-aligned entries across source pages: " + lang);
+  checks++;
+  assert.ok(bibliography.includes("LLaMEA: A large language model evolutionary algorithm"),
+    "Chapter 1 LLaMEA bibliography extraction corruption returned: " + lang);
+  assert.ok(bibliography.includes("URL <https://web.stanford.edu/~jurafsky/slp3/>"),
+    "Chapter 1 bibliography URL corruption returned: " + lang);
+  assert.ok(!/[¨¸]/.test(bibliography) && !bibliography.includes("URL [https:]"),
+    "Chapter 1 bibliography contains broken PDF encoding: " + lang);
+  assert.ok(!/^####\s+(?:Agentic LLM|智能体大语言模型)\s*=/m.test(intro),
+    "Chapter 1 display equation must not be a section heading: " + lang);
+  checks += 4;
+}
+// Chapter 1 bibliography counts/order are compared to arXiv v1 HTML References.
+// Static checks are not original-PDF visual verification or full citation validation.
+
 console.log("PASS " + checks + " manuscript provenance checks");
 console.log("These are static guards, NOT original-PDF rendering or research replication.");
