@@ -305,8 +305,8 @@ for (const chapter of [
   for (const lang of ["en", "zh"]) {
     const text = readFileSync(resolve(root, "docs", chapter.id, chapter.id + "-" + lang + ".md"), "utf8");
     const title = lang === "en" ? "Bibliography" : "参考文献";
-    const heading = text.match(new RegExp("^#{1,3}[ \\t]+(?:<span id=\\"page-\\\\d+-0\\"></span>)?" + title + "[ \\t]*$", "m"));
-    assert.ok(heading, "Missing source bibliography: " + chapter.id + " (" + lang + ")");
+    const heading = text.match(/^#{1,3}[ \t]+(?:<span id="page-\d+-0"><\/span>)?(?:Bibliography|参考文献)[ \t]*$/m);
+    assert.ok(heading && heading[0].includes(title), "Missing source bibliography: " + chapter.id + " (" + lang + ")");
     const body = text.slice(heading.index + heading[0].length);
     bibliographies[lang] = body;
     const references = body.split("\n").filter((line) => line.startsWith("- "));
