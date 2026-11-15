@@ -35,6 +35,8 @@
 
 ## 15.2 实验探测 LLM 的行为
 
+> **编者行为实验复现提示（非原文）：**必须区分基准上的**语言回答**与智能体的**实际行动轨迹**。对心智理论和社会行为等结论，应预先确定观测单位（题目、情景、博弈、会话或独立运行）、采样种子和温度、提示变体、泄漏控制及配对基线。多个问题共享同一场景时，统计不确定性应按场景或会话聚类；不得把同一模型的重复调用当作互相独立的受试者。
+
 研究者通常采用两类方法评估 LLM 的社交和互动能力：一类改编人类心理学与行为实验，另一类针对语言模型设计新测试。两种方法都可以使用大规模基准进行量化，也可以通过少量案例的深入分析揭示行为机制与失败模式。
 
 但将人类行为实验直接用于 LLM 需要谨慎。很多实验原本假设参与者具有身体经验、社会经历，以及相对连续的个人心理状态；这些假设不能不经检验就套用到模型上。因此，需要讨论**构念效度（construct validity）**：一个模型在测试中展现某种行为，是否就意味着它具有研究者试图测量的能力？尤其要区分**外部行为表现**与**产生这种表现的内部机制**。在 [15.5](#page-10-0) 节中讨论了 *错误信念测试* [\[Carpenter et al.,](#page-20-0) [2002\]](#page-20-0) 的例子。尽管一些模型类别已被证明能够以类似于人类的方式回答本测试的问题（行为结果的水平），但目前尚不清楚生成这种行为的潜在机制在Transformer 模型和人类之间有多大程度的差异或重叠。在第 22 章中，将更深入地讨论构念效度的问题。
@@ -331,213 +333,213 @@ Decrypto 基准 [\[Lupu et al.,](#page-23-0) [2025\]](#page-23-0) 是 *互动* �
 
 ## 参考文献
 
-Elif Akata, Lion Schulz, Julian Coda-Forno, Seong Joon Oh, Matthias Bethge, and Eric Schulz. Playing repeated games with large language models. *Nature Human Behaviour*, 9(7):1380–1390, 2025. [296,](#page-9-0) [300](#page-13-0)
+- Elif Akata, Lion Schulz, Julian Coda-Forno, Seong Joon Oh, Matthias Bethge, and Eric Schulz. Playing repeated games with large language models. *Nature Human Behaviour*, 9(7):1380–1390, 2025. [296,](#page-9-0) [300](#page-13-0)
 
-Ian Apperly. *Mindreaders: the Cognitive Basis of "Theory of Mind"*. Psychology Press, 2011. [297](#page-10-0)
+- Ian Apperly. *Mindreaders: the Cognitive Basis of "Theory of Mind"*. Psychology Press, 2011. [297](#page-10-0)
 
-Edmond Awad, Sohan Dsouza, Richard Kim, Jonathan Schulz, Joseph Henrich, Azim Shariff, Jean-François Bonnefon, and Iyad Rahwan. The Moral Machine experiment. *Nature*, 563(7729):59–64, 2018. [304](#page-17-0)
+- Edmond Awad, Sohan Dsouza, Richard Kim, Jonathan Schulz, Joseph Henrich, Azim Shariff, Jean-François Bonnefon, and Iyad Rahwan. The Moral Machine experiment. *Nature*, 563(7729):59–64, 2018. [304](#page-17-0)
 
-Robert Axelrod et al. The evolution of strategies in the iterated prisoner's dilemma. *The dynamics of norms*, 1(1), 1987. [294](#page-7-0)
+- Robert Axelrod et al. The evolution of strategies in the iterated prisoner's dilemma. *The dynamics of norms*, 1(1), 1987. [294](#page-7-0)
 
-Chris Baker and Rebecca Saxe. Bayesian theory of mind: Modeling joint belief-desire 
+- Chris Baker and Rebecca Saxe. Bayesian theory of mind: Modeling joint belief-desire attribution. *Proceedings of the Thirty-Third Annual Conference of the Cognitive Science Society*, 01 2011. [298](#page-11-0)
 
 {20}------------------------------------------------
 
-<span id="page-20-0"></span>attribution. *Proceedings of the Thirty-Third Annual Conference of the Cognitive*
+<span id="page-20-0"></span>
 
-- *Science Society*, 01 2011. [298](#page-11-0)
 
-Cindy Beaudoin, Elizabel Leblanc, Charlotte Gagner, and Miriam H. Beauchamp. Systematic review and inventory of theory of mind measures for young children. *Frontiers in psychology*, 10:2905, 2020. [299](#page-12-0)
 
-Inbal Ben-Ami Bartal, Jean Decety, and Peggy Mason. Empathy and pro-social behavior in rats. *Science*, 334(6061):1427–1430, 2011. doi: 10.1126/science.1210789. [292](#page-5-0)
+- Cindy Beaudoin, Elizabel Leblanc, Charlotte Gagner, and Miriam H. Beauchamp. Systematic review and inventory of theory of mind measures for young children. *Frontiers in psychology*, 10:2905, 2020. [299](#page-12-0)
 
-Joost Broekens, Bernhard Hilpert, Suzan Verberne, Kim Baraka, Patrick Gebhard, and Aske Plaat. Fine-grained affective processing capabilities emerging from large language models. In *2023 11th International Conference on Affective Computing and Intelligent Interaction (ACII)*, pages 1–8. IEEE, 2023. [293](#page-6-0)
+- Inbal Ben-Ami Bartal, Jean Decety, and Peggy Mason. Empathy and pro-social behavior in rats. *Science*, 334(6061):1427–1430, 2011. doi: 10.1126/science.1210789. [292](#page-5-0)
 
-Penelope Brown and Stephen C. Levinson. *Politeness: Some Universals in Language Usage*. Number 4 in Studies in Interactional Sociolinguistics. Cambridge University Press, Cambridge, 1987. [290,](#page-3-0) [291](#page-4-0)
+- Joost Broekens, Bernhard Hilpert, Suzan Verberne, Kim Baraka, Patrick Gebhard, and Aske Plaat. Fine-grained affective processing capabilities emerging from large language models. In *2023 11th International Conference on Affective Computing and Intelligent Interaction (ACII)*, pages 1–8. IEEE, 2023. [293](#page-6-0)
 
-Malinda Carpenter, Josep Call, and Michael Tomasello. A new false belief test for 36 month-olds. *British Journal of Developmental Psychology*, 20(3):393–420, 2002. [288](#page-1-0)
+- Penelope Brown and Stephen C. Levinson. *Politeness: Some Universals in Language Usage*. Number 4 in Studies in Interactional Sociolinguistics. Cambridge University Press, Cambridge, 1987. [290,](#page-3-0) [291](#page-4-0)
 
-Ruirui Chen, Weifeng Jiang, Chengwei Qin, and Cheston Tan. Theory of mind in large language models: Assessment and enhancement. In Wanxiang Che, Joyce Nabende, Ekaterina Shutova, and Mohammad Taher Pilehvar, editors, *Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)*, pages 31539–31558, Vienna, Austria, July 2025. Association for Computational Linguistics. ISBN 979-8-89176-251-0. doi: 10.18653/v1/2025.acl-long.1522. URL <https://aclanthology.org/2025.acl-long.1522/>. [300](#page-13-0)
+- Malinda Carpenter, Josep Call, and Michael Tomasello. A new false belief test for 36 month-olds. *British Journal of Developmental Psychology*, 20(3):393–420, 2002. [288](#page-1-0)
 
-Zhuang Chen, Jincenzi Wu, Jinfeng Zhou, Bosi Wen, Guanqun Bi, Gongyao Jiang, Yaru Cao, Mengting Hu, Yunghwei Lai, Zexuan Xiong, and Minlie Huang. ToMBench: Benchmarking Theory of Mind in large language models, 2024. [299](#page-12-0)
+- Ruirui Chen, Weifeng Jiang, Chengwei Qin, and Cheston Tan. Theory of mind in large language models: Assessment and enhancement. In Wanxiang Che, Joyce Nabende, Ekaterina Shutova, and Mohammad Taher Pilehvar, editors, *Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)*, pages 31539–31558, Vienna, Austria, July 2025. Association for Computational Linguistics. ISBN 979-8-89176-251-0. doi: 10.18653/v1/2025.acl-long.1522. URL <https://aclanthology.org/2025.acl-long.1522/>. [300](#page-13-0)
 
-Frédérique de Vignemont and Tania Singer. The empathic brain: How, when and why?  *Trends in Cognitive Sciences*, 10(10):435–441, 2006. doi: 10.1016/j.tics.2006.08.
-  - 008. [292](#page-5-0)
-- H. De Weerd, R. Verbrugge, and B. Verheij. Negotiating with other minds: the role of recursive theory of mind in negotiation with incomplete information. *Auton Agent Multi-Agent Syst*, 31:250–287, 2017. doi: https://doi.org/10.1007/ s10458-015-9317-1. [298](#page-11-0)
+- Zhuang Chen, Jincenzi Wu, Jinfeng Zhou, Bosi Wen, Guanqun Bi, Gongyao Jiang, Yaru Cao, Mengting Hu, Yunghwei Lai, Zexuan Xiong, and Minlie Huang. ToMBench: Benchmarking Theory of Mind in large language models, 2024. [299](#page-12-0)
 
-Om Dobariya and Akhil Kumar. Mind your tone: Investigating how prompt politeness affects LLM accuracy, 2025. arXiv:2510.04950. [291](#page-4-0)
+- Frédérique de Vignemont and Tania Singer. The empathic brain: How, when and why?  *Trends in Cognitive Sciences*, 10(10):435–441, 2006. doi: 10.1016/j.tics.2006.08.008. [292](#page-5-0)
+
+- H. De Weerd, R. Verbrugge, and B. Verheij. Negotiating with other minds: the role of recursive theory of mind in negotiation with incomplete information. *Auton Agent Multi-Agent Syst*, 31:250–287, 2017. doi: 10.1007/s10458-015-9317-1. [298](#page-11-0)
+
+- Om Dobariya and Akhil Kumar. Mind your tone: Investigating how prompt politeness affects LLM accuracy, 2025. arXiv:2510.04950. [291](#page-4-0)
 
 {21}------------------------------------------------
 
 - <span id="page-21-0"></span>Jinhao Duan, Renming Zhang, James Diffenderfer, Bhavya Kailkhura, Lichao Sun, Elias Stengel-Eskin, Mohit Bansal, Tianlong Chen, and Kaidi Xu. Gtbench: Uncovering the strategic reasoning limitations of llms via game-theoretic evaluations. *arXiv preprint arXiv:2402.12348*, 2024. [296](#page-9-0)
 
-Jonathan Dvash and Simone G. Shamay-Tsoory. Theory of mind and empathy as multidimensional constructs: Neurological foundations. *Topics in Language Disorders*, 34(4):282–295, 2014. doi: 10.1097/TLD.0000000000000040. [292](#page-5-0)
+- Jonathan Dvash and Simone G. Shamay-Tsoory. Theory of mind and empathy as multidimensional constructs: Neurological foundations. *Topics in Language Disorders*, 34(4):282–295, 2014. doi: 10.1097/TLD.0000000000000040. [292](#page-5-0)
 
-Murray J. Dyck, Kim Ferguson, and Ian M. Shochet. Do autism spectrum disorders differ from each other and from non-spectrum disorders on emotion recognition tests? *European Child & Adolescent Psychiatry*, 10(2):105–116, June 2001. doi: 10.1007/s007870170033. [299](#page-12-0)
+- Murray J. Dyck, Kim Ferguson, and Ian M. Shochet. Do autism spectrum disorders differ from each other and from non-spectrum disorders on emotion recognition tests? *European Child & Adolescent Psychiatry*, 10(2):105–116, June 2001. doi: 10.1007/s007870170033. [299](#page-12-0)
 
-Shaheen Fatima, Nicholas R Jennings, and Michael Wooldridge. Learning to resolve social dilemmas: a survey. *Journal of Artificial Intelligence Research*, 79:895–969, 2024. [294](#page-7-0)
+- Shaheen Fatima, Nicholas R Jennings, and Michael Wooldridge. Learning to resolve social dilemmas: a survey. *Journal of Artificial Intelligence Research*, 79:895–969, 2024. [294](#page-7-0)
 
-Nicolo Fontana, Francesco Pierri, and Luca Maria Aiello. Nicer than humans: how  do large language models behave in the prisoner's dilemma? In *Proceedings of the International AAAI Conference on Web and Social Media*, volume 19, pages 522– 535, 2025. [294](#page-7-0)
+- Nicolo Fontana, Francesco Pierri, and Luca Maria Aiello. Nicer than humans: how  do large language models behave in the prisoner's dilemma? In *Proceedings of the International AAAI Conference on Web and Social Media*, volume 19, pages 522– 535, 2025. [294](#page-7-0)
 
-Nikta Gohari Sadr, Sahar Heidariasl, Karine Megerdoomian, Laleh Seyyed-Kalantari, and Ali Emami. We politely insist: Your LLM must learn the persian art of taarof, 2025. arXiv:2509.01035; accepted to EMNLP 2025. [291](#page-4-0)
+- Nikta Gohari Sadr, Sahar Heidariasl, Karine Megerdoomian, Laleh Seyyed-Kalantari, and Ali Emami. We politely insist: Your LLM must learn the persian art of taarof, 2025. arXiv:2509.01035; accepted to EMNLP 2025. [291](#page-4-0)
 
-Nanxu Gong, Haotian Li, Sixun Dong, Jianxun Lian, Yanjie Fu, and Xing Xie. To think or not to think, that is the question for large reasoning models in theory of mind tasks. *arXiv preprint arXiv:2602.10625*, 2026. [301](#page-14-0)
+- Nanxu Gong, Haotian Li, Sixun Dong, Jianxun Lian, Yanjie Fu, and Xing Xie. To think or not to think, that is the question for large reasoning models in theory of mind tasks. *arXiv preprint arXiv:2602.10625*, 2026. [301](#page-14-0)
 
-Joshua D. Greene, R. Brian Sommerville, Leigh E. Nystrom, John M. Darley, and Jonathan D. Cohen. An fMRI investigation of emotional engagement in moral judgment. *Science*, 293(5537):2105–2108, 2001. [302](#page-15-0)
-- H. P. Grice. *Logic and Conversation*, page 41–58. BRILL, December 1975. ISBN 9789004368576. doi: 10.1163/9789004368811 003. URL [http://dx.doi.](http://dx.doi.org/10.1163/9789004368811_003) [org/10.1163/9789004368811\\_003](http://dx.doi.org/10.1163/9789004368811_003). [289](#page-2-0)
+- Joshua D. Greene, R. Brian Sommerville, Leigh E. Nystrom, John M. Darley, and Jonathan D. Cohen. An fMRI investigation of emotional engagement in moral judgment. *Science*, 293(5537):2105–2108, 2001. [302](#page-15-0)
+- H. P. Grice. *Logic and Conversation*, page 41–58. BRILL, December 1975. ISBN 9789004368576. doi: 10.1163/9789004368811_003. URL <http://dx.doi.org/10.1163/9789004368811_003>. [289](#page-2-0)
 
-Jonathan Haidt. The emotional dog and its rational tail: A social intuitionist approach to moral judgment. *Psychological Review*, 108(4):814–834, 2001. [302](#page-15-0)
+- Jonathan Haidt. The emotional dog and its rational tail: A social intuitionist approach to moral judgment. *Psychological Review*, 108(4):814–834, 2001. [302](#page-15-0)
 
-Nora Hämäläinen.  *Descriptive Ethics: What does Moral Philosophy Know about Morality?* Palgrave Macmillan, New York, 1 edition, 2016. ISBN 978-1-137- 58616-2. doi: 10.1057/978-1-137-58617-9. [303](#page-16-0)
+- Nora Hämäläinen.  *Descriptive Ethics: What does Moral Philosophy Know about Morality?* Palgrave Macmillan, New York, 1 edition, 2016. ISBN 978-1-137- 58616-2. doi: 10.1057/978-1-137-58617-9. [303](#page-16-0)
 
-Shreya Havaldar, Matthew Pressimone, Eric Wong, and Lyle Ungar. Comparing styles across languages: A cross-cultural exploration of politeness. In *Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing (EMNLP)*, pages 9908–9935, Singapore, 2023. Association for Computational Linguistics. doi: 10.18653/v1/2023.emnlp-main.419. [291](#page-4-0)
+- Shreya Havaldar, Matthew Pressimone, Eric Wong, and Lyle Ungar. Comparing styles across languages: A cross-cultural exploration of politeness. In *Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing (EMNLP)*, pages 9908–9935, Singapore, 2023. Association for Computational Linguistics. doi: 10.18653/v1/2023.emnlp-main.419. [291](#page-4-0)
 
 {22}------------------------------------------------
 
-<span id="page-22-0"></span>Dan Hendrycks, Collin Burns, Steven Basart, Andrew Critch, Jerry Li, Dawn Song, and Jacob Steinhardt. Aligning ai with shared human values. *arXiv preprint arXiv:2008.02275*, 2020. [303](#page-16-0)
+- <span id="page-22-0"></span>Dan Hendrycks, Collin Burns, Steven Basart, Andrew Critch, Jerry Li, Dawn Song, and Jacob Steinhardt. Aligning ai with shared human values. *arXiv preprint arXiv:2008.02275*, 2020. [303](#page-16-0)
 
-Guiyang Hou, Wenqi Zhang, Yongliang Shen, Zeqi Tan, Sihao Shen, and Weiming Lu. Entering real social world! benchmarking the theory of mind and socialization capabilities of llms from a first-person perspective. *arXiv preprint arXiv:2410.06195*, 2024. [295,](#page-8-0) [296,](#page-9-0) [299](#page-12-0)
+- Guiyang Hou, Wenqi Zhang, Yongliang Shen, Zeqi Tan, Sihao Shen, and Weiming Lu. Entering real social world! benchmarking the theory of mind and socialization capabilities of llms from a first-person perspective. *arXiv preprint arXiv:2410.06195*, 2024. [295,](#page-8-0) [296,](#page-9-0) [299](#page-12-0)
 
-Liwei Jiang, Jena D. Hwang, Chandra Bhagavatula, Ronan Le Bras, Jenny T. Liang, Sydney Levine, Jesse Dodge, Keisuke Sakaguchi, Maxwell Forbes, Jon Borchardt, Saadia Gabriel, Yulia Tsvetkov, Oren Etzioni, Maarten Sap, Regina Rini, and Yejin Choi. Investigating machine moral judgement through the Delphi experiment. *Nature Machine Intelligence*, 7:145–160, 2025. doi: 10.1038/s42256-024-00969-6. URL <https://doi.org/10.1038/s42256-024-00969-6>. [303](#page-16-0)
+- Liwei Jiang, Jena D. Hwang, Chandra Bhagavatula, Ronan Le Bras, Jenny T. Liang, Sydney Levine, Jesse Dodge, Keisuke Sakaguchi, Maxwell Forbes, Jon Borchardt, Saadia Gabriel, Yulia Tsvetkov, Oren Etzioni, Maarten Sap, Regina Rini, and Yejin Choi. Investigating machine moral judgement through the Delphi experiment. *Nature Machine Intelligence*, 7:145–160, 2025. doi: 10.1038/s42256-024-00969-6. URL <https://doi.org/10.1038/s42256-024-00969-6>. [303](#page-16-0)
 
-Chuanyang Jin, Yutong Wu, Jing Cao, Jiannan Xiang, Yen-Ling Kuo, Zhiting Hu, Tomer Ullman, Antonio Torralba, Joshua B. Tenenbaum, and Tianmin Shu. Mmtomqa: Multimodal theory of mind question answering, 2024. URL [https://](https://arxiv.org/abs/2401.08743) [arxiv.org/abs/2401.08743](https://arxiv.org/abs/2401.08743). [300,](#page-13-0) [301](#page-14-0)
+- Chuanyang Jin, Yutong Wu, Jing Cao, Jiannan Xiang, Yen-Ling Kuo, Zhiting Hu, Tomer Ullman, Antonio Torralba, Joshua B. Tenenbaum, and Tianmin Shu. Mmtomqa: Multimodal theory of mind question answering, 2024. URL <https://arxiv.org/abs/2401.08743>. [300,](#page-13-0) [301](#page-14-0)
 
-Zhijing Jin, Sydney Levine, Fernando Gonzalez Adauto, Ojasv Kamal, Maarten Sap, Mrinmaya Sachan, Rada Mihalcea, Josh Tenenbaum, and Bernhard Scholkopf.  When to make exceptions: Exploring language models as accounts of human moral judgment. *Advances in neural information processing systems*, 35:28458–28473, 2022. [303](#page-16-0)
+- Zhijing Jin, Sydney Levine, Fernando Gonzalez Adauto, Ojasv Kamal, Maarten Sap, Mrinmaya Sachan, Rada Mihalcea, Josh Tenenbaum, and Bernhard Scholkopf.  When to make exceptions: Exploring language models as accounts of human moral judgment. *Advances in neural information processing systems*, 35:28458–28473, 2022. [303](#page-16-0)
 
-Zhijing Jin, Max Kleiman-Weiner, Giorgio Piatti, Sydney Levine, Jiarui Liu, Fernando Gonzalez, Francesco Ortu, Andras Strausz, Mrinmaya Sachan, Rada Mihalcea, Yejin  Choi, and Bernhard Scholkopf. Language model alignment in multilingual trolley  problems, 2025. URL <https://arxiv.org/abs/2407.02273>. [304](#page-17-0)
+- Zhijing Jin, Max Kleiman-Weiner, Giorgio Piatti, Sydney Levine, Jiarui Liu, Fernando Gonzalez, Francesco Ortu, Andras Strausz, Mrinmaya Sachan, Rada Mihalcea, Yejin  Choi, and Bernhard Scholkopf. Language model alignment in multilingual trolley  problems, 2025. URL <https://arxiv.org/abs/2407.02273>. [304](#page-17-0)
 
-Antonia Jane Jones. *Game theory: Mathematical models of conflict*. Elsevier, 2000. [294](#page-7-0)
+- Antonia Jane Jones. *Game theory: Mathematical models of conflict*. Elsevier, 2000. [294](#page-7-0)
 
-Cameron R. Jones, Sean Trott, and Benjamin Bergen. Comparing humans and large language models on an experimental protocol inventory for theory of mind evaluation (epitome). *Transactions of the Association for Computational Linguistics*, 12:803–819, 06 2024. ISSN 2307-387X. doi: 10.1162/tacl a 00674. URL [https://doi.org/10.1162/tacl\\_a\\_00674](https://doi.org/10.1162/tacl_a_00674). [301](#page-14-0)
+- Cameron R. Jones, Sean Trott, and Benjamin Bergen. Comparing humans and large language models on an experimental protocol inventory for theory of mind evaluation (epitome). *Transactions of the Association for Computational Linguistics*, 12:803–819, 06 2024. ISSN 2307-387X. doi: 10.1162/tacl a 00674. URL [https://doi.org/10.1162/tacl\\_a\\_00674](https://doi.org/10.1162/tacl_a_00674). [301](#page-14-0)
 
-Daniel Kahneman. *Thinking, fast and slow*. macmillan, 2011. [302](#page-15-0)
+- Daniel Kahneman. *Thinking, fast and slow*. macmillan, 2011. [302](#page-15-0)
 
-Hyunwoo Kim, Melanie Sclar, Xuhui Zhou, Ronan Bras, Gunhee Kim, Yejin Choi, and Maarten Sap. FANToM: A benchmark for stress-testing machine theory of mind in interactions. In Houda Bouamor, Juan Pino, and Kalika Bali, editors, *Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing*, pages 14397–14413, Singapore, December 2023. Association for Computational Linguistics. doi: 10.18653/v1/2023.emnlp-main.890. URL [https:](https://aclanthology.org/2023.emnlp-main.890) [//aclanthology.org/2023.emnlp-main.890](https://aclanthology.org/2023.emnlp-main.890). [297,](#page-10-0) [298](#page-11-0)
+- Hyunwoo Kim, Melanie Sclar, Xuhui Zhou, Ronan Bras, Gunhee Kim, Yejin Choi, and Maarten Sap. FANToM: A benchmark for stress-testing machine theory of mind in interactions. In Houda Bouamor, Juan Pino, and Kalika Bali, editors, *Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing*, pages 14397–14413, Singapore, December 2023. Association for Computational Linguistics. doi: 10.18653/v1/2023.emnlp-main.890. URL <https://aclanthology.org/2023.emnlp-main.890>. [297,](#page-10-0) [298](#page-11-0)
 
 {23}------------------------------------------------
 
 - <span id="page-23-0"></span>Hyunwoo Kim, Melanie Sclar, Tan Zhi-Xuan, Lance Ying, Sydney Levine, Yang Liu, Joshua B Tenenbaum, and Yejin Choi. Hypothesis-driven theory-of-mind reasoning for large language models. *arXiv preprint arXiv:2502.11881*, 2025. [301](#page-14-0)
 
-Lawrence Kohlberg. Stage and sequence: The cognitive-developmental approach to socialization. In David A. Goslin, editor, *Handbook of Socialization Theory and Research*, pages 347–480. Rand McNally, 1969. [302](#page-15-0)
+- Lawrence Kohlberg. Stage and sequence: The cognitive-developmental approach to socialization. In David A. Goslin, editor, *Handbook of Socialization Theory and Research*, pages 347–480. Rand McNally, 1969. [302](#page-15-0)
 
-Michal Kosinski. Theory of mind may have spontaneously emerged in large language models. *arXiv preprint arXiv:2302.02083*, 2023. [298](#page-11-0)
+- Michal Kosinski. Theory of mind may have spontaneously emerged in large language models. *arXiv preprint arXiv:2302.02083*, 2023. [298](#page-11-0)
 
-Michal Kosinski. Evaluating large language models in theory of mind tasks. *Proceedings of the National Academy of Sciences*, 121(45):e2405460121, 2024. doi: 10.1073/pnas.2405460121. URL [https://www.pnas.org/doi/abs/10.](https://www.pnas.org/doi/abs/10.1073/pnas.2405460121) [1073/pnas.2405460121](https://www.pnas.org/doi/abs/10.1073/pnas.2405460121). [298](#page-11-0)
+- Michal Kosinski. Evaluating large language models in theory of mind tasks. *Proceedings of the National Academy of Sciences*, 121(45):e2405460121, 2024. doi: 10.1073/pnas.2405460121. URL <https://www.pnas.org/doi/abs/10.1073/pnas.2405460121>. [298](#page-11-0)
 
-Tom Kouwenhoven, Michiel T. van der Meer, and Max J. van Duijn. Traces of social competence in large language models. In Claire Bonial and Yevgeni Berzak, editors, *Proceedings of the 30th Conference on Computational Natural Language Learning*, pages 742–759, San Diego, California, USA, 2026. Association for Computational Linguistics. ISBN 979-8-89176-410-1. doi: 10.18653/v1/2026.conll-main.45. URL <https://aclanthology.org/2026.conll-main.45/>. [298](#page-11-0)
+- Tom Kouwenhoven, Michiel T. van der Meer, and Max J. van Duijn. Traces of social competence in large language models. In Claire Bonial and Yevgeni Berzak, editors, *Proceedings of the 30th Conference on Computational Natural Language Learning*, pages 742–759, San Diego, California, USA, 2026. Association for Computational Linguistics. ISBN 979-8-89176-410-1. doi: 10.18653/v1/2026.conll-main.45. URL <https://aclanthology.org/2026.conll-main.45/>. [298](#page-11-0)
 
-Yoon Kyung Lee, Jina Suh, Hongli Zhan, Junyi Jessy Li, and Desmond C. Ong. Large language models produce responses perceived to be empathic. In *2024 12th International Conference on Affective Computing and Intelligent Interaction (ACII)*, pages 63–71. IEEE, 2024. [293](#page-6-0)
+- Yoon Kyung Lee, Jina Suh, Hongli Zhan, Junyi Jessy Li, and Desmond C. Ong. Large language models produce responses perceived to be empathic. In *2024 12th International Conference on Affective Computing and Intelligent Interaction (ACII)*, pages 63–71. IEEE, 2024. [293](#page-6-0)
 
-Nunzio Lore and Babak Heydari. Strategic behavior of large language models: Game structure vs. contextual framing. *arXiv preprint arXiv:2309.05898*, 2023. [296](#page-9-0)
+- Nunzio Lore and Babak Heydari. Strategic behavior of large language models: Game structure vs. contextual framing. *arXiv preprint arXiv:2309.05898*, 2023. [296](#page-9-0)
 
-Andrei Lupu, Timon Willi, and Jakob Foerster. The decrypto benchmark for multiagent reasoning and theory of mind. *arXiv preprint arXiv:2506.20664*, 2025. [300](#page-13-0)
+- Andrei Lupu, Timon Willi, and Jakob Foerster. The decrypto benchmark for multiagent reasoning and theory of mind. *arXiv preprint arXiv:2506.20664*, 2025. [300](#page-13-0)
 
-Aengus Lynch, Benjamin Wright, Caleb Larson, Stuart J. Ritchie, Soren Mindermann, Evan Hubinger, Ethan Perez, and Kevin Troy. Agentic misalignment: How llms could be insider threats, 2025. URL [https://arxiv.org/abs/2510.](https://arxiv.org/abs/2510.05179) [<sup>05179</sup>](https://arxiv.org/abs/2510.05179). [304](#page-17-0)
+- Aengus Lynch, Benjamin Wright, Caleb Larson, Stuart J. Ritchie, Soren Mindermann, Evan Hubinger, Ethan Perez, and Kevin Troy. Agentic misalignment: How llms could be insider threats, 2025. URL <https://arxiv.org/abs/2510.05179>. [304](#page-17-0)
 
-Kyle Mahowald, Anna A. Ivanova, Idan A. Blank, Nancy Kanwisher, Joshua B. Tenenbaum, and Evelina Fedorenko. Dissociating language and thought in large language models: a cognitive perspective. *arXiv preprint arXiv:2301.06627*, 2023. [289](#page-2-0)
+- Kyle Mahowald, Anna A. Ivanova, Idan A. Blank, Nancy Kanwisher, Joshua B. Tenenbaum, and Evelina Fedorenko. Dissociating language and thought in large language models: a cognitive perspective. *arXiv preprint arXiv:2301.06627*, 2023. [289](#page-2-0)
 - C. A. Miller. Trust in adaptive automation: the role of etiquette in tuning trust via analogic and affective methods. In *Proceedings of the 1st International Conference on Augmented Cognition*, pages 22–27. Citeseer, 2005. [290](#page-3-0)
 
-Niloofar Mireshghallah, Hyunwoo Kim, Xuhui Zhou, Yulia Tsvetkov, Maarten Sap, Reza Shokri, and Yejin Choi. Can llms keep a secret? testing privacy implications of language models via contextual integrity theory, 2024. URL [https://arxiv.](https://arxiv.org/abs/2310.17884) [org/abs/2310.17884](https://arxiv.org/abs/2310.17884). [305](#page-18-0)
+- Niloofar Mireshghallah, Hyunwoo Kim, Xuhui Zhou, Yulia Tsvetkov, Maarten Sap, Reza Shokri, and Yejin Choi. Can llms keep a secret? testing privacy implications of language models via contextual integrity theory, 2024. URL <https://arxiv.org/abs/2310.17884>. [305](#page-18-0)
 
 {24}------------------------------------------------
 
 - <span id="page-24-0"></span>T. Miyamoto, D. Katagami, T. Tanaka, H. Kanamori, Y. Yoshihara, and K. Fujikake. Should a driving support agent provide explicit instructions to the user? video-based study focused on politeness strategies. In *Proceedings of the 9th International Conference on Human–Agent Interaction*, pages 157–164, 2021. [290](#page-3-0)
 
-Shima Rahimi Moghaddam and Christopher J. Honey. Boosting theory-of-mind performance in large language models via prompting, 2023. URL [https://arxiv.](https://arxiv.org/abs/2304.11490) [org/abs/2304.11490](https://arxiv.org/abs/2304.11490). [301](#page-14-0)
+- Shima Rahimi Moghaddam and Christopher J. Honey. Boosting theory-of-mind performance in large language models via prompting, 2023. URL <https://arxiv.org/abs/2304.11490>. [301](#page-14-0)
 
-Clifford Nass, Jonathan Steuer, and Ellen R. Tauber. Computers are social actors. In *Proceedings of the SIGCHI Conference on Human Factors in Computing Systems (CHI '94)*, pages 72–78, New York, NY, USA, 1994. Association for Computing Machinery. doi: 10.1145/191666.191703. [290](#page-3-0)
+- Clifford Nass, Jonathan Steuer, and Ellen R. Tauber. Computers are social actors. In *Proceedings of the SIGCHI Conference on Human Factors in Computing Systems (CHI '94)*, pages 72–78, New York, NY, USA, 1994. Association for Computing Machinery. doi: 10.1145/191666.191703. [290](#page-3-0)
 
-Katrin Preckel, Philipp Kanske, and Tania Singer. On the interaction of social affect and cognition: Empathy, compassion and theory of mind. *Current Opinion in Behavioral Sciences*, 19:1–6, 2018. doi: 10.1016/j.cobeha.2017.07.010. [292](#page-5-0)
+- Katrin Preckel, Philipp Kanske, and Tania Singer. On the interaction of social affect and cognition: Empathy, compassion and theory of mind. *Current Opinion in Behavioral Sciences*, 19:1–6, 2018. doi: 10.1016/j.cobeha.2017.07.010. [292](#page-5-0)
 
-David Premack and Guy Woodruff. Does the chimpanzee have a theory of mind? *Behavioral and brain sciences*, 1(4):515–526, 1978. [297](#page-10-0)
+- David Premack and Guy Woodruff. Does the chimpanzee have a theory of mind? *Behavioral and brain sciences*, 1(4):515–526, 1978. [297](#page-10-0)
 
-Stephanie D. Preston and Frans B. M. de Waal. Empathy: Its ultimate and proximate bases. *Behavioral and Brain Sciences*, 25(1):1–20, 2002. doi: 10.1017/ S0140525X02000018. [292](#page-5-0)
+- Stephanie D. Preston and Frans B. M. de Waal. Empathy: Its ultimate and proximate bases. *Behavioral and Brain Sciences*, 25(1):1–20, 2002. doi: 10.1017/S0140525X02000018. [292](#page-5-0)
 
-Neil Rabinowitz, Frank Perbet, Francis Song, Chiyuan Zhang, S. M. Ali Eslami, and Matthew Botvinick. Machine theory of mind. In Jennifer Dy and Andreas Krause, editors, *Proceedings of the 35th International Conference on Machine Learning*, volume 80 of *Proceedings of Machine Learning Research*, pages 4218– 4227. PMLR, 10–15 Jul 2018. URL [https://proceedings.mlr.press/](https://proceedings.mlr.press/v80/rabinowitz18a.html) [v80/rabinowitz18a.html](https://proceedings.mlr.press/v80/rabinowitz18a.html). [298](#page-11-0)
+- Neil Rabinowitz, Frank Perbet, Francis Song, Chiyuan Zhang, S. M. Ali Eslami, and Matthew Botvinick. Machine theory of mind. In Jennifer Dy and Andreas Krause, editors, *Proceedings of the 35th International Conference on Machine Learning*, volume 80 of *Proceedings of Machine Learning Research*, pages 4218– 4227. PMLR, 10–15 Jul 2018. URL <https://proceedings.mlr.press/v80/rabinowitz18a.html>. [298](#page-11-0)
 
-Iyad Rahwan, Manuel Cebrian, Nick Obradovich, Josh Bongard, Jean-François Bonnefon, Cynthia Breazeal, Jacob W. Crandall, Nicholas A. Christakis, Iain D. Couzin, Matthew O. Jackson, Nicholas R. Jennings, Ece Kamar, Isabel M. Kloumann, Hugo Larochelle, David Lazer, Richard McElreath, Alan Mislove, David C. Parkes, Alex 'Sandy' Pentland, Margaret E. Roberts, Azim Shariff, Joshua B. Tenenbaum, and Michael Wellman. Machine behaviour. *Nature*, 568(7753):477–486, April 2019. ISSN 1476-4687. doi: 10.1038/s41586-019-1138-y. URL [https:](https://doi.org/10.1038/s41586-019-1138-y) [//doi.org/10.1038/s41586-019-1138-y](https://doi.org/10.1038/s41586-019-1138-y). [287](#page-0-0)
+- Iyad Rahwan, Manuel Cebrian, Nick Obradovich, Josh Bongard, Jean-François Bonnefon, Cynthia Breazeal, Jacob W. Crandall, Nicholas A. Christakis, Iain D. Couzin, Matthew O. Jackson, Nicholas R. Jennings, Ece Kamar, Isabel M. Kloumann, Hugo Larochelle, David Lazer, Richard McElreath, Alan Mislove, David C. Parkes, Alex 'Sandy' Pentland, Margaret E. Roberts, Azim Shariff, Joshua B. Tenenbaum, and Michael Wellman. Machine behaviour. *Nature*, 568(7753):477–486, April 2019. ISSN 1476-4687. doi: 10.1038/s41586-019-1138-y. URL <https://doi.org/10.1038/s41586-019-1138-y>. [287](#page-0-0)
 
-Hannah Rashkin, Eric Michael Smith, Margaret Li, and Y-Lan Boureau. Towards empathetic open-domain conversation models: A new benchmark and dataset. In *Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics*, pages 5370–5381. Association for Computational Linguistics, 2019. [293](#page-6-0)
+- Hannah Rashkin, Eric Michael Smith, Margaret Li, and Y-Lan Boureau. Towards empathetic open-domain conversation models: A new benchmark and dataset. In *Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics*, pages 5370–5381. Association for Computational Linguistics, 2019. [293](#page-6-0)
 - P. Ribino. The role of politeness in human–machine interactions: a systematic literature review and future perspectives. *Artificial Intelligence Review*, 56 (Suppl 1):445–482, 2023. doi: 10.1007/s10462-023-10540-1. [290](#page-3-0)
 
 {25}------------------------------------------------
 
-<span id="page-25-0"></span>Matthew Riemer, Zahra Ashktorab, Djallel Bouneffouf, Payel Das, Miao Liu, Justin D Weisz, and Murray Campbell. Position: Theory of mind benchmarks are broken for large language models. *arXiv preprint arXiv:2412.19726*, 2024. [300](#page-13-0)
+- <span id="page-25-0"></span>Matthew Riemer, Zahra Ashktorab, Djallel Bouneffouf, Payel Das, Miao Liu, Justin D Weisz, and Murray Campbell. Position: Theory of mind benchmarks are broken for large language models. *arXiv preprint arXiv:2412.19726*, 2024. [300](#page-13-0)
 
-Laura Ruis, Akbir Khan, Stella Biderman, Sara Hooker, Tim Rocktäschel, and Edward Grefenstette. The goldilocks of pragmatic understanding: Fine-tuning strategy matters for implicature resolution by llms, 2023. URL [https://arxiv.org/abs/](https://arxiv.org/abs/2210.14986) [2210.14986](https://arxiv.org/abs/2210.14986). [290](#page-3-0)
+- Laura Ruis, Akbir Khan, Stella Biderman, Sara Hooker, Tim Rocktäschel, and Edward Grefenstette. The goldilocks of pragmatic understanding: Fine-tuning strategy matters for implicature resolution by llms, 2023. URL <https://arxiv.org/abs/2210.14986>. [290](#page-3-0)
 
-James A. Russell. A circumplex model of affect. *Journal of Personality and Social Psychology*, 39(6):1161–1178, 1980. doi: 10.1037/h0077714. [292](#page-5-0)
+- James A. Russell. A circumplex model of affect. *Journal of Personality and Social Psychology*, 39(6):1161–1178, 1980. doi: 10.1037/h0077714. [292](#page-5-0)
 
-Jonathan Hvithamar Rystrom. Apolitical intelligence? auditing delphi's responses on controversial political issues in the US. *CoRR*, abs/2306.13000, 2023. doi: 10.48550/ARXIV.2306.13000. URL [https://doi.org/10.48550/arXiv.](https://doi.org/10.48550/arXiv.2306.13000) [2306.13000](https://doi.org/10.48550/arXiv.2306.13000). [303](#page-16-0)
+- Jonathan Hvithamar Rystrom. Apolitical intelligence? auditing delphi's responses on controversial political issues in the US. *CoRR*, abs/2306.13000, 2023. doi: 10.48550/ARXIV.2306.13000. URL <https://doi.org/10.48550/arXiv.2306.13000>. [303](#page-16-0)
 
-Peter Salovey and John D. Mayer. Emotional intelligence. *Imagination, Cognition and Personality*, 9(3):185–211, 1990. doi: 10.2190/DUGG-P24E-52WK-6CDG. [292](#page-5-0)
+- Peter Salovey and John D. Mayer. Emotional intelligence. *Imagination, Cognition and Personality*, 9(3):185–211, 1990. doi: 10.2190/DUGG-P24E-52WK-6CDG. [292](#page-5-0)
 
-Melanie Sclar, Jane Yu, Maryam Fazel-Zarandi, Yulia Tsvetkov, Yonatan Bisk, Yejin Choi, and Asli Celikyilmaz. Explore theory of mind: Program-guided adversarial data generation for theory of mind reasoning, 2024. URL [https://arxiv.org/](https://arxiv.org/abs/2412.12175) [abs/2412.12175](https://arxiv.org/abs/2412.12175). [299](#page-12-0)
+- Melanie Sclar, Jane Yu, Maryam Fazel-Zarandi, Yulia Tsvetkov, Yonatan Bisk, Yejin Choi, and Asli Celikyilmaz. Explore theory of mind: Program-guided adversarial data generation for theory of mind reasoning, 2024. URL <https://arxiv.org/abs/2412.12175>. [299](#page-12-0)
 
-Russ Shafer-Landau. *The Fundamentals of Ethics*. Oxford University Press, New York, 6 edition, 2024. ISBN 9780197697474. [303](#page-16-0)
+- Russ Shafer-Landau. *The Fundamentals of Ethics*. Oxford University Press, New York, 6 edition, 2024. ISBN 9780197697474. [303](#page-16-0)
 
-Natalie Shapira, Mosh Levy, Seyed Hossein Alavi, Xuhui Zhou, Yejin Choi, Yoav Goldberg, Maarten Sap, and Vered Shwartz. Clever Hans or Neural Theory of Mind? Stress Testing Social Reasoning in Large Language Models. In Yvette Graham and Matthew Purver, editors, *Proceedings of the 18th Conference of the European Chapter of the Association for Computational Linguistics (Volume 1: Long Papers)*, pages 2257–2273, St. Julian's, Malta, March 2024. Association for Computational Linguistics. URL <https://aclanthology.org/2024.eacl-long.138>. [298](#page-11-0)
+- Natalie Shapira, Mosh Levy, Seyed Hossein Alavi, Xuhui Zhou, Yejin Choi, Yoav Goldberg, Maarten Sap, and Vered Shwartz. Clever Hans or Neural Theory of Mind? Stress Testing Social Reasoning in Large Language Models. In Yvette Graham and Matthew Purver, editors, *Proceedings of the 18th Conference of the European Chapter of the Association for Computational Linguistics (Volume 1: Long Papers)*, pages 2257–2273, St. Julian's, Malta, March 2024. Association for Computational Linguistics. URL <https://aclanthology.org/2024.eacl-long.138>. [298](#page-11-0)
 
-Natalie Shapira, Chris Wendler, Avery Yen, Gabriele Sarti, Koyena Pal, Olivia Floody, Adam Belfki, Alex Loftus, Aditya Ratan Jannali, Nikhil Prakash, Jasmine Cui, Giordano Rogers, Jannik Brinkmann, Can Rager, Amir Zur, Michael Ripa, Aruna Sankaranarayanan, David Atkinson, Rohit Gandikota, Jaden Fiotto-Kaufman, Eun-Jeong Hwang, Hadas Orgad, P Sam Sahil, Negev Taglicht, Tomer Shabtay, Atai Ambus, Nitay Alon, Shiri Oron, Ayelet Gordon-Tapiero, Yotam Kaplan, Vered Shwartz, Tamar Rott Shaham, Christoph Riedl, Reuth Mirsky, Maarten Sap, David Manheim, Tomer Ullman, and David Bau. Agents of chaos, 2026. URL [https:](https://arxiv.org/abs/2602.20021) [//arxiv.org/abs/2602.20021](https://arxiv.org/abs/2602.20021). [304](#page-17-0)
+- Natalie Shapira, Chris Wendler, Avery Yen, Gabriele Sarti, Koyena Pal, Olivia Floody, Adam Belfki, Alex Loftus, Aditya Ratan Jannali, Nikhil Prakash, Jasmine Cui, Giordano Rogers, Jannik Brinkmann, Can Rager, Amir Zur, Michael Ripa, Aruna Sankaranarayanan, David Atkinson, Rohit Gandikota, Jaden Fiotto-Kaufman, Eun-Jeong Hwang, Hadas Orgad, P Sam Sahil, Negev Taglicht, Tomer Shabtay, Atai Ambus, Nitay Alon, Shiri Oron, Ayelet Gordon-Tapiero, Yotam Kaplan, Vered Shwartz, Tamar Rott Shaham, Christoph Riedl, Reuth Mirsky, Maarten Sap, David Manheim, Tomer Ullman, and David Bau. Agents of chaos, 2026. URL <https://arxiv.org/abs/2602.20021>. [304](#page-17-0)
 
-Ashish Sharma, Adam S. Miner, David C. Atkins, and Tim Althoff. A computational approach to understanding empathy expressed in text-based mental health support. 
+- Ashish Sharma, Adam S. Miner, David C. Atkins, and Tim Althoff. A computational approach to understanding empathy expressed in text-based mental health support. In *Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)*, pages 5263–5276. Association for Computational Linguistics, 2020. doi: 10.18653/v1/2020.emnlp-main.425. [293](#page-6-0)
 
 {26}------------------------------------------------
 
-<span id="page-26-0"></span>In *Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)*, pages 5263–5276. Association for Computational Linguistics, 2020. doi: 10.18653/v1/2020.emnlp-main.425. [293](#page-6-0)
+<span id="page-26-0"></span>
 
-- Kazutoshi Shinoda, Nobukatsu Hojo, Kyosuke Nishida, Saki Mizuno, Keita Suzuki, Ryo Masumura, Hiroaki Sugiyama, and Kuniko Saito. Tomato: verbalizing the mental states of role-playing llms for benchmarking theory of mind. In *Proceedings of the Thirty-Ninth AAAI Conference on Artificial Intelligence and Thirty-Seventh Conference on Innovative Applications of Artificial Intelligence and Fifteenth Symposium on Educational Advances in Artificial Intelligence*, AAAI'25/IAAI'25/EAAI'25. AAAI Press, 2025. ISBN 978-1-57735-897-
-- 8. doi: 10.1609/aaai.v39i2.32143. URL [https://doi.org/10.1609/aaai.](https://doi.org/10.1609/aaai.v39i2.32143) [v39i2.32143](https://doi.org/10.1609/aaai.v39i2.32143). [300](#page-13-0)
+- Kazutoshi Shinoda, Nobukatsu Hojo, Kyosuke Nishida, Saki Mizuno, Keita Suzuki, Ryo Masumura, Hiroaki Sugiyama, and Kuniko Saito. Tomato: verbalizing the mental states of role-playing llms for benchmarking theory of mind. In *Proceedings of the Thirty-Ninth AAAI Conference on Artificial Intelligence and Thirty-Seventh Conference on Innovative Applications of Artificial Intelligence and Fifteenth Symposium on Educational Advances in Artificial Intelligence*, AAAI'25/IAAI'25/EAAI'25. AAAI Press, 2025. ISBN 978-1-57735-897-8. doi: 10.1609/aaai.v39i2.32143. URL <https://doi.org/10.1609/aaai.v39i2.32143>. [300](#page-13-0)
 
-Vera Sorin, Dana Brin, Yiftach Barash, Eli Konen, Alexander Charney, Girish Nadkarni, and Eyal Klang. Large language models and empathy: Systematic review. *Journal of Medical Internet Research*, 26:e52597, 2024. doi: 10.2196/52597. [293](#page-6-0)
 
-Settaluri Sravanthi, Meet Doshi, Pavan Tankala, Rudra Murthy, Raj Dabre, and Pushpak Bhattacharyya. PUB: A pragmatics understanding benchmark for assessing LLMs' pragmatics capabilities. In Lun-Wei Ku, Andre Martins, and Vivek Srikumar, editors, *Findings of the Association for Computational Linguistics: ACL 2024*, pages 12075–12097, Bangkok, Thailand, August 2024. Association for Computational Linguistics. doi: 10.18653/v1/2024.findings-acl.719. URL [https:](https://aclanthology.org/2024.findings-acl.719/) [//aclanthology.org/2024.findings-acl.719/](https://aclanthology.org/2024.findings-acl.719/). [290,](#page-3-0) [294](#page-7-0)
+- Vera Sorin, Dana Brin, Yiftach Barash, Eli Konen, Alexander Charney, Girish Nadkarni, and Eyal Klang. Large language models and empathy: Systematic review. *Journal of Medical Internet Research*, 26:e52597, 2024. doi: 10.2196/52597. [293](#page-6-0)
 
-James W. A. Strachan, Oriana Pansardi, Eugenio Scaliti, Marco Celotto, Krati Saxena, Chunzhi Yi, Fabio Manzi, Alessandro Rufo, Guido Manzi, Michael S. A. Graziano, Stefano Panzeri, and Cristina Becchio. Gpt-4o reads the mind in the eyes, 2024. URL <https://arxiv.org/abs/2410.22309>. [301](#page-14-0)
+- Settaluri Sravanthi, Meet Doshi, Pavan Tankala, Rudra Murthy, Raj Dabre, and Pushpak Bhattacharyya. PUB: A pragmatics understanding benchmark for assessing LLMs' pragmatics capabilities. In Lun-Wei Ku, Andre Martins, and Vivek Srikumar, editors, *Findings of the Association for Computational Linguistics: ACL 2024*, pages 12075–12097, Bangkok, Thailand, August 2024. Association for Computational Linguistics. doi: 10.18653/v1/2024.findings-acl.719. URL <https://aclanthology.org/2024.findings-acl.719/>. [290,](#page-3-0) [294](#page-7-0)
 
-Kazuhiro Takemoto. The moral machine experiment on large language models. *Royal Society Open Science*, 11(2):231393, 2024. [304](#page-17-0)
+- James W. A. Strachan, Oriana Pansardi, Eugenio Scaliti, Marco Celotto, Krati Saxena, Chunzhi Yi, Fabio Manzi, Alessandro Rufo, Guido Manzi, Michael S. A. Graziano, Stefano Panzeri, and Cristina Becchio. Gpt-4o reads the mind in the eyes, 2024. URL <https://arxiv.org/abs/2410.22309>. [301](#page-14-0)
 
-Judith Jarvis Thomson. The trolley problem. *The Yale Law Journal*, 94(6):1395–1415, 1985. doi: 10.2307/796133. [302](#page-15-0)
+- Kazuhiro Takemoto. The moral machine experiment on large language models. *Royal Society Open Science*, 11(2):231393, 2024. [304](#page-17-0)
 
-Sean Trott, Tiago Timponi Torrent, Nancy Chang, and Nathan Schneider. (Re)construing meaning in NLP. In Dan Jurafsky, Joyce Chai, Natalie Schluter, and Joel Tetreault, editors, *Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics*, pages 5170–5184, Online, July 2020. Association for Computational Linguistics. doi: 10.18653/v1/2020.acl-main.462. URL <https://aclanthology.org/2020.acl-main.462/>. [290](#page-3-0)
+- Judith Jarvis Thomson. The trolley problem. *The Yale Law Journal*, 94(6):1395–1415, 1985. doi: 10.2307/796133. [302](#page-15-0)
 
-Tomer Ullman. Large language models fail on trivial alterations to theory-of-mind tasks. *arXiv preprint arXiv:2302.08399*, 2023. [298](#page-11-0)
+- Sean Trott, Tiago Timponi Torrent, Nancy Chang, and Nathan Schneider. (Re)construing meaning in NLP. In Dan Jurafsky, Joyce Chai, Natalie Schluter, and Joel Tetreault, editors, *Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics*, pages 5170–5184, Online, July 2020. Association for Computational Linguistics. doi: 10.18653/v1/2020.acl-main.462. URL <https://aclanthology.org/2020.acl-main.462/>. [290](#page-3-0)
 
-Ramira van der Meulen, Rineke Verbrugge, and Max van Duijn. Towards properly implementing theory of mind in ai systems: An account of four misconceptions,
+- Tomer Ullman. Large language models fail on trivial alterations to theory-of-mind tasks. *arXiv preprint arXiv:2302.08399*, 2023. [298](#page-11-0)
 
-2025. URL <https://arxiv.org/abs/2503.16468>. [290](#page-3-0)
+- Ramira van der Meulen, Rineke Verbrugge, and Max van Duijn. Towards properly implementing theory of mind in ai systems: An account of four misconceptions, 2025. URL <https://arxiv.org/abs/2503.16468>. [290](#page-3-0)
+
+
 
 {27}------------------------------------------------
 
-<span id="page-27-0"></span>Max J van Duijn, Bram van Dijk, Tom Kouwenhoven, Werner de Valk, Marco R Spruit, and Peter van der Putten. Theory of mind in large language models: Examining performance of 11 state-of-the-art models vs. children aged 7-10 on advanced tests. *arXiv preprint arXiv:2310.20320*, 2023. [301](#page-14-0)
+- <span id="page-27-0"></span>Max J van Duijn, Bram van Dijk, Tom Kouwenhoven, Werner de Valk, Marco R Spruit, and Peter van der Putten. Theory of mind in large language models: Examining performance of 11 state-of-the-art models vs. children aged 7-10 on advanced tests. *arXiv preprint arXiv:2310.20320*, 2023. [301](#page-14-0)
 
-Emilio Villa-Cueva, SM Ahmed, Rendi Chevi, Jan Christian Blaise Cruz, Kareem Elzeky, Fermin Cristobal, Alham Fikri Aji, Skyler Wang, Rada Mihalcea, and Thamar Solorio. Moments: A comprehensive multimodal benchmark for theory of mind. *arXiv preprint arXiv:2507.04415*, 2025. [300](#page-13-0)
+- Emilio Villa-Cueva, SM Ahmed, Rendi Chevi, Jan Christian Blaise Cruz, Kareem Elzeky, Fermin Cristobal, Alham Fikri Aji, Skyler Wang, Rada Mihalcea, and Thamar Solorio. Moments: A comprehensive multimodal benchmark for theory of mind. *arXiv preprint arXiv:2507.04415*, 2025. [300](#page-13-0)
 
-John Von Neumann and Oskar Morgenstern. Theory of games and economic behavior: 60th anniversary commemorative edition. In *Theory of games and economic behavior*. Princeton university press, 2007. [294](#page-7-0)
+- John Von Neumann and Oskar Morgenstern. Theory of games and economic behavior: 60th anniversary commemorative edition. In *Theory of games and economic behavior*. Princeton university press, 2007. [294](#page-7-0)
 
-Haochuan Wang, Xiachong Feng, Lei Li, Zhanyue Qin, Dianbo Sui, and Lingpeng Kong. Tmgbench: A systematic game benchmark for evaluating strategic reasoning abilities of llms, 2024. URL <https://arxiv.org/abs/2410.10479>. [299](#page-12-0)
+- Haochuan Wang, Xiachong Feng, Lei Li, Zhanyue Qin, Dianbo Sui, and Lingpeng Kong. Tmgbench: A systematic game benchmark for evaluating strategic reasoning abilities of llms, 2024. URL <https://arxiv.org/abs/2410.10479>. [299](#page-12-0)
 
-Victoria Williams and Benjamin Rosman. Heartificial intelligence: Exploring empathy in language models, 2025. arXiv preprint arXiv:2508.08271. [293](#page-6-0)
+- Victoria Williams and Benjamin Rosman. Heartificial intelligence: Exploring empathy in language models, 2025. arXiv preprint arXiv:2508.08271. [293](#page-6-0)
 
-Heinz Wimmer and Josef Perner. Beliefs about beliefs: Representation and constraining function of wrong beliefs in young children's understanding of deception. *Cognition*, 13(1):103–128, 1983. ISSN 0010-0277. doi: https://doi.org/10. 1016/0010-0277(83)90004-5. URL [https://www.sciencedirect.com/](https://www.sciencedirect.com/science/article/pii/0010027783900045) [science/article/pii/0010027783900045](https://www.sciencedirect.com/science/article/pii/0010027783900045). [298,](#page-11-0) [299](#page-12-0)
+- Heinz Wimmer and Josef Perner. Beliefs about beliefs: Representation and constraining function of wrong beliefs in young children's understanding of deception. *Cognition*, 13(1):103–128, 1983. ISSN 0010-0277. doi: 10.1016/0010-0277(83)90004-5. URL <https://www.sciencedirect.com/science/article/pii/0010027783900045>. [298,](#page-11-0) [299](#page-12-0)
 
-Yuheng Wu, Jianwen Xie, Denghui Zhang, and Zhaozhuo Xu. DEL-ToM: Inferencetime scaling for Theory-of-Mind reasoning via dynamic epistemic logic, May 2025. arXiv:2505.17348 [cs]. [301](#page-14-0)
+- Yuheng Wu, Jianwen Xie, Denghui Zhang, and Zhaozhuo Xu. DEL-ToM: Inferencetime scaling for Theory-of-Mind reasoning via dynamic epistemic logic, May 2025. arXiv:2505.17348 [cs]. [301](#page-14-0)
 
-Haoqiu Yan, Yongxin Zhu, Kai Zheng, Bing Liu, Haoyu Cao, Deqiang Jiang, and Linli Xu. Talk with human-like agents: Empathetic dialogue through perceptible acoustic reception and reaction, 2024. URL <https://arxiv.org/abs/2406.12707>. [293](#page-6-0)
+- Haoqiu Yan, Yongxin Zhu, Kai Zheng, Bing Liu, Haoyu Cao, Deqiang Jiang, and Linli Xu. Talk with human-like agents: Empathetic dialogue through perceptible acoustic reception and reaction, 2024. URL <https://arxiv.org/abs/2406.12707>. [293](#page-6-0)
 
-Zhou Yang, Zhaochun Ren, Wang Yufeng, Shizhong Peng, Haizhou Sun, Xiaofei Zhu, and Xiangwen Liao. Enhancing empathetic response generation by augmenting llms with small-scale empathetic models, 2024. URL [https://arxiv.org/abs/](https://arxiv.org/abs/2402.11801) [2402.11801](https://arxiv.org/abs/2402.11801). [293](#page-6-0)
+- Zhou Yang, Zhaochun Ren, Wang Yufeng, Shizhong Peng, Haizhou Sun, Xiaofei Zhu, and Xiangwen Liao. Enhancing empathetic response generation by augmenting llms with small-scale empathetic models, 2024. URL <https://arxiv.org/abs/2402.11801>. [293](#page-6-0)
 
-Ziqi Yin, Hao Wang, Kaito Horio, Daisuke Kawahara, and Satoshi Sekine. Should we respect LLMs? a cross-lingual study on the influence of prompt politeness on LLM performance. In James Hale, Kushal Chawla, and Muskan Garg, editors, *Proceedings of the Second Workshop on Social Influence in Conversations (SICon 2024)*, pages 9–35, Miami, Florida, USA, November 2024. Association for Computational Linguistics. doi: 10.18653/v1/2024.sicon-1.2. URL [https:](https://aclanthology.org/2024.sicon-1.2/) [//aclanthology.org/2024.sicon-1.2/](https://aclanthology.org/2024.sicon-1.2/). [291](#page-4-0)
+- Ziqi Yin, Hao Wang, Kaito Horio, Daisuke Kawahara, and Satoshi Sekine. Should we respect LLMs? a cross-lingual study on the influence of prompt politeness on LLM performance. In James Hale, Kushal Chawla, and Muskan Garg, editors, *Proceedings of the Second Workshop on Social Influence in Conversations (SICon 2024)*, pages 9–35, Miami, Florida, USA, November 2024. Association for Computational Linguistics. doi: 10.18653/v1/2024.sicon-1.2. URL <https://aclanthology.org/2024.sicon-1.2/>. [291](#page-4-0)
 
 {28}------------------------------------------------
 
-<span id="page-28-0"></span>Kefan Yu, Qingcheng Zeng, Weihao Xuan, Wanxin Li, Jingyi Wu, and Rob Voigt. The pragmatic mind of machines: Tracing the emergence of pragmatic competence in large language models. In Vera Demberg, Kentaro Inui, and Lluís Marquez, editors, *Proceedings of the 19th Conference of the European Chapter of the Association for Computational Linguistics (Volume 1: Long Papers)*, pages 192–213, Rabat, Morocco, March 2026. Association for Computational Linguistics. ISBN 979-8-89176-380-7. doi: 10.18653/v1/2026.eacl-long.9. URL [https:](https://aclanthology.org/2026.eacl-long.9/)
+- <span id="page-28-0"></span>Kefan Yu, Qingcheng Zeng, Weihao Xuan, Wanxin Li, Jingyi Wu, and Rob Voigt. The pragmatic mind of machines: Tracing the emergence of pragmatic competence in large language models. In Vera Demberg, Kentaro Inui, and Lluís Marquez, editors, *Proceedings of the 19th Conference of the European Chapter of the Association for Computational Linguistics (Volume 1: Long Papers)*, pages 192–213, Rabat, Morocco, March 2026. Association for Computational Linguistics. ISBN 979-8-89176-380-7. doi: 10.18653/v1/2026.eacl-long.9. URL <https://aclanthology.org/2026.eacl-long.9/> [290](#page-3-0)
 
-[//aclanthology.org/2026.eacl-long.9/](https://aclanthology.org/2026.eacl-long.9/). [290](#page-3-0)
 
-Tengfei Yu, Siyu Pan, Caoyun Fan, Siyang Luo, Yaohui Jin, and Binglei Zhao. Can large language models exhibit cognitive and affective empathy as humans? *Computers in Human Behavior: Artificial Humans*, page 100233, 2025. doi:
 
-10.1016/j.chbah.2025.100233. [293](#page-6-0)
+- Tengfei Yu, Siyu Pan, Caoyun Fan, Siyang Luo, Yaohui Jin, and Binglei Zhao. Can large language models exhibit cognitive and affective empathy as humans? *Computers in Human Behavior: Artificial Humans*, page 100233, 2025. doi: 10.1016/j.chbah.2025.100233. [293](#page-6-0)
+
+
 
 {29}------------------------------------------------
 
