@@ -181,6 +181,6 @@ LLM 训练可以理解为一种元学习。标准 LLM 训练使用迁移学习�
 
 - Volodymyr Mnih, Koray Kavukcuoglu, David Silver, Andrei A Rusu, Joel Veness, Marc G Bellemare, Alex Graves, Martin Riedmiller, Andreas K Fidjeland, Georg Ostrovski, et al. Human-level control through deep reinforcement learning. *nature*, 518(7540):529–533, 2015. [187](#page-6-0) 
 
-- Jurgen Schmidhuber. ¨ *Evolutionary principles in self-referential learning, or on learning how to learn: the meta-meta-... hook*. PhD thesis, Technische Universitat¨ Munchen, 1987. ¨ [182](#page-1-0) 
+- Jürgen Schmidhuber. *Evolutionary principles in self-referential learning, or on learning how to learn: the meta-meta-... hook*. PhD thesis, Technische Universitat¨ Munchen, 1987. ¨ [182](#page-1-0) 
 
 - Guan Wang, Jin Li, Yuhao Sun, Xing Chen, Changling Liu, Yue Wu, Meng Lu, Sen Song, and Yasin Abbasi Yadkori. Hierarchical reasoning model. *arXiv preprint arXiv:2506.21734*, 2025. [187](#page-6-0)
