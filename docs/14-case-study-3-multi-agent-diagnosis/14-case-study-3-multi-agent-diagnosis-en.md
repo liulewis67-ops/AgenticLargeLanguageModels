@@ -33,6 +33,8 @@ You will simulate a diagnostic workflow in a hospital setting. Patient cases are
 
 The simulation runs in discrete steps and logs how cases move through the system. As with the earlier case studies, the goal is *not* to build a clinically valid system. The goal is for you to understand how agentic architectures behave in a high-risk domain: how agents coordinate through shared state, how a language model performs when placed in a triage role, and where the limitations and safety concerns of such a system arise.<sup>1</sup>
 
+> **Editorial protocol distinction (not in the source):** The case study's in-memory `SharedContext` is a **shared-state design pattern**, not an interoperable MCP host, client, server, or protocol implementation. To evaluate an actual MCP integration, implement a real server transport and tool schema, verify request/result validation, authorization, retries and audit logs separately. Do not label the teaching simulation a working clinical MCP service.
+
 ## 14.2 Environment Setup
 
 As in the earlier case studies, we recommend working inside a dedicated virtual environment using Python 3.10 or higher (see Listing 14.1 for setup instructions).
@@ -161,4 +163,4 @@ The medical framing was chosen deliberately: it is a domain where the cost of an
 
 ## Bibliography
 
-Xinyi Hou, Yanjie Zhao, Shenao Wang, and Haoyu Wang. Model context protocol (mcp): Landscape, security threats, and future research directions. *ACM Trans. Softw. Eng. Methodol.*, 35(10), September 2026. ISSN 1049-331X. doi: 10.1145/3796519. URL <https://doi.org/10.1145/3796519>. [277](#page-0-0)
+- Xinyi Hou, Yanjie Zhao, Shenao Wang, and Haoyu Wang. Model context protocol (mcp): Landscape, security threats, and future research directions. *ACM Trans. Softw. Eng. Methodol.*, 35(10), September 2026. ISSN 1049-331X. doi: 10.1145/3796519. URL <https://doi.org/10.1145/3796519>. [277](#page-0-0)

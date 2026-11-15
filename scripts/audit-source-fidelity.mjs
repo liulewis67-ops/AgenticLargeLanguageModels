@@ -409,5 +409,74 @@ assert.ok(Math.abs(reciprocalRanks.reduce((a, b) => a + b, 0) / 3 - 0.5) < 1e-12
   "MRR must score a query with no relevant retrieved item as zero");
 checks += 4;
 
+
+// Chapters 14–16 source-aligned bibliography, PDF-continuation and evaluation-protocol guards.
+// Reference totals are checked against the original arXiv:2610.13455v1 HTML lists.
+// These static assertions do NOT run patient classifiers, models, or multi-agent simulations.
+for (const chapter of [
+  { id: "14-case-study-3-multi-agent-diagnosis", expected: 1, first: "Xinyi Hou", last: "Xinyi Hou", images: 0 },
+  { id: "15-studying-behavior-of-agentic-llms", expected: 90, first: "Elif Akata", last: "Tengfei Yu", images: 2 },
+  { id: "16-role-based-interaction-in-multi-llm-systems", expected: 29, first: "Saaket Agashe", last: "Philip G Zimbardo", images: 6 },
+]) {
+  const bibliographies = {};
+  for (const lang of ["en", "zh"]) {
+    const content = readFileSync(resolve(root, "docs", chapter.id, chapter.id + "-" + lang + ".md"), "utf8");
+    const marker = lang === "en" ? "Bibliography" : "参考文献";
+    const heading = content.match(/^#{1,3}[ \t]+(?:<span id="page-\d+-0"><\/span>)?(?:Bibliography|参考文献)[ \t]*$/m);
+    assert.ok(heading && heading[0].includes(marker),
+      "Ch14–16 bibliography heading missing: " + chapter.id + " (" + lang + ")");
+    const bib = content.slice(heading.index + heading[0].length);
+    bibliographies[lang] = bib;
+    const refs = bib.split("\n").filter(line => line.startsWith("- "));
+    assert.equal(refs.length, chapter.expected,
+      "Ch14–16 bibliography count: " + chapter.id + " (" + lang + ")");
+    assert.ok(refs[0].includes(chapter.first) && refs.at(-1).includes(chapter.last),
+      "Ch14–16 bibliography order: " + chapter.id + " (" + lang + ")");
+    assert.ok(Math.max(...bib.split("\n").map(line => line.length)) < 1100,
+      "Ch14–16 excessive merged PDF text: " + chapter.id + " (" + lang + ")");
+    assert.ok(!/URL \[[^\]]+\]\(https?:\/\/[^)\n]+\) \[[^\]]+\]\(/.test(bib),
+      "Ch14–16 PDF-split URLs reappeared: " + chapter.id + " (" + lang + ")");
+    assert.ok(!/\n-\s*(?:008\.|8\. doi:|2025\. URL|In \*Proceedings|\*Science Society|\[\/\/aclanthology|10\.1016\/)/.test(bib),
+      "Ch15 PDF continuation was incorrectly promoted to a new reference: " + lang);
+    const main = content.slice(0, heading.index);
+    assert.equal((main.match(/!\[[^\]]*\]\([^)]+\)/g) || []).length, chapter.images,
+      "Ch14–16 figure asset count drifted: " + chapter.id + " (" + lang + ")");
+    if (chapter.id.startsWith("14-")) {
+      assert.ok(main.includes(lang === "en" ? "Editorial protocol distinction (not in the source)"
+        : "编者协议边界补充（非原文）"),
+        "Ch14 shared-state versus MCP clarification missing: " + lang);
+      for (const filename of ["0_train_models.py", "1_basic_mcp.py", "2_llm_mcp.py"])
+        assert.ok(main.includes(filename),
+          "Ch14 original upstream tutorial filename lost: " + lang + " " + filename);
+    }
+    if (chapter.id.startsWith("15-")) {
+      assert.ok(bib.includes("Cognitive Science Society") &&
+        bib.includes("10.1016/j.tics.2006.08.008") &&
+        bib.includes("978-1-57735-897-8") &&
+        bib.includes("https://aclanthology.org/2026.eacl-long.9/"),
+        "Ch15 bibliography reference continuation/identifier regression: " + lang);
+      assert.ok(main.includes(lang === "en" ? "Editorial reproducibility note (not in the source)"
+        : "编者行为实验复现提示（非原文）"),
+        "Ch15 construct validity and unit-of-analysis note missing: " + lang);
+    }
+    if (chapter.id.startsWith("16-")) {
+      assert.ok(bib.includes("8053–8072") &&
+        bib.includes("10.18653/v1/2024.emnlp-main.992") &&
+        bib.includes("Tian Liang"),
+        "Ch16 primary conference pages or cross-page reference lost: " + lang);
+      assert.ok(main.includes(lang === "en" ? "Editorial benchmark-unit audit (not in the source)"
+        : "编者观测单位与预算审校（非原文）"),
+        "Ch16 independent-scenario and matched-budget warning missing: " + lang);
+    }
+    checks += 9;
+  }
+  assert.equal(bibliographies.en, bibliographies.zh,
+    "Ch14–16 bibliography bilingual text mismatched: " + chapter.id);
+  checks++;
+}
+assert.equal(66 * 3, 198,
+  "CoordQA's 198 observations share 66 scenarios; never treat all questions as independent game episodes");
+checks++;
+
 console.log("PASS " + checks + " manuscript provenance checks");
 console.log("These are static guards, NOT original-PDF rendering or research replication.");
