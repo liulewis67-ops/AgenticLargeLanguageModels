@@ -239,13 +239,15 @@ ACTION: <your next action>
 python eval.py \
   agent.type=custom \
   agent.max_image_history=0 \
-  agent.max_history=16 \
-  eval.num_workers=64 \
+  agent.max_text_history=16 \
+  eval.num_workers=4 \
   client.client_name=openai \
   client.model_id=gpt-4o-mini-2024-07-18
 ```
 
 *清单 10.4：运行自定义代理评测。*
+
+> **编者命令修正（非原文）：**原书示例写的是 `agent.max_history=16` 和 `eval.num_workers=64`。BALROG 官方 Hydra 配置采用 **`agent.max_text_history`**，不是 `agent.max_history`；标准示例使用 16 个并发 worker，此处为低成本本地冒烟测试修改为 **4 个 worker**。运行前必须固定 BALROG commit 并验证参数可用性。修正后的命令**不是**原论文原始复现配置。请按 [BALROG 运行记录模板](https://github.com/liulewis67-ops/AgenticLargeLanguageModels/blob/main/reports/balrog-reproducibility-run-template.md)记录随机种子、环境回合、行动预算、模型/API 版本与统计不确定性。
 
 ![](assets/_page_7_Picture_4.jpeg)
 
@@ -317,11 +319,11 @@ Reflexion 也可能导致不稳定或陷入循环。其记忆管理方式较为�
 
 ## <span id="page-10-0"></span>参考文献
 
-Davide Paglieri, Bartłomiej Cupiał, Samuel Coward, Ulyana Piterbarg, Maciej Wolczyk, Akbir Khan, Eduardo Pignatelli, Łukasz Kucinski, Lerrel Pinto, Rob Fergus, Jakob Nicolaus Foerster, Jack Parker-Holder, and Tim Rocktäschel. BALROG: Benchmarking agentic LLM and VLM reasoning on games. In *The Thirteenth International Conference on Learning Representations*, 2025. [OpenReview](https://openreview.net/forum?id=fp6t3F669F). [211](#page-0-0), [212](#page-1-0), [213](#page-2-0).
+- Davide Paglieri, Bartłomiej Cupiał, Samuel Coward, Ulyana Piterbarg, Maciej Wolczyk, Akbir Khan, Eduardo Pignatelli, Łukasz Kuciński, Lerrel Pinto, Rob Fergus, Jakob Nicolaus Foerster, Jack Parker-Holder, and Tim Rocktäschel. BALROG: Benchmarking agentic LLM and VLM reasoning on games. In *The Thirteenth International Conference on Learning Representations*, 2025. [OpenReview](https://openreview.net/forum?id=fp6t3F669F). [211](#page-0-0), [212](#page-1-0), [213](#page-2-0).
 
-Noah Shinn, Federico Cassano, Ashwin Gopinath, Karthik Narasimhan, and Shunyu Yao. Reflexion: Language agents with verbal reinforcement learning. *Advances in Neural Information Processing Systems*, 36, 2024. [218](#page-7-0), [219](#page-8-0), [220](#page-9-0).
+- Noah Shinn, Federico Cassano, Ashwin Gopinath, Karthik Narasimhan, and Shunyu Yao. Reflexion: Language agents with verbal reinforcement learning. *Advances in Neural Information Processing Systems*, 36, 2024. [218](#page-7-0), [219](#page-8-0), [220](#page-9-0).
 
-Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik Narasimhan, and Yuan Cao. ReAct: Synergizing reasoning and acting in language models. *arXiv preprint arXiv:2210.03629*, 2022. [218](#page-7-0).
+- Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik Narasimhan, and Yuan Cao. ReAct: Synergizing reasoning and acting in language models. *arXiv preprint arXiv:2210.03629*, 2022. [218](#page-7-0).
 {11}------------------------------------------------
 
 
