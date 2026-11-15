@@ -213,7 +213,7 @@ for (const chapter of [
   checks++;
 }
 for (const lang of ["en", "zh"]) {
-  const content = readFileSync(resolve(root, "docs", paths[3], paths[3] + "-" + lang + ".md"), "utf8");
+  const content = readFileSync(resolve(root, "docs", "03-llm-training-pipeline", "03-llm-training-pipeline-" + lang + ".md"), "utf8");
   assert.ok(content.includes(lang === "en"
     ? "Editorial clarification (not in the source)"
     : "编者校勘（非原文）"), "Chapter 3 Pass@K source-ambiguity note missing");
