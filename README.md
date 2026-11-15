@@ -33,6 +33,8 @@ pnpm docs:preview
 
 ## 学术审校与质量审计
 
+新增[第 14–16 章学术审校与方法学核验](reports/academic-audit-2026-11-16-ch14-ch16-methodology.md)：对照原书核对 1/90/29 条文献，修复跨页拆分的 DOI、ISBN、标题和链接，明确共享状态与 MCP 协议的差别，并完善行为研究的观测单位和协调实验的等预算对照要求。
+
 新增[第 11–13 章引文、BM25 与临床证据审校](reports/academic-audit-2026-11-15-ch11-ch13-tools-retrieval-clinical.md)：核对并统一 24/34/40 条双语参考文献，标注 LangChain/MCP 的接口与协议边界、BM25 公式勘误、检索指标零分母处理和诊断随机试验的证据范围。
 
 新增[第 8–10 章学术审校与 BALROG 复现检查](reports/academic-audit-2026-11-15-ch08-ch10-balrog.md)，并提供[BALROG 评测运行记录模板](reports/balrog-reproducibility-run-template.md)：统一 11/43/3 条书目，修复作者名单跨行和评测参数错误，明确论文原配置与低成本冒烟测试的区别。
