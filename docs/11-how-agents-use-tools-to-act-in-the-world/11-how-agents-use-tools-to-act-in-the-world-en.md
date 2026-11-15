@@ -110,6 +110,8 @@ result = agent.run(user_prompt)
 ```
 
 *Listing 11.1: Defining a tool with LangChain and using it with an agent.*
+
+> **Editorial API-compatibility note (not in the source):** Listing 11.1 reflects an older LangChain API (`agent.run(...)`). LangChain Python v1 uses [`create_agent`](https://reference.langchain.com/python/langchain/agents/factory/create_agent) and a message-based `agent.invoke(...)` interface. Pin the LangChain/Python/provider versions before running the listing; do not assume its imports or result shape work unchanged with the newest release. This is a version-warning, not a claim that the source listing has been executed.
 {4}------------------------------------------------
 
 <span id="page-4-0"></span>![](assets/_page_4_Diagram_2.jpeg)
@@ -139,6 +141,8 @@ The protocol is organized into two layers. The data layer defines JSON-RPC-based
 One of the key challenges in building agentic systems is managing the LLM its finite context window. For multi-step tasks that require numerous tool calls and observations, the context can quickly fill up, causing the model to lose track of its original goal or forget crucial past information. Simply keeping all the context and raw results from multiple tool calls often does not fit the context window and can cause the model to forget important information. Deciding what to keep, what to summarize and what to discard is essential.
 
 MCP servers are mostly stateless. This means that we need an additional set of strategies designed to manage the agent's state and context. These strategies should ensure that the agent maintains a clear and coherent state throughout a long-running task. In addition to the fixed tool registration/calling format that MCP offers, additional components include:
+
+> **Editorial protocol boundary (not in the source):** MCP standardizes access to tools, resources and prompts. It **does not itself define how the host should summarize conversations, persist long-term agent state or authorize irreversible actions**. The LangChain summarization sample in this section is application-level context management, not an implementation of the MCP transport or protocol. See the [MCP specification](https://modelcontextprotocol.io/specification).
 
 - Summarization: Tools' outputs and past conversations are periodically summarized and stored in a compressed format. This reduces the token count while preserving key information.
 - State Management: Explicitly maintaining a state variable or a *scratchpad* in the prompt, where the agent stores its current plan, important intermediate results, and a summary of its progress.
@@ -299,11 +303,11 @@ Want to experiment with LLM tool use? Open the [LLM Tools tutorial](https://cola
 
 - Maksym Andriushchenko, Alexandra Souly, Mateusz Dziemian, Derek Duenas, Maxwell Lin, Justin Wang, Dan Hendrycks, Andy Zou, Zico Kolter, Matt Fredrikson, et al. Agentharm: A benchmark for measuring harmfulness of llm agents. *arXiv preprint arXiv:2410.09024*, 2024. [236](#page-9-0) 
 
-- Harrison Chase. LangChain, October 2022. URL [https://github.com/](https://github.com/langchain-ai/langchain) [langchain-ai/langchain](https://github.com/langchain-ai/langchain). [229](#page-2-0) 
+- Harrison Chase. LangChain, October 2022. URL <https://github.com/langchain-ai/langchain>. [229](#page-2-0) 
 
-- Xinyi Hou, Yanjie Zhao, Shenao Wang, and Haoyu Wang. Model context protocol (mcp): Landscape, security threats, and future research directions. *ACM Trans. Softw. Eng. Methodol.*, 35(10), September 2026. ISSN 1049-331X. doi: 10.1145/ 3796519. URL <https://doi.org/10.1145/3796519>. [232](#page-5-0) 
+- Xinyi Hou, Yanjie Zhao, Shenao Wang, and Haoyu Wang. Model context protocol (mcp): Landscape, security threats, and future research directions. *ACM Trans. Softw. Eng. Methodol.*, 35(10), September 2026. ISSN 1049-331X. doi: 10.1145/3796519. URL <https://doi.org/10.1145/3796519>. [232](#page-5-0) 
 
-- Edward Hughes, Michael Dennis, Jack Parker-Holder, Feryal Behbahani, Aditi Mavalankar, Yuge Shi, Tom Schaul, and Tim Rocktaschel. Open-endedness is essential for artificial superhuman intelligence. *arXiv preprint arXiv:2406.04268*, 2024. [236](#page-9-0) 
+- Edward Hughes, Michael Dennis, Jack Parker-Holder, Feryal Behbahani, Aditi Mavalankar, Yuge Shi, Tom Schaul, and Tim Rocktäschel. Open-endedness is essential for artificial superhuman intelligence. *arXiv preprint arXiv:2406.04268*, 2024. [236](#page-9-0) 
 
 - Yadong Lu, Jianwei Yang, Yelong Shen, and Ahmed Awadallah. Omniparser for pure vision based gui agent, 2024. URL <https://arxiv.org/abs/2408.00203>. [229,](#page-2-0) 238 
 
@@ -311,7 +315,7 @@ Want to experiment with LLM tool use? Open the [LLM Tools tutorial](https://cola
 
 - Hussein Mozannar, Gagan Bansal, Cheng Tan, Adam Fourney, Victor Dibia, Jingya Chen, Jack Gerrits, Tyler Payne, Matheus Kunzler Maldaner, Madeleine Grunde-McLaughlin, et al. Magentic-ui: Towards human-in-the-loop agentic systems. *arXiv preprint arXiv:2507.22358*, 2025. [233](#page-6-0) 
 
-- Magnus Muller and Gregor ¨ Zuni ˇ c. Browser use: Enable ai to control your browser, ˇ 2024. URL <https://github.com/browser-use/browser-use>. [231,](#page-4-0) 238
+- Magnus Müller and Gregor Žunič. Browser use: Enable ai to control your browser, ˇ 2024. URL <https://github.com/browser-use/browser-use>. [231,](#page-4-0) 238
 
 {12}------------------------------------------------
 
@@ -319,7 +323,7 @@ Want to experiment with LLM tool use? Open the [LLM Tools tutorial](https://cola
 
 - Felix Ocker, Daniel Tanneberg, Julian Eggert, and Michael Gienger. Tulip agent– enabling llm-based agents to solve tasks using large tool libraries. *arXiv preprint arXiv:2407.21778*, 2024. [229](#page-2-0) 
 
-- Shishir G. Patil, Tianjun Zhang, Xin Wang, and Joseph E. Gonzalez. Gorilla: Large language model connected with massive apis, 2023. URL [https://arxiv.org/](https://arxiv.org/abs/2305.15334) [abs/2305.15334](https://arxiv.org/abs/2305.15334). [228,](#page-1-0) [229,](#page-2-0) [238](#page-11-0) 
+- Shishir G. Patil, Tianjun Zhang, Xin Wang, and Joseph E. Gonzalez. Gorilla: Large language model connected with massive apis, 2023. URL <https://arxiv.org/abs/2305.15334>. [228,](#page-1-0) [229,](#page-2-0) [238](#page-11-0) 
 
 - Yujia Qin, Shihao Liang, Yining Ye, Kunlun Zhu, Lan Yan, Yaxi Lu, Yankai Lin, Xin Cong, Xiangru Tang, Bill Qian, et al. Toolllm: Facilitating large language models to master 16000+ real-world apis. *arXiv preprint arXiv:2307.16789*, 2023. [229,](#page-2-0) [238](#page-11-0) 
 

@@ -340,5 +340,74 @@ for (const chapter of [
   checks++;
 }
 
+
+// Chapter 11–13 references and source-identified mathematical corrections.
+for (const chapter of [
+  { id: "11-how-agents-use-tools-to-act-in-the-world", expected: 24, first: "Maksym Andriushchenko", last: "Yuchen Zhuang" },
+  { id: "12-search-and-retrieval-in-agentic-llms", expected: 34, first: "Akari Asai", last: "Yuzhou Zhu" },
+  { id: "13-from-tools-to-assistants", expected: 40, first: "Ashish Bastola", last: "Wentao Zhou" },
+]) {
+  const bibliographies = {};
+  for (const lang of ["en", "zh"]) {
+    const content = readFileSync(resolve(root, "docs", chapter.id, chapter.id + "-" + lang + ".md"), "utf8");
+    const title = lang === "en" ? "Bibliography" : "参考文献";
+    const heading = content.match(/^#{1,3}[ \t]+(?:<span id="page-\d+-0"><\/span>)?(?:Bibliography|参考文献)[ \t]*$/m);
+    assert.ok(heading && heading[0].includes(title),
+      "Chapter 11–13 bibliography heading missing: " + chapter.id + " (" + lang + ")");
+    const bibliography = content.slice(heading.index + heading[0].length);
+    bibliographies[lang] = bibliography;
+    const entries = bibliography.split("\n").filter(line => line.startsWith("- "));
+    assert.equal(entries.length, chapter.expected,
+      "Chapter 11–13 reference count: " + chapter.id + " (" + lang + ")");
+    assert.ok(entries[0].includes(chapter.first) && entries.at(-1).includes(chapter.last),
+      "Chapter 11–13 bibliography order: " + chapter.id + " (" + lang + ")");
+    assert.ok(Math.max(...bibliography.split("\n").map(line => line.length)) < 900,
+      "Chapter 11–13 bibliography merged lines: " + chapter.id + " (" + lang + ")");
+    assert.ok(!/\]\(#page-\d+-\d+\) [A-Z]/.test(bibliography),
+      "Chapter 11–13 adjacent reference boundary: " + chapter.id + " (" + lang + ")");
+    assert.ok(!/URL \[[^\]]+\]\(https?:\/\/[^)\n]+\) \[[^\]]+\]\(/.test(bibliography),
+      "Chapter 11–13 PDF-split URLs: " + chapter.id + " (" + lang + ")");
+    if (chapter.id.startsWith("11-")) {
+      assert.ok(content.includes(lang === "en" ? "Editorial API-compatibility note" : "编者 API 兼容性提示"),
+        "Chapter 11 LangChain version note: " + lang);
+      assert.ok(bibliography.includes("doi: 10.1145/3796519") &&
+        bibliography.includes("Magnus Müller and Gregor Žunič"),
+        "Chapter 11 bibliographic PDF encoding: " + lang);
+    }
+    if (chapter.id.startsWith("12-")) {
+      assert.ok(content.includes("\\operatorname{BM25}(q,d)=") &&
+        content.includes("\\operatorname{IDF}(t,d)") &&
+        content.includes(lang === "en" ? "Editorial equation correction" : "编者公式勘误"),
+        "Chapter 12 original Eq 12.5 and editorial correction: " + lang);
+      assert.ok(content.includes(lang === "en" ? "Editorial evaluation edge case" : "编者评测边界说明"),
+        "Chapter 12 MRR/Recall/nDCG evaluation edge case: " + lang);
+    }
+    if (chapter.id.startsWith("13-")) {
+      assert.ok(content.includes("10.1001/jamanetworkopen.2024.40969") &&
+        content.includes(lang === "en" ? "Editorial primary-study correction" : "编者原始研究核对"),
+        "Chapter 13 JAMA RCT qualification: " + lang);
+    }
+    checks += 8;
+  }
+  assert.equal(bibliographies.en, bibliographies.zh,
+    "Ch11–13 bibliography parity: " + chapter.id);
+  checks++;
+}
+// Arithmetic fixtures: collection-wide IDF, document-level term frequency and length.
+// These are independent mathematical smoke tests, not paper/model replication.
+const corpusIdf = Math.log(1 + (10 - 2 + 0.5) / (2 + 0.5));
+const bm25Term = (tf, docLength) =>
+  corpusIdf * (tf * (1.2 + 1)) /
+  (tf + 1.2 * (1 - 0.75 + 0.75 * docLength / 100));
+assert.ok(Number.isFinite(corpusIdf) && corpusIdf > 0);
+assert.ok(bm25Term(3, 100) > bm25Term(1, 100),
+  "BM25 term frequency fixture should increase with additional matches");
+assert.ok(bm25Term(1, 50) > bm25Term(1, 200),
+  "BM25 shorter document should score higher at fixed term frequency");
+const reciprocalRanks = [1, 2, null].map(rank => rank == null ? 0 : 1 / rank);
+assert.ok(Math.abs(reciprocalRanks.reduce((a, b) => a + b, 0) / 3 - 0.5) < 1e-12,
+  "MRR must score a query with no relevant retrieved item as zero");
+checks += 4;
+
 console.log("PASS " + checks + " manuscript provenance checks");
 console.log("These are static guards, NOT original-PDF rendering or research replication.");
