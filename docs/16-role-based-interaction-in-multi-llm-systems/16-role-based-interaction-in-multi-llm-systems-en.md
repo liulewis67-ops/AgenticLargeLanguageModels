@@ -93,6 +93,9 @@ the partner's beliefs. On Overcooked, zero-shot LLM agents can match or outperfo
 
 The question-answering component of the study (see Figure 16.2, right column) breaks the problem down by targeting environment comprehension, ToM, and joint planning, separately. They find that LLMs score generally high on the first category (≥80% for the best model), lower on ToM, and worst on joint planning (<40% for the best model, below random chance for open-source models). This is consistent with the observed difference in scores between Overcooked (environment-driven) and Hanabi (ToM- and planning-driven).
 
+> **Editorial primary-paper and bibliography correction (not in the source):** The [NAACL 2025 published paper](https://aclanthology.org/2025.findings-naacl.448/) evaluates **four pure-coordination games** and **198 CoordQA questions constructed as three questions for each of 66 manually curated scenarios**. Those 198 items are **not 198 independent game situations**; use scenario-level grouping when estimating uncertainty and do not conflate question-answering with interactive coordination. The book's bibliography incorrectly gives pages **8038–8057**; the publisher and the paper's printed first page confirm **8053–8072**, DOI **10.18653/v1/2025.findings-naacl.448**. The bibliography entry below has been corrected editorially. [Source audit](https://github.com/liulewis67-ops/AgenticLargeLanguageModels/blob/main/reports/primary-source-data-audit-2026-11-15-ch15-ch17.md).
+
+
 The key characteristic of pure cooperation games is that agents must fully cooperate with each other with no competitive incentives. In contrast, in competitive settings such
 
 {5}------------------------------------------------

@@ -10,6 +10,7 @@ const paths = {
   14: "14-case-study-3-multi-agent-diagnosis",
   15: "15-studying-behavior-of-agentic-llms",
   16: "16-role-based-interaction-in-multi-llm-systems",
+  17: "17-emergent-behavior-in-multi-llm-systems",
   18: "18-case-study-4-simulating-societies",
   19: "19-synthetic-data-generation",
   20: "20-advanced-agentic-architectures",
@@ -82,6 +83,33 @@ for (const lang of ["en", "zh"]) {
 // Static guards only: these strings were separately checked against primary sources,
 // but this offline script cannot itself verify their external truth.
 
+for (const lang of ["en", "zh"]) {
+  const c15 = read(15, lang);
+  const c16 = read(16, lang);
+  const c17 = read(17, lang);
+  const claims15 = lang === "en"
+    ? ["**six** categories", "2,860", "**504 non-standard", "first **10 samples per file**"]
+    : ["**六类能力", "2,860", "**504 条非标准", "**每个文件前 10 条**"];
+  const claims16 = lang === "en"
+    ? ["**198 CoordQA questions", "66 manually curated scenarios", "pages 8053–8072"]
+    : ["**198 道 CoordQA 题**", "**66 个手工设计场景", "pages 8053–8072"];
+  const claims17 = lang === "en"
+    ? ["**27 A100 GPUs", "18 hours per simulated time step"]
+    : ["**27 块 A100 GPU", "每个模拟时间步约 18 小时"];
+  for (const [chapter, claims, body] of [
+    [15, claims15, c15], [16, claims16, c16], [17, claims17, c17],
+  ]) {
+    for (const claim of claims) {
+      assert.ok(body.includes(claim),
+        "Source-corrected Chapter " + chapter + " fact drift (" + lang + "): " + claim);
+      checks++;
+    }
+  }
+  // The original bibliography error must not be reintroduced by future conversions.
+  assert.ok(!c16.includes("pages 8038–8057"),
+    "Incorrect original NAACL page range returned: " + lang);
+  checks++;
+}
 
 for (const lang of ["en", "zh"]) {
   const ch15 = read(15, lang);
@@ -104,6 +132,7 @@ for (const lang of ["en", "zh"]) {
     "Chapter 16 wrong published pagination reintroduced: " + lang);
   checks++;
 }
+
 
 console.log("PASS " + checks + " manuscript provenance checks");
 console.log("These are static guards, NOT original-PDF rendering or research replication.");

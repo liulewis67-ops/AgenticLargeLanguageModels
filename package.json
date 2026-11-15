@@ -17,7 +17,8 @@
     "docs:audit-structure": "node scripts/audit-bilingual-structure.mjs",
     "docs:audit-structure-all": "node scripts/audit-bilingual-structure.mjs --all",
     "docs:audit-formula": "node scripts/audit-formula-regressions.mjs",
-    "docs:audit-source": "node scripts/audit-source-fidelity.mjs"
+    "docs:audit-source": "node scripts/audit-source-fidelity.mjs",
+    "docs:audit-tombench": "node scripts/audit-tombench-release.mjs"
   },
   "devDependencies": {
     "markdown-it-mathjax3": "^4.3.2",
