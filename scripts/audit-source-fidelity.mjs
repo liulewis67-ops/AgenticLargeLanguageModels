@@ -111,5 +111,28 @@ for (const lang of ["en", "zh"]) {
   checks++;
 }
 
+for (const lang of ["en", "zh"]) {
+  const ch15 = read(15, lang);
+  const ch16 = read(16, lang);
+  const expected15 = lang === "en"
+    ? ["11.0 percentage points behind humans", "**11.0-point difference**", "**7.7 points**"]
+    : ["11.0 个百分点", "**11.0 分差（百分点）**", "**7.7 分差**"];
+  for (const phrase of expected15) {
+    assert.ok(ch15.includes(phrase), "Chapter 15 numeric unit/version missing (" + lang + "): " + phrase);
+    checks++;
+  }
+  assert.ok(!ch15.includes(lang === "en" ? "lag at least 11% behind humans" : "至少落后于人类 11%"),
+    "Chapter 15 inaccurate percentage unit reintroduced: " + lang);
+  checks++;
+  for (const phrase of ["pages 8053–8072, 2025.", "198", "8053–8072"]) {
+    assert.ok(ch16.includes(phrase), "Chapter 16 primary citation and QA scope missing (" + lang + "): " + phrase);
+    checks++;
+  }
+  assert.ok(!ch16.includes("pages 8038–8057, 2025."),
+    "Chapter 16 wrong published pagination reintroduced: " + lang);
+  checks++;
+}
+
+
 console.log("PASS " + checks + " manuscript provenance checks");
 console.log("These are static guards, NOT original-PDF rendering or research replication.");
