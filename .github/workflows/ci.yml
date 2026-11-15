@@ -35,7 +35,7 @@ jobs:
       - name: Install locked dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Audit bilingual academic chapter structure (02-23)
+      - name: Audit bilingual academic chapter structure (01-23)
         run: pnpm docs:audit-structure
 
       - name: Guard corrections verified against original arXiv text
