@@ -33,6 +33,8 @@ pnpm docs:preview
 
 ## 学术审校与质量审计
 
+新增[第 8–10 章学术审校与 BALROG 复现检查](reports/academic-audit-2026-11-15-ch08-ch10-balrog.md)，并提供[BALROG 评测运行记录模板](reports/balrog-reproducibility-run-template.md)：统一 11/43/3 条书目，修复作者名单跨行和评测参数错误，明确论文原配置与低成本冒烟测试的区别。
+
 新增[第 5–7 章参考文献、nanochat 可复现性与证据边界审计](reports/academic-audit-2026-11-15-ch05-ch07-integrity.md)；配套提供[nanochat 运行记录模板](reports/nanochat-reproducibility-run-template.md)，用于固定实验来源、环境、数据和评测协议。
 
 新增[第 4 章规模律公式和参考文献核查](reports/academic-audit-2026-11-15-ch04-scaling-bibliography.md)：按 arXiv v1 将参考文献恢复为 72 条独立条目，纠正跨页 DOI / OpenReview 链接，并对 Chinchilla 计算最优指数增加算术回归检查。
