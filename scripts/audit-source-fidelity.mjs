@@ -182,5 +182,45 @@ for (const lang of ["en", "zh"]) {
 // Chapter 1 bibliography counts/order are compared to arXiv v1 HTML References.
 // Static checks are not original-PDF visual verification or full citation validation.
 
+
+for (const chapter of [
+  { id: "02-foundations-of-language-modeling", expected: 59, first: "Josh Achiam", last: "Aston Zhang" },
+  { id: "03-llm-training-pipeline", expected: 52, first: "Josh Achiam", last: "Chunting Zhou" },
+]) {
+  const bodies = {};
+  for (const lang of ["en", "zh"]) {
+    const text = readFileSync(resolve(root, "docs", chapter.id, chapter.id + "-" + lang + ".md"), "utf8");
+    const heading = lang === "en" ? "## Bibliography" : "## 参考文献";
+    assert.ok(text.includes(heading), "Missing chapter bibliography: " + chapter.id + " (" + lang + ")");
+    const body = text.slice(text.lastIndexOf(heading) + heading.length);
+    bodies[lang] = body;
+    const entries = body.split("\\n").filter((line) => line.startsWith("- "));
+    assert.equal(entries.length, chapter.expected,
+      "Source-aligned bibliography count for " + chapter.id + " (" + lang + ")");
+    assert.ok(entries[0].includes(chapter.first) && entries.at(-1).includes(chapter.last),
+      "Bibliography reference order drifted: " + chapter.id + " (" + lang + ")");
+    const maxLine = Math.max(...body.split("\\n").map((line) => line.length));
+    assert.ok(maxLine < 1500,
+      "Likely merged references (line exceeds 1500 characters) in " + chapter.id + " (" + lang + ")");
+    assert.ok(!/\\]\\(#page-\\d+-\\d+\\) [A-Z]/.test(body),
+      "Merged reference boundary reappeared in " + chapter.id + " (" + lang + ")");
+    assert.ok(!/URL \\[[^\\]]+\\]\\(https?:\\/\\/[^\\n]+?\\) \\[[^\\]]+\\]\\(/.test(body),
+      "Split PDF-extracted bibliography URL reappeared in " + chapter.id + " (" + lang + ")");
+    checks += 5;
+  }
+  assert.equal(bodies.en, bodies.zh,
+    "Bibliography contents diverged across Chinese and English: " + chapter.id);
+  checks++;
+}
+for (const lang of ["en", "zh"]) {
+  const content = readFileSync(resolve(root, "docs", paths[3], paths[3] + "-" + lang + ".md"), "utf8");
+  assert.ok(content.includes(lang === "en"
+    ? "Editorial clarification (not in the source)"
+    : "编者校勘（非原文）"), "Chapter 3 Pass@K source-ambiguity note missing");
+  checks++;
+}
+// Chapter 2/3 reference counts are checked against arXiv:2610.13455v1 HTML.
+// These are static source-integrity guards, not PDF image inspection or experiment replication.
+
 console.log("PASS " + checks + " manuscript provenance checks");
 console.log("These are static guards, NOT original-PDF rendering or research replication.");
