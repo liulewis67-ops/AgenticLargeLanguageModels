@@ -88,6 +88,8 @@
 
 在《Overcooked》中，研究所用的零样本 LLM 智能体可以达到或超过某些经过专门训练的强化学习基线。然而，在《Hanabi》中，强化学习基线模型显示出接近完美的分数，而大多数 LLM 代理几乎无法得分。表现最佳的 LLM 代理（基于 GPT-4-turbo）即使在增强了明确的心智理论推理和自我验证步骤的情况下，也只能达到最大分数的约一半。如果没有这些增强，像 GPT-4-turbo 这样的强大模型的分数几乎完全崩溃，这表明所测得的能力部分是代理框架的特性，而不仅仅是模型本身的特性。LLM 代理在跨玩法中确实表现得更为稳健：强化学习方法在与未见过的伙伴一起游戏时性能急剧下降，而 LLM 代理的零样本特性使其能够在不损失性能的情况下转移到未见过的伙伴身上。
 
+> **编者原始论文与复现性核查（非原文）：**[NAACL 2025 正式论文](https://aclanthology.org/2025.findings-naacl.448/)核实了**四个纯协调游戏**（Overcooked、Hanabi、Collab Capture、Collab Escape）与 **198 道单轮 CoordQA 选择题**。二者的**观测单位和评测指标不同**：198 道题不等于 198 次独立的多轮智能体协作实验；带 ToM/自验证框架的 GPT-4-turbo 结果也不能直接归于裸模型。实际复验前需锁定四套环境、每个游戏的场景 ID、队友策略和对手分布、准确提示及辅助策略、模型版本、随机种子、推理预算与逐回合日志。根据正式论文修复参考文献的 **8053–8072** 页码（书稿原为错误的 **8038–8057**）。[作者源码](https://github.com/UCSB-AI/llm_coordination/tree/586733a37d240b9592645bb0d7d10f73c1103f7f)提供四个游戏入口，但其 README 本身不证明实验已重跑。详见[原始证据审计](https://github.com/liulewis67-ops/AgenticLargeLanguageModels/blob/main/reports/primary-evidence-audit-2026-11-15-ch15-ch16.md)。
+
 研究中的问答组件（见图16.2，右栏）通过分别针对环境理解、心理理论（ToM）和联合规划来分解问题。他们发现，LLM在第一类中得分普遍较高（最佳模型约80%），在心理理论方面得分较低，而在联合规划方面得分最差（最佳模型不到40%，开源模型甚至低于随机概率）。这与《Overcooked》（环境驱动）和《Hanabi》（心理理论和规划驱动）之间的得分差异一致。
 
 纯合作游戏的关键特征是代理必须完全合作，彼此之间没有竞争动机。相比之下，在竞争环境中，例如 
@@ -244,7 +246,7 @@ MindStorms 引入了一个基于 LLM 的实现 [\[Zhuge et al.,](#page-16-0) [20
 
 ## 参考文献
 
-Saaket Agashe, Yue Fan, Anthony Reyna, and Xin Eric Wang. Llm-coordination: evaluating and analyzing multi-agent coordination abilities in large language models. In *Findings of the Association for Computational Linguistics: NAACL 2025*, pages 8038–8057, 2025. [320,](#page-3-0) [321,](#page-4-0) 330
+Saaket Agashe, Yue Fan, Anthony Reyna, and Xin Eric Wang. Llm-coordination: evaluating and analyzing multi-agent coordination abilities in large language models. In *Findings of the Association for Computational Linguistics: NAACL 2025*, pages 8053–8072, 2025. [320,](#page-3-0) [321,](#page-4-0) 330
 
 Yuntao Bai, Saurav Kadavath, Sandipan Kundu, Amanda Askell, Jackson Kernion, Andy Jones, Anna Chen, Anna Goldie, Azalia Mirhoseini, Cameron McKinnon, et al. Constitutional ai: Harmlessness from ai feedback. *arXiv preprint arXiv:2212.08073*, 2022. [324](#page-7-0)
 
