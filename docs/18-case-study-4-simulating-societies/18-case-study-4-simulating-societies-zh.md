@@ -85,6 +85,8 @@
 
 这项实验包含三名智能体，其中两名角色和职位相近（在 Bernard 手下工作的咖啡师），因此可以控制智能体架构和初始化方式。在第一组实验中，Dolores 和 Maeve 使用相同的人格特征，并处于相同环境中。两者唯一的区别是 Dolores 处理记忆的方式：她使用 NEVER 实现，为负面记忆赋予更高的重要性。
 
+> **编者匹配对照勘误（非原文）：**上段“人格相同、仅记忆机制不同”是**预期实验设计**，不是已审计上游人物初始文件保证的事实。Dolores 与 Maeve 的 `scratch.json` 中 `learned` 描述、日程和生活方式存在差异；即使 `innate` 核心特征相同，其他设定仍可能影响社交轨迹。要识别记忆架构效应，应将**同一份人格与日程配置**复制到所有条件，并随机分配处理到角色姓名，或采用配对交叉运行；统计单位是完整的独立模拟，而不是仅比较两个角色一次。
+
 ### 18.3.2 智能体架构
 
 每个智能体都维护以下内容：
@@ -122,7 +124,7 @@ $$
 
 本实验取各权重 $\alpha_i=1$。为了正确归因，两种变体除增加效价评分项以外，其余环境、模型和采样设置应保持一致。
 
-> **编者公式与操纵检查（非原文）：**公式 (18.1) 没有单独定义 $V$ 如何由**正／负／中性效价**映射为数值，也未说明“负面记忆乘以 1.5”的操作在归一化前还是归一化后发生。由于所有 $\alpha_i=1$，**1.5 不是 $\alpha_{\mathrm{val}}$ 的取值**，而应在 $V$ 的构造规则中另行明示。实现时需固定正、负记忆的符号和权重映射、分数尺度、截断及同分处理规则；用受控记忆样例先验证负面记忆确实更容易被检索，再讨论下游行为变化。未核对项目代码前，不应擅自把示意公式改成另一种确定形式。
+> **编者公式与操纵检查（非原文）：**公式 (18.1) 没有单独定义 $V$ 如何由**正／负／中性效价**映射为数值，也未说明“负面记忆乘以 1.5”的操作在归一化前还是归一化后发生。由于所有 $\alpha_i=1$，**1.5 不是 $\alpha_{\mathrm{val}}$ 的取值**，而应在 $V$ 的构造规则中另行明示。实现时需固定正、负记忆的符号和权重映射、分数尺度、截断及同分处理规则；用受控记忆样例先验证负面记忆确实更容易被检索，再讨论下游行为变化。下方编者注已经给出经源码核对的实际计算路径；仍应保留原书公式 (18.1) 以便溯源。
 
 > **编者源码歧义消解（非原文；依据 `fvdveen/generative_agents@64259883`）：**已定位 `simulation_server/agent/retrieve.go`，其中效价分数依次经过**绝对值 → 候选记忆内 min–max 归一化到 [0,1] → 对原始负效价按 `NegativityBias` 倍率放大 → 再乘 `ValenceWeight`**。公开的 Dolores 与 Maeve 初始设置均为 `valence_w=0`、`negativity_bias=1.0`、`asymetric_encoding=false`；仅将偏向倍率改为 1.5、却不启用效价权重，并不会改变总检索得分。两人的 `learned` 描述和日程也并非完全一致；课程实验还**同时**操纵负效价检索与非对称编码，不能凭单次结果分辨两者的独立效应。这里仅完成**源码静态核验，尚未运行社会模拟或证明因果效应**。详见[专项审计](https://github.com/liulewis67-ops/AgenticLargeLanguageModels/blob/main/reports/source-code-audit-2026-11-14-ch14-ch18.md)。
 
@@ -134,7 +136,7 @@ $$
 
 > **编者失效链接校勘（非原文）：**核查时上方原书引用的 `course-exercises` 分支在对应仓库中已不存在。实际[课程指南](https://github.com/DorotaMoravcikova/agentic-llm-course-excercises/blob/main/course/COURSE_GUIDE.md)指向可用的仿真代码仓库 [fvdveen/generative_agents](https://github.com/fvdveen/generative_agents)。为保留原书出处，上方历史链接未删除；安装运行应以课程指南为准。
 
-> **编者实验设计审校（非原文）：**建议预先定义**2×2 因子设计**：人格提示（基线／变体）× 记忆检索（标准／负面偏向），保持模型快照、温度、角色初始状态、地图、任务及调用预算一致。每种条件运行多个**独立初始化的完整模拟**，同一种子可以成对比较但不能把同一模拟的上千条对话当作上千次独立试验。分别报告规范形成、冲突频率和社交网络变化等预先确定指标的**效果量与不确定性区间**，并检验两因素交互作用。
+> **编者双因素消融方案（非原文）：**课程 [Exercise 3](https://github.com/DorotaMoravcikova/agentic-llm-course-excercises/blob/9ebba180b49491acc387de1ba5e8d42b0e0b4dfb/course/COURSE_GUIDE.md)实际上**同时开启两个改变**：**效价加权检索**与**非对称感官编码**。因此最小的 **2×2 因子设计应是“检索（关/开）× 编码（关/开）”**，共 (0,0)、(1,0)、(0,1)、(1,1) 四组；而不是把联合处理当作单一变量。关闭检索时设 `valence_w=0`；开启时校验 `valence_w>0` 与 `negativity_bias=1.5`，其他权重不变。开启编码时使用源码键名 `asymetric_encoding=true`（保留其实际拼写）。固定人格、日程、世界初始状态、种子、LLM 和预算，分别测量两个主效应及交互作用。人格提示变体应**另设实验**或使用更大的因子设计。独立样本是完整模拟，不是单条对话。参见[社会模拟复现矩阵](https://github.com/liulewis67-ops/AgenticLargeLanguageModels/blob/main/reports/social-simulation-ch17-ch18-reproduction-matrix.md)。
 
 > **编者外部效度审校（非原文）：**即使负面效价加权使模拟中的冲突率升高，也只能支持“在本模型和环境设置中，该检索干预改变了某些可观测行为”，**不能直接推断人类也会如此**。如需心理学意义上的外推，应使用独立的人类行为数据校准，并检查人格、网络、交互频率及评分器误差等替代解释。
 
@@ -161,11 +163,11 @@ $$
 
 ## 参考文献
 
-Roy F. Baumeister, Ellen Bratslavsky, Catrin Finkenauer, and Kathleen D. Vohs. Bad is stronger than good. *Review of General Psychology*, 5(4):323–370, 2001. [354](#page-1-0), [355](#page-2-0).
+- Roy F. Baumeister, Ellen Bratslavsky, Catrin Finkenauer, and Kathleen D. Vohs. Bad is stronger than good. *Review of General Psychology*, 5(4):323–370, 2001. [354](#page-1-0), [355](#page-2-0).
 
-Joon Sung Park, Lindsay Popowski, Carrie Cai, Meredith Ringel Morris, Percy Liang, and Michael S. Bernstein. Social simulacra: Creating populated prototypes for social computing systems. In *Proceedings of the 35th Annual ACM Symposium on User Interface Software and Technology*, pages 1–18, 2022. [354](#page-1-0).
+- Joon Sung Park, Joseph O'Brien, Carrie Jun Cai, Meredith Ringel Morris, Percy Liang, and Michael S. Bernstein. Generative agents: Interactive simulacra of human behavior. In *Proceedings of the 36th Annual ACM Symposium on User Interface Software and Technology*, pages 1–22, 2023. [353](#page-0-0), [354](#page-1-0), [355](#page-2-0), [357](#page-4-0).
 
-Joon Sung Park, Joseph O'Brien, Carrie Jun Cai, Meredith Ringel Morris, Percy Liang, and Michael S. Bernstein. Generative agents: Interactive simulacra of human behavior. In *Proceedings of the 36th Annual ACM Symposium on User Interface Software and Technology*, pages 1–22, 2023. [353](#page-0-0), [354](#page-1-0), [355](#page-2-0), [357](#page-4-0).
+- Joon Sung Park, Lindsay Popowski, Carrie Cai, Meredith Ringel Morris, Percy Liang, and Michael S. Bernstein. Social simulacra: Creating populated prototypes for social computing systems. In *Proceedings of the 35th Annual ACM Symposium on User Interface Software and Technology*, pages 1–18, 2022. [354](#page-1-0).
 
 <!-- Source: AgenticLargeLanguageModels.pdf; physical PDF pages 353-358; Marker split PDF pages 1-6. -->
 

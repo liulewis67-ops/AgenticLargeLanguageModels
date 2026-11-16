@@ -33,6 +33,8 @@ Edit the bilingual source Markdown under `docs/`. The `site/content/` directory 
 
 ## Academic quality audit
 
+The [Chapters 17–18 social-simulation audit](reports/academic-audit-2026-11-16-ch17-ch18-social-simulation.md) and its [four-arm reproducibility matrix](reports/social-simulation-ch17-ch18-reproduction-matrix.md) align 47/3 references and document unmatched personas, a zeroed valence term, and the required retrieval × asymmetric-encoding ablation.
+
 The [Chapters 14–16 source-fidelity and methodology audit](reports/academic-audit-2026-11-16-ch14-ch16-methodology.md) aligns 1/90/29 bibliography entries, repairs PDF-split identifiers and titles, and explains MCP implementation scope, experimental independence, and fair multi-agent budget matching.
 
 The [Chapters 11–13 tools, retrieval and clinical-evidence audit](reports/academic-audit-2026-11-15-ch11-ch13-tools-retrieval-clinical.md) normalizes 24/34/40 bilingual references, distinguishes historical LangChain APIs and MCP protocol scope, records the BM25 IDF notation error, and preserves the qualified result of the clinical RCT.
