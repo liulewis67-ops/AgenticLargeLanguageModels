@@ -478,5 +478,77 @@ assert.equal(66 * 3, 198,
   "CoordQA's 198 observations share 66 scenarios; never treat all questions as independent game episodes");
 checks++;
 
+
+// Chapters 17–18: official arXiv v1 HTML reference-order and causal-study guards.
+// These are static checks, not a repeat of the social simulation or PDF rendering.
+for (const chapter of [
+  { id: "17-emergent-behavior-in-multi-llm-systems", expected: 47,
+    first: "Andrew Ahn", last: "Shuyan Zhou", images: 8 },
+  { id: "18-case-study-4-simulating-societies", expected: 3,
+    first: "Roy F. Baumeister", last: "Joon Sung Park, Lindsay", images: 0 },
+]) {
+  const bibliographies = {};
+  for (const lang of ["en", "zh"]) {
+    const source = readFileSync(resolve(root, "docs", chapter.id, chapter.id + "-" + lang + ".md"), "utf8");
+    const title = lang === "en" ? "Bibliography" : "参考文献";
+    const heading = source.match(/^#{1,3}[ \t]+(?:<span id="page-\d+-0"><\/span>)?(?:Bibliography|参考文献)[ \t]*$/m);
+    assert.ok(heading && heading[0].includes(title),
+      "Missing Ch17–18 bibliography heading: " + chapter.id + " (" + lang + ")");
+    const body = source.slice(heading.index + heading[0].length);
+    bibliographies[lang] = body;
+    const refs = body.split("\n").filter(line => line.startsWith("- "));
+    assert.equal(refs.length, chapter.expected,
+      "Ch17–18 reference count diverged from arXiv v1: " + chapter.id + " (" + lang + ")");
+    assert.ok(refs[0].includes(chapter.first) && refs.at(-1).includes(chapter.last),
+      "Ch17–18 reference order changed: " + chapter.id + " (" + lang + ")");
+    assert.ok(body.split("\n").every(line => !line.trim() ||
+      line.startsWith("- ") ||
+      /^\{\d+\}-{3,}$/.test(line) ||
+      /^<span id="page-\d+-0"><\/span>$/.test(line) ||
+      /^<!-- Source: /.test(line)),
+      "Unresolved PDF-split reference fragment: " + chapter.id + " (" + lang + ")");
+    assert.ok(Math.max(...body.split("\n").map(line => line.length)) < 900,
+      "Merged reference line too long: " + chapter.id + " (" + lang + ")");
+    assert.equal((source.slice(0, heading.index).match(/!\[[^\]]*\]\([^)]+\)/g) || []).length,
+      chapter.images, "Ch17–18 figure assets changed: " + chapter.id + " (" + lang + ")");
+    if (chapter.id.startsWith("17-")) {
+      assert.ok(body.includes("Jinzhu Mao, Jinghua Piao, Huandong Wang") &&
+        body.includes("Jinghua Piao, Zhihong Lu, Chen Gao") &&
+        body.includes("Di Zhou, Chen Gao, Fengli Xu"),
+        "Ch17 two Piao and one Gao author chains split again: " + lang);
+      assert.ok(source.includes(lang === "en" ? "Editorial falsification plan (not in the source)"
+        : "编者可证伪实验方案（非原文）"),
+        "Ch17 no-interaction/scripted-message negative controls missing: " + lang);
+    }
+    if (chapter.id.startsWith("18-")) {
+      assert.ok(body.indexOf("Generative agents: Interactive simulacra") <
+        body.indexOf("Social simulacra: Creating populated prototypes"),
+        "Ch18 arXiv v1 Park reference order (2023 before 2022) lost: " + lang);
+      assert.ok(source.includes(lang === "en" ? "Editorial matched-control correction (not in the source)"
+        : "编者匹配对照勘误（非原文）"),
+        "Ch18 unmatched persona source-code warning missing: " + lang);
+      assert.ok(source.includes(lang === "en" ? "Editorial two-factor ablation (not in the source)"
+        : "编者双因素消融方案（非原文）"),
+        "Ch18 dual treatment retrieval vs sensory encoding warning missing: " + lang);
+      for (const key of ["valence_w=0", "valence_w>0", "negativity_bias=1.5", "asymetric_encoding=true"])
+        assert.ok(source.includes(key), "Ch18 important original config key missing: " + lang + " " + key);
+      assert.ok(source.includes("\\tag{18.1}"),
+        "Ch18 reference formula should be preserved: " + lang);
+    }
+    checks += 10;
+  }
+  assert.equal(bibliographies.en, bibliographies.zh,
+    "Ch17–18 bilingual bibliography parity error: " + chapter.id);
+  checks++;
+}
+const simulationMatrix = readFileSync(resolve(root, "reports/social-simulation-ch17-ch18-reproduction-matrix.md"), "utf8");
+for (const arm of ["R0E0", "R1E0", "R0E1", "R1E1"])
+  assert.ok(simulationMatrix.includes(arm), "Missing social-simulation factorial arm: " + arm);
+assert.ok(simulationMatrix.includes("未执行") &&
+  simulationMatrix.includes("完整模拟运行") &&
+  simulationMatrix.includes("asymetric_encoding"),
+  "Ch17–18 planned run matrix must state evidence limits, experimental unit and real upstream key");
+checks += 5;
+
 console.log("PASS " + checks + " manuscript provenance checks");
 console.log("These are static guards, NOT original-PDF rendering or research replication.");
