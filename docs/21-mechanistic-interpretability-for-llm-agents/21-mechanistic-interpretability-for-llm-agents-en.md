@@ -144,6 +144,8 @@ $$
 
 DLA allows researchers to determine which specific components are writing the correct answer into the stream, rather than just identifying where the answer becomes visible. In the study of factual recall, DLA often reveals that a single knowledge-producing layer provides the vast majority of the probability boost for the correct token.
 
+> **Editorial mathematical correction (not in the source):** Equation (21.5) is preserved exactly as in arXiv v1, but **LayerNorm is nonlinear**: generally `LN(a+b) ≠ LN(a)+LN(b)`. Normalizing each component update as `LN(Δh_ℓ)` therefore **does not** give an additive decomposition of final logits. For a controlled attribution, hold the final residual-stream normalization scale and unembedding/centering convention fixed, or report the **full-stream ablation difference** `unembed(LN(h) − LN(h−Δh_ℓ))` relative to a stated baseline. Equation (21.3) also calls the **post-Softmax** output `y` “logits”; strictly, logits are **pre-Softmax**, while `y` is a probability vector. A large DLA readout by itself does not prove a component is necessary. See the [algebraic regression counterexample](https://github.com/liulewis67-ops/AgenticLargeLanguageModels/blob/main/scripts/audit-formula-regressions.mjs); it does **not** run a transformer.
+
 ### 21.5.2 From the Logit Lens to the Tuned Lens
 
 While the initial logit lens is highly informative for the final third of a network, it often yields gibberish or high-entropy distributions in early layers. This occurs because the residual stream at layer 2, for example, is not yet formatted for the output distribution; it may be storing low-level positional information that is mathematically orthogonal to the unembedding matrix $W_U$.
