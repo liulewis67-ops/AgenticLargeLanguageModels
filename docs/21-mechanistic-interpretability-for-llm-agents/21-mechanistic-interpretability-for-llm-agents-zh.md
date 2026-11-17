@@ -119,6 +119,8 @@ $$
 \operatorname{DLA}(\ell)=\operatorname{LN}(\Delta h_\ell)W_U \tag{21.5}
 $$
 DLA 有助于确定哪些组件将正确答案写入残差流，而不只是判断答案何时变得可见。在事实回忆研究中，DLA 常显示，某个单独的知识生成层为正确词元带来了大部分概率增益。
+
+> **编者数学勘误（非原文）：**保留 arXiv v1 的式 (21.5)，但 **LayerNorm 是非线性算子**，通常 `LN(a+b) ≠ LN(a)+LN(b)`；因此分别计算 `LN(Δh_ℓ)` **不能**构成最终 logit 的可加分解。严谨的归因应固定最终残差流归一化尺度及 unembedding／去中心化约定，或相对于明确基线报告**完整残差流消融差值** `unembed(LN(h) − LN(h−Δh_ℓ))`。此外，式 (21.3) 把 **Softmax 之后**的 `y` 称为“logits”，但严格来说 logit 是 **Softmax 之前**的值，`y` 是概率向量。单个 DLA 读出数值较大也不能单独证明组件必需。所附[代数反例回归](https://github.com/liulewis67-ops/AgenticLargeLanguageModels/blob/main/scripts/audit-formula-regressions.mjs)并**未运行真实 Transformer**。
 ### 21.5.2 从 Logit Lens 到 Tuned Lens
 
 最初的 logit lens 在网络最后三分之一的层中通常很有用，但在较早层可能产生乱码或高熵分布。例如，第 2 层的残差流还没有形成适合输出分布的表示，其中可能包含与反嵌入矩阵 $W_U$ 在数学上正交的低级位置信息。为弥补这一不足，[Belrose et al.](#page-14-0) [\[2023\]](#page-14-0) 提出了*tuned lens*。它不直接使用固定的 $W_U$，而是为每一层训练一个仿射变换 $\phi_\ell$，将 $h_\ell$ 映射到 logit 空间：
