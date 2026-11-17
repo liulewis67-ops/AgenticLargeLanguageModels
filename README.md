@@ -33,6 +33,8 @@ pnpm docs:preview
 
 ## 学术审校与质量审计
 
+新增[全书最终质量审计与发布验收报告](reports/final-quality-audit-2026-11-17.md)：统一盘点 32 个内容单元、64 份双语 Markdown 与 472 页源文件映射，修复第 2/4/5/7 章 PDF 跨页书目断裂，新增 `pnpm docs:audit-book` 全书级引用完整性门禁。**自动质量验收不代表原 PDF 逐页视觉核验、逐句译文确认或论文实验独立复现。**
+
 新增[第 21–23 章机制可解释性与认知证据审校](reports/academic-audit-2026-11-17-ch21-ch23-interpretability-cognition.md)及[激活修补／心智理论／高风险智能体验证协议](reports/mechanistic-cognition-ch21-ch23-validation-protocol.md)：恢复第 21–22 章 **46/111** 条书目并保留第 23 章独立书目 **34** 条；特别审校 LayerNorm DLA 不可加性、Softmax 概率与 logits 混称，以及行为／表征／机制／内省与部署证据边界。
 
 新增[第 19–20 章书目与 SICA 学术审校](reports/academic-audit-2026-11-17-ch19-ch20-synthetic-sica.md)及[合成数据与 SICA 四臂复现实验矩阵](reports/synthetic-data-sica-reproducibility-matrix.md)：恢复 87/42 条中英文书目、修复被图 19.4 截断的 PersonaHub 引文，明确真实／合成数据递归训练与 SICA 评测中的污染、过拟合和预算匹配限制。
