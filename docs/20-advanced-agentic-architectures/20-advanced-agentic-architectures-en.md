@@ -141,6 +141,8 @@ The *Self-Improving Coding Agent* [\[Robeyns et al.,](#page-10-0) [2025\]](#page
 
 > **Editorial original-experiment and reproducibility check (not in the source):** The [ICLR 2025 workshop paper](https://openreview.net/pdf?id=rShJCyLsOr), §4 and Table 1, reports **17% at iteration 0 and 53% at iteration 14 on a fixed random subset of 50 SWE-bench Verified problems**, not the entire benchmark. At iteration 15 it reports 51%, so this was **not a monotonic trend**. The table also reports mean cost, time, and token use **averaged across all benchmark problems**, not solely SWE-bench. The [released code](https://github.com/MaximeRobeyns/self_improving_coding_agent) currently enables only GSM8K in its default benchmark registry; exact re-evaluation requires activating the original tasks and pinning the dataset revision, sample IDs, model snapshots, dependencies, run configuration, and logs. These results are **source-verified, not independently reproduced**, and without matched controls they do not alone isolate self-modification as the unique cause. [Evidence audit](https://github.com/liulewis67-ops/AgenticLargeLanguageModels/blob/main/reports/primary-evidence-audit-2026-11-15-ch19-ch20.md).
 
+> **Editorial adaptive-selection and safety-control protocol (not in the source):** Selecting the best checkpoint through repeated evaluations on the **same 50 SWE-bench Verified items** risks overfitting the selection set. Track *all* candidate revisions, failed tool calls, LLM snapshots and full evaluation costs; separate frozen **development, selection, and never-seen final test** tasks, with an immutable evaluator outside the agent's writable workspace. Compare self-editing with a fixed harness, a no-op edit control, and a compute-matched scaffold search or independent sampling baseline. Estimate **paired per-task differences with uncertainty intervals** across independently restarted runs; 15 adaptive iterations are not independent test replications. The historical 17%→53% figures are not new measurements. See the [run ledger](https://github.com/liulewis67-ops/AgenticLargeLanguageModels/blob/main/reports/synthetic-data-sica-reproducibility-matrix.md).
+
 The *Meta-Harness* [\[Lee et al.,](#page-9-0) [2026\]](#page-9-0) also achieves promising results using external memory and text optimization. Figure [20.4](#page-7-0) illustrates its workflow: (1) a filesystem stores the source code, execution traces, and scores of previous candidates, which the agent uses to generate a new harness; (2) the proposed harness is evaluated on
 
 {7}------------------------------------------------
@@ -195,7 +197,9 @@ This chapter has surveyed advanced architectures for both Transformers and agent
 
 {9}------------------------------------------------
 
-<span id="page-9-0"></span>- Adrien Ecoffet, Jeff Clune, and Joel Lehman. Open questions in creating safe open-ended AI: Tensions between control and creativity. In *Artificial Life Conference Proceedings 32*, pages 27–35. MIT Press, 2020. [397](#page-6-0)
+<span id="page-9-0"></span>
+
+- Adrien Ecoffet, Jeff Clune, and Joel Lehman. Open questions in creating safe open-ended AI: Tensions between control and creativity. In *Artificial Life Conference Proceedings 32*, pages 27–35. MIT Press, 2020. [397](#page-6-0)
 
 - Angeliki Giannou, Shashank Rajput, Jy-yong Sohn, Kangwook Lee, Jason D Lee, and Dimitris Papailiopoulos. Looped transformers as programmable computers. In *International Conference on Machine Learning*, pages 11398–11442. PMLR, 2023. [394](#page-3-0)
 
@@ -215,11 +219,11 @@ This chapter has surveyed advanced architectures for both Transformers and agent
 
 - Yaxin Luo, Haobin Jiang, Jialv Zou, Xu Huang, Wenhao Yan, Haodong Li, Zhengrong Yue, Jing Li, Xiaofu Chen, Xiaohan Zhao, et al. Autodesign: Meta-harness optimization for long-horizon agentic design. *arXiv preprint arXiv:2608.13560*, 2026. [398](#page-7-0)
 
-- Larisa Markeeva, Sean McLeish, Borja Ibarz, Wilfried Bounsi, Olga Kozlova, Alex Vitvitskyi, Charles Blundell, Tom Goldstein, Avi Schwarzschild, and Petar
+- Larisa Markeeva, Sean McLeish, Borja Ibarz, Wilfried Bounsi, Olga Kozlova, Alex Vitvitskyi, Charles Blundell, Tom Goldstein, Avi Schwarzschild, and Petar Veličković. The CLRS-Text algorithmic reasoning language benchmark. *arXiv preprint arXiv:2406.04229*, 2024. [393](#page-2-0)
 
 {10}------------------------------------------------
 
-<span id="page-10-0"></span>Veličković. The CLRS-Text algorithmic reasoning language benchmark. *arXiv preprint arXiv:2406.04229*, 2024. [393](#page-2-0)
+<span id="page-10-0"></span>
 
 - Amir Moeini, Jiuqi Wang, Jacob Beck, Ethan Blaser, Shimon Whiteson, Rohan Chandra, and Shangtong Zhang. A survey of in-context reinforcement learning. *arXiv preprint arXiv:2502.07978*, 2025. [395](#page-4-0)
 
@@ -249,7 +253,9 @@ This chapter has surveyed advanced architectures for both Transformers and agent
 
 {11}------------------------------------------------
 
-<span id="page-11-0"></span>- Jiuqi Wang, Ethan Blaser, Hadi Daneshmand, and Shangtong Zhang. Transformers learn temporal difference methods for in-context reinforcement learning. *arXiv preprint arXiv:2405.13861*, 2024. [392,](#page-1-0) [395,](#page-4-0) [396](#page-5-0)
+<span id="page-11-0"></span>
+
+- Jiuqi Wang, Ethan Blaser, Hadi Daneshmand, and Shangtong Zhang. Transformers learn temporal difference methods for in-context reinforcement learning. *arXiv preprint arXiv:2405.13861*, 2024. [392,](#page-1-0) [395,](#page-4-0) [396](#page-5-0)
 
 - Liu Yang, Kangwook Lee, Robert Nowak, and Dimitris Papailiopoulos. Looped transformers are better at learning learning algorithms. *arXiv preprint arXiv:2311.12424*, 2023. [394](#page-3-0)
 

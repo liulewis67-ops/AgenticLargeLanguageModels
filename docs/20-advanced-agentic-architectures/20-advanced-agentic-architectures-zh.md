@@ -142,6 +142,8 @@ LLM 擅长编写和评估计算机代码 [\[Zhuge et al.,](#page-11-0) [2024\]](
 
 > **编者原始实验与复现性核查（非原文）：**[ICLR 2025 Workshop 原论文](https://openreview.net/pdf?id=rShJCyLsOr)第 4 节及表 1 的 **17%（迭代 0）与 53%（迭代 14）**来自 **SWE-bench Verified 的固定随机 50 题子集**，不是完整测试集；迭代 15 的结果为 51%，所以**提升并非单调**。论文表中成本、耗时、token 的平均值覆盖**所有参与评测的基准题目**，不能当作 SWE-bench 单独统计。作者[公开代码](https://github.com/MaximeRobeyns/self_improving_coding_agent)当前默认仅启用 GSM8K 基准；精确复验须开启原始基准并锁定数据集版本、50 题 ID、模型快照、依赖、运行配置及日志。这是**原文与源码核验而非独立实验复现**；缺少资源匹配对照时，也不能将改善唯一归因于自修改。详见[原论文证据审计](https://github.com/liulewis67-ops/AgenticLargeLanguageModels/blob/main/reports/primary-evidence-audit-2026-11-15-ch19-ch20.md)。
 
+> **编者适应性选择偏差与安全对照（非原文）：**反复使用**相同的 50 道 SWE-bench Verified 题目**选取最优框架，可能过拟合该选择集。应保存全部候选修订、失败工具调用、LLM 快照和完整评测开销，将任务划分为独立冻结的**开发集、候选选择集和未见最终测试集**，评测器必须位于智能体不可写的信任域。对比**固定框架、空改动自修改、等算力框架搜索或独立采样**等基线，跨独立重启实验报告**逐题配对差异及置信区间**；15 次适应性迭代不能视作 15 次独立测试重复。17%→53% 是原论文历史结果，不是本轮重新测量值。参见[运行记录模板](https://github.com/liulewis67-ops/AgenticLargeLanguageModels/blob/main/reports/synthetic-data-sica-reproducibility-matrix.md)。
+
 Meta-Harness [\[Lee et al.,](#page-9-0) [2026\]](#page-9-0) 借助外部记忆与文本优化取得了良好结果。图 [20.4](#page-7-0) 展示了其流程：（1）文件系统保存历次候选框架的源代码、执行轨迹和得分，供智能体据此生成新框架；（2）在预设评估任务上测试新框架；（3）将新代码、推理轨迹与评估得分写入新的目录，然后进入下一轮迭代。
 {7}------------------------------------------------
 
@@ -195,7 +197,9 @@ Ren et al. 对自我改进型智能体设计进行了更全面的综述 [\[2026\
 
 {9}------------------------------------------------
 
-<span id="page-9-0"></span>- Adrien Ecoffet, Jeff Clune, and Joel Lehman. Open questions in creating safe open-ended AI: Tensions between control and creativity. In *Artificial Life Conference Proceedings 32*, pages 27–35. MIT Press, 2020. [397](#page-6-0)
+<span id="page-9-0"></span>
+
+- Adrien Ecoffet, Jeff Clune, and Joel Lehman. Open questions in creating safe open-ended AI: Tensions between control and creativity. In *Artificial Life Conference Proceedings 32*, pages 27–35. MIT Press, 2020. [397](#page-6-0)
 
 - Angeliki Giannou, Shashank Rajput, Jy-yong Sohn, Kangwook Lee, Jason D Lee, and Dimitris Papailiopoulos. Looped transformers as programmable computers. In *International Conference on Machine Learning*, pages 11398–11442. PMLR, 2023. [394](#page-3-0)
 
@@ -215,11 +219,11 @@ Ren et al. 对自我改进型智能体设计进行了更全面的综述 [\[2026\
 
 - Yaxin Luo, Haobin Jiang, Jialv Zou, Xu Huang, Wenhao Yan, Haodong Li, Zhengrong Yue, Jing Li, Xiaofu Chen, Xiaohan Zhao, et al. Autodesign: Meta-harness optimization for long-horizon agentic design. *arXiv preprint arXiv:2608.13560*, 2026. [398](#page-7-0)
 
-- Larisa Markeeva, Sean McLeish, Borja Ibarz, Wilfried Bounsi, Olga Kozlova, Alex Vitvitskyi, Charles Blundell, Tom Goldstein, Avi Schwarzschild, and Petar
+- Larisa Markeeva, Sean McLeish, Borja Ibarz, Wilfried Bounsi, Olga Kozlova, Alex Vitvitskyi, Charles Blundell, Tom Goldstein, Avi Schwarzschild, and Petar Veličković. The CLRS-Text algorithmic reasoning language benchmark. *arXiv preprint arXiv:2406.04229*, 2024. [393](#page-2-0)
 
 {10}------------------------------------------------
 
-<span id="page-10-0"></span>Veličković. The CLRS-Text algorithmic reasoning language benchmark. *arXiv preprint arXiv:2406.04229*, 2024. [393](#page-2-0)
+<span id="page-10-0"></span>
 
 - Amir Moeini, Jiuqi Wang, Jacob Beck, Ethan Blaser, Shimon Whiteson, Rohan Chandra, and Shangtong Zhang. A survey of in-context reinforcement learning. *arXiv preprint arXiv:2502.07978*, 2025. [395](#page-4-0)
 
@@ -237,7 +241,7 @@ Ren et al. 对自我改进型智能体设计进行了更全面的综述 [\[2026\
 
 - Nikunj Saunshi, Nishanth Dikkala, Zhiyuan Li, Sanjiv Kumar, and Sashank J Reddi. Reasoning with latent thoughts: On the power of looped transformers. *arXiv preprint arXiv:2502.17416*, 2025. [394](#page-3-0)
 
-- Jürgen Schmidhuber. Gödel machines: Fully self-referential optimal universal self-improvers. In *Artificial general intelligence*, pages 199–226. Springer, 2007. [397](#page-6-0)
+- Jürgen Schmidhuber. Gödel machines: Fully self-referential optimal universal self-improvers. In *Artificial General Intelligence*, pages 199–226. Springer, 2007. [397](#page-6-0)
 
 - John Schultz, Jakub Adamek, Matej Jusup, Marc Lanctot, Michael Kaisers, Sarah Perrin, Daniel Hennes, Jeremy Shar, Cannada Lewis, Anian Ruoss, et al. Mastering board games by external and internal planning with language models. *arXiv preprint arXiv:2412.12119*, 2024. [393](#page-2-0)
 
@@ -249,7 +253,9 @@ Ren et al. 对自我改进型智能体设计进行了更全面的综述 [\[2026\
 
 {11}------------------------------------------------
 
-<span id="page-11-0"></span>- Jiuqi Wang, Ethan Blaser, Hadi Daneshmand, and Shangtong Zhang. Transformers learn temporal difference methods for in-context reinforcement learning. *arXiv preprint arXiv:2405.13861*, 2024. [392,](#page-1-0) [395,](#page-4-0) [396](#page-5-0)
+<span id="page-11-0"></span>
+
+- Jiuqi Wang, Ethan Blaser, Hadi Daneshmand, and Shangtong Zhang. Transformers learn temporal difference methods for in-context reinforcement learning. *arXiv preprint arXiv:2405.13861*, 2024. [392,](#page-1-0) [395,](#page-4-0) [396](#page-5-0)
 
 - Liu Yang, Kangwook Lee, Robert Nowak, and Dimitris Papailiopoulos. Looped transformers are better at learning learning algorithms. *arXiv preprint arXiv:2311.12424*, 2023. [394](#page-3-0)
 
