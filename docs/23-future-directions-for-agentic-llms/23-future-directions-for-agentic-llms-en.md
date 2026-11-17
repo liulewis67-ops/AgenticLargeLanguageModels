@@ -132,6 +132,8 @@ The boundary between lawful persuasion, exploitation of trust, and fraud can be 
 
 ### 23.2.8 Limitations of Applications
 
+> **Editorial deployment-evidence checklist (not in the source):** A successful demonstration is **not** evidence of production readiness. For each high-stakes agent, define the **unit of evaluation** as a complete end-to-end case (not an isolated model answer), human approval and override points, tool permission boundaries, audit/rollback, and *pre-registered* thresholds for unsafe actions, false negatives, latency and distribution shifts. Evaluate research, e-commerce, trading and medicine on their **own domain data and applicable rules**; coding-benchmark scores do not validate clinical or financial decisions. Classify conclusions as **observed / hypothesis / governance choice**; require independent review before irreversible actions.
+
 Agentic demonstrations can illustrate potential value, but a successful proof of concept is not the same as reliable operation or accountable deployment. The relevant evidence and safeguards vary considerably by domain.
 
 #### 23.2.8.1 AI Science
