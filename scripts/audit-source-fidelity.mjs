@@ -550,5 +550,92 @@ assert.ok(simulationMatrix.includes("未执行") &&
   "Ch17–18 planned run matrix must state evidence limits, experimental unit and real upstream key");
 checks += 5;
 
+
+// Chapters 19–20 arXiv v1 bibliography, page-break, and reproducibility guards.
+// These checks are static and use only synthetic local fixtures; no model training.
+for (const chapter of [
+  { id: "19-synthetic-data-generation", refs: 87, first: "Rishabh Agarwal",
+    last: "Yifei Zhou", images: 5, sourcePageAnchors: 13 },
+  { id: "20-advanced-agentic-architectures", refs: 42, first: "Harold Abelson",
+    last: "Mingchen Zhuge", images: 6, sourcePageAnchors: 3 },
+]) {
+  const bibs = {};
+  for (const lang of ["en", "zh"]) {
+    const content = readFileSync(resolve(root, "docs", chapter.id, chapter.id + "-" + lang + ".md"), "utf8");
+    const expectedTitle = lang === "en" ? "Bibliography" : "参考文献";
+    const heading = content.match(/^#{1,3}[ \t]+(?:<span id="page-\d+-0"><\/span>)?(?:Bibliography|参考文献)[ \t]*$/m);
+    assert.ok(heading && heading[0].includes(expectedTitle),
+      "Ch19–20 bibliography heading lost: " + chapter.id + " " + lang);
+    const bib = content.slice(heading.index + heading[0].length);
+    bibs[lang] = bib;
+    const entries = bib.split("\n").filter(line => line.startsWith("- "));
+    assert.equal(entries.length, chapter.refs,
+      "Ch19–20 original arXiv source reference count: " + chapter.id + " " + lang);
+    assert.ok(entries[0].includes(chapter.first) && entries.at(-1).includes(chapter.last),
+      "Ch19–20 original source reference order: " + chapter.id + " " + lang);
+    assert.ok(bib.split("\n").every(line => !line.trim() ||
+      line.startsWith("- ") ||
+      /^\{\d+\}-{3,}$/.test(line) ||
+      /^<span id="page-\d+-0"><\/span>$/.test(line)),
+      "Ch19–20 orphaned PDF bibliography continuation: " + chapter.id + " " + lang);
+    assert.ok(Math.max(...bib.split("\n").map(line => line.length)) < 1200,
+      "Ch19–20 bibliography merged multiple references: " + chapter.id + " " + lang);
+    assert.equal((bib.match(/<span id="page-\d+-0"><\/span>/g) || []).length,
+      chapter.sourcePageAnchors,
+      "Ch19–20 bibliography page anchors changed: " + chapter.id + " " + lang);
+    const main = content.slice(0, heading.index);
+    assert.equal((main.match(/!\[[^\]]*\]\([^)]+\)/g) || []).length,
+      chapter.images,
+      "Ch19–20 original figure asset count: " + chapter.id + " " + lang);
+    if (chapter.id.startsWith("19-")) {
+      assert.ok(bib.includes("Nuria Oliver, Jonathan Scarlett") &&
+        bib.includes("Ryen W White, Doug Burger") &&
+        bib.includes("Avi Singh, John D. Co-Reyes") &&
+        bib.includes("Nicholas Carlini, Matthew Jagielski"),
+        "Ch19 split conference editor, author, or separate references: " + lang);
+      assert.ok(main.includes("PersonaHub [Ge et al., 2025](#page-17-0)") &&
+        !main.includes("PersonaHub [\\[Ge]") &&
+        !/^\s*\[et al\.,\]\(#page-17-0\)/m.test(main),
+        "Ch19 figure-interrupted PersonaHub citation returned: " + lang);
+      assert.ok(main.includes(lang === "en" ? "Editorial data-provenance and collapse stress test (not in the source)"
+        : "编者数据溯源与模型崩溃压力测试（非原文）"),
+        "Ch19 model-collapse evidence limitation and data lineage absent: " + lang);
+      assert.ok(main.includes("\\tag{19.1}"), "Ch19 source distillation formula was removed: " + lang);
+    }
+    if (chapter.id.startsWith("20-")) {
+      assert.ok(bib.includes("Petar Veličković. The CLRS-Text") &&
+        bib.includes("Adrien Ecoffet") &&
+        bib.includes("Jiuqi Wang, Ethan Blaser"),
+        "Ch20 PDF-split source bibliography recurred: " + lang);
+      assert.ok(main.includes(lang === "en" ? "Editorial adaptive-selection and safety-control protocol (not in the source)"
+        : "编者适应性选择偏差与安全对照（非原文）"),
+        "Ch20 SICA adaptive evaluation selection note missing: " + lang);
+      assert.ok(main.includes("53%") && main.includes("50") &&
+        main.includes(lang === "en" ? "fixed random subset" : "固定随机 50 题子集"),
+        "Ch20 SICA historical outcome has lost its sample-size constraint: " + lang);
+    }
+    checks += 11;
+  }
+  assert.equal(bibs.en, bibs.zh,
+    "Ch19–20 bibliography no longer identical in both languages: " + chapter.id);
+  checks++;
+}
+const syntheticMatrix = readFileSync(resolve(root, "reports/synthetic-data-sica-reproducibility-matrix.md"), "utf8");
+for (const arm of ["H0", "S1", "M2", "A3", "F0", "F1", "F2", "F3"])
+  assert.ok(syntheticMatrix.includes(arm), "Synthetic/SICA run ledger missing arm " + arm);
+assert.ok(syntheticMatrix.includes("尚未执行") && syntheticMatrix.includes("source_group") &&
+  syntheticMatrix.includes("未见最终测试集"),
+  "Synthetic/SICA run ledger must identify non-executed status and leakage controls");
+// Deterministic, synthetic source-group split fixture; not a check of real datasets.
+const fixtureTrain = [{sourceGroup:"patient_A"},{sourceGroup:"task_B"},{sourceGroup:"task_B"}];
+const fixtureTest = [{sourceGroup:"task_C"},{sourceGroup:"patient_D"}];
+const trainingGroups = new Set(fixtureTrain.map(item => item.sourceGroup));
+assert.ok(fixtureTest.every(item => !trainingGroups.has(item.sourceGroup)),
+  "Synthetic split fixture unexpectedly contains shared source groups");
+assert.equal(new Set([...fixtureTrain,{sourceGroup:"task_C"}]
+  .map(item => item.sourceGroup)).has(fixtureTest[0].sourceGroup), true,
+  "Synthetic split fixture should detect positive source-group leakage");
+checks += 11;
+
 console.log("PASS " + checks + " manuscript provenance checks");
 console.log("These are static guards, NOT original-PDF rendering or research replication.");
