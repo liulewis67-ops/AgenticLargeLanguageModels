@@ -74,5 +74,35 @@ assert.equal(patchingRecovery({ clean: 0.5, corrupt: 0.5, patched: 0.6 }), null)
 assert.equal(patchingRecovery({ clean: 0.5000000001, corrupt: 0.5, patched: 0.6 }), null);
 checks++;
 
-console.log(`PASS ${checks} arithmetic smoke checks (Ch18 retrieval, Ch21 recovery)`);
+
+// Chapter 21 Equation (21.5) is kept unchanged for source fidelity, but LayerNorm
+// is not additive. This counterexample is an algebra test, not model inference.
+function layerNorm(x, epsilon = 1e-5) {
+  const mean = x.reduce((sum, v) => sum + v, 0) / x.length;
+  const variance = x.reduce((sum, v) => sum + (v - mean) ** 2, 0) / x.length;
+  const scale = Math.sqrt(variance + epsilon);
+  return x.map(v => (v - mean) / scale);
+}
+const a = [1, 2, -2], b = [-0.5, 0.7, 1.2];
+const combined = layerNorm(a.map((v, i) => v + b[i]));
+const falselyAdditive = layerNorm(a).map((v, i) => v + layerNorm(b)[i]);
+assert.ok(combined.some((v, i) => Math.abs(v - falselyAdditive[i]) > 0.1),
+  "Ch21 DLA: nonlinearity counterexample should refute LN(a+b)=LN(a)+LN(b)");
+checks++;
+
+// Full-residual normalization difference is NOT the same as LN(component).
+const ablatedDifference = combined.map((v, i) => v - layerNorm(a)[i]);
+assert.ok(ablatedDifference.some((v, i) => Math.abs(v - layerNorm(b)[i]) > 0.1),
+  "Ch21 DLA: a full-residual ablation cannot be replaced by independent component normalization");
+checks++;
+
+// Equation (21.3) applies Softmax and therefore denotes probabilities, not logits.
+const preSoftmax = [2, 0];
+const exponentials = preSoftmax.map(x => Math.exp(x - Math.max(...preSoftmax)));
+const probabilities = exponentials.map(x => x / exponentials.reduce((sum, y) => sum + y, 0));
+close(probabilities.reduce((sum, y) => sum + y, 0), 1, "post-softmax probabilities");
+assert.notDeepEqual(probabilities, preSoftmax, "Ch21 post-Softmax vector cannot be the raw logits");
+checks++;
+
+console.log(`PASS ${checks} arithmetic smoke checks (Ch18 retrieval, Ch21 recovery and DLA nonadditivity)`);
 console.log("Note: these DO NOT run original Go/Python code, LLMs, models, or simulations.");
