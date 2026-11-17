@@ -144,6 +144,8 @@ $$
 
 DLA allows researchers to determine which specific components are writing the correct answer into the stream, rather than just identifying where the answer becomes visible. In the study of factual recall, DLA often reveals that a single knowledge-producing layer provides the vast majority of the probability boost for the correct token.
 
+> **Editorial mathematical correction (not in the source):** Equation (21.5) is preserved exactly as in arXiv v1, but **LayerNorm is nonlinear**: generally `LN(a+b) ≠ LN(a)+LN(b)`. Normalizing each component update as `LN(Δh_ℓ)` therefore **does not** give an additive decomposition of final logits. For a controlled attribution, hold the final residual-stream normalization scale and unembedding/centering convention fixed, or report the **full-stream ablation difference** `unembed(LN(h) − LN(h−Δh_ℓ))` relative to a stated baseline. Equation (21.3) also calls the **post-Softmax** output `y` “logits”; strictly, logits are **pre-Softmax**, while `y` is a probability vector. A large DLA readout by itself does not prove a component is necessary. See the [algebraic regression counterexample](https://github.com/liulewis67-ops/AgenticLargeLanguageModels/blob/main/scripts/audit-formula-regressions.mjs); it does **not** run a transformer.
+
 ### 21.5.2 From the Logit Lens to the Tuned Lens
 
 While the initial logit lens is highly informative for the final third of a network, it often yields gibberish or high-entropy distributions in early layers. This occurs because the residual stream at layer 2, for example, is not yet formatted for the output distribution; it may be storing low-level positional information that is mathematically orthogonal to the unembedding matrix $W_U$.
@@ -323,106 +325,112 @@ For foundational work in the field, see the [Transformer Circuits](https://trans
 
 ## Bibliography
 
-Guillaume Alain and Yoshua Bengio. Understanding intermediate layers using linear classifier probes. *arXiv preprint arXiv:1610.01644*, 2016. [404](#page-1-0)
+- Guillaume Alain and Yoshua Bengio. Understanding intermediate layers using linear classifier probes. *arXiv preprint arXiv:1610.01644*, 2016. [404](#page-1-0)
 
-Ameen Ali, Thomas Schnake, Oliver Eberle, Grégoire Montavon, Klaus-Robert Müller, and Lior Wolf. XAI for Transformers: Better Explanations through Conservative Propagation. In *International Conference on Machine Learning*, pages 435–451. PMLR, 2022. [403](#page-0-0)
+- Ameen Ali, Thomas Schnake, Oliver Eberle, Grégoire Montavon, Klaus-Robert Müller, and Lior Wolf. XAI for Transformers: Better Explanations through Conservative Propagation. In *International Conference on Machine Learning*, pages 435–451. PMLR, 2022. [403](#page-0-0)
 
-Yonatan Belinkov. Probing classifiers: Promises, shortcomings, and advances. *Computational Linguistics*, 48(1):207–219, 2022. [404](#page-1-0)
+- Yonatan Belinkov. Probing classifiers: Promises, shortcomings, and advances. *Computational Linguistics*, 48(1):207–219, 2022. [404](#page-1-0)
 
-Nora Belrose, Zach Furman, Logan Smith, Danny Halawi, Igor Ostrovsky, Lev McKinney, Stella Biderman, and Jacob Steinhardt. Eliciting latent predictions from transformers with the tuned lens. *arXiv preprint arXiv:2303.08112*, 2023. [409](#page-6-0)
+- Nora Belrose, Zach Furman, Logan Smith, Danny Halawi, Igor Ostrovsky, Lev McKinney, Stella Biderman, and Jacob Steinhardt. Eliciting latent predictions from transformers with the tuned lens. *arXiv preprint arXiv:2303.08112*, 2023. [409](#page-6-0)
 
-Leonard Bereska and Efstratios Gavves. Mechanistic interpretability for AI safety–a review. *arXiv preprint arXiv:2404.14082*, 2024. [405](#page-2-0)
+- Leonard Bereska and Efstratios Gavves. Mechanistic interpretability for AI safety–a review. *arXiv preprint arXiv:2404.14082*, 2024. [405](#page-2-0)
 
-Steven Bills, Nick Cammarata, Dan Mossing, Henk Tillman, Leo Gao, Gabriel Goh, Ilya Sutskever, Jan Leike, Jeff Wu, and William Saunders. Language models can explain neurons in language models. [paper](https://openaipublic.blob.core.windows.net/neuron-explainer/paper/index.html), 2023. [416](#page-13-0)
+- Steven Bills, Nick Cammarata, Dan Mossing, Henk Tillman, Leo Gao, Gabriel Goh, Ilya Sutskever, Jan Leike, Jeff Wu, and William Saunders. Language models can explain neurons in language models. [paper](https://openaipublic.blob.core.windows.net/neuron-explainer/paper/index.html), 2023. [416](#page-13-0)
 
-Sid Black, Lee Sharkey, Leo Grinsztajn, Eric Winsor, Dan Braun, Jacob Merizian, Kip Parker, Carlos Ramón Guevara, Beren Millidge, Gabriel Alfour, et al. Interpreting neural networks through the polytope lens. *arXiv preprint arXiv:2211.12312*, 2022. [405](#page-2-0)
+- Sid Black, Lee Sharkey, Leo Grinsztajn, Eric Winsor, Dan Braun, Jacob Merizian, Kip Parker, Carlos Ramón Guevara, Beren Millidge, Gabriel Alfour, et al. Interpreting neural networks through the polytope lens. *arXiv preprint arXiv:2211.12312*, 2022. [405](#page-2-0)
 
-Trenton Bricken, Adly Templeton, Joshua Batson, Brian Chen, Adam Jermyn, Tom Conerly, Nick Turner, Cem Anil, Carson Denison, Amanda Askell, Robert Lasenby, Yifan Wu, Shauna Kravec, Nicholas Schiefer, Tim Maxwell, Nicholas Joseph, Zac Hatfield-Dodds, Alex Tamkin, Karina Nguyen, Brayden McLean, Josiah E Burke, Tristan Hume, Shan Carter, Tom Henighan, and Christopher Olah. Towards monosemanticity: Decomposing language models with dictionary learning. *Transformer Circuits Thread*, 2023. https://transformer-circuits.pub/2023/monosemanticfeatures/index.html. [407,](#page-4-0) [415](#page-12-0)
+- Trenton Bricken, Adly Templeton, Joshua Batson, Brian Chen, Adam Jermyn, Tom Conerly, Nick Turner, Cem Anil, Carson Denison, Amanda Askell, Robert Lasenby, Yifan Wu, Shauna Kravec, Nicholas Schiefer, Tim Maxwell, Nicholas Joseph, Zac Hatfield-Dodds, Alex Tamkin, Karina Nguyen, Brayden McLean, Josiah E Burke, Tristan Hume, Shan Carter, Tom Henighan, and Christopher Olah. Towards monosemanticity: Decomposing language models with dictionary learning. *Transformer Circuits Thread*, 2023. https://transformer-circuits.pub/2023/monosemanticfeatures/index.html. [407,](#page-4-0) [415](#page-12-0)
 
-Lawrence Chan, Adria Garriga-Alonso, Nicholas Goldowsky-Dill, Ryan Greenblatt, Jenny Nitishinskaya, Ansh Radhakrishnan, Buck Shlegeris,
+- Lawrence Chan, Adria Garriga-Alonso, Nicholas Goldowsky-Dill, Ryan Greenblatt, Jenny Nitishinskaya, Ansh Radhakrishnan, Buck Shlegeris, and Nate Thomas. Causal scrubbing, a method for rigorously testing interpretability hypotheses. *AI Alignment Forum*, 2022. [Causal scrubbing](https://www.alignmentforum.org/posts/JvZhhzycHu2Yd57RN/causal-scrubbing-a-method-for-rigorously-testing). [416](#page-13-0)
 
 {15}------------------------------------------------
 
-<span id="page-15-0"></span>and Nate Thomas. Causal scrubbing, a method for rigorously testing interpretability hypotheses. *AI Alignment Forum*, 2022. [Causal scrubbing](https://www.alignmentforum.org/posts/JvZhhzycHu2Yd57RN/causal-scrubbing-a-method-for-rigorously-testing). [416](#page-13-0)
+<span id="page-15-0"></span>
 
-Xi Chen, Aske Plaat, and Niki van Stein. How does chain of thought think? mechanistic interpretability of chain-of-thought reasoning with sparse autoencoding. In *AAAI2026, arXiv preprint arXiv:2507.22928*, 2026. [405](#page-2-0)
+- Xi Chen, Aske Plaat, and Niki van Stein. How does chain of thought think? mechanistic interpretability of chain-of-thought reasoning with sparse autoencoding. In *AAAI2026, arXiv preprint arXiv:2507.22928*, 2026. [405](#page-2-0)
 
-Arthur Conmy, Augustine Mavor-Parker, Aengus Lynch, Stefan Heimersheim, and Adria Garriga-Alonso. Towards automated circuit discovery for mechanistic interpretability. *Advances in Neural Information Processing Systems*, 36:16318–16352, 2023. [405,](#page-2-0) [412](#page-9-0)
+- Arthur Conmy, Augustine Mavor-Parker, Aengus Lynch, Stefan Heimersheim, and Adria Garriga-Alonso. Towards automated circuit discovery for mechanistic interpretability. *Advances in Neural Information Processing Systems*, 36:16318–16352, 2023. [405,](#page-2-0) [412](#page-9-0)
 
-Hoagy Cunningham, Aidan Ewart, Logan Riggs, Robert Huben, and Lee Sharkey. Sparse autoencoders find highly interpretable features in language models. *arXiv preprint arXiv:2309.08600*, 2023. [405,](#page-2-0) [415](#page-12-0)
+- Hoagy Cunningham, Aidan Ewart, Logan Riggs, Robert Huben, and Lee Sharkey. Sparse autoencoders find highly interpretable features in language models. *arXiv preprint arXiv:2309.08600*, 2023. [405,](#page-2-0) [415](#page-12-0)
 
-Austin L. Davis and Gita Sukthankar. Decoding chess mastery: A mechanistic analysis of a chess language transformer model. In *International Conference on Artificial General Intelligence*, pages 63–72. Springer, 2024. [405](#page-2-0)
+- Austin L. Davis and Gita Sukthankar. Decoding chess mastery: A mechanistic analysis of a chess language transformer model. In *International Conference on Artificial General Intelligence*, pages 63–72. Springer, 2024. [405](#page-2-0)
 
-Jacob Dunefsky, Philippe Chlenski, and Neel Nanda. Transcoders find interpretable llm feature circuits. *Advances in Neural Information Processing Systems*, 37:24375–24410, 2024. [415](#page-12-0)
+- Jacob Dunefsky, Philippe Chlenski, and Neel Nanda. Transcoders find interpretable llm feature circuits. *Advances in Neural Information Processing Systems*, 37:24375–24410, 2024. [415](#page-12-0)
 
-Nelson Elhage, Neel Nanda, Catherine Olsson, Tom Henighan, Nicholas Joseph, Ben Mann, Amanda Askell, Yuntao Bai, Anna Chen, Tom Conerly, et al. A mathematical framework for transformer circuits. *Transformer Circuits Thread*, 1(1):12, 2021. [406,](#page-3-0) [411](#page-8-0)
+- Nelson Elhage, Neel Nanda, Catherine Olsson, Tom Henighan, Nicholas Joseph, Ben Mann, Amanda Askell, Yuntao Bai, Anna Chen, Tom Conerly, et al. A mathematical framework for transformer circuits. *Transformer Circuits Thread*, 1(1):12, 2021. [406,](#page-3-0) [411](#page-8-0)
 
-Nelson Elhage, Tristan Hume, Catherine Olsson, Nicholas Schiefer, Tom Henighan, Shauna Kravec, Zac Hatfield-Dodds, Robert Lasenby, Dawn Drain, Carol Chen, et al. Toy models of superposition. *arXiv preprint arXiv:2209.10652*, 2022. [407](#page-4-0)
+- Nelson Elhage, Tristan Hume, Catherine Olsson, Nicholas Schiefer, Tom Henighan, Shauna Kravec, Zac Hatfield-Dodds, Robert Lasenby, Dawn Drain, Carol Chen, et al. Toy models of superposition. *arXiv preprint arXiv:2209.10652*, 2022. [407](#page-4-0)
 
-Javier Ferrando, Gabriele Sarti, Arianna Bisazza, and Marta R. Costa-Jussà. A primer on the inner workings of transformer-based language models. *arXiv preprint arXiv:2405.00208*, 2024. [405](#page-2-0)
+- Javier Ferrando, Gabriele Sarti, Arianna Bisazza, and Marta R. Costa-Jussà. A primer on the inner workings of transformer-based language models. *arXiv preprint arXiv:2405.00208*, 2024. [405](#page-2-0)
 
-Leo Gao, Tom Dupré la Tour, Henk Tillman, Gabriel Goh, Rajan Troll, Alec Radford, Ilya Sutskever, Jan Leike, and Jeffrey Wu. Scaling and evaluating sparse autoencoders. *arXiv preprint arXiv:2406.04093*, 2024. [415](#page-12-0)
+- Leo Gao, Tom Dupré la Tour, Henk Tillman, Gabriel Goh, Rajan Troll, Alec Radford, Ilya Sutskever, Jan Leike, and Jeffrey Wu. Scaling and evaluating sparse autoencoders. *arXiv preprint arXiv:2406.04093*, 2024. [415](#page-12-0)
 
-Qi Huang, Sofoklis Kitharidis, Thomas Bäck, and Niki van Stein. TX-Gen: Multi-Objective optimization for sparse counterfactual explanations for time-series classification. In *Proceedings of the 1st International Conference on Explainable AI for Neural and Symbolic Methods - Volume 1: EXPLAINS*, pages 62–74. INSTICC, SciTePress, 2024. ISBN 978-989-758-720-7. doi: 10.5220/0013066400003886. [404](#page-1-0)
+- Qi Huang, Sofoklis Kitharidis, Thomas Bäck, and Niki van Stein. TX-Gen: Multi-Objective optimization for sparse counterfactual explanations for time-series classification. In *Proceedings of the 1st International Conference on Explainable AI for Neural and Symbolic Methods - Volume 1: EXPLAINS*, pages 62–74. INSTICC, SciTePress, 2024. ISBN 978-989-758-720-7. doi: 10.5220/0013066400003886. [404](#page-1-0)
 
 {16}------------------------------------------------
 
-<span id="page-16-0"></span>Matīss Kalnāre, Sofoklis Kitharidis, Thomas Bäck, and Niki van Stein. Mechanistic interpretability for Transformer-Based Time-Series Classification. In Francesco Marcelloni, Kurosh Madani, Niki van Stein, and Joaquim Filipe, editors, *Computational Intelligence*, pages 249–270, Cham, 2026. Springer Nature Switzerland. ISBN 978-3-032-15638-9. [416](#page-13-0)
+<span id="page-16-0"></span>
 
-Amir-Hossein Karimi, Gilles Barthe, Borja Balle, and Isabel Valera. Model-agnostic counterfactual explanations for consequential decisions. In *International conference on artificial intelligence and statistics*, pages 895–905. PMLR, 2020. [404](#page-1-0)
+- Matīss Kalnāre, Sofoklis Kitharidis, Thomas Bäck, and Niki van Stein. Mechanistic interpretability for Transformer-Based Time-Series Classification. In Francesco Marcelloni, Kurosh Madani, Niki van Stein, and Joaquim Filipe, editors, *Computational Intelligence*, pages 249–270, Cham, 2026. Springer Nature Switzerland. ISBN 978-3-032-15638-9. [416](#page-13-0)
 
-Teuvo Kohonen. Self-organized formation of topologically correct feature maps. *Biological cybernetics*, 43(1):59–69, 1982. [404](#page-1-0)
+- Amir-Hossein Karimi, Gilles Barthe, Borja Balle, and Isabel Valera. Model-agnostic counterfactual explanations for consequential decisions. In *International conference on artificial intelligence and statistics*, pages 895–905. PMLR, 2020. [404](#page-1-0)
 
-Jack Lindsey, Wes Gurnee, Emmanuel Ameisen, Brian Chen, Adam Pearce, Nicholas L. Turner, Craig Citro, David Abrahams, Shan Carter, Basil Hosmer, Jonathan Marcus, Michael Sklar, Adly Templeton, Trenton Bricken, Callum McDougall, Hoagy Cunningham, Thomas Henighan, Adam Jermyn, Andy Jones, Andrew Persic, Zhenyi Qi, T. Ben Thompson, Sam Zimmerman, Kelley Rivoire, Thomas Conerly, Chris Olah, and Joshua Batson. On the biology of a large language model. *Transformer Circuits Thread*, 2025. URL [https://transformer-circuits.pub/2025/](https://transformer-circuits.pub/2025/attribution-graphs/biology.html) [attribution-graphs/biology.html](https://transformer-circuits.pub/2025/attribution-graphs/biology.html). [405](#page-2-0)
+- Teuvo Kohonen. Self-organized formation of topologically correct feature maps. *Biological cybernetics*, 43(1):59–69, 1982. [404](#page-1-0)
 
-Ziming Liu, Eric Gan, and Max Tegmark. Seeing is believing: Brain-inspired modular training for mechanistic interpretability. *Entropy*, 26(1):41, 2023. [408](#page-5-0)
+- Jack Lindsey, Wes Gurnee, Emmanuel Ameisen, Brian Chen, Adam Pearce, Nicholas L. Turner, Craig Citro, David Abrahams, Shan Carter, Basil Hosmer, Jonathan Marcus, Michael Sklar, Adly Templeton, Trenton Bricken, Callum McDougall, Hoagy Cunningham, Thomas Henighan, Adam Jermyn, Andy Jones, Andrew Persic, Zhenyi Qi, T. Ben Thompson, Sam Zimmerman, Kelley Rivoire, Thomas Conerly, Chris Olah, and Joshua Batson. On the biology of a large language model. *Transformer Circuits Thread*, 2025. URL [https://transformer-circuits.pub/2025/](https://transformer-circuits.pub/2025/attribution-graphs/biology.html) [attribution-graphs/biology.html](https://transformer-circuits.pub/2025/attribution-graphs/biology.html). [405](#page-2-0)
 
-Scott M Lundberg and Su-In Lee. A unified approach to interpreting model predictions. *Advances in neural information processing systems*, 30, 2017. [404](#page-1-0)
+- Ziming Liu, Eric Gan, and Max Tegmark. Seeing is believing: Brain-inspired modular training for mechanistic interpretability. *Entropy*, 26(1):41, 2023. [408](#page-5-0)
 
-Aleksandar Makelov, George Lange, and Neel Nanda. Towards principled evaluations of sparse autoencoders for interpretability and control. *arXiv preprint arXiv:2405.08366*, 2024. [405](#page-2-0)
+- Scott M Lundberg and Su-In Lee. A unified approach to interpreting model predictions. *Advances in neural information processing systems*, 30, 2017. [404](#page-1-0)
 
-Samuel Marks, Can Rager, Eric J Michaud, Yonatan Belinkov, David Bau, and Aaron Mueller. Sparse feature circuits: Discovering and editing interpretable causal graphs in language models. *arXiv preprint arXiv:2403.19647*, 2024. [412](#page-9-0)
+- Aleksandar Makelov, George Lange, and Neel Nanda. Towards principled evaluations of sparse autoencoders for interpretability and control. *arXiv preprint arXiv:2405.08366*, 2024. [405](#page-2-0)
 
-Kevin Meng, David Bau, Alex Andonian, and Yonatan Belinkov. Locating and editing factual associations in GPT. *Advances in neural information processing systems*, 35: 17359–17372, 2022. [413](#page-10-0)
+- Samuel Marks, Can Rager, Eric J Michaud, Yonatan Belinkov, David Bau, and Aaron Mueller. Sparse feature circuits: Discovering and editing interpretable causal graphs in language models. *arXiv preprint arXiv:2403.19647*, 2024. [412](#page-9-0)
 
-Dang Minh, H Xiang Wang, Y Fen Li, and Tan N Nguyen. Explainable Artificial Intelligence: A Comprehensive Review. *Artificial Intelligence Review*, pages 1–66, 2022. [403](#page-0-0)
-C. Molnar. *Interpretable Machine Learning*. Leanpub, 2020. ISBN 9780244768522. URL <https://books.google.nl/books?id=jBm3DwAAQBAJ>. [404](#page-1-0)
+- Kevin Meng, David Bau, Alex Andonian, and Yonatan Belinkov. Locating and editing factual associations in GPT. *Advances in neural information processing systems*, 35: 17359–17372, 2022. [413](#page-10-0)
+
+- Dang Minh, H Xiang Wang, Y Fen Li, and Tan N Nguyen. Explainable Artificial Intelligence: A Comprehensive Review. *Artificial Intelligence Review*, pages 1–66, 2022. [403](#page-0-0)
+- C. Molnar. *Interpretable Machine Learning*. Leanpub, 2020. ISBN 9780244768522. URL <https://books.google.nl/books?id=jBm3DwAAQBAJ>. [404](#page-1-0)
 
 {17}------------------------------------------------
 
-<span id="page-17-0"></span>Neel Nanda, Lawrence Chan, Tom Lieberum, Jess Smith, and Jacob Steinhardt. Progress measures for grokking via mechanistic interpretability. *arXiv preprint arXiv:2301.05217*, 2023. [405,](#page-2-0) [416](#page-13-0)
+<span id="page-17-0"></span>
 
-Catherine Olsson, Nelson Elhage, Neel Nanda, Nicholas Joseph, Nova DasSarma, Tom Henighan, Ben Mann, Amanda Askell, Yuntao Bai, Anna Chen, et al. In-context learning and induction heads. *arXiv preprint arXiv:2209.11895*, 2022. [411](#page-8-0)
+- Neel Nanda, Lawrence Chan, Tom Lieberum, Jess Smith, and Jacob Steinhardt. Progress measures for grokking via mechanistic interpretability. *arXiv preprint arXiv:2301.05217*, 2023. [405,](#page-2-0) [416](#page-13-0)
 
-Daking Rai, Yilun Zhou, Shi Feng, Abulhair Saparov, and Ziyu Yao. A practical review of mechanistic interpretability for transformer-based language models. *arXiv preprint arXiv:2407.02646*, 2024. [405](#page-2-0)
+- Catherine Olsson, Nelson Elhage, Neel Nanda, Nicholas Joseph, Nova DasSarma, Tom Henighan, Ben Mann, Amanda Askell, Yuntao Bai, Anna Chen, et al. In-context learning and induction heads. *arXiv preprint arXiv:2209.11895*, 2022. [411](#page-8-0)
 
-Senthooran Rajamanoharan, Tom Lieberum, Nicolas Sonnerat, Arthur Conmy, Vikrant Varma, János Kramár, and Neel Nanda. Jumping ahead: Improving reconstruction ´ fidelity with JumpReLU sparse autoencoders. *arXiv preprint arXiv:2407.14435*, 2024. [415](#page-12-0)
+- Daking Rai, Yilun Zhou, Shi Feng, Abulhair Saparov, and Ziyu Yao. A practical review of mechanistic interpretability for transformer-based language models. *arXiv preprint arXiv:2407.02646*, 2024. [405](#page-2-0)
 
-Joseph Redmon, Santosh Divvala, Ross Girshick, and Ali Farhadi. You only look once: Unified, real-time object detection. In *Proceedings of the IEEE conference on computer vision and pattern recognition*, pages 779–788, 2016. [404](#page-1-0)
+- Senthooran Rajamanoharan, Tom Lieberum, Nicolas Sonnerat, Arthur Conmy, Vikrant Varma, János Kramár, and Neel Nanda. Jumping ahead: Improving reconstruction ´ fidelity with JumpReLU sparse autoencoders. *arXiv preprint arXiv:2407.14435*, 2024. [415](#page-12-0)
 
-Shaoqing Ren, Kaiming He, Ross Girshick, Xiangyu Zhang, and Jian Sun. Object detection networks on convolutional feature maps. *IEEE transactions on pattern analysis and machine intelligence*, 39(7):1476–1481, 2016. [404](#page-1-0)
+- Joseph Redmon, Santosh Divvala, Ross Girshick, and Ali Farhadi. You only look once: Unified, real-time object detection. In *Proceedings of the IEEE conference on computer vision and pattern recognition*, pages 779–788, 2016. [404](#page-1-0)
 
-Marco Tulio Ribeiro, Sameer Singh, and Carlos Guestrin. “Why Should I Trust You?” Explaining the Predictions of Any Classifier. In *Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining*, pages 1135–1144, 2016. [404](#page-1-0)
+- Shaoqing Ren, Kaiming He, Ross Girshick, Xiangyu Zhang, and Jian Sun. Object detection networks on convolutional feature maps. *IEEE transactions on pattern analysis and machine intelligence*, 39(7):1476–1481, 2016. [404](#page-1-0)
 
-Thiago Rios, Bas van Stein, Stefan Menzel, Thomas Bäck, Bernhard Sendhoff, and Patricia Wollstadt. Feature visualization for 3d point cloud autoencoders. In *2020 International Joint Conference on Neural Networks (IJCNN)*, pages 1–9. IEEE, 2020. [403](#page-0-0)
+- Marco Tulio Ribeiro, Sameer Singh, and Carlos Guestrin. “Why Should I Trust You?” Explaining the Predictions of Any Classifier. In *Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining*, pages 1135–1144, 2016. [404](#page-1-0)
 
-Mansi Sakarvadia, Arham Khan, Aswathy Ajith, Daniel Grzenda, Nathaniel Hudson, Andre Bauer, Kyle Chard, and Ian Foster. Attention lens: A tool for mechanistically interpreting the attention head information retrieval mechanism. *arXiv preprint arXiv:2310.16270*, 2023. [410](#page-7-0)
+- Thiago Rios, Bas van Stein, Stefan Menzel, Thomas Bäck, Bernhard Sendhoff, and Patricia Wollstadt. Feature visualization for 3d point cloud autoencoders. In *2020 International Joint Conference on Neural Networks (IJCNN)*, pages 1–9. IEEE, 2020. [403](#page-0-0)
 
-Ramprasaath R Selvaraju, Michael Cogswell, Abhishek Das, Ramakrishna Vedantam, Devi Parikh, and Dhruv Batra. Grad-CAM: Visual Explanations from Deep Networks via Gradient-Based Localization. In *Proceedings of the IEEE international conference on computer vision*, pages 618–626, 2017. [403](#page-0-0)
+- Mansi Sakarvadia, Arham Khan, Aswathy Ajith, Daniel Grzenda, Nathaniel Hudson, Andre Bauer, Kyle Chard, and Ian Foster. Attention lens: A tool for mechanistically interpreting the attention head information retrieval mechanism. *arXiv preprint arXiv:2310.16270*, 2023. [410](#page-7-0)
 
-Lee Sharkey, Bilal Chughtai, Joshua Batson, Jack Lindsey, Jeff Wu, Lucius Bushnaq, Nicholas Goldowsky-Dill, Stefan Heimersheim, Alejandro Ortega, Joseph Bloom, et al. Open problems in mechanistic interpretability. *arXiv preprint arXiv:2501.16496*, 2025. [405](#page-2-0)
+- Ramprasaath R Selvaraju, Michael Cogswell, Abhishek Das, Ramakrishna Vedantam, Devi Parikh, and Dhruv Batra. Grad-CAM: Visual Explanations from Deep Networks via Gradient-Based Localization. In *Proceedings of the IEEE international conference on computer vision*, pages 618–626, 2017. [403](#page-0-0)
+
+- Lee Sharkey, Bilal Chughtai, Joshua Batson, Jack Lindsey, Jeff Wu, Lucius Bushnaq, Nicholas Goldowsky-Dill, Stefan Heimersheim, Alejandro Ortega, Joseph Bloom, et al. Open problems in mechanistic interpretability. *arXiv preprint arXiv:2501.16496*, 2025. [405](#page-2-0)
 
 {18}------------------------------------------------
 
-<span id="page-18-0"></span>Aaquib Syed, Can Rager, and Arthur Conmy. Attribution patching outperforms automated circuit discovery. In *Proceedings of the 7th BlackboxNLP Workshop: Analyzing and Interpreting Neural Networks for NLP*, pages 407–416, 2024. [414](#page-11-0)
+<span id="page-18-0"></span>
 
-Bas Van Stein, Elena Raponi, Zahra Sadeghi, Niek Bouman, Roeland CHJ Van Ham, and Thomas Bäck. A comparison of global sensitivity analysis methods for explainable AI with an application in genomic prediction. *IEEE Access*, 10:103364–103381, 2022. [403](#page-0-0)
+- Aaquib Syed, Can Rager, and Arthur Conmy. Attribution patching outperforms automated circuit discovery. In *Proceedings of the 7th BlackboxNLP Workshop: Analyzing and Interpreting Neural Networks for NLP*, pages 407–416, 2024. [414](#page-11-0)
 
-Jesse Vig, Sebastian Gehrmann, Yonatan Belinkov, Sharon Qian, Daniel Nevo, Yaron Singer, and Stuart Shieber. Investigating gender bias in language models using causal mediation analysis. *Advances in neural information processing systems*, 33:12388– 12401, 2020. [412](#page-9-0)
+- Bas Van Stein, Elena Raponi, Zahra Sadeghi, Niek Bouman, Roeland CHJ Van Ham, and Thomas Bäck. A comparison of global sensitivity analysis methods for explainable AI with an application in genomic prediction. *IEEE Access*, 10:103364–103381, 2022. [403](#page-0-0)
 
-Kevin Wang, Alexandre Variengien, Arthur Conmy, Buck Shlegeris, and Jacob Steinhardt. Interpretability in the wild: a circuit for indirect object identification in GPT-2 small. *arXiv preprint arXiv:2211.00593*, 2022. [411,](#page-8-0) [413](#page-10-0)
+- Jesse Vig, Sebastian Gehrmann, Yonatan Belinkov, Sharon Qian, Daniel Nevo, Yaron Singer, and Stuart Shieber. Investigating gender bias in language models using causal mediation analysis. *Advances in neural information processing systems*, 33:12388– 12401, 2020. [412](#page-9-0)
 
-Zhenyu Wang. Logitlens4llms: Extending logit lens analysis to modern large language models, 2025. URL <https://arxiv.org/abs/2503.11667>. [408](#page-5-0)
+- Kevin Wang, Alexandre Variengien, Arthur Conmy, Buck Shlegeris, and Jacob Steinhardt. Interpretability in the wild: a circuit for indirect object identification in GPT-2 small. *arXiv preprint arXiv:2211.00593*, 2022. [411,](#page-8-0) [413](#page-10-0)
+
+- Zhenyu Wang. Logitlens4llms: Extending logit lens analysis to modern large language models, 2025. URL <https://arxiv.org/abs/2503.11667>. [408](#page-5-0)
 
 {19}------------------------------------------------
 

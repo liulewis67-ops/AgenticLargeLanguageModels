@@ -33,6 +33,8 @@ pnpm docs:preview
 
 ## 学术审校与质量审计
 
+新增[第 21–23 章机制可解释性与认知证据审校](reports/academic-audit-2026-11-17-ch21-ch23-interpretability-cognition.md)及[激活修补／心智理论／高风险智能体验证协议](reports/mechanistic-cognition-ch21-ch23-validation-protocol.md)：恢复第 21–22 章 **46/111** 条书目并保留第 23 章独立书目 **34** 条；特别审校 LayerNorm DLA 不可加性、Softmax 概率与 logits 混称，以及行为／表征／机制／内省与部署证据边界。
+
 新增[第 19–20 章书目与 SICA 学术审校](reports/academic-audit-2026-11-17-ch19-ch20-synthetic-sica.md)及[合成数据与 SICA 四臂复现实验矩阵](reports/synthetic-data-sica-reproducibility-matrix.md)：恢复 87/42 条中英文书目、修复被图 19.4 截断的 PersonaHub 引文，明确真实／合成数据递归训练与 SICA 评测中的污染、过拟合和预算匹配限制。
 
 新增[第 17–18 章学术审校与因果解释报告](reports/academic-audit-2026-11-16-ch17-ch18-social-simulation.md)及[四组社会模拟复现实验矩阵](reports/social-simulation-ch17-ch18-reproduction-matrix.md)：恢复 47/3 条参考文献、修复跨行作者名单；重点纠正人物匹配混杂、检索权重被禁用时的零效应，以及检索×非对称编码的 2×2 消融设置。

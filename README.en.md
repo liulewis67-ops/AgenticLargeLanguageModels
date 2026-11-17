@@ -33,6 +33,8 @@ Edit the bilingual source Markdown under `docs/`. The `site/content/` directory 
 
 ## Academic quality audit
 
+The [Chapters 21–23 scholarly audit](reports/academic-audit-2026-11-17-ch21-ch23-interpretability-cognition.md) and [activation-patching, cognition and high-stakes evaluation protocol](reports/mechanistic-cognition-ch21-ch23-validation-protocol.md) normalize 46/111 bibliography entries while retaining Chapter 23's separate 34 references; they identify the nonadditivity of LayerNorm DLA, the Softmax/logits distinction, and the limits of introspection and deployment claims.
+
 The [Chapters 19–20 academic source audit](reports/academic-audit-2026-11-17-ch19-ch20-synthetic-sica.md) and the [synthetic-data/SICA reproduction ledger](reports/synthetic-data-sica-reproducibility-matrix.md) restore 87/42 bilingual references, repair the Figure 19.4-interrupted PersonaHub citation, and document source leakage, recursive model collapse and SICA adaptive selection controls.
 
 The [Chapters 17–18 social-simulation audit](reports/academic-audit-2026-11-16-ch17-ch18-social-simulation.md) and its [four-arm reproducibility matrix](reports/social-simulation-ch17-ch18-reproduction-matrix.md) align 47/3 references and document unmatched personas, a zeroed valence term, and the required retrieval × asymmetric-encoding ablation.

@@ -637,5 +637,88 @@ assert.equal(new Set([...fixtureTrain,{sourceGroup:"task_C"}]
   "Synthetic split fixture should detect positive source-group leakage");
 checks += 11;
 
+
+// Chapters 21–23 (v1 HTML source): bibliography, mathematical evidence, and clinical-deployment guards.
+// Static reference checks and synthetic arithmetic only; not PDF/LLM experimental replication.
+for (const chapter of [
+  { id: "21-mechanistic-interpretability-for-llm-agents", refs: 46,
+    first: "Guillaume Alain", last: "Zhenyu Wang", images: 7, anchors: 4 },
+  { id: "22-cognitive-perspectives-on-agentic-llms", refs: 111,
+    first: "Mostafa Abdou", last: "Andy Zou", images: 1, anchors: 11 },
+]) {
+  const bibliography = {};
+  for (const lang of ["en", "zh"]) {
+    const textBody = readFileSync(resolve(root, "docs", chapter.id, chapter.id + "-" + lang + ".md"), "utf8");
+    const heading = textBody.match(/^## (?:Bibliography|参考文献)$/m);
+    assert.ok(heading && heading[0].includes(lang === "en" ? "Bibliography" : "参考文献"),
+      "Chapter 21–22 source bibliography heading missing: " + chapter.id + " " + lang);
+    const bib = textBody.slice(heading.index + heading[0].length);
+    bibliography[lang] = bib;
+    const entries = bib.split("\n").filter(line => line.startsWith("- "));
+    assert.equal(entries.length, chapter.refs,
+      "Chapter 21–22 v1 original reference count mismatch: " + chapter.id + " " + lang);
+    assert.ok(entries[0].includes(chapter.first) && entries.at(-1).includes(chapter.last),
+      "Chapter 21–22 source reference order drift: " + chapter.id + " " + lang);
+    assert.ok(bib.split("\n").every(line => !line.trim() ||
+      line.startsWith("- ") ||
+      /^\{\d+\}-{3,}$/.test(line) ||
+      /^<span id="page-\d+-0"><\/span>$/.test(line)),
+      "Chapter 21–22 new PDF continuation fragment: " + chapter.id + " " + lang);
+    assert.equal((bib.match(/id="page-\d+-0"/g) || []).length,
+      chapter.anchors, "Chapter 21–22 original bibliography page anchors changed: " + chapter.id + " " + lang);
+    assert.equal((textBody.slice(0, heading.index).match(/!\[[^\]]*\]\([^)]+\)/g) || []).length,
+      chapter.images, "Chapter 21–22 figure count changed: " + chapter.id + " " + lang);
+    if (chapter.id.startsWith("21-")) {
+      assert.ok(bib.includes("Lawrence Chan, Adria Garriga-Alonso") &&
+        bib.includes("Buck Shlegeris, and Nate Thomas. Causal scrubbing"),
+        "Chapter 21 cross-page Causal Scrubbing author list split: " + lang);
+      assert.ok(textBody.includes("\\tag{21.3}") && textBody.includes("\\tag{21.5}") &&
+        textBody.includes("\\tag{21.7}") && textBody.includes("\\tag{21.10}"),
+        "Chapter 21 source equations lost: " + lang);
+      assert.ok(textBody.includes(lang === "en" ? "Editorial mathematical correction (not in the source)"
+        : "编者数学勘误（非原文）"),
+        "Chapter 21 LayerNorm DLA warning missing: " + lang);
+      assert.ok(textBody.includes("LN(a+b)") && textBody.includes("Softmax"),
+        "Chapter 21 non-additivity and probability/logit language missing: " + lang);
+    }
+    if (chapter.id.startsWith("22-")) {
+      assert.ok(bib.includes('id="page-24-0"') &&
+        bib.includes("Felix J. Binder") && bib.includes("Looking Inward"),
+        "Chapter 22 Binder entry original embedded page-24 anchor lost: " + lang);
+      assert.ok(textBody.includes(lang === "en" ? "Editorial measurement-control note (not in the source)"
+        : "编者测量控制审校（非原文）"),
+        "Chapter 22 confidence/monitoring versus privileged introspection caution missing: " + lang);
+    }
+    checks += 9;
+  }
+  assert.equal(bibliography.en, bibliography.zh,
+    "Chapters 21–22 bibliography is not bilingual-identical: " + chapter.id);
+  checks++;
+}
+const referenceModule = {};
+for (const lang of ["en","zh"]) {
+  const document = readFileSync(resolve(root, "docs/23-future-directions-for-agentic-llms/23-future-directions-for-agentic-llms-" + lang + ".md"), "utf8");
+  const referenceText = readFileSync(resolve(root, "docs/90-references/90-references-" + lang + ".md"), "utf8");
+  assert.equal((referenceText.match(/^- /gm) || []).length, 34,
+    "Chapter 23 external 34-entry bibliography reference count incorrect: " + lang);
+  assert.ok(document.includes("../90-references/90-references-" + lang + ".md"),
+    "Chapter 23 closing references navigation missing: " + lang);
+  assert.ok(document.includes(lang === "en" ? "Editorial deployment-evidence checklist (not in the source)"
+    : "编者高风险部署证据清单（非原文）"),
+    "Chapter 23 high-stakes end-to-end evaluation/approval note missing: " + lang);
+  referenceModule[lang] = referenceText.replace(/-en\.md/g,"-LANG.md").replace(/-zh\.md/g,"-LANG.md")
+    .replace("## Bibliography", "## BIBLIOGRAPHY").replace("## 参考文献","## BIBLIOGRAPHY");
+  checks += 3;
+}
+assert.equal(referenceModule.en, referenceModule.zh,
+  "Ch23 standalone bibliography source metadata/anchors do not align between languages");
+const protocol = readFileSync(resolve(root, "reports/mechanistic-cognition-ch21-ch23-validation-protocol.md"), "utf8");
+for (const arm of ["P0", "P1", "P2", "P3"])
+  assert.ok(protocol.includes(arm), "Ch21 causal patching matrix missing arm " + arm);
+assert.ok(protocol.includes("未执行") && protocol.includes("未定义/不稳定") &&
+  protocol.includes("评测单位"),
+  "Mechanistic, cognitive and high-stakes validation protocol must state limits");
+checks += 6;
+
 console.log("PASS " + checks + " manuscript provenance checks");
 console.log("These are static guards, NOT original-PDF rendering or research replication.");
