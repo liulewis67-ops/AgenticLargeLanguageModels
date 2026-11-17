@@ -33,6 +33,8 @@ Edit the bilingual source Markdown under `docs/`. The `site/content/` directory 
 
 ## Academic quality audit
 
+The [Chapters 19–20 academic source audit](reports/academic-audit-2026-11-17-ch19-ch20-synthetic-sica.md) and the [synthetic-data/SICA reproduction ledger](reports/synthetic-data-sica-reproducibility-matrix.md) restore 87/42 bilingual references, repair the Figure 19.4-interrupted PersonaHub citation, and document source leakage, recursive model collapse and SICA adaptive selection controls.
+
 The [Chapters 17–18 social-simulation audit](reports/academic-audit-2026-11-16-ch17-ch18-social-simulation.md) and its [four-arm reproducibility matrix](reports/social-simulation-ch17-ch18-reproduction-matrix.md) align 47/3 references and document unmatched personas, a zeroed valence term, and the required retrieval × asymmetric-encoding ablation.
 
 The [Chapters 14–16 source-fidelity and methodology audit](reports/academic-audit-2026-11-16-ch14-ch16-methodology.md) aligns 1/90/29 bibliography entries, repairs PDF-split identifiers and titles, and explains MCP implementation scope, experimental independence, and fair multi-agent budget matching.
