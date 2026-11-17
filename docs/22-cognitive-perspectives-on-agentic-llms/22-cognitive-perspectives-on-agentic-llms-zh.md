@@ -400,244 +400,264 @@ LLM 可以用第一人称描述体验、想法和情绪，但这些**自我报�
  
 ## 参考文献
 
-Mostafa Abdou, Artur Kulmizev, Daniel Hershcovich, Stella Frank, Ellie Pavlick, and Anders Søgaard. Can Language Models Encode Perceptual Structure Without Grounding? A Case Study in Color. In Arianna Bisazza and Omri Abend, editors, *Proceedings of the 25th Conference on Computational Natural Language Learning*, pages 109–132, Online, November 2021. Association for Computational Linguistics. doi: 10.18653/v1/2021.conll-1.9. URL <https://aclanthology.org/2021.conll-1.9/>. [426](#page-3-0), [429](#page-6-0)
+- Mostafa Abdou, Artur Kulmizev, Daniel Hershcovich, Stella Frank, Ellie Pavlick, and Anders Søgaard. Can Language Models Encode Perceptual Structure Without Grounding? A Case Study in Color. In Arianna Bisazza and Omri Abend, editors, *Proceedings of the 25th Conference on Computational Natural Language Learning*, pages 109–132, Online, November 2021. Association for Computational Linguistics. doi: 10.18653/v1/2021.conll-1.9. URL <https://aclanthology.org/2021.conll-1.9/>. [426](#page-3-0), [429](#page-6-0)
 
-OpenAI, Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia Leoni Aleman, Diogo Almeida, Janko Altenschmidt, Sam Altman, Shyamal Anadkat, Red Avila, Igor Babuschkin, Suchir Balaji, Valerie Balcom, Paul Baltescu, Haiming Bao, Mohammad Bavarian, Jeff Belgum, Irwan Bello, Jake Berdine, Gabriel Bernadett-Shapiro, Christopher Berner, Lenny Bogdonoff, Oleg Boiko, Madelaine Boyd, Anna-Luisa Brakman, Greg Brockman, et al. GPT-4 Technical Report, 2024. URL <https://arxiv.org/abs/2303.08774>. [437](#page-14-0)
+- OpenAI, Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia Leoni Aleman, Diogo Almeida, Janko Altenschmidt, Sam Altman, Shyamal Anadkat, Red Avila, Igor Babuschkin, Suchir Balaji, Valerie Balcom, Paul Baltescu, Haiming Bao, Mohammad Bavarian, Jeff Belgum, Irwan Bello, Jake Berdine, Gabriel Bernadett-Shapiro, Christopher Berner, Lenny Bogdonoff, Oleg Boiko, Madelaine Boyd, Anna-Luisa Brakman, Greg Brockman, et al. GPT-4 Technical Report, 2024. URL <https://arxiv.org/abs/2303.08774>. [437](#page-14-0)
 
-Elif Akata, Lion Schulz, Julian Coda-Forno, Seong Joon Oh, Matthias Bethge, and Eric Schulz. Playing Repeated Games with Large Language Models. *Nature Human Behaviour*, 9(7):1380–1390, 2025. doi: 10.1038/s41562-025-02172-y. URL <https://www.nature.com/articles/s41562-025-02172-y>. [435](#page-12-0)
+- Elif Akata, Lion Schulz, Julian Coda-Forno, Seong Joon Oh, Matthias Bethge, and Eric Schulz. Playing Repeated Games with Large Language Models. *Nature Human Behaviour*, 9(7):1380–1390, 2025. doi: 10.1038/s41562-025-02172-y. URL <https://www.nature.com/articles/s41562-025-02172-y>. [435](#page-12-0)
 
 {23}------------------------------------------------
 
-<span id="page-23-0"></span>Guillaume Alain and Yoshua Bengio. Understanding intermediate layers using linear classifier probes. *arXiv preprint arXiv:1610.01644*, 2016. URL <https://arxiv.org/abs/1610.01644>. [425](#page-2-0)
+<span id="page-23-0"></span>
 
-Ian Apperly. *Mindreaders: the Cognitive Basis of "Theory of Mind"*. Psychology Press, 2011. URL <https://www.routledge.com/Mindreaders-The-Cognitive-Basis-of-Theory-of-Mind/Apperly/p/book/9780203833926>. [434](#page-11-0)
+- Guillaume Alain and Yoshua Bengio. Understanding intermediate layers using linear classifier probes. *arXiv preprint arXiv:1610.01644*, 2016. URL <https://arxiv.org/abs/1610.01644>. [425](#page-2-0)
 
-Ian A. Apperly and Stephen A. Butterfill. Do humans have two systems to track beliefs and belief-like states? *Psychological Review*, 116(4):953–970, 2009. doi: 10.1037/a0016923. URL <https://doi.org/10.1037/a0016923>. [435](#page-12-0)
+- Ian Apperly. *Mindreaders: the Cognitive Basis of "Theory of Mind"*. Psychology Press, 2011. URL <https://www.routledge.com/Mindreaders-The-Cognitive-Basis-of-Theory-of-Mind/Apperly/p/book/9780203833926>. [434](#page-11-0)
 
-Jaan Aru, Matthew E. Larkum, and James M. Shine. The feasibility of artificial consciousness through the lens of neuroscience. *Trends in Neurosciences*, 46(12):1008–1017, 2023. doi: 10.1016/j.tins.2023.09.009. URL <https://doi.org/10.1016/j.tins.2023.09.009>. [442](#page-19-0)
+- Ian A. Apperly and Stephen A. Butterfill. Do humans have two systems to track beliefs and belief-like states? *Psychological Review*, 116(4):953–970, 2009. doi: 10.1037/a0016923. URL <https://doi.org/10.1037/a0016923>. [435](#page-12-0)
 
-Amos Azaria and Tom Mitchell. The Internal State of an LLM Knows When It’s Lying. In Houda Bouamor, Juan Pino, and Kalika Bali, editors, *Findings of the Association for Computational Linguistics: EMNLP 2023*, pages 967–976, Singapore, 2023. Association for Computational Linguistics. doi: 10.18653/v1/2023.findings-emnlp.68. URL <https://aclanthology.org/2023.findings-emnlp.68/>. [426](#page-3-0)
+- Jaan Aru, Matthew E. Larkum, and James M. Shine. The feasibility of artificial consciousness through the lens of neuroscience. *Trends in Neurosciences*, 46(12):1008–1017, 2023. doi: 10.1016/j.tins.2023.09.009. URL <https://doi.org/10.1016/j.tins.2023.09.009>. [442](#page-19-0)
 
-Yonatan Belinkov. Probing Classifiers: Promises, Shortcomings, and Advances. *Computational Linguistics*, 48(1):207–219, 2022. doi: 10.1162/coli_a_00422. URL <https://aclanthology.org/2022.cl-1.7/>. [425](#page-2-0)
+- Amos Azaria and Tom Mitchell. The Internal State of an LLM Knows When It’s Lying. In Houda Bouamor, Juan Pino, and Kalika Bali, editors, *Findings of the Association for Computational Linguistics: EMNLP 2023*, pages 967–976, Singapore, 2023. Association for Computational Linguistics. doi: 10.18653/v1/2023.findings-emnlp.68. URL <https://aclanthology.org/2023.findings-emnlp.68/>. [426](#page-3-0)
 
-Ziv Ben-Zion, Zohar Elyoseph, Tobias Spiller, and Teddy Lazebnik. Inducing state anxiety in LLM agents reproduces human-like biases in consumer decision-making. *npj Artificial Intelligence*, 2:55, 2026. doi: 10.1038/s44387-026-00122-1. URL <https://doi.org/10.1038/s44387-026-00122-1>. [443](#page-20-0)
+- Yonatan Belinkov. Probing Classifiers: Promises, Shortcomings, and Advances. *Computational Linguistics*, 48(1):207–219, 2022. doi: 10.1162/coli_a_00422. URL <https://aclanthology.org/2022.cl-1.7/>. [425](#page-2-0)
 
-Emily M. Bender and Alexander Koller. Climbing towards NLU: On meaning, form, and understanding in the age of data. In Dan Jurafsky, Joyce Chai, Natalie Schluter, and Joel Tetreault, editors, *Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics*, pages 5185–5198, Online, July 2020. Association for Computational Linguistics. doi: 10.18653/v1/2020.acl-main.463. URL <https://aclanthology.org/2020.acl-main.463/>. [428](#page-5-0)
+- Ziv Ben-Zion, Zohar Elyoseph, Tobias Spiller, and Teddy Lazebnik. Inducing state anxiety in LLM agents reproduces human-like biases in consumer decision-making. *npj Artificial Intelligence*, 2:55, 2026. doi: 10.1038/s44387-026-00122-1. URL <https://doi.org/10.1038/s44387-026-00122-1>. [443](#page-20-0)
 
-Emily M. Bender, Timnit Gebru, Angelina McMillan-Major, and Shmargaret Shmitchell. On the Dangers of Stochastic Parrots: Can Language Models Be Too Big? In *Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency*, FAccT '21, pages 610–623, New York, NY, USA, 2021. Association for Computing Machinery. ISBN 9781450383097. doi: 10.1145/3442188.3445922. URL <https://doi.org/10.1145/3442188.3445922>. [429](#page-6-0)
+- Emily M. Bender and Alexander Koller. Climbing towards NLU: On meaning, form, and understanding in the age of data. In Dan Jurafsky, Joyce Chai, Natalie Schluter, and Joel Tetreault, editors, *Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics*, pages 5185–5198, Online, July 2020. Association for Computational Linguistics. doi: 10.18653/v1/2020.acl-main.463. URL <https://aclanthology.org/2020.acl-main.463/>. [428](#page-5-0)
 
-Lukas Berglund, Meg Tong, Maximilian Kaufmann, Mikita Balesni, Asa Stickland, Tomek Korbak, and Owain Evans. The Reversal Curse: LLMs trained on “A is B” fail to learn “B is A”. In *The Twelfth International Conference on Learning Representations*, 2024. URL <https://proceedings.iclr.cc/paper_files/paper/2024/hash/5178b2f2d7c44aa390c0777dc77b3f0c-Abstract-Conference.html>. [429](#page-6-0)
+- Emily M. Bender, Timnit Gebru, Angelina McMillan-Major, and Shmargaret Shmitchell. On the Dangers of Stochastic Parrots: Can Language Models Be Too Big? In *Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency*, FAccT '21, pages 610–623, New York, NY, USA, 2021. Association for Computing Machinery. ISBN 9781450383097. doi: 10.1145/3442188.3445922. URL <https://doi.org/10.1145/3442188.3445922>. [429](#page-6-0)
 
-Felix J. Binder, James Chua, Tomek Korbak, Henry Sleight, John Hughes, Robert Long, Ethan Perez, Miles Turpin, and Owain Evans. Looking Inward: Language Models Can Learn About Themselves by Introspection. In *The Thirteenth International <span id="page-24-0"></span>Conference on Learning Representations*, 2025. URL <https://openreview.net/forum?id=eb5pkwIB5i>. [426](#page-3-0), [438](#page-15-0)
+- Lukas Berglund, Meg Tong, Maximilian Kaufmann, Mikita Balesni, Asa Stickland, Tomek Korbak, and Owain Evans. The Reversal Curse: LLMs trained on “A is B” fail to learn “B is A”. In *The Twelfth International Conference on Learning Representations*, 2024. URL <https://proceedings.iclr.cc/paper_files/paper/2024/hash/5178b2f2d7c44aa390c0777dc77b3f0c-Abstract-Conference.html>. [429](#page-6-0)
 
-Jonathan Birch. Large Language Models and the Gaming Problem. In *The Edge of Sentience: Risk and Precaution in Humans, Other Animals, and AI*, chapter 16, pages 313–322. Oxford University Press, 2024. ISBN 9780192870421. doi: 10.1093/9780191966729.003.0017. URL <https://doi.org/10.1093/9780191966729.003.0017>. [443](#page-20-0), [444](#page-21-0)
+- Felix J. Binder, James Chua, Tomek Korbak, Henry Sleight, John Hughes, Robert Long, Ethan Perez, Miles Turpin, and Owain Evans. Looking Inward: Language Models Can Learn About Themselves by Introspection. In *The Thirteenth International <span id="page-24-0"></span>Conference on Learning Representations*, 2025. URL <https://openreview.net/forum?id=eb5pkwIB5i>. [426](#page-3-0), [438](#page-15-0)
 
-Ned Block. On a confusion about a function of consciousness. *Behavioral and Brain Sciences*, 18(2):227–247, 1995. doi: 10.1017/S0140525X00038188. URL <https://doi.org/10.1017/S0140525X00038188>. [439](#page-16-0)
+- Jonathan Birch. Large Language Models and the Gaming Problem. In *The Edge of Sentience: Risk and Precaution in Humans, Other Animals, and AI*, chapter 16, pages 313–322. Oxford University Press, 2024. ISBN 9780192870421. doi: 10.1093/9780191966729.003.0017. URL <https://doi.org/10.1093/9780191966729.003.0017>. [443](#page-20-0), [444](#page-21-0)
 
-Matteo Bortoletto, Constantin Ruhdorfer, Lei Shi, and Andreas Bulling. Benchmarking Mental State Representations in Language Models. In *ICML 2024 Workshop on Mechanistic Interpretability*, pages 1–21, 2024. URL <https://openreview.net/forum?id=yEwEVoH9Be>. [426](#page-3-0), [434](#page-11-0)
+- Ned Block. On a confusion about a function of consciousness. *Behavioral and Brain Sciences*, 18(2):227–247, 1995. doi: 10.1017/S0140525X00038188. URL <https://doi.org/10.1017/S0140525X00038188>. [439](#page-16-0)
 
-Jake Bruce, Michael D. Dennis, Ashley Edwards, Jack Parker-Holder, Yuge Shi, Edward Hughes, Matthew Lai, Aditi Mavalankar, Richie Steigerwald, Chris Apps, Yusuf Aytar, Sarah Maria Elisabeth Bechtle, Feryal Behbahani, Stephanie C. Y. Chan, Nicolas Heess, Lucy Gonzalez, Simon Osindero, Sherjil Ozair, Scott Reed, Jingwei Zhang, Konrad Zolna, Jeff Clune, Nando De Freitas, Satinder Singh, and Tim Rocktäschel. Genie: Generative Interactive Environments. In *Proceedings of the 41st International Conference on Machine Learning*, volume 235 of *Proceedings of Machine Learning Research*, pages 4603–4623, 2024. PMLR. URL <https://proceedings.mlr.press/v235/bruce24a.html>. [433](#page-10-0)
+- Matteo Bortoletto, Constantin Ruhdorfer, Lei Shi, and Andreas Bulling. Benchmarking Mental State Representations in Language Models. In *ICML 2024 Workshop on Mechanistic Interpretability*, pages 1–21, 2024. URL <https://openreview.net/forum?id=yEwEVoH9Be>. [426](#page-3-0), [434](#page-11-0)
 
-Collin Burns, Haotian Ye, Dan Klein, and Jacob Steinhardt. Discovering latent knowledge in language models without supervision. In *The Eleventh International Conference on Learning Representations*, 2023. URL <https://openreview.net/forum?id=ETKGuby0hcs>. [426](#page-3-0)
+- Jake Bruce, Michael D. Dennis, Ashley Edwards, Jack Parker-Holder, Yuge Shi, Edward Hughes, Matthew Lai, Aditi Mavalankar, Richie Steigerwald, Chris Apps, Yusuf Aytar, Sarah Maria Elisabeth Bechtle, Feryal Behbahani, Stephanie C. Y. Chan, Nicolas Heess, Lucy Gonzalez, Simon Osindero, Sherjil Ozair, Scott Reed, Jingwei Zhang, Konrad Zolna, Jeff Clune, Nando De Freitas, Satinder Singh, and Tim Rocktäschel. Genie: Generative Interactive Environments. In *Proceedings of the 41st International Conference on Machine Learning*, volume 235 of *Proceedings of Machine Learning Research*, pages 4603–4623, 2024. PMLR. URL <https://proceedings.mlr.press/v235/bruce24a.html>. [433](#page-10-0)
 
-Patrick Butlin, Robert Long, Eric Elmoznino, Yoshua Bengio, Jonathan Birch, Axel Constant, George Deane, Stephen M. Fleming, Chris Frith, Xu Ji, Ryota Kanai, Colin Klein, Grace Lindsay, Matthias Michel, Liad Mudrik, Megan A. K. Peters, Eric Schwitzgebel, Jonathan Simon, and Rufin VanRullen. Consciousness in Artificial Intelligence: Insights from the Science of Consciousness, 2023. URL <https://arxiv.org/abs/2308.08708>. [426](#page-3-0), [440](#page-17-0), [442](#page-19-0), [444](#page-21-0), [445](#page-22-0)
+- Collin Burns, Haotian Ye, Dan Klein, and Jacob Steinhardt. Discovering latent knowledge in language models without supervision. In *The Eleventh International Conference on Learning Representations*, 2023. URL <https://openreview.net/forum?id=ETKGuby0hcs>. [426](#page-3-0)
 
-James Carney. Thinking avant la lettre: A Review of 4E Cognition. *Evolutionary Studies in Imaginative Culture*, 4(1):77–90, 2020. doi: 10.26613/esic.4.1.172. URL <https://doi.org/10.26613/esic.4.1.172>. [427](#page-4-0)
+- Patrick Butlin, Robert Long, Eric Elmoznino, Yoshua Bengio, Jonathan Birch, Axel Constant, George Deane, Stephen M. Fleming, Chris Frith, Xu Ji, Ryota Kanai, Colin Klein, Grace Lindsay, Matthias Michel, Liad Mudrik, Megan A. K. Peters, Eric Schwitzgebel, Jonathan Simon, and Rufin VanRullen. Consciousness in Artificial Intelligence: Insights from the Science of Consciousness, 2023. URL <https://arxiv.org/abs/2308.08708>. [426](#page-3-0), [440](#page-17-0), [442](#page-19-0), [444](#page-21-0), [445](#page-22-0)
 
-David J. Chalmers. Could a Large Language Model Be Conscious? *Boston Review*, August 9, 2023. URL <https://www.bostonreview.net/articles/could-a-large-language-model-be-conscious/>. [441](#page-18-0)
+- James Carney. Thinking avant la lettre: A Review of 4E Cognition. *Evolutionary Studies in Imaginative Culture*, 4(1):77–90, 2020. doi: 10.26613/esic.4.1.172. URL <https://doi.org/10.26613/esic.4.1.172>. [427](#page-4-0)
 
-Yanda Chen, Joe Benton, Ansh Radhakrishnan, Jonathan Uesato, Carson Denison, John Schulman, Arushi Somani, Peter Hase, Misha Wagner, Fabien Roger, Vlad Mikulik, Samuel R. Bowman, Jan Leike, Jared Kaplan, and Ethan Perez. Reasoning Models Don't Always Say What They Think, 2025. URL <https://arxiv.org/abs/2505.05410>. [438](#page-15-0)
+- David J. Chalmers. Could a Large Language Model Be Conscious? *Boston Review*, August 9, 2023. URL <https://www.bostonreview.net/articles/could-a-large-language-model-be-conscious/>. [441](#page-18-0)
 
-Noam Chomsky. *Aspects of the Theory of Syntax*. MIT Press, Cambridge, MA, 1965. URL <https://mitpress.mit.edu/9780262030113/aspects-of-the-theory-of-syntax/>. [427](#page-4-0)
+- Yanda Chen, Joe Benton, Ansh Radhakrishnan, Jonathan Uesato, Carson Denison, John Schulman, Arushi Somani, Peter Hase, Misha Wagner, Fabien Roger, Vlad Mikulik, Samuel R. Bowman, Jan Leike, Jared Kaplan, and Ethan Perez. Reasoning Models Don't Always Say What They Think, 2025. URL <https://arxiv.org/abs/2505.05410>. [438](#page-15-0)
+
+- Noam Chomsky. *Aspects of the Theory of Syntax*. MIT Press, Cambridge, MA, 1965. URL <https://mitpress.mit.edu/9780262030113/aspects-of-the-theory-of-syntax/>. [427](#page-4-0)
 
 {25}------------------------------------------------
 
-<span id="page-25-0"></span>Andy Clark and David Chalmers. The Extended Mind. *Analysis*, 58(1):7–19, 1998. doi: 10.1093/analys/58.1.7. URL <https://doi.org/10.1093/analys/58.1.7>. [428](#page-5-0), [445](#page-22-0)
+<span id="page-25-0"></span>
 
-Clara Colombatto and Stephen M. Fleming. Folk psychological attributions of consciousness to large language models. *Neuroscience of Consciousness*, 2024(1): niae013, 2024. ISSN 2057-2107. doi: 10.1093/nc/niae013. URL <https://doi.org/10.1093/nc/niae013>. [436](#page-13-0)
+- Andy Clark and David Chalmers. The Extended Mind. *Analysis*, 58(1):7–19, 1998. doi: 10.1093/analys/58.1.7. URL <https://doi.org/10.1093/analys/58.1.7>. [428](#page-5-0), [445](#page-22-0)
 
-Kenneth J. W. Craik. *The Nature of Explanation*. Cambridge University Press, Cambridge, 1943. URL <https://books.google.com/books?id=Y38IAQAAIAAJ>. [431](#page-8-0)
+- Clara Colombatto and Stephen M. Fleming. Folk psychological attributions of consciousness to large language models. *Neuroscience of Consciousness*, 2024(1): niae013, 2024. ISSN 2057-2107. doi: 10.1093/nc/niae013. URL <https://doi.org/10.1093/nc/niae013>. [436](#page-13-0)
 
-Jill G. de Villiers and Peter A. de Villiers. The Role of Language in Theory of Mind Development. *Topics in Language Disorders*, 34(4):313–328, 2014. doi: 10.1097/TLD.0000000000000037. URL <https://doi.org/10.1097/TLD.0000000000000037>. [434](#page-11-0)
+- Kenneth J. W. Craik. *The Nature of Explanation*. Cambridge University Press, Cambridge, 1943. URL <https://books.google.com/books?id=Y38IAQAAIAAJ>. [431](#page-8-0)
 
-Frans B. M. de Waal. Anthropomorphism and Anthropodenial: Consistency in Our Thinking about Humans and Other Animals. *Philosophical Topics*, 27(1):255–280, 1999. doi: 10.5840/philtopics199927122. URL <https://doi.org/10.5840/philtopics199927122>. [427](#page-4-0)
+- Jill G. de Villiers and Peter A. de Villiers. The Role of Language in Theory of Mind Development. *Topics in Language Disorders*, 34(4):313–328, 2014. doi: 10.1097/TLD.0000000000000037. URL <https://doi.org/10.1097/TLD.0000000000000037>. [434](#page-11-0)
 
-Daniel C. Dennett. *The Intentional Stance*. The MIT Press, Cambridge, MA, 1987. ISBN 9780262040938. URL <https://mitpress.mit.edu/9780262040938/the-intentional-stance/>. [439](#page-16-0)
+- Frans B. M. de Waal. Anthropomorphism and Anthropodenial: Consistency in Our Thinking about Humans and Other Animals. *Philosophical Topics*, 27(1):255–280, 1999. doi: 10.5840/philtopics199927122. URL <https://doi.org/10.5840/philtopics199927122>. [427](#page-4-0)
 
-Chaz Firestone. Performance vs. competence in human–machine comparisons. *Proceedings of the National Academy of Sciences*, 117(43):26562–26571, 2020. doi: 10.1073/pnas.1905334117. URL <https://www.pnas.org/doi/abs/10.1073/pnas.1905334117>. [427](#page-4-0)
+- Daniel C. Dennett. *The Intentional Stance*. The MIT Press, Cambridge, MA, 1987. ISBN 9780262040938. URL <https://mitpress.mit.edu/9780262040938/the-intentional-stance/>. [439](#page-16-0)
 
-Elizabeth Gibney. AI language models killed the Turing test: do we even need a replacement? *Nature*, 2025. doi: 10.1038/d41586-025-03386-w. URL <https://doi.org/10.1038/d41586-025-03386-w>. News feature. [424](#page-1-0)
+- Chaz Firestone. Performance vs. competence in human–machine comparisons. *Proceedings of the National Academy of Sciences*, 117(43):26562–26571, 2020. doi: 10.1073/pnas.1905334117. URL <https://www.pnas.org/doi/abs/10.1073/pnas.1905334117>. [427](#page-4-0)
 
-Alvin I. Goldman. *Simulating Minds: The Philosophy, Psychology, and Neuroscience of Mindreading*. Oxford University Press, New York, 2006. doi: 10.1093/0195138929.001.0001. URL <https://doi.org/10.1093/0195138929.001.0001>. [435](#page-12-0)
+- Elizabeth Gibney. AI language models killed the Turing test: do we even need a replacement? *Nature*, 2025. doi: 10.1038/d41586-025-03386-w. URL <https://doi.org/10.1038/d41586-025-03386-w>. News feature. [424](#page-1-0)
 
-Simon Goldstein and Cameron Domenico Kirk-Giannini. A Case for AI Consciousness: Language Agents and Global Workspace Theory. *arXiv preprint arXiv:2410.11407*, 2024. URL <https://arxiv.org/abs/2410.11407>. [426](#page-3-0), [442](#page-19-0)
+- Alvin I. Goldman. *Simulating Minds: The Philosophy, Psychology, and Neuroscience of Mindreading*. Oxford University Press, New York, 2006. doi: 10.1093/0195138929.001.0001. URL <https://doi.org/10.1093/0195138929.001.0001>. [435](#page-12-0)
 
-Simon Goldstein and Benjamin A. Levinstein. Does ChatGPT Have a Mind? *arXiv preprint arXiv:2407.11015*, 2024. URL <https://arxiv.org/abs/2407.11015>. [443](#page-20-0)
+- Simon Goldstein and Cameron Domenico Kirk-Giannini. A Case for AI Consciousness: Language Agents and Global Workspace Theory. *arXiv preprint arXiv:2410.11407*, 2024. URL <https://arxiv.org/abs/2410.11407>. [426](#page-3-0), [442](#page-19-0)
 
-Alison Gopnik and Henry M. Wellman. Why the child's theory of mind really is a theory. *Mind & Language*, 7(1–2):145–171, 1992. doi: 10.1111/j.1468-0017.1992.tb00202.x. URL <https://doi.org/10.1111/j.1468-0017.1992.tb00202.x>. [435](#page-12-0)
+- Simon Goldstein and Benjamin A. Levinstein. Does ChatGPT Have a Mind? *arXiv preprint arXiv:2407.11015*, 2024. URL <https://arxiv.org/abs/2407.11015>. [443](#page-20-0)
 
-Shannon Gray, George Tambouratzis, Sanju Mannumadam Venugopal, Sridhar Raghavan, Richard Jiarui Tong, and Zeyu Han. Agentic correlates of consciousness and the pursuit of artificial general intelligence. In *Artificial General Intelligence. AGI 2025*, pages 225–238. *Lecture Notes in Computer Science*, volume 16057. Springer, 2025. doi: 10.1007/978-3-032-00686-8_21. URL <https://link.springer.com/chapter/10.1007/978-3-032-00686-8_21>. [426](#page-3-0)
+- Alison Gopnik and Henry M. Wellman. Why the child's theory of mind really is a theory. *Mind & Language*, 7(1–2):145–171, 1992. doi: 10.1111/j.1468-0017.1992.tb00202.x. URL <https://doi.org/10.1111/j.1468-0017.1992.tb00202.x>. [435](#page-12-0)
+
+- Shannon Gray, George Tambouratzis, Sanju Mannumadam Venugopal, Sridhar Raghavan, Richard Jiarui Tong, and Zeyu Han. Agentic correlates of consciousness and the pursuit of artificial general intelligence. In *Artificial General Intelligence. AGI 2025*, pages 225–238. *Lecture Notes in Computer Science*, volume 16057. Springer, 2025. doi: 10.1007/978-3-032-00686-8_21. URL <https://link.springer.com/chapter/10.1007/978-3-032-00686-8_21>. [426](#page-3-0)
 
 {26}------------------------------------------------
 
-<span id="page-26-0"></span>Yu Gu, Kai Zhang, Yuting Ning, Boyuan Zheng, Boyu Gou, Tianci Xue, Cheng Chang, Sanjari Srivastava, Yanan Xie, Peng Qi, et al. Is Your LLM Secretly a World Model of the Internet? Model-Based Planning for Web Agents. *arXiv preprint arXiv:2411.06559*, 2024. URL <https://arxiv.org/abs/2411.06559>. [426](#page-3-0)
+<span id="page-26-0"></span>
 
-Wes Gurnee and Max Tegmark. Language models represent space and time. In *The Twelfth International Conference on Learning Representations*, 2024. URL <https://proceedings.iclr.cc/paper_files/paper/2024/hash/0a6059857ae5c82ea9726ee9282a7145-Abstract-Conference.html>. [426](#page-3-0), [431](#page-8-0)
+- Yu Gu, Kai Zhang, Yuting Ning, Boyuan Zheng, Boyu Gou, Tianci Xue, Cheng Chang, Sanjari Srivastava, Yanan Xie, Peng Qi, et al. Is Your LLM Secretly a World Model of the Internet? Model-Based Planning for Web Agents. *arXiv preprint arXiv:2411.06559*, 2024. URL <https://arxiv.org/abs/2411.06559>. [426](#page-3-0)
 
-Wes Gurnee, Nicholas Sofroniew, Adam Pearce, Mateusz Piotrowski, Isaac Kauvar, Runjin Chen, Anna Soligo, Paul Bogdan, Euan Ong, Rowan Wang, Ben Thompson, David Abrahams, Subhash Kantamneni, Emmanuel Ameisen, Joshua Batson, and Jack Lindsey. Verbalizable Representations Form a Global Workspace in Language Models, 2026. URL <https://arxiv.org/abs/2607.15495>. [426](#page-3-0), [440](#page-17-0), [441](#page-18-0), [443](#page-20-0)
+- Wes Gurnee and Max Tegmark. Language models represent space and time. In *The Twelfth International Conference on Learning Representations*, 2024. URL <https://proceedings.iclr.cc/paper_files/paper/2024/hash/0a6059857ae5c82ea9726ee9282a7145-Abstract-Conference.html>. [426](#page-3-0), [431](#page-8-0)
 
-David Ha and Jürgen Schmidhuber. World Models. *arXiv preprint arXiv:1803.10122*, 2018. URL <https://arxiv.org/abs/1803.10122>. [431](#page-8-0)
+- Wes Gurnee, Nicholas Sofroniew, Adam Pearce, Mateusz Piotrowski, Isaac Kauvar, Runjin Chen, Anna Soligo, Paul Bogdan, Euan Ong, Rowan Wang, Ben Thompson, David Abrahams, Subhash Kantamneni, Emmanuel Ameisen, Joshua Batson, and Jack Lindsey. Verbalizable Representations Form a Global Workspace in Language Models, 2026. URL <https://arxiv.org/abs/2607.15495>. [426](#page-3-0), [440](#page-17-0), [441](#page-18-0), [443](#page-20-0)
 
-Shibo Hao, Yi Gu, Haodi Ma, Joshua Jiahua Hong, Zhen Wang, Daisy Zhe Wang, and Zhiting Hu. Reasoning with Language Model is Planning with World Model. In *Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing*, pages 8154–8173. Association for Computational Linguistics, 2023. doi: 10.18653/v1/2023.emnlp-main.507. URL <https://aclanthology.org/2023.emnlp-main.507/>. [426](#page-3-0)
+- David Ha and Jürgen Schmidhuber. World Models. *arXiv preprint arXiv:1803.10122*, 2018. URL <https://arxiv.org/abs/1803.10122>. [431](#page-8-0)
 
-Stevan Harnad. The symbol grounding problem. *Physica D: Nonlinear Phenomena*, 42(1):335–346, 1990. ISSN 0167-2789. doi: 10.1016/0167-2789(90)90087-6. URL <https://www.sciencedirect.com/science/article/pii/0167278990900876>. [428](#page-5-0)
+- Shibo Hao, Yi Gu, Haodi Ma, Joshua Jiahua Hong, Zhen Wang, Daisy Zhe Wang, and Zhiting Hu. Reasoning with Language Model is Planning with World Model. In *Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing*, pages 8154–8173. Association for Computational Linguistics, 2023. doi: 10.18653/v1/2023.emnlp-main.507. URL <https://aclanthology.org/2023.emnlp-main.507/>. [426](#page-3-0)
 
-John Hewitt and Percy Liang. Designing and Interpreting Probes with Control Tasks. In *Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP)*, pages 2733–2743, Hong Kong, China, 2019. Association for Computational Linguistics. doi: 10.18653/v1/D19-1275. URL <https://aclanthology.org/D19-1275/>. [425](#page-2-0)
+- Stevan Harnad. The symbol grounding problem. *Physica D: Nonlinear Phenomena*, 42(1):335–346, 1990. ISSN 0167-2789. doi: 10.1016/0167-2789(90)90087-6. URL <https://www.sciencedirect.com/science/article/pii/0167278990900876>. [428](#page-5-0)
 
-Jennifer Hu, Felix Sosa, and Tomer Ullman. Re-evaluating Theory of Mind evaluation in large language models. *Philosophical Transactions of the Royal Society B: Biological Sciences*, 380(1932):20230499, 2025. doi: 10.1098/rstb.2023.0499. URL <https://doi.org/10.1098/rstb.2023.0499>. [425](#page-2-0), [435](#page-12-0)
+- John Hewitt and Percy Liang. Designing and Interpreting Probes with Control Tasks. In *Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP)*, pages 2733–2743, Hong Kong, China, 2019. Association for Computational Linguistics. doi: 10.18653/v1/D19-1275. URL <https://aclanthology.org/D19-1275/>. [425](#page-2-0)
 
-Daniel D. Hutto. *Folk Psychological Narratives: The Sociocultural Basis of Understanding Reasons*. The MIT Press, 2008. URL <https://www.jstor.org/stable/j.ctt5hhh5p>. [434](#page-11-0)
+- Jennifer Hu, Felix Sosa, and Tomer Ullman. Re-evaluating Theory of Mind evaluation in large language models. *Philosophical Transactions of the Royal Society B: Biological Sciences*, 380(1932):20230499, 2025. doi: 10.1098/rstb.2023.0499. URL <https://doi.org/10.1098/rstb.2023.0499>. [425](#page-2-0), [435](#page-12-0)
 
-Anna A. Ivanova, Aalok Sathe, Benjamin Lipkin, Unnathi U. Kumar, Setayesh Radkani, Thomas H. Clark, Carina Kauf, Jennifer Hu, R. T. Pramod, Gabriel Grand, Vivian C. Paulun, Maria Ryskina, Ekin Akyürek, Ethan G. Wilcox, Nafisa Rashid, Leshem Choshen, Roger Levy, Evelina Fedorenko, Joshua Tenenbaum, and Jacob Andreas. Elements of World Knowledge (EWoK): A Cognition-Inspired Framework for Evaluating Basic World Knowledge in Language Models. *Transactions of the Association for Computational Linguistics*, 13:1245–1270, 2025. doi: 10.1162/tacl.a.38. URL <https://aclanthology.org/2025.tacl-1.57/>. [432](#page-9-0)
+- Daniel D. Hutto. *Folk Psychological Narratives: The Sociocultural Basis of Understanding Reasons*. The MIT Press, 2008. URL <https://www.jstor.org/stable/j.ctt5hhh5p>. [434](#page-11-0)
+
+- Anna A. Ivanova, Aalok Sathe, Benjamin Lipkin, Unnathi U. Kumar, Setayesh Radkani, Thomas H. Clark, Carina Kauf, Jennifer Hu, R. T. Pramod, Gabriel Grand, Vivian C. Paulun, Maria Ryskina, Ekin Akyürek, Ethan G. Wilcox, Nafisa Rashid, Leshem Choshen, Roger Levy, Evelina Fedorenko, Joshua Tenenbaum, and Jacob Andreas. Elements of World Knowledge (EWoK): A Cognition-Inspired Framework for Evaluating Basic World Knowledge in Language Models. *Transactions of the Association for Computational Linguistics*, 13:1245–1270, 2025. doi: 10.1162/tacl.a.38. URL <https://aclanthology.org/2025.tacl-1.57/>. [432](#page-9-0)
 
 {27}------------------------------------------------
 
-<span id="page-27-0"></span>Cameron R. Jones and Benjamin K. Bergen. Large language models pass a standard three-party Turing test. *Proceedings of the National Academy of Sciences*, 123(21):e2524472123, 2026. doi: 10.1073/pnas.2524472123. URL <https://doi.org/10.1073/pnas.2524472123>. [424](#page-1-0)
+<span id="page-27-0"></span>
 
-Saurav Kadavath, Tom Conerly, Amanda Askell, Tom Henighan, Dawn Drain, Ethan Perez, Nicholas Schiefer, Zac Hatfield-Dodds, Nova DasSarma, Eli Tran-Johnson, Scott Johnston, Sheer El-Showk, Andy Jones, Nelson Elhage, Tristan Hume, Anna Chen, Yuntao Bai, Sam Bowman, Stanislav Fort, Deep Ganguli, Danny Hernandez, Josh Jacobson, Jackson Kernion, Shauna Kravec, Liane Lovitt, Kamal Ndousse, Catherine Olsson, Sam Ringer, Dario Amodei, Tom Brown, Jack Clark, Nicholas Joseph, Ben Mann, Sam McCandlish, Chris Olah, and Jared Kaplan. Language Models (Mostly) Know What They Know, 2022. URL <https://arxiv.org/abs/2207.05221>. [426](#page-3-0), [437](#page-14-0)
+- Cameron R. Jones and Benjamin K. Bergen. Large language models pass a standard three-party Turing test. *Proceedings of the National Academy of Sciences*, 123(21):e2524472123, 2026. doi: 10.1073/pnas.2524472123. URL <https://doi.org/10.1073/pnas.2524472123>. [424](#page-1-0)
 
-Daniel Kahneman. *Thinking, Fast and Slow*. Macmillan, 2011. URL <https://us.macmillan.com/books/9780374533557/thinkingfastandslow/>. [436](#page-13-0)
+- Saurav Kadavath, Tom Conerly, Amanda Askell, Tom Henighan, Dawn Drain, Ethan Perez, Nicholas Schiefer, Zac Hatfield-Dodds, Nova DasSarma, Eli Tran-Johnson, Scott Johnston, Sheer El-Showk, Andy Jones, Nelson Elhage, Tristan Hume, Anna Chen, Yuntao Bai, Sam Bowman, Stanislav Fort, Deep Ganguli, Danny Hernandez, Josh Jacobson, Jackson Kernion, Shauna Kravec, Liane Lovitt, Kamal Ndousse, Catherine Olsson, Sam Ringer, Dario Amodei, Tom Brown, Jack Clark, Nicholas Joseph, Ben Mann, Sam McCandlish, Chris Olah, and Jared Kaplan. Language Models (Mostly) Know What They Know, 2022. URL <https://arxiv.org/abs/2207.05221>. [426](#page-3-0), [437](#page-14-0)
 
-Amita Kamath, Jack Hessel, and Kai-Wei Chang. What’s “up” with vision-language models? Investigating their struggle with spatial reasoning. In *Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing*, pages 9161–9175, Singapore. Association for Computational Linguistics, 2023. doi: 10.18653/v1/2023.emnlp-main.568. URL <https://aclanthology.org/2023.emnlp-main.568/>. [432](#page-9-0)
+- Daniel Kahneman. *Thinking, Fast and Slow*. Macmillan, 2011. URL <https://us.macmillan.com/books/9780374533557/thinkingfastandslow/>. [436](#page-13-0)
 
-Tom Kouwenhoven, Michiel T. van der Meer, and Max J. van Duijn. Traces of social competence in large language models. In Claire Bonial and Yevgeni Berzak, editors, *Proceedings of the 30th Conference on Computational Natural Language Learning*, pages 742–759, San Diego, California, USA, 2026. Association for Computational Linguistics. ISBN 979-8-89176-410-1. doi: 10.18653/v1/2026.conll-main.45. URL <https://aclanthology.org/2026.conll-main.45/>. [425](#page-2-0), [427](#page-4-0), [434](#page-11-0), [435](#page-12-0), [436](#page-13-0)
+- Amita Kamath, Jack Hessel, and Kai-Wei Chang. What’s “up” with vision-language models? Investigating their struggle with spatial reasoning. In *Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing*, pages 9161–9175, Singapore. Association for Computational Linguistics, 2023. doi: 10.18653/v1/2023.emnlp-main.568. URL <https://aclanthology.org/2023.emnlp-main.568/>. [432](#page-9-0)
 
-Andrew Lampinen. Can language models handle recursively nested grammatical structures? A case study on comparing models and humans. *Computational Linguistics*, 50(4):1441–1476, December 2024. doi: 10.1162/coli_a_00525. URL <https://aclanthology.org/2024.cl-4.8/>. [427](#page-4-0)
+- Tom Kouwenhoven, Michiel T. van der Meer, and Max J. van Duijn. Traces of social competence in large language models. In Claire Bonial and Yevgeni Berzak, editors, *Proceedings of the 30th Conference on Computational Natural Language Learning*, pages 742–759, San Diego, California, USA, 2026. Association for Computational Linguistics. ISBN 979-8-89176-410-1. doi: 10.18653/v1/2026.conll-main.45. URL <https://aclanthology.org/2026.conll-main.45/>. [425](#page-2-0), [427](#page-4-0), [434](#page-11-0), [435](#page-12-0), [436](#page-13-0)
 
-Yann LeCun. A Path Towards Autonomous Machine Intelligence, Version 0.9.2, 2022-06-27. Position paper, OpenReview, 2022. URL <https://openreview.net/pdf?id=BZ5a1r-kVsf>. [431](#page-8-0)
+- Andrew Lampinen. Can language models handle recursively nested grammatical structures? A case study on comparing models and humans. *Computational Linguistics*, 50(4):1441–1476, December 2024. doi: 10.1162/coli_a_00525. URL <https://aclanthology.org/2024.cl-4.8/>. [427](#page-4-0)
 
-Jixuan Leng, Chengsong Huang, Banghua Zhu, and Jiaxin Huang. Taming Overconfidence in LLMs: Reward Calibration in RLHF. In *The Thirteenth International Conference on Learning Representations*, 2025. URL <https://proceedings.iclr.cc/paper_files/paper/2025/hash/29fb6e1456b3d8b57ede5c45aa2c6537-Abstract-Conference.html>. [437](#page-14-0)
+- Yann LeCun. A Path Towards Autonomous Machine Intelligence, Version 0.9.2, 2022-06-27. Position paper, OpenReview, 2022. URL <https://openreview.net/pdf?id=BZ5a1r-kVsf>. [431](#page-8-0)
 
-Kenneth Li, Aspen K. Hopkins, David Bau, Fernanda Viegas, Hanspeter Pfister, and Martin Wattenberg. Emergent World Representations: Exploring a Sequence Model Trained on a Synthetic Task. In *The Eleventh International Conference on Learning Representations*, 2023. URL <https://openreview.net/forum?id=DeG07_TcZvT>. [426](#page-3-0), [431](#page-8-0), [432](#page-9-0)
+- Jixuan Leng, Chengsong Huang, Banghua Zhu, and Jiaxin Huang. Taming Overconfidence in LLMs: Reward Calibration in RLHF. In *The Thirteenth International Conference on Learning Representations*, 2025. URL <https://proceedings.iclr.cc/paper_files/paper/2025/hash/29fb6e1456b3d8b57ede5c45aa2c6537-Abstract-Conference.html>. [437](#page-14-0)
 
-Jack Lindsey. Emergent introspective awareness in large language models. *Transformer Circuits Thread*, October 2025. URL <https://transformer-circuits.pub/2025/introspection/index.html>. [426](#page-3-0), [437](#page-14-0), [438](#page-15-0)
+- Kenneth Li, Aspen K. Hopkins, David Bau, Fernanda Viegas, Hanspeter Pfister, and Martin Wattenberg. Emergent World Representations: Exploring a Sequence Model Trained on a Synthetic Task. In *The Eleventh International Conference on Learning Representations*, 2023. URL <https://openreview.net/forum?id=DeG07_TcZvT>. [426](#page-3-0), [431](#page-8-0), [432](#page-9-0)
+
+- Jack Lindsey. Emergent introspective awareness in large language models. *Transformer Circuits Thread*, October 2025. URL <https://transformer-circuits.pub/2025/introspection/index.html>. [426](#page-3-0), [437](#page-14-0), [438](#page-15-0)
 
 {28}------------------------------------------------
 
-<span id="page-28-0"></span>Jack Lindsey, Wes Gurnee, Emmanuel Ameisen, Brian Chen, Adam Pearce, Nicholas L. Turner, Craig Citro, David Abrahams, Shan Carter, Basil Hosmer, Jonathan Marcus, Michael Sklar, Adly Templeton, Trenton Bricken, Callum McDougall, Hoagy Cunningham, Thomas Henighan, Adam Jermyn, Andy Jones, Andrew Persic, Zhenyi Qi, T. Ben Thompson, Sam Zimmerman, Kelley Rivoire, Thomas Conerly, Chris Olah, and Joshua Batson. On the biology of a large language model. *Transformer Circuits Thread*, 2025. URL <https://transformer-circuits.pub/2025/attribution-graphs/biology.html>. [425](#page-2-0), [431](#page-8-0)
+<span id="page-28-0"></span>
 
-Gabrielle Kaili-May Liu, Areeb Gani, Jacqueline Lu, Jordan Thomas, Mark Steyvers, and Arman Cohan. Metacognition in LLMs: Foundations, Progress, and Opportunities, 2026. URL <https://arxiv.org/abs/2607.11881>. [437](#page-14-0)
+- Jack Lindsey, Wes Gurnee, Emmanuel Ameisen, Brian Chen, Adam Pearce, Nicholas L. Turner, Craig Citro, David Abrahams, Shan Carter, Basil Hosmer, Jonathan Marcus, Michael Sklar, Adly Templeton, Trenton Bricken, Callum McDougall, Hoagy Cunningham, Thomas Henighan, Adam Jermyn, Andy Jones, Andrew Persic, Zhenyi Qi, T. Ben Thompson, Sam Zimmerman, Kelley Rivoire, Thomas Conerly, Chris Olah, and Joshua Batson. On the biology of a large language model. *Transformer Circuits Thread*, 2025. URL <https://transformer-circuits.pub/2025/attribution-graphs/biology.html>. [425](#page-2-0), [431](#page-8-0)
 
-Heidemarie Lohmann and Michael Tomasello. The role of language in the development of false belief understanding: A training study. *Child Development*, 74(4):1130–1144, 2003. doi: 10.1111/1467-8624.00597. URL <https://doi.org/10.1111/1467-8624.00597>. [434](#page-11-0)
+- Gabrielle Kaili-May Liu, Areeb Gani, Jacqueline Lu, Jordan Thomas, Mark Steyvers, and Arman Cohan. Metacognition in LLMs: Foundations, Progress, and Opportunities, 2026. URL <https://arxiv.org/abs/2607.11881>. [437](#page-14-0)
 
-Robert Long, Jeff Sebo, Patrick Butlin, Kathleen Finlinson, Kyle Fish, Jacqueline Harding, Jacob Pfau, Toni Sims, Jonathan Birch, and David Chalmers. Taking AI welfare seriously, 2024. URL <https://arxiv.org/abs/2411.00986>. [445](#page-22-0)
+- Heidemarie Lohmann and Michael Tomasello. The role of language in the development of false belief understanding: A training study. *Child Development*, 74(4):1130–1144, 2003. doi: 10.1111/1467-8624.00597. URL <https://doi.org/10.1111/1467-8624.00597>. [434](#page-11-0)
 
-Kyle Mahowald, Anna A. Ivanova, Idan A. Blank, Nancy Kanwisher, Joshua B. Tenenbaum, and Evelina Fedorenko. Dissociating language and thought in large language models. *Trends in Cognitive Sciences*, 28(6):517–540, 2024. doi: 10.1016/j.tics.2024.01.011. URL <https://doi.org/10.1016/j.tics.2024.01.011>. [430](#page-7-0)
+- Robert Long, Jeff Sebo, Patrick Butlin, Kathleen Finlinson, Kyle Fish, Jacqueline Harding, Jacob Pfau, Toni Sims, Jonathan Birch, and David Chalmers. Taking AI welfare seriously, 2024. URL <https://arxiv.org/abs/2411.00986>. [445](#page-22-0)
 
-Marina Mancoridis, Bec Weeks, Keyon Vafa, and Sendhil Mullainathan. Potemkin Understanding in Large Language Models. In *Proceedings of the 42nd International Conference on Machine Learning*, volume 267 of *Proceedings of Machine Learning Research*, pages 42857–42881. PMLR, 2025. URL <https://proceedings.mlr.press/v267/mancoridis25a.html>. [430](#page-7-0)
+- Kyle Mahowald, Anna A. Ivanova, Idan A. Blank, Nancy Kanwisher, Joshua B. Tenenbaum, and Evelina Fedorenko. Dissociating language and thought in large language models. *Trends in Cognitive Sciences*, 28(6):517–540, 2024. doi: 10.1016/j.tics.2024.01.011. URL <https://doi.org/10.1016/j.tics.2024.01.011>. [430](#page-7-0)
 
-Matthew Mandelkern and Tal Linzen. Do language models' words refer? *Computational Linguistics*, 50(3):1191–1200, September 2024. doi: 10.1162/coli_a_00522. URL <https://aclanthology.org/2024.cl-3.12/>. [429](#page-6-0)
+- Marina Mancoridis, Bec Weeks, Keyon Vafa, and Sendhil Mullainathan. Potemkin Understanding in Large Language Models. In *Proceedings of the 42nd International Conference on Machine Learning*, volume 267 of *Proceedings of Machine Learning Research*, pages 42857–42881. PMLR, 2025. URL <https://proceedings.mlr.press/v267/mancoridis25a.html>. [430](#page-7-0)
 
-Brian Maniscalco and Hakwan Lau. A signal detection theoretic approach for estimating metacognitive sensitivity from confidence ratings. *Consciousness and Cognition*, 21(1):422–430, March 2012. doi: 10.1016/j.concog.2011.09.021. URL <https://doi.org/10.1016/j.concog.2011.09.021>. [437](#page-14-0)
+- Matthew Mandelkern and Tal Linzen. Do language models' words refer? *Computational Linguistics*, 50(3):1191–1200, September 2024. doi: 10.1162/coli_a_00522. URL <https://aclanthology.org/2024.cl-3.12/>. [429](#page-6-0)
 
-David Marr. *Vision: A Computational Investigation into the Human Representation and Processing of Visual Information*. The MIT Press, July 2010. ISBN 9780262514620. doi: 10.7551/mitpress/9780262514620.001.0001. URL <https://doi.org/10.7551/mitpress/9780262514620.001.0001>. [424](#page-1-0)
-R. Thomas McCoy, Shunyu Yao, Dan Friedman, Mathew D. Hardy, and Thomas L. Griffiths. Embers of autoregression show how large language models are shaped by the problem they are trained to solve. *Proceedings of the National Academy of Sciences*, 121(41):e2322420121, 2024a. doi: 10.1073/pnas.2322420121. URL <https://www.pnas.org/doi/abs/10.1073/pnas.2322420121>. [430](#page-7-0)
+- Brian Maniscalco and Hakwan Lau. A signal detection theoretic approach for estimating metacognitive sensitivity from confidence ratings. *Consciousness and Cognition*, 21(1):422–430, March 2012. doi: 10.1016/j.concog.2011.09.021. URL <https://doi.org/10.1016/j.concog.2011.09.021>. [437](#page-14-0)
+
+- David Marr. *Vision: A Computational Investigation into the Human Representation and Processing of Visual Information*. The MIT Press, July 2010. ISBN 9780262514620. doi: 10.7551/mitpress/9780262514620.001.0001. URL <https://doi.org/10.7551/mitpress/9780262514620.001.0001>. [424](#page-1-0)
+- R. Thomas McCoy, Shunyu Yao, Dan Friedman, Mathew D. Hardy, and Thomas L. Griffiths. Embers of autoregression show how large language models are shaped by the problem they are trained to solve. *Proceedings of the National Academy of Sciences*, 121(41):e2322420121, 2024a. doi: 10.1073/pnas.2322420121. URL <https://www.pnas.org/doi/abs/10.1073/pnas.2322420121>. [430](#page-7-0)
 
 {29}------------------------------------------------
 
-<span id="page-29-0"></span>R. Thomas McCoy, Shunyu Yao, Dan Friedman, Mathew D. Hardy, and Thomas L. Griffiths. When a language model is optimized for reasoning, does it still show embers of autoregression? An analysis of OpenAI o1, 2024b. URL <https://arxiv.org/abs/2410.01792>. [430](#page-7-0)
+<span id="page-29-0"></span>
 
-Julian Michael, Ari Holtzman, Alicia Parrish, Aaron Mueller, Alex Wang, Angelica Chen, Divyam Madaan, Nikita Nangia, Richard Yuanzhe Pang, Jason Phang, and Samuel R. Bowman. What do NLP researchers believe? Results of the NLP community metasurvey, 2022. URL <https://arxiv.org/abs/2208.12852>. [429](#page-6-0)
+- R. Thomas McCoy, Shunyu Yao, Dan Friedman, Mathew D. Hardy, and Thomas L. Griffiths. When a language model is optimized for reasoning, does it still show embers of autoregression? An analysis of OpenAI o1, 2024b. URL <https://arxiv.org/abs/2410.01792>. [430](#page-7-0)
 
-Raphaël Millière and Charles Rathkopf. Anthropocentric bias in language model evaluation. *Computational Linguistics*, 52(1):379–388, March 2026. doi: 10.1162/coli.a.582. URL <https://aclanthology.org/2026.cl-1.11/>. [427](#page-4-0)
+- Julian Michael, Ari Holtzman, Alicia Parrish, Aaron Mueller, Alex Wang, Angelica Chen, Divyam Madaan, Nikita Nangia, Richard Yuanzhe Pang, Jason Phang, and Samuel R. Bowman. What do NLP researchers believe? Results of the NLP community metasurvey, 2022. URL <https://arxiv.org/abs/2208.12852>. [429](#page-6-0)
 
-Karen Milligan, Janet Wilde Astington, and Lisa Ain Dack. Language and theory of mind: Meta-analysis of the relation between language ability and false-belief understanding. *Child Development*, 78(2):622–646, 2007. doi: 10.1111/j.1467-8624.2007.01018.x. URL <https://doi.org/10.1111/j.1467-8624.2007.01018.x>. [434](#page-11-0)
+- Raphaël Millière and Charles Rathkopf. Anthropocentric bias in language model evaluation. *Computational Linguistics*, 52(1):379–388, March 2026. doi: 10.1162/coli.a.582. URL <https://aclanthology.org/2026.cl-1.11/>. [427](#page-4-0)
 
-Melanie Mitchell and David C. Krakauer. The debate over understanding in AI's large language models. *Proceedings of the National Academy of Sciences*, 120(13):e2215907120, 2023. doi: 10.1073/pnas.2215907120. URL <https://www.pnas.org/doi/abs/10.1073/pnas.2215907120>. [429](#page-6-0)
+- Karen Milligan, Janet Wilde Astington, and Lisa Ain Dack. Language and theory of mind: Meta-analysis of the relation between language ability and false-belief understanding. *Child Development*, 78(2):622–646, 2007. doi: 10.1111/j.1467-8624.2007.01018.x. URL <https://doi.org/10.1111/j.1467-8624.2007.01018.x>. [434](#page-11-0)
 
-Thomas M. Moerland, Joost Broekens, and Catholijn M. Jonker. Emotion in reinforcement learning agents and robots: A survey. *Machine Learning*, 107(2):443–480, 2018. doi: 10.1007/s10994-017-5666-0. URL <https://doi.org/10.1007/s10994-017-5666-0>. [443](#page-20-0)
+- Melanie Mitchell and David C. Krakauer. The debate over understanding in AI's large language models. *Proceedings of the National Academy of Sciences*, 120(13):e2215907120, 2023. doi: 10.1073/pnas.2215907120. URL <https://www.pnas.org/doi/abs/10.1073/pnas.2215907120>. [429](#page-6-0)
 
-Ida Momennejad, Hosein Hasanbeig, Felipe Vieira Frujeri, Hiteshi Sharma, Nebojsa Jojic, Hamid Palangi, Robert Ness, and Jonathan Larson. Evaluating Cognitive Maps and Planning in Large Language Models with CogEval. In *Advances in Neural Information Processing Systems*, volume 36, 2023. doi: 10.52202/075280-3056. URL <https://proceedings.neurips.cc/paper_files/paper/2023/hash/dc9d5dcf3e86b83e137bad367227c8ca-Abstract-Conference.html>. [426](#page-3-0), [432](#page-9-0)
+- Thomas M. Moerland, Joost Broekens, and Catholijn M. Jonker. Emotion in reinforcement learning agents and robots: A survey. *Machine Learning*, 107(2):443–480, 2018. doi: 10.1007/s10994-017-5666-0. URL <https://doi.org/10.1007/s10994-017-5666-0>. [443](#page-20-0)
+
+- Ida Momennejad, Hosein Hasanbeig, Felipe Vieira Frujeri, Hiteshi Sharma, Nebojsa Jojic, Hamid Palangi, Robert Ness, and Jonathan Larson. Evaluating Cognitive Maps and Planning in Large Language Models with CogEval. In *Advances in Neural Information Processing Systems*, volume 36, 2023. doi: 10.52202/075280-3056. URL <https://proceedings.neurips.cc/paper_files/paper/2023/hash/dc9d5dcf3e86b83e137bad367227c8ca-Abstract-Conference.html>. [426](#page-3-0), [432](#page-9-0)
 
 
-Thomas Nagel. What Is It Like to Be a Bat? *The Philosophical Review*, 83(4):435–450, October 1974. doi: 10.2307/2183914. URL <https://www.jstor.org/stable/2183914>. [439](#page-16-0)
+- Thomas Nagel. What Is It Like to Be a Bat? *The Philosophical Review*, 83(4):435–450, October 1974. doi: 10.2307/2183914. URL <https://www.jstor.org/stable/2183914>. [439](#page-16-0)
 
 {30}------------------------------------------------
 
-<span id="page-30-0"></span>Neel Nanda, Andrew Lee, and Martin Wattenberg. Emergent linear representations in world models of self-supervised sequence models. In Yonatan Belinkov, Sophie Hao, Jaap Jumelet, Najoung Kim, Arya McCarthy, and Hosein Mohebbi, editors, *Proceedings of the 6th BlackboxNLP Workshop: Analyzing and Interpreting Neural Networks for NLP*, pages 16–30, Singapore, 2023. Association for Computational Linguistics. doi: 10.18653/v1/2023.blackboxnlp-1.2. URL <https://aclanthology.org/2023.blackboxnlp-1.2/>. [426](#page-3-0), [431](#page-8-0), [432](#page-9-0)
+<span id="page-30-0"></span>
 
-Joe Needham, Giles Edkins, Govind Pimpale, Henning Bartsch, and Marius Hobbhahn. Large Language Models Often Know When They Are Being Evaluated, 2025. URL <https://arxiv.org/abs/2505.23836>. [426](#page-3-0)
+- Neel Nanda, Andrew Lee, and Martin Wattenberg. Emergent linear representations in world models of self-supervised sequence models. In Yonatan Belinkov, Sophie Hao, Jaap Jumelet, Najoung Kim, Arya McCarthy, and Hosein Mohebbi, editors, *Proceedings of the 6th BlackboxNLP Workshop: Analyzing and Interpreting Neural Networks for NLP*, pages 16–30, Singapore, 2023. Association for Computational Linguistics. doi: 10.18653/v1/2023.blackboxnlp-1.2. URL <https://aclanthology.org/2023.blackboxnlp-1.2/>. [426](#page-3-0), [431](#page-8-0), [432](#page-9-0)
 
-Thomas O. Nelson. Metamemory: A Theoretical Framework and New Findings. *Psychology of Learning and Motivation*, volume 26, pages 125–173. Academic Press, 1990. doi: 10.1016/S0079-7421(08)60053-5. URL <https://doi.org/10.1016/S0079-7421(08)60053-5>. [436](#page-13-0)
+- Joe Needham, Giles Edkins, Govind Pimpale, Henning Bartsch, and Marius Hobbhahn. Large Language Models Often Know When They Are Being Evaluated, 2025. URL <https://arxiv.org/abs/2505.23836>. [426](#page-3-0)
 
-Ageliki Nicolopoulou and Burcu Ünlütabak. Narrativity and mindreading revisited: Children's understanding of theory of mind in a storybook and in standard false belief tasks. In F. Nihan Ketrez, Aylin C. Küntay, Şeyda Özçalışkan, and Aslı Özyürek, editors, *Social Environment and Cognition in Language Development*, pages 151–166. John Benjamins, 2017. doi: 10.1075/tilar.21.10nic. URL <https://doi.org/10.1075/tilar.21.10nic>. [434](#page-11-0)
+- Thomas O. Nelson. Metamemory: A Theoretical Framework and New Findings. *Psychology of Learning and Motivation*, volume 26, pages 125–173. Academic Press, 1990. doi: 10.1016/S0079-7421(08)60053-5. URL <https://doi.org/10.1016/S0079-7421(08)60053-5>. [436](#page-13-0)
 
-Yaniv Nikankin, Anja Reusch, Aaron Mueller, and Yonatan Belinkov. Arithmetic Without Algorithms: Language Models Solve Math with a Bag of Heuristics. In *The Thirteenth International Conference on Learning Representations*, 2025. URL <https://proceedings.iclr.cc/paper_files/paper/2025/hash/8c5f30296296d2ae402ebbd09aaa9c12-Abstract-Conference.html>. [433](#page-10-0)
+- Ageliki Nicolopoulou and Burcu Ünlütabak. Narrativity and mindreading revisited: Children's understanding of theory of mind in a storybook and in standard false belief tasks. In F. Nihan Ketrez, Aylin C. Küntay, Şeyda Özçalışkan, and Aslı Özyürek, editors, *Social Environment and Cognition in Language Development*, pages 151–166. John Benjamins, 2017. doi: 10.1075/tilar.21.10nic. URL <https://doi.org/10.1075/tilar.21.10nic>. [434](#page-11-0)
 
-Richard E. Nisbett and Timothy D. Wilson. Telling more than we can know: Verbal reports on mental processes. *Psychological Review*, 84(3):231–259, 1977. doi: 10.1037/0033-295X.84.3.231. URL <https://doi.org/10.1037/0033-295X.84.3.231>. [438](#page-15-0)
+- Yaniv Nikankin, Anja Reusch, Aaron Mueller, and Yonatan Belinkov. Arithmetic Without Algorithms: Language Models Solve Math with a Bag of Heuristics. In *The Thirteenth International Conference on Learning Representations*, 2025. URL <https://proceedings.iclr.cc/paper_files/paper/2025/hash/8c5f30296296d2ae402ebbd09aaa9c12-Abstract-Conference.html>. [433](#page-10-0)
 
-Alva Noë. *Out of Our Heads: Why You Are Not Your Brain, and Other Lessons from the Biology of Consciousness*. Hill and Wang, New York, 2009. ISBN 9781429957199. URL <https://books.google.nl/books?id=llUvnqcEKTcC>. [427](#page-4-0), [444](#page-21-0)
+- Richard E. Nisbett and Timothy D. Wilson. Telling more than we can know: Verbal reports on mental processes. *Psychological Review*, 84(3):231–259, 1977. doi: 10.1037/0033-295X.84.3.231. URL <https://doi.org/10.1037/0033-295X.84.3.231>. [438](#page-15-0)
 
-Davide Paglieri, Bartłomiej Cupiał, Samuel Coward, Ulyana Piterbarg, Maciej Wolczyk, Akbir Khan, Eduardo Pignatelli, Łukasz Kuciński, Lerrel Pinto, Rob Fergus, Jakob Nicolaus Foerster, Jack Parker-Holder, and Tim Rocktäschel. BALROG: Benchmarking Agentic LLM and VLM Reasoning On Games. In *The Thirteenth International Conference on Learning Representations*, 2025. URL <https://openreview.net/forum?id=fp6t3F669F>. [426](#page-3-0)
+- Alva Noë. *Out of Our Heads: Why You Are Not Your Brain, and Other Lessons from the Biology of Consciousness*. Hill and Wang, New York, 2009. ISBN 9781429957199. URL <https://books.google.nl/books?id=llUvnqcEKTcC>. [427](#page-4-0), [444](#page-21-0)
 
-Roma Patel and Ellie Pavlick. Mapping Language Models to Grounded Conceptual Spaces. In *International Conference on Learning Representations*, 2022. URL <https://openreview.net/forum?id=gJcEM8sxHK>. [426](#page-3-0), [429](#page-6-0)
+- Davide Paglieri, Bartłomiej Cupiał, Samuel Coward, Ulyana Piterbarg, Maciej Wolczyk, Akbir Khan, Eduardo Pignatelli, Łukasz Kuciński, Lerrel Pinto, Rob Fergus, Jakob Nicolaus Foerster, Jack Parker-Holder, and Tim Rocktäschel. BALROG: Benchmarking Agentic LLM and VLM Reasoning On Games. In *The Thirteenth International Conference on Learning Representations*, 2025. URL <https://openreview.net/forum?id=fp6t3F669F>. [426](#page-3-0)
 
-Ellie Pavlick. Symbols and grounding in large language models. *Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences*, 381(2251):20220041, June 2023. ISSN 1364-503X. doi: 10.1098/rsta.2022.0041. URL <https://doi.org/10.1098/rsta.2022.0041>. [429](#page-6-0)
+- Roma Patel and Ellie Pavlick. Mapping Language Models to Grounded Conceptual Spaces. In *International Conference on Learning Representations*, 2022. URL <https://openreview.net/forum?id=gJcEM8sxHK>. [426](#page-3-0), [429](#page-6-0)
+
+- Ellie Pavlick. Symbols and grounding in large language models. *Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences*, 381(2251):20220041, June 2023. ISSN 1364-503X. doi: 10.1098/rsta.2022.0041. URL <https://doi.org/10.1098/rsta.2022.0041>. [429](#page-6-0)
 
 {31}------------------------------------------------
 
-<span id="page-31-0"></span>Ethan Perez and Robert Long. Towards evaluating AI systems for moral status using self-reports, 2023. URL <https://arxiv.org/abs/2311.08576>. [426](#page-3-0), [443](#page-20-0)
+<span id="page-31-0"></span>
+
+- Ethan Perez and Robert Long. Towards evaluating AI systems for moral status using self-reports, 2023. URL <https://arxiv.org/abs/2311.08576>. [426](#page-3-0), [443](#page-20-0)
 
 
-Steven T. Piantadosi and Felix Hill. Meaning without reference in large language models, 2022. URL <https://arxiv.org/abs/2208.02957>. [429](#page-6-0)
+- Steven T. Piantadosi and Felix Hill. Meaning without reference in large language models, 2022. URL <https://arxiv.org/abs/2208.02957>. [429](#page-6-0)
 
-John R. Searle. Minds, brains, and programs. *Behavioral and Brain Sciences*, 3(3):417–424, 1980. doi: 10.1017/S0140525X00005756. URL <https://doi.org/10.1017/S0140525X00005756>. [424](#page-1-0), [428](#page-5-0), [440](#page-17-0)
+- John R. Searle. Minds, brains, and programs. *Behavioral and Brain Sciences*, 3(3):417–424, 1980. doi: 10.1017/S0140525X00005756. URL <https://doi.org/10.1017/S0140525X00005756>. [424](#page-1-0), [428](#page-5-0), [440](#page-17-0)
 
-Anil K. Seth. Conscious artificial intelligence and biological naturalism. *Behavioral and Brain Sciences*, 49:e315, 2026. First published online in 2025. doi: 10.1017/S0140525X25000032. URL <https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/conscious-artificial-intelligence-and-biological-naturalism/C9912A5BE9D806012E3C8B3AF612E39A>. [442](#page-19-0)
+- Anil K. Seth. Conscious artificial intelligence and biological naturalism. *Behavioral and Brain Sciences*, 49:e315, 2026. First published online in 2025. doi: 10.1017/S0140525X25000032. URL <https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/conscious-artificial-intelligence-and-biological-naturalism/C9912A5BE9D806012E3C8B3AF612E39A>. [442](#page-19-0)
 
-Murray Shanahan, Kyle McDonell, and Laria Reynolds. Role-Play with Large Language Models. *arXiv preprint arXiv:2305.16367*, 2023. URL <https://arxiv.org/abs/2305.16367>. [443](#page-20-0)
+- Murray Shanahan, Kyle McDonell, and Laria Reynolds. Role-Play with Large Language Models. *arXiv preprint arXiv:2305.16367*, 2023. URL <https://arxiv.org/abs/2305.16367>. [443](#page-20-0)
 
-Natalie Shapira, Chris Wendler, Avery Yen, Gabriele Sarti, Koyena Pal, Olivia Floody, Adam Belfki, Alex Loftus, Aditya Ratan Jannali, Nikhil Prakash, Jasmine Cui, Giordano Rogers, Jannik Brinkmann, Can Rager, Amir Zur, Michael Ripa, Aruna Sankaranarayanan, David Atkinson, Rohit Gandikota, Jaden Fiotto-Kaufman, EunJeong Hwang, Hadas Orgad, P Sam Sahil, Negev Taglicht, Tomer Shabtay, Atai Ambus, Nitay Alon, Shiri Oron, Ayelet Gordon-Tapiero, Yotam Kaplan, Vered Shwartz, Tamar Rott Shaham, Christoph Riedl, Reuth Mirsky, Maarten Sap, David Manheim, Tomer Ullman, and David Bau. Agents of Chaos, 2026. URL <https://arxiv.org/abs/2602.20021>. [426](#page-3-0), [438](#page-15-0)
+- Natalie Shapira, Chris Wendler, Avery Yen, Gabriele Sarti, Koyena Pal, Olivia Floody, Adam Belfki, Alex Loftus, Aditya Ratan Jannali, Nikhil Prakash, Jasmine Cui, Giordano Rogers, Jannik Brinkmann, Can Rager, Amir Zur, Michael Ripa, Aruna Sankaranarayanan, David Atkinson, Rohit Gandikota, Jaden Fiotto-Kaufman, EunJeong Hwang, Hadas Orgad, P Sam Sahil, Negev Taglicht, Tomer Shabtay, Atai Ambus, Nitay Alon, Shiri Oron, Ayelet Gordon-Tapiero, Yotam Kaplan, Vered Shwartz, Tamar Rott Shaham, Christoph Riedl, Reuth Mirsky, Maarten Sap, David Manheim, Tomer Ullman, and David Bau. Agents of Chaos, 2026. URL <https://arxiv.org/abs/2602.20021>. [426](#page-3-0), [438](#page-15-0)
 
-Siyuan Song, Jennifer Hu, and Kyle Mahowald. Language Models Fail to Introspect About Their Knowledge of Language. In *Proceedings of the Conference on Language Modeling (COLM)*, 2025. URL <https://openreview.net/forum?id=AivRDOFi5H>. [438](#page-15-0)
+- Siyuan Song, Jennifer Hu, and Kyle Mahowald. Language Models Fail to Introspect About Their Knowledge of Language. In *Proceedings of the Conference on Language Modeling (COLM)*, 2025. URL <https://openreview.net/forum?id=AivRDOFi5H>. [438](#page-15-0)
 
-Theodore R. Sumers, Shunyu Yao, Karthik Narasimhan, and Thomas L. Griffiths. Cognitive Architectures for Language Agents. *Transactions on Machine Learning Research*, 2024. ISSN 2835-8856. URL <https://openreview.net/forum?id=1i6ZCvflQJ>. [445](#page-22-0)
+- Theodore R. Sumers, Shunyu Yao, Karthik Narasimhan, and Thomas L. Griffiths. Cognitive Architectures for Language Agents. *Transactions on Machine Learning Research*, 2024. ISSN 2835-8856. URL <https://openreview.net/forum?id=1i6ZCvflQJ>. [445](#page-22-0)
 
-Zhongxiang Sun, Qipeng Wang, Weijie Yu, Jingxuan Yang, Haolang Lu, and Jun Xu. Deep Search with Hierarchical Meta-Cognitive Monitoring Inspired by Cognitive Neuroscience, 2026. URL <https://arxiv.org/abs/2601.23188>. [438](#page-15-0)
+- Zhongxiang Sun, Qipeng Wang, Weijie Yu, Jingxuan Yang, Haolang Lu, and Jun Xu. Deep Search with Hierarchical Meta-Cognitive Monitoring Inspired by Cognitive Neuroscience, 2026. URL <https://arxiv.org/abs/2601.23188>. [438](#page-15-0)
 
-Adly Templeton, Tom Conerly, Jonathan Marcus, Jack Lindsey, Trenton Bricken, Brian Chen, Adam Pearce, Craig Citro, Emmanuel Ameisen, Andy Jones, Hoagy Cunningham, Nicholas L Turner, Callum McDougall, Monte MacDiarmid, Alex Tamkin, Esin Durmus, Tristan Hume, Francesco Mosconi, C. Daniel Freeman, Theodore R. Sumers, Edward Rees, Joshua Batson, Adam Jermyn, Shan Carter, Chris Olah, and Tom Henighan. Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet. *Transformer Circuits Thread*, 2024. URL <https://transformer-circuits.pub/2024/scaling-monosemanticity/index.html>. [425](#page-2-0)
+- Adly Templeton, Tom Conerly, Jonathan Marcus, Jack Lindsey, Trenton Bricken, Brian Chen, Adam Pearce, Craig Citro, Emmanuel Ameisen, Andy Jones, Hoagy Cunningham, Nicholas L Turner, Callum McDougall, Monte MacDiarmid, Alex Tamkin, Esin Durmus, Tristan Hume, Francesco Mosconi, C. Daniel Freeman, Theodore R. Sumers, Edward Rees, Joshua Batson, Adam Jermyn, Shan Carter, Chris Olah, and Tom Henighan. Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet. *Transformer Circuits Thread*, 2024. URL <https://transformer-circuits.pub/2024/scaling-monosemanticity/index.html>. [425](#page-2-0)
 
 {32}------------------------------------------------
 
-<span id="page-32-0"></span>Edward C. Tolman. Cognitive maps in rats and men. *Psychological Review*, 55(4):189–208, 1948. doi: 10.1037/h0061626. URL <https://doi.org/10.1037/h0061626>. [431](#page-8-0)
+<span id="page-32-0"></span>
 
-Sean Trott, Cameron Jones, Tyler Chang, James Michaelov, and Benjamin Bergen. Do large language models know what humans know? *Cognitive Science*, 47(7):e13309, 2023. doi: 10.1111/cogs.13309. URL <https://onlinelibrary.wiley.com/doi/abs/10.1111/cogs.13309>. [435](#page-12-0)
+- Edward C. Tolman. Cognitive maps in rats and men. *Psychological Review*, 55(4):189–208, 1948. doi: 10.1037/h0061626. URL <https://doi.org/10.1037/h0061626>. [431](#page-8-0)
 
-Alan M. Turing. Computing machinery and intelligence. *Mind*, 59(236):433–460, 1950. doi: 10.1093/mind/LIX.236.433. URL <https://doi.org/10.1093/mind/LIX.236.433>. [424](#page-1-0)
+- Sean Trott, Cameron Jones, Tyler Chang, James Michaelov, and Benjamin Bergen. Do large language models know what humans know? *Cognitive Science*, 47(7):e13309, 2023. doi: 10.1111/cogs.13309. URL <https://onlinelibrary.wiley.com/doi/abs/10.1111/cogs.13309>. [435](#page-12-0)
 
-Miles Turpin, Julian Michael, Ethan Perez, and Samuel R. Bowman. Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting. In *Advances in Neural Information Processing Systems*, volume 36, pages 74952–74965, 2023. doi: 10.52202/075280-3275. URL <https://proceedings.neurips.cc/paper_files/paper/2023/hash/ed3fea9033a80fea1376299fa7863f4a-Abstract.html>. [426](#page-3-0), [438](#page-15-0)
+- Alan M. Turing. Computing machinery and intelligence. *Mind*, 59(236):433–460, 1950. doi: 10.1093/mind/LIX.236.433. URL <https://doi.org/10.1093/mind/LIX.236.433>. [424](#page-1-0)
 
-Tomer Ullman. Large Language Models Fail on Trivial Alterations to Theory-of-Mind Tasks. *arXiv preprint arXiv:2302.08399*, 2023. URL <https://arxiv.org/abs/2302.08399>. [436](#page-13-0)
+- Miles Turpin, Julian Michael, Ethan Perez, and Samuel R. Bowman. Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting. In *Advances in Neural Information Processing Systems*, volume 36, pages 74952–74965, 2023. doi: 10.52202/075280-3275. URL <https://proceedings.neurips.cc/paper_files/paper/2023/hash/ed3fea9033a80fea1376299fa7863f4a-Abstract.html>. [426](#page-3-0), [438](#page-15-0)
 
-Keyon Vafa, Justin Y. Chen, Ashesh Rambachan, Jon Kleinberg, and Sendhil Mullainathan. Evaluating the world model implicit in a generative model. In A. Globerson, L. Mackey, D. Belgrave, A. Fan, U. Paquet, J. Tomczak, and C. Zhang, editors, *Advances in Neural Information Processing Systems*, volume 37, pages 26941–26975. Curran Associates, Inc., 2024. doi: 10.52202/079017-0846. URL <https://proceedings.neurips.cc/paper_files/paper/2024/file/2f6a6317bada76b26a4f61bb70a7db59-Paper-Conference.pdf>. [432](#page-9-0), [433](#page-10-0)
+- Tomer Ullman. Large Language Models Fail on Trivial Alterations to Theory-of-Mind Tasks. *arXiv preprint arXiv:2302.08399*, 2023. URL <https://arxiv.org/abs/2302.08399>. [436](#page-13-0)
 
-Keyon Vafa, Peter G. Chang, Ashesh Rambachan, and Sendhil Mullainathan. What Has a Foundation Model Found? Using Inductive Bias to Probe for World Models. In *Proceedings of the 42nd International Conference on Machine Learning*, volume 267 of *Proceedings of Machine Learning Research*, pages 60727–60747. PMLR, 2025. URL <https://proceedings.mlr.press/v267/vafa25a.html>. [433](#page-10-0)
+- Keyon Vafa, Justin Y. Chen, Ashesh Rambachan, Jon Kleinberg, and Sendhil Mullainathan. Evaluating the world model implicit in a generative model. In A. Globerson, L. Mackey, D. Belgrave, A. Fan, U. Paquet, J. Tomczak, and C. Zhang, editors, *Advances in Neural Information Processing Systems*, volume 37, pages 26941–26975. Curran Associates, Inc., 2024. doi: 10.52202/079017-0846. URL <https://proceedings.neurips.cc/paper_files/paper/2024/file/2f6a6317bada76b26a4f61bb70a7db59-Paper-Conference.pdf>. [432](#page-9-0), [433](#page-10-0)
 
-Bram van Dijk, Tom Kouwenhoven, Marco Spruit, and Max Johannes van Duijn. Large language models: The need for nuance in current debates and a pragmatic perspective on understanding. In Houda Bouamor, Juan Pino, and Kalika Bali, editors, *Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing*, pages 12641–12654, Singapore, December 2023. Association for Computational Linguistics. doi: 10.18653/v1/2023.emnlp-main.779. URL <https://aclanthology.org/2023.emnlp-main.779/>. [439](#page-16-0)
+- Keyon Vafa, Peter G. Chang, Ashesh Rambachan, and Sendhil Mullainathan. What Has a Foundation Model Found? Using Inductive Bias to Probe for World Models. In *Proceedings of the 42nd International Conference on Machine Learning*, volume 267 of *Proceedings of Machine Learning Research*, pages 60727–60747. PMLR, 2025. URL <https://proceedings.mlr.press/v267/vafa25a.html>. [433](#page-10-0)
 
-Max J. van Duijn. *The lazy mindreader. A humanities perspective on mindreading and multiple-order intentionality*. PhD thesis, Leiden University, 2016. URL <https://hdl.handle.net/1887/38817>. [434](#page-11-0)
+- Bram van Dijk, Tom Kouwenhoven, Marco Spruit, and Max Johannes van Duijn. Large language models: The need for nuance in current debates and a pragmatic perspective on understanding. In Houda Bouamor, Juan Pino, and Kalika Bali, editors, *Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing*, pages 12641–12654, Singapore, December 2023. Association for Computational Linguistics. doi: 10.18653/v1/2023.emnlp-main.779. URL <https://aclanthology.org/2023.emnlp-main.779/>. [439](#page-16-0)
 
-Kevin Ro Wang, Alexandre Variengien, Arthur Conmy, Buck Shlegeris, and Jacob Steinhardt. Interpretability in the wild: a circuit for indirect object identification in GPT-2 small. In *The Eleventh International Conference on Learning Representations*, 2023. URL <https://openreview.net/forum?id=NpsVSN6o4ul>. Preprint: <https://arxiv.org/abs/2211.00593>. [426](#page-3-0)
+- Max J. van Duijn. *The lazy mindreader. A humanities perspective on mindreading and multiple-order intentionality*. PhD thesis, Leiden University, 2016. URL <https://hdl.handle.net/1887/38817>. [434](#page-11-0)
 
-Qirui Wang, Jingyi He, Yining Pan, Si Yong Yeo, Xulei Yang, and Shijie Li. MonoSR: Open-Vocabulary Spatial Reasoning from Monocular Images. Accepted by *ECCV 2026*. Preprint arXiv:2511.19119, revised 2026. URL <https://arxiv.org/abs/2511.19119>. [432](#page-9-0)
+- Kevin Ro Wang, Alexandre Variengien, Arthur Conmy, Buck Shlegeris, and Jacob Steinhardt. Interpretability in the wild: a circuit for indirect object identification in GPT-2 small. In *The Eleventh International Conference on Learning Representations*, 2023. URL <https://openreview.net/forum?id=NpsVSN6o4ul>. Preprint: <https://arxiv.org/abs/2211.00593>. [426](#page-3-0)
+
+- Qirui Wang, Jingyi He, Yining Pan, Si Yong Yeo, Xulei Yang, and Shijie Li. MonoSR: Open-Vocabulary Spatial Reasoning from Monocular Images. Accepted by *ECCV 2026*. Preprint arXiv:2511.19119, revised 2026. URL <https://arxiv.org/abs/2511.19119>. [432](#page-9-0)
 
 {33}------------------------------------------------
 
-<span id="page-33-0"></span>Zhaofeng Wu, Linlu Qiu, Alexis Ross, Ekin Akyürek, Boyuan Chen, Bailin Wang, Najoung Kim, Jacob Andreas, and Yoon Kim. Reasoning or Reciting? Exploring the Capabilities and Limitations of Language Models Through Counterfactual Tasks. In Kevin Duh, Helena Gomez, and Steven Bethard, editors, *Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)*, pages 1819–1862, Mexico City, Mexico, 2024. Association for Computational Linguistics. doi: 10.18653/v1/2024.naacl-long.102. URL <https://aclanthology.org/2024.naacl-long.102/>. [426](#page-3-0), [430](#page-7-0)
+<span id="page-33-0"></span>
 
-Miao Xiong, Zhiyuan Hu, Xinyang Lu, Yifei Li, Jie Fu, Junxian He, and Bryan Hooi. Can LLMs Express Their Uncertainty? An Empirical Evaluation of Confidence Elicitation in LLMs. In *International Conference on Learning Representations*, 2024. URL <https://proceedings.iclr.cc/paper_files/paper/2024/hash/6733cf15e10e2cd1d59af033c3bb8507-Abstract-Conference.html>. [437](#page-14-0)
-Yutaro Yamada, Yihan Bao, Andrew K. Lampinen, Jungo Kasai, and Ilker Yildirim. Evaluating Spatial Understanding of Large Language Models. *Transactions on Machine Learning Research*, 2024. URL <https://openreview.net/forum?id=xkiflfKCw3>. [432](#page-9-0).
+- Zhaofeng Wu, Linlu Qiu, Alexis Ross, Ekin Akyürek, Boyuan Chen, Bailin Wang, Najoung Kim, Jacob Andreas, and Yoon Kim. Reasoning or Reciting? Exploring the Capabilities and Limitations of Language Models Through Counterfactual Tasks. In Kevin Duh, Helena Gomez, and Steven Bethard, editors, *Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)*, pages 1819–1862, Mexico City, Mexico, 2024. Association for Computational Linguistics. doi: 10.18653/v1/2024.naacl-long.102. URL <https://aclanthology.org/2024.naacl-long.102/>. [426](#page-3-0), [430](#page-7-0)
 
-Wentao Zhu, Zhining Zhang, and Yizhou Wang. Language Models Represent Beliefs of Self and Others. In *Proceedings of the 41st International Conference on Machine Learning*, volume 235 of *Proceedings of Machine Learning Research*, pages 62638–62681. PMLR, 2024. URL <https://proceedings.mlr.press/v235/zhu24o.html>. [426](#page-3-0), [434](#page-11-0)
+- Miao Xiong, Zhiyuan Hu, Xinyang Lu, Yifei Li, Jie Fu, Junxian He, and Bryan Hooi. Can LLMs Express Their Uncertainty? An Empirical Evaluation of Confidence Elicitation in LLMs. In *International Conference on Learning Representations*, 2024. URL <https://proceedings.iclr.cc/paper_files/paper/2024/hash/6733cf15e10e2cd1d59af033c3bb8507-Abstract-Conference.html>. [437](#page-14-0)
+- Yutaro Yamada, Yihan Bao, Andrew K. Lampinen, Jungo Kasai, and Ilker Yildirim. Evaluating Spatial Understanding of Large Language Models. *Transactions on Machine Learning Research*, 2024. URL <https://openreview.net/forum?id=xkiflfKCw3>. [432](#page-9-0).
 
-Andy Zou, Long Phan, Sarah Chen, James Campbell, Phillip Guo, Richard Ren, Alexander Pan, Xuwang Yin, Mantas Mazeika, Ann-Kathrin Dombrowski, Shashwat Goel, Nathaniel Li, Michael J. Byun, Zifan Wang, Alex Mallen, Steven Basart, Sanmi Koyejo, Dawn Song, Matt Fredrikson, J. Zico Kolter, and Dan Hendrycks. Representation Engineering: A Top-Down Approach to AI Transparency, 2025. URL <https://arxiv.org/abs/2310.01405>. [443](#page-20-0)
+- Wentao Zhu, Zhining Zhang, and Yizhou Wang. Language Models Represent Beliefs of Self and Others. In *Proceedings of the 41st International Conference on Machine Learning*, volume 235 of *Proceedings of Machine Learning Research*, pages 62638–62681. PMLR, 2024. URL <https://proceedings.mlr.press/v235/zhu24o.html>. [426](#page-3-0), [434](#page-11-0)
+
+- Andy Zou, Long Phan, Sarah Chen, James Campbell, Phillip Guo, Richard Ren, Alexander Pan, Xuwang Yin, Mantas Mazeika, Ann-Kathrin Dombrowski, Shashwat Goel, Nathaniel Li, Michael J. Byun, Zifan Wang, Alex Mallen, Steven Basart, Sanmi Koyejo, Dawn Song, Matt Fredrikson, J. Zico Kolter, and Dan Hendrycks. Representation Engineering: A Top-Down Approach to AI Transparency, 2025. URL <https://arxiv.org/abs/2310.01405>. [443](#page-20-0)
