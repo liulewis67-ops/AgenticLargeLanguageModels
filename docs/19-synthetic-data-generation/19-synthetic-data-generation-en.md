@@ -109,7 +109,7 @@ Subsequent work focuses on increasing the number of unique tasks and task types 
 
 Because these approaches rely on large amounts of human supervision in the form of crowd-sourced datasets, recent work focuses on generating synthetic data that fills the same role. Here, we see the creation of datasets such as Unnatural Instructions [\[Honovich et al.,](#page-17-0) [2023\]](#page-17-0), which contain creative and diverse instructions collected with little human labor, instead relying on prompting various LLMs. Experiments indicate that training models on the somewhat noisy Unnatural Instructions dataset yields results comparable to those trained on high-quality, human-curated data, as shown in Figure [19.4.](#page-6-0) This result suggests that machine-generated data can offer a cost-efficient way to expand and diversify training datasets.
 
-The simulation of human-like text, code, and reasoning by generative models has unlocked new methodologies for both training and evaluating machine learning systems. By prompting strong models, researchers can generate highly diverse and complex datasets that mimic human content generation. For example, PersonaHub [\[Ge](#page-17-0)
+
 
 {6}------------------------------------------------
 
@@ -117,7 +117,7 @@ The simulation of human-like text, code, and reasoning by generative models has 
 
 Figure 19.4: Scaling experiments comparing Unnatural Instructions with Super-Natural Instructions [\[Honovich et al.,](#page-17-0) [2023\]](#page-17-0), with model performance controlling for dataset size, tested on two benchmarks: Super-Natural Instructions (left) and LMentry (right).
 
-[et al.,](#page-17-0) [2025\]](#page-17-0) steers a generation process with a large-scale collection of personas, using them to prompt LLMs towards a far greater diversity of synthetic data than unconditioned generation would produce.
+The simulation of human-like text, code, and reasoning by generative models has unlocked new methodologies for both training and evaluating machine learning systems. By prompting strong models, researchers can generate highly diverse and complex datasets that mimic human content generation. For example, PersonaHub [Ge et al., 2025](#page-17-0) steers a generation process with a large-scale collection of personas, using them to prompt LLMs towards a far greater diversity of synthetic data than unconditioned generation would produce.
 
 Similar to self-improvement, training on synthetic data has shown much promise in domains where model outputs are relatively easy to verify, such as mathematics [\[Yang](#page-25-0) [et al.,](#page-25-0) [2023,](#page-25-0) [Liu et al.,](#page-19-0) [2023\]](#page-19-0), programming [\[Haluptzok et al.,](#page-17-0) [2023\]](#page-17-0), and games [\[Wang](#page-24-0) [et al.,](#page-24-0) [2023a\]](#page-24-0).
 
