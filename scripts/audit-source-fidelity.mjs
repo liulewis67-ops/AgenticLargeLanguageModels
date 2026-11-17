@@ -624,7 +624,7 @@ const syntheticMatrix = readFileSync(resolve(root, "reports/synthetic-data-sica-
 for (const arm of ["H0", "S1", "M2", "A3", "F0", "F1", "F2", "F3"])
   assert.ok(syntheticMatrix.includes(arm), "Synthetic/SICA run ledger missing arm " + arm);
 assert.ok(syntheticMatrix.includes("尚未执行") && syntheticMatrix.includes("source_group") &&
-  syntheticMatrix.includes("未见最终测试集"),
+  (syntheticMatrix.includes("未见最终测试集") || syntheticMatrix.includes("最终未见测试集")),
   "Synthetic/SICA run ledger must identify non-executed status and leakage controls");
 // Deterministic, synthetic source-group split fixture; not a check of real datasets.
 const fixtureTrain = [{sourceGroup:"patient_A"},{sourceGroup:"task_B"},{sourceGroup:"task_B"}];
