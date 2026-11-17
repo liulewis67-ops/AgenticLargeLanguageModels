@@ -33,6 +33,8 @@ pnpm docs:preview
 
 ## 学术审校与质量审计
 
+新增[第 19–20 章书目与 SICA 学术审校](reports/academic-audit-2026-11-17-ch19-ch20-synthetic-sica.md)及[合成数据与 SICA 四臂复现实验矩阵](reports/synthetic-data-sica-reproducibility-matrix.md)：恢复 87/42 条中英文书目、修复被图 19.4 截断的 PersonaHub 引文，明确真实／合成数据递归训练与 SICA 评测中的污染、过拟合和预算匹配限制。
+
 新增[第 17–18 章学术审校与因果解释报告](reports/academic-audit-2026-11-16-ch17-ch18-social-simulation.md)及[四组社会模拟复现实验矩阵](reports/social-simulation-ch17-ch18-reproduction-matrix.md)：恢复 47/3 条参考文献、修复跨行作者名单；重点纠正人物匹配混杂、检索权重被禁用时的零效应，以及检索×非对称编码的 2×2 消融设置。
 
 新增[第 14–16 章学术审校与方法学核验](reports/academic-audit-2026-11-16-ch14-ch16-methodology.md)：对照原书核对 1/90/29 条文献，修复跨页拆分的 DOI、ISBN、标题和链接，明确共享状态与 MCP 协议的差别，并完善行为研究的观测单位和协调实验的等预算对照要求。
